@@ -1,0 +1,212 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget android-versionCode="10000" id="com.name.company" version="1.0.0" 
+  xmlns="http://www.w3.org/ns/widgets" 
+  xmlns:android="http://schemas.android.com/apk/res/android" 
+  xmlns:cdv="http://cordova.apache.org/ns/1.0">
+  <author email="info@company.com" href="https://www.company.com"></author>
+  <name>Game Name</name>
+  <description>
+        Game Name!
+  </description>
+  <content src="index.html" />
+  <access origin="*" />
+  <allow-intent href="http://*/*" />
+  <allow-intent href="https://*/*" />
+  <allow-intent href="tel:*" />
+  <allow-intent href="sms:*" />
+  <allow-intent href="mailto:*" />
+  <allow-intent href="geo:*" />
+  <allow-navigation href="http://*/*" />
+  <allow-navigation href="https://*/*" />
+  <allow-navigation href="data:*" />
+  <allow-navigation href="*" /> 
+  <platform name="browser">
+    <hook src="hooks/custom/browser/remove_unsupported_plugins.js" type="after_prepare" />
+  </platform>
+  <platform name="android">
+    <preference name="android-minSdkVersion" value="19" />
+    <preference name="android-targetSdkVersion" value="29" />
+    <preference name="Fullscreen" value="true" />
+    <preference name="Scheme" value="https" />
+    <preference name="MixedContentMode" value="2" />
+    <allow-intent href="market:*" />
+    <!-- MANIFEST -->
+    <edit-config file="app/src/main/AndroidManifest.xml" mode="merge" target="/manifest/application">
+      <application android:usesCleartextTraffic="true" />
+    </edit-config>
+    <config-file parent="/manifest" target="AndroidManifest.xml">
+      <uses-permission android:name="com.android.vending.BILLING" />
+      <uses-permission android:name="android.permission.INTERNET" />
+      <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+      <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+      <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+      <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    </config-file>
+    <config-file parent="/manifest/application" target="AndroidManifest.xml">
+      <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version" />
+      <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize" android:name="com.google.android.gms.ads.AdActivity" android:theme="@android:style/Theme.Translucent" />
+      <activity android:configChanges="fontScale|keyboard|keyboardHidden|locale|mnc|mcc|navigation|orientation|screenLayout|screenSize|smallestScreenSize|uiMode|touchscreen" android:hardwareAccelerated="true" android:name="com.unity3d.ads.adunit.AdUnitActivity" android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
+      <activity android:configChanges="fontScale|keyboard|keyboardHidden|locale|mnc|mcc|navigation|orientation|screenLayout|screenSize|smallestScreenSize|uiMode|touchscreen" android:hardwareAccelerated="false" android:name="com.unity3d.ads.adunit.AdUnitSoftwareActivity" android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
+
+      <uses-library android:name="org.apache.http.legacy" android:required="false" />
+      <meta-data android:name="com.google.android.gms.ads.AD_MANAGER_APP" android:value="true" />
+    </config-file>
+    <!-- HOOKS -->
+    <hook src="res/android/hooks/fix_project_gradle_build.js" type="after_platform_add" />
+    <hook src="res/android/hooks/fix_app_gradle_build.js" type="after_platform_add" />
+    <hook src="res/android/hooks/migrate_to_androidX.js" type="after_platform_add" />
+    <hook src="res/android/hooks/fix_ionic_webViewEngine.js" type="after_platform_add" />
+    <hook src="res/android/hooks/fix_admob_plugin.js" type="after_platform_add" />
+    <!-- JSONS -->
+    <!-- <resource-file src="res/android/data/google-services.json" target="app/google-services.json" /> -->
+    <!-- <resource-file src="res/android/data/manifest.json" target="app/src/main/assets/www/manifest.json" /> -->
+    <!--  -->
+    
+    <!-- APP -->
+    <!--  -->
+    <!-- <icon src="res/android/icon/mipmap-ldpi/ic_launcher.png" density="ldpi" />
+    <icon src="res/android/icon/mipmap-mdpi/ic_launcher.png" density="mdpi" />
+    <icon src="res/android/icon/mipmap-hdpi/ic_launcher.png" density="hdpi" />
+    <icon src="res/android/icon/mipmap-xhdpi/ic_launcher.png" density="xhdpi" />
+    <icon src="res/android/icon/mipmap-xxhdpi/ic_launcher.png" density="xxhdpi" />
+    <icon src="res/android/icon/mipmap-xxxhdpi/ic_launcher.png" density="xxxhdpi" /> -->
+    <!-- any -->
+    <!-- <resource-file src="res/android/icon/mipmap-anydpi-v26/ic_launcher.xml" target="app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" />
+    <resource-file src="res/android/icon/mipmap-anydpi-v26/ic_launcher_round.xml" target="app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" /> -->
+    <!-- hdpi -->
+    <!-- <resource-file src="res/android/icon/mipmap-hdpi/ic_launcher.png" target="app/src/main/res/mipmap-hdpi/ic_launcher.png" />
+    <resource-file src="res/android/icon/mipmap-hdpi/ic_launcher_round.png" target="app/src/main/res/mipmap-hdpi/ic_launcher_round.png" />
+    <resource-file src="res/android/icon/mipmap-hdpi/ic_launcher_background.png" target="app/src/main/res/mipmap-hdpi/ic_launcher_background.png" />
+    <resource-file src="res/android/icon/mipmap-hdpi/ic_launcher_foreground.png" target="app/src/main/res/mipmap-hdpi/ic_launcher_foreground.png" /> -->
+    <!-- hdpi-v26 -->
+    <!-- <resource-file src="res/android/icon/mipmap-hdpi-v26/ic_launcher.xml" target="app/src/main/res/mipmap-hdpi-v26/ic_launcher.xml" />
+    <resource-file src="res/android/icon/mipmap-hdpi-v26/ic_launcher_background.png" target="app/src/main/res/mipmap-hdpi-v26/ic_launcher_background.png" />
+    <resource-file src="res/android/icon/mipmap-hdpi-v26/ic_launcher_foreground.png" target="app/src/main/res/mipmap-hdpi-v26/ic_launcher_foreground.png" /> -->
+    <!-- ldpi -->
+    <!-- <resource-file src="res/android/icon/mipmap-ldpi/ic_launcher_background.png" target="app/src/main/res/mipmap-ldpi/ic_launcher_background.png" />
+    <resource-file src="res/android/icon/mipmap-ldpi/ic_launcher_foreground.png" target="app/src/main/res/mipmap-ldpi/ic_launcher_foreground.png" /> -->
+    <!-- ldpi-v26 -->
+    <!-- <resource-file src="res/android/icon/mipmap-ldpi-v26/ic_launcher.xml" target="app/src/main/res/mipmap-ldpi-v26/ic_launcher.xml" />
+    <resource-file src="res/android/icon/mipmap-ldpi-v26/ic_launcher_background.png" target="app/src/main/res/mipmap-ldpi-v26/ic_launcher_background.png" />
+    <resource-file src="res/android/icon/mipmap-ldpi-v26/ic_launcher_foreground.png" target="app/src/main/res/mipmap-ldpi-v26/ic_launcher_foreground.png" /> -->
+    <!-- mdpi -->
+    <!-- <resource-file src="res/android/icon/mipmap-mdpi/ic_launcher_background.png" target="app/src/main/res/mipmap-mdpi/ic_launcher_background.png" />
+    <resource-file src="res/android/icon/mipmap-mdpi/ic_launcher_foreground.png" target="app/src/main/res/mipmap-mdpi/ic_launcher_foreground.png" /> -->
+    <!-- mdpi-v26 -->
+    <!-- <resource-file src="res/android/icon/mipmap-mdpi-v26/ic_launcher.xml" target="app/src/main/res/mipmap-mdpi-v26/ic_launcher.xml" />
+    <resource-file src="res/android/icon/mipmap-mdpi-v26/ic_launcher_background.png" target="app/src/main/res/mipmap-mdpi-v26/ic_launcher_background.png" />
+    <resource-file src="res/android/icon/mipmap-mdpi-v26/ic_launcher_foreground.png" target="app/src/main/res/mipmap-mdpi-v26/ic_launcher_foreground.png" /> -->
+    <!-- xhdpi -->
+    <!-- <resource-file src="res/android/icon/mipmap-xhdpi/ic_launcher_background.png" target="app/src/main/res/mipmap-xhdpi/ic_launcher_background.png" />
+    <resource-file src="res/android/icon/mipmap-xhdpi/ic_launcher_foreground.png" target="app/src/main/res/mipmap-xhdpi/ic_launcher_foreground.png" /> -->
+    <!-- xhdpi-v26 -->
+    <!-- <resource-file src="res/android/icon/mipmap-xhdpi-v26/ic_launcher.xml" target="app/src/main/res/mipmap-xhdpi-v26/ic_launcher.xml" />
+    <resource-file src="res/android/icon/mipmap-xhdpi-v26/ic_launcher_background.png" target="app/src/main/res/mipmap-xhdpi-v26/ic_launcher_background.png" />
+    <resource-file src="res/android/icon/mipmap-xhdpi-v26/ic_launcher_foreground.png" target="app/src/main/res/mipmap-xhdpi-v26/ic_launcher_foreground.png" /> -->
+    <!-- xxhdpi -->
+    <!-- <resource-file src="res/android/icon/mipmap-xxhdpi/ic_launcher_background.png" target="app/src/main/res/mipmap-xxhdpi/ic_launcher_background.png" />
+    <resource-file src="res/android/icon/mipmap-xxhdpi/ic_launcher_foreground.png" target="app/src/main/res/mipmap-xxhdpi/ic_launcher_foreground.png" /> -->
+    <!-- xxhdpi-v26 -->
+    <!-- <resource-file src="res/android/icon/mipmap-xxhdpi-v26/ic_launcher.xml" target="app/src/main/res/mipmap-xxhdpi-v26/ic_launcher.xml" />
+    <resource-file src="res/android/icon/mipmap-xxhdpi-v26/ic_launcher_background.png" target="app/src/main/res/mipmap-xxhdpi-v26/ic_launcher_background.png" />
+    <resource-file src="res/android/icon/mipmap-xxhdpi-v26/ic_launcher_foreground.png" target="app/src/main/res/mipmap-xxhdpi-v26/ic_launcher_foreground.png" /> -->
+    <!-- xxxhdpi -->
+    <!-- <resource-file src="res/android/icon/mipmap-xxxhdpi/ic_launcher_background.png" target="app/src/main/res/mipmap-xxxhdpi/ic_launcher_background.png" />
+    <resource-file src="res/android/icon/mipmap-xxxhdpi/ic_launcher_foreground.png" target="app/src/main/res/mipmap-xxxhdpi/ic_launcher_foreground.png" /> -->
+    <!-- xxxhdpi-v26 -->
+    <!-- <resource-file src="res/android/icon/mipmap-xxxhdpi-v26/ic_launcher.xml" target="app/src/main/res/mipmap-xxxhdpi-v26/ic_launcher.xml" />
+    <resource-file src="res/android/icon/mipmap-xxxhdpi-v26/ic_launcher_background.png" target="app/src/main/res/mipmap-xxxhdpi-v26/ic_launcher_background.png" />
+    <resource-file src="res/android/icon/mipmap-xxxhdpi-v26/ic_launcher_foreground.png" target="app/src/main/res/mipmap-xxxhdpi-v26/ic_launcher_foreground.png" /> -->
+    <!--  -->
+    <!-- NOTIFICATION -->
+    <!--  -->
+    <!-- any -->
+    <!-- <resource-file src="res/android/notification/drawable-hdpi/ic_action_name.png" target="app/src/main/res/drawable-hdpi/ic_stat_onesignal_default.png" />
+    <resource-file src="res/android/notification/drawable-mdpi/ic_action_name.png" target="app/src/main/res/drawable-mdpi/ic_stat_onesignal_default.png" />
+    <resource-file src="res/android/notification/drawable-xhdpi/ic_action_name.png" target="app/src/main/res/drawable-xhdpi/ic_stat_onesignal_default.png" />
+    <resource-file src="res/android/notification/drawable-xxhdpi/ic_action_name.png" target="app/src/main/res/drawable-xxhdpi/ic_stat_onesignal_default.png" />
+    <resource-file src="res/android/notification/drawable-xxxhdpi/ic_action_name.png" target="app/src/main/res/drawable-xxxhdpi/ic_stat_onesignal_default.png" />
+    <resource-file src="res/android/notification/drawable-hdpi/ic_stat_name.png" target="app/src/main/res/drawable-hdpi/ic_stat_onesignal_default.png" />
+    <resource-file src="res/android/notification/drawable-mdpi/ic_stat_name.png" target="app/src/main/res/drawable-mdpi/ic_stat_onesignal_default.png" />
+    <resource-file src="res/android/notification/drawable-xhdpi/ic_stat_name.png" target="app/src/main/res/drawable-xhdpi/ic_stat_onesignal_default.png" />
+    <resource-file src="res/android/notification/drawable-xxhdpi/ic_stat_name.png" target="app/src/main/res/drawable-xxhdpi/ic_stat_onesignal_default.png" />
+    <resource-file src="res/android/notification/drawable-xxxhdpi/ic_stat_name.png" target="app/src/main/res/drawable-xxxhdpi/ic_stat_onesignal_default.png" /> -->
+    <!-- landscape -->
+    <!-- <resource-file src="res/android/notification/drawable-hdpi/ic_action_name.png" target="app/src/main/res/drawable-land-hdpi/ic_stat_onesignal_default.png" />
+    <resource-file src="res/android/notification/drawable-mdpi/ic_action_name.png" target="app/src/main/res/drawable-land-mdpi/ic_stat_onesignal_default.png" />
+    <resource-file src="res/android/notification/drawable-xhdpi/ic_action_name.png" target="app/src/main/res/drawable-land-xhdpi/ic_stat_onesignal_default.png" />
+    <resource-file src="res/android/notification/drawable-xxhdpi/ic_action_name.png" target="app/src/main/res/drawable-land-xxhdpi/ic_stat_onesignal_default.png" />
+    <resource-file src="res/android/notification/drawable-xxxhdpi/ic_action_name.png" target="app/src/main/res/drawable-land-xxxhdpi/ic_stat_onesignal_default.png" />
+    <resource-file src="res/android/notification/drawable-hdpi/ic_stat_name.png" target="app/src/main/res/drawable-land-hdpi/ic_stat_onesignal_default.png" />
+    <resource-file src="res/android/notification/drawable-mdpi/ic_stat_name.png" target="app/src/main/res/drawable-land-mdpi/ic_stat_onesignal_default.png" />
+    <resource-file src="res/android/notification/drawable-xhdpi/ic_stat_name.png" target="app/src/main/res/drawable-land-xhdpi/ic_stat_onesignal_default.png" />
+    <resource-file src="res/android/notification/drawable-xxhdpi/ic_stat_name.png" target="app/src/main/res/drawable-land-xxhdpi/ic_stat_onesignal_default.png" />
+    <resource-file src="res/android/notification/drawable-xxxhdpi/ic_stat_name.png" target="app/src/main/res/drawable-land-xxxhdpi/ic_stat_onesignal_default.png" /> -->
+    <!-- portrait -->
+    <!-- <resource-file src="res/android/notification/drawable-hdpi/ic_action_name.png" target="app/src/main/res/drawable-port-hdpi/ic_stat_onesignal_default.png" />
+    <resource-file src="res/android/notification/drawable-mdpi/ic_action_name.png" target="app/src/main/res/drawable-port-mdpi/ic_stat_onesignal_default.png" />
+    <resource-file src="res/android/notification/drawable-xhdpi/ic_action_name.png" target="app/src/main/res/drawable-port-xhdpi/ic_stat_onesignal_default.png" />
+    <resource-file src="res/android/notification/drawable-xxhdpi/ic_action_name.png" target="app/src/main/res/drawable-port-xxhdpi/ic_stat_onesignal_default.png" />
+    <resource-file src="res/android/notification/drawable-xxxhdpi/ic_action_name.png" target="app/src/main/res/drawable-port-xxxhdpi/ic_stat_onesignal_default.png" />
+    <resource-file src="res/android/notification/drawable-hdpi/ic_stat_name.png" target="app/src/main/res/drawable-port-hdpi/ic_stat_onesignal_default.png" />
+    <resource-file src="res/android/notification/drawable-mdpi/ic_stat_name.png" target="app/src/main/res/drawable-port-mdpi/ic_stat_onesignal_default.png" />
+    <resource-file src="res/android/notification/drawable-xhdpi/ic_stat_name.png" target="app/src/main/res/drawable-port-xhdpi/ic_stat_onesignal_default.png" />
+    <resource-file src="res/android/notification/drawable-xxhdpi/ic_stat_name.png" target="app/src/main/res/drawable-port-xxhdpi/ic_stat_onesignal_default.png" />
+    <resource-file src="res/android/notification/drawable-xxxhdpi/ic_stat_name.png" target="app/src/main/res/drawable-port-xxxhdpi/ic_stat_onesignal_default.png" />
+.png" /> -->
+  </platform>
+
+  <platform name="ios">
+    <edit-config file="*-Info.plist" mode="merge" target="UIStatusBarHidden">
+      <true />
+    </edit-config>
+    <edit-config file="*-Info.plist" mode="merge" target="UIViewControllerBasedStatusBarAppearance">
+      <false />
+    </edit-config>
+    <preference name="iosScheme" value="httpsionic" />
+    <feature name="CDVWKWebViewEngine">
+      <param name="ios-package" value="CDVWKWebViewEngine" />
+    </feature>
+    <preference name="CordovaWebViewEngine" value="CDVWKWebViewEngine" />
+    <preference name="WKSuspendInBackground" value="false" />
+    <preference name="BackupWebStorage " value="local" />
+    <preference name="KeyboardDisplayRequiresUserAction" value="false" />
+    <!-- <icon height="20" src="res/ios/icon/AppIcon-20px-20pt@1x.png" width="20" />
+    <icon height="29" src="res/ios/icon/AppIcon-29px-29pt@1x.png" width="29" />
+    <icon height="40" src="res/ios/icon/AppIcon-40px-40pt@1x.png" width="40" />
+    <icon height="40" src="res/ios/icon/AppIcon-40px-40pt@2x.png" width="40" />
+    <icon height="58" src="res/ios/icon/AppIcon-58px-29pt@2x.png" width="58" />
+    <icon height="60" src="res/ios/icon/AppIcon-60px-20pt@3x.png" width="60" />
+    <icon height="76" src="res/ios/icon/AppIcon-76px-76pt@1x.png" width="76" />
+    <icon height="80" src="res/ios/icon/AppIcon-80px-40pt@2x.png" width="80" />
+    <icon height="87" src="res/ios/icon/AppIcon-87px-29pt@3x.png" width="87" />
+    <icon height="120" src="res/ios/icon/AppIcon-120px-40pt@3x.png" width="120" />
+    <icon height="152" src="res/ios/icon/AppIcon-152px-76pt@2x.png" width="152" />
+    <icon height="167" src="res/ios/icon/AppIcon-167px-83.5pt@2x.png" width="167" />
+    <icon height="180" src="res/ios/icon/AppIcon-180px-60pt@3x.png" width="180" />
+    <icon height="1024" src="res/ios/icon/AppIcon-1024px.png" width="1024" /> -->
+    
+    <!-- <splash src="res/ios/splash/portrait/640x1136.png" height="1136"  width="640" />
+    <splash src="res/ios/splash/portrait/750x1334.png" height="1334"  width="750" />
+    <splash src="res/ios/splash/portrait/1242x2208.png" height="2208"  width="1242" />
+    <splash src="res/ios/splash/portrait/1125x2436.png" height="2436"  width="1125" />
+    <splash src="res/ios/splash/portrait/640x960.png" height="960"  width="640" />
+    <splash src="res/ios/splash/portrait/320x480.png" height="480"  width="320" />
+    <splash src="res/ios/splash/portrait/768x1024.png" height="1024"  width="768" />
+    <splash src="res/ios/splash/portrait/1536x2048.png" height="2048"  width="1536" />
+    <splash src="res/ios/splash/landscape/2208x1242.png" height="1242"  width="2208" />
+    <splash src="res/ios/splash/landscape/2436x1125.png" height="1125"  width="2436" />
+    <splash src="res/ios/splash/landscape/2048x1536.png" height="1536"  width="2048" />
+    <splash src="res/ios/splash/landscape/1024x768.png" height="768"   width="1024" /> -->
+        
+    <allow-intent href="itms:*" />
+    <allow-intent href="itms-apps:*" />
+  </platform>
+  <preference name="Orientation" value="landscape" />
+  <preference name="BackgroundColor" value="0x000000" />
+  <preference name="StatusBarOverlaysWebView" value="true" />
+  <preference name="KeyboardResize" value="true" />
+  <preference name="Fullscreen" value="true" />
+  <preference name="DisallowOverscroll" value="true"/>
+  <preference name="HideKeyboardFormAccessoryBar" value="true"/>
+</widget>
