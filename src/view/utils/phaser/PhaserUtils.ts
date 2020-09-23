@@ -1,15 +1,16 @@
-import { gameConfig, Orientation } from '../../../constants/GameConfig';
+import { NinePatchPlugin } from '@koreez/phaser3-ninepatch';
+import { gameConfig } from '../../../constants/GameConfig';
 import Game from '../../../Game';
 import GameFacade from '../../../GameFacade';
 import { getPlatform } from '../../../utils/CordovaUtils';
-import { getAppVersion, getMode } from '../../../utils/Utils';
+import { getMode } from '../../../utils/Utils';
 import BaseScene from '../../scenes/BaseScene';
 import ServiceScene from '../../scenes/ServiceScene';
 
 // game configs start
 
 export function setUpDimension(): void {
-  gameConfig.orientation === Orientation.LANDSCAPE
+  window.innerWidth > window.innerHeight
     ? setUpLandscapeDimensions()
     : setUpPortraitDimensions();
 }
@@ -49,27 +50,23 @@ export function generateGameConfiguration(): any {
     height: gameConfig.canvasHeight,
     parent: 'game-container',
     title: Game.NAME,
-    inputMouse: getPlatform() === 'browser',
-    inputMouseCapture: getPlatform() === 'browser',
     transparent: false,
     background: 'black',
-    resolution: window.devicePixelRatio,
-    gameVersion: getAppVersion(),
-    fps: 60,
-    roundPixels: false,
+    roundPixels: true,
     disableContextMenu:
       getMode().toLowerCase() === 'production' || getPlatform() !== 'browser',
-    clearBeforeRender: getPlatform() === 'browser',
     dom: {
       createContainer: false,
+    },
+    plugins: {
+      global: [
+        { key: 'NinePatchPlugin', plugin: NinePatchPlugin, start: true },
+      ],
     },
     banner: {
       text: '#ffffff',
       background: ['#fff200', '#38f0e8', '#00bff3', '#ec008c'],
       hidePhaser: false,
-    },
-    loader: {
-      maxParallelDownloads: 3,
     },
   };
 }

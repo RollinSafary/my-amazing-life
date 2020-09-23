@@ -1,5 +1,11 @@
-import { Atlases, Images, Locales } from '../../assets';
-import { loadAtlases, loadImages, loadJSONs } from '../utils/assetLoader';
+import { Atlases, Fonts, Images, Locales } from '../../assets';
+import { addNinePatchConfigs } from '../../constants/NinePatchConfigs';
+import {
+  loadAtlases,
+  loadFonts,
+  loadImages,
+  loadJSONs,
+} from '../utils/assetLoader';
 import BaseScene from './BaseScene';
 
 export default class BootScene extends BaseScene {
@@ -16,9 +22,11 @@ export default class BootScene extends BaseScene {
   }
 
   public preload(): void {
+    addNinePatchConfigs(this.game);
     loadAtlases(this, Atlases.Loading);
     loadImages(this, Images);
     loadJSONs(this, Locales);
+    loadFonts(Fonts);
   }
 
   public create(): void {

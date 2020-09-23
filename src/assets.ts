@@ -14,6 +14,25 @@ export namespace Atlases {
       }
     }
   }
+  export namespace Login {
+    export class Atlas {
+      public static Name: string = 'login';
+      public static AtlasURL: string = 'assets/atlases/login.json';
+      public static TextureURL: string = 'assets/atlases/login.png';
+    }
+    export namespace Atlas {
+      export enum Frames {
+        BackgroundError = 'background-error',
+        BackgroundLogin = 'background-login',
+        Field = 'field',
+        ButtonNext = 'button-next',
+        LoginIcon = 'login-icon',
+        ButtonOk = 'button-ok',
+        IconLock = 'icon-lock',
+        IconMail = 'icon-mail',
+      }
+    }
+  }
   export namespace Welcome {
     export class Atlas {
       public static Name: string = 'welcome';
@@ -80,6 +99,14 @@ export namespace Audios {
     /* public static OggURL: string =  'assets/audios/roulette.ogg'*/
   }
 }
+export namespace Fonts {
+  export class ArialBlack {
+    public static Name: string = 'ArialBlack';
+    public static TtfURL: string = 'assets/fonts/ArialBlack.ttf';
+    /* missing source pair */
+    /* public static UndefinedURL: string =  'assets/fonts/ArialBlack.undefined'*/
+  }
+}
 export namespace Images {
   export class WhitePixel {
     public static Name: string = 'white-pixel';
@@ -93,7 +120,7 @@ export namespace Locales {
     public static Name: string = 'en';
     public static FileURL: string = 'assets/locales/en.json';
     public static Extension: string = '.json';
-    public static Size: string = '34';
+    public static Size: string = '40';
   }
   export class Ru {
     public static Name: string = 'ru';

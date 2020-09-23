@@ -1,3 +1,8 @@
 {
-  "intro-title": "Welcome"
+  "registration-title": "Register",
+  "registration-first-name": "FIRST NAME",
+  "registration-last-name": "LAST NAME",
+  "registration-email": "EMAIL",
+  "registration-password": "PASSWORD",
+  "registration-confirm-password": "CONFIRM PASSWORD"
 }

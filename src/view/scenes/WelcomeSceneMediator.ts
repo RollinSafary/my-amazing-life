@@ -1,5 +1,7 @@
+import { delayRunnable } from '../utils/phaser/PhaserUtils';
 import BaseSceneMediator from './BaseSceneMediator';
 import LoadingScene from './LoadingScene';
+import ServiceScene from './ServiceScene';
 import WelcomeScene from './WelcomeScene';
 
 export default class WelcomeSceneMediator extends BaseSceneMediator<
@@ -22,13 +24,19 @@ export default class WelcomeSceneMediator extends BaseSceneMediator<
     switch (notificationName) {
       case LoadingScene.LOAD_COMPLETE_NOTIFICATION:
         this.startScene();
-        await this.fadeScreenIn();
-        this.viewComponent.startShowingAnimation();
+        delayRunnable(this.viewComponent, 500, this.onStartButtonClick, this);
         break;
       default:
         this.handleDefaultNotifications(notificationName, ...args);
         break;
     }
+  }
+
+  protected async onSceneReady(): Promise<void> {
+    super.onSceneReady();
+    this.sceneManager.bringToTop(ServiceScene.NAME);
+    await this.fadeScreenIn();
+    this.viewComponent.startShowingAnimation();
   }
 
   protected setView(): void {
@@ -40,5 +48,16 @@ export default class WelcomeSceneMediator extends BaseSceneMediator<
 
   protected setViewComponentListeners(): void {
     super.setViewComponentListeners();
+    this.viewComponent.events.on(
+      WelcomeScene.START_THE_GAME_EVENT,
+      this.onStartButtonClick,
+      this,
+    );
+  }
+
+  protected async onStartButtonClick(): Promise<void> {
+    await this.fadeScreenOut();
+    this.stopScene();
+    this.sendNotification(WelcomeScene.START_BUTTON_CLICKED_NOTIFICATION);
   }
 }

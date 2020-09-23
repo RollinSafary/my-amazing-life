@@ -121,7 +121,7 @@ export default class ServiceScene extends BaseScene {
           resolve();
           return;
         }
-        this.scene.bringToTop(ServiceScene.NAME);
+        this.scene.bringToTop();
         const tweens: Phaser.Tweens.Tween[] = this.tweens.getTweensOf(
           this.fadeImage,
         );

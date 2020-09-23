@@ -2,15 +2,14 @@ import { Atlases } from '../../assets';
 import BasePerson from '../components/welcome/BasePerson';
 import FemalePerson from '../components/welcome/FemalePerson';
 import MalePerson from '../components/welcome/MalePerson';
-import {
-  ISpriteButtonConfig,
-  ISpriteButtonState,
-} from '../utils/simpleButton/SimpleButtonInterfaces';
+import WelcomeStartButton from '../components/welcome/WelcomeStartButton';
 import { SpriteButton } from '../utils/simpleButton/SpriteButton';
 import BaseScene from './BaseScene';
 
 export default class WelcomeScene extends BaseScene {
   public static NAME: string = 'WelcomeScene';
+  public static START_THE_GAME_EVENT: string = 'startTheGameEvent';
+  public static START_BUTTON_CLICKED_NOTIFICATION: string = `${WelcomeScene.NAME}StartButtonClickedNotification`;
 
   private malePerson: BasePerson;
   private femalePerson: BasePerson;
@@ -19,7 +18,7 @@ export default class WelcomeScene extends BaseScene {
   private light: Phaser.GameObjects.Image;
   private city: Phaser.GameObjects.Image;
   private globous: Phaser.GameObjects.Image;
-  private startButton: SpriteButton;
+  private startButton: WelcomeStartButton;
 
   constructor() {
     super(WelcomeScene.NAME);
@@ -113,15 +112,7 @@ export default class WelcomeScene extends BaseScene {
   }
 
   private createStartButton(): void {
-    const normalStateConfig: ISpriteButtonState = {
-      key: Atlases.Welcome.Atlas.Name,
-      frame: Atlases.Welcome.Atlas.Frames.ButtonStart,
-    };
-    const config: ISpriteButtonConfig = {
-      normalStateConfig,
-    };
-    this.startButton = new SpriteButton(this, config);
-    this.add.existing(this.startButton);
+    this.startButton = new WelcomeStartButton(this);
     this.startButton.x = this.width - this.startButton.width * 0.65;
     this.startButton.y =
       this.startButton.height * 0.5 + this.startButton.width * 0.125;
@@ -146,7 +137,8 @@ export default class WelcomeScene extends BaseScene {
     await this.showCity();
     await this.showPersons();
     await this.showLightAndGlobous();
-    await this.showStartButton();
+    await this.startButton.show();
+    this.startButton.startHighlightAnimation();
   }
 
   private async showLogo(): Promise<void> {
@@ -219,70 +211,9 @@ export default class WelcomeScene extends BaseScene {
     });
   }
 
-  private async showStartButton(): Promise<void> {
-    return new Promise<void>(resolve => {
-      this.tweens.add({
-        targets: this.startButton,
-        scaleX: 1,
-        scaleY: 1,
-        duration: 400,
-        ease: Phaser.Math.Easing.Back.Out,
-        onComplete: () => {
-          this.startButtonHighlightingAnimation();
-          resolve();
-        },
-      });
-    });
-  }
-
-  private startButtonHighlightingAnimation(): void {
-    const duration: number = 1000;
-    this.tweens.add({
-      targets: this.startButton,
-      onStart: () => {
-        this.tweens.add({
-          targets: this.startButton,
-          angle: -5,
-          duration,
-          yoyo: true,
-          onComplete: () => {
-            this.tweens.add({
-              targets: this.startButton,
-              angle: 5,
-              duration,
-              yoyo: true,
-            });
-          },
-        });
-      },
-      delay: 1000,
-      duration: 200,
-      scaleX: 1.1,
-      scaleY: 0.9,
-      repeatDelay: 5000,
-      yoyo: true,
-      repeat: -1,
-      onRepeat: () => {
-        this.tweens.add({
-          targets: this.startButton,
-          angle: -5,
-          duration,
-          yoyo: true,
-          onComplete: () => {
-            this.tweens.add({
-              targets: this.startButton,
-              angle: 5,
-              duration,
-              yoyo: true,
-            });
-          },
-        });
-      },
-    });
-  }
-
   private async onStartClick(): Promise<void> {
     this.malePerson.startHandShake();
     await this.femalePerson.startHandShake();
+    this.events.emit(WelcomeScene.START_THE_GAME_EVENT);
   }
 }

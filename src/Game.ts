@@ -4,6 +4,7 @@ import { Locales } from './assets';
 import { gameConfig } from './constants/GameConfig';
 import GameFacade from './GameFacade';
 import { getPlatform } from './utils/CordovaUtils';
+import { initializeFirebaseApp } from './view/utils/FirebaseUtils';
 import { generateGameConfiguration } from './view/utils/phaser/PhaserUtils';
 
 export default class Game extends I18nGame {
@@ -20,6 +21,7 @@ export default class Game extends I18nGame {
         scene.sys.pause();
       }
     });
+    initializeFirebaseApp();
   }
 
   public initializeArchitecture(): void {

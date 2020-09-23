@@ -30,7 +30,6 @@ export default class LoadingSceneMediator extends BaseSceneMediator<
     const scene: LoadingScene = new LoadingScene();
     this.sceneManager.add(LoadingScene.NAME, scene);
     this.setViewComponent(scene);
-    this.setViewComponentListeners();
   }
 
   protected setViewComponentListeners(): void {

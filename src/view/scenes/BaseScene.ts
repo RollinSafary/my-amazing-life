@@ -19,7 +19,6 @@ export default class BaseScene extends I18nScene {
   public add: INinePatchFactory & I18nFactory;
   public make: INinePatchCreator & I18nCreator;
   public game: Game;
-  public spine: any;
 
   constructor(name: string) {
     super(name);
@@ -79,8 +78,8 @@ export default class BaseScene extends I18nScene {
 
   public init(...args: any[]): void {
     this.input.setTopOnly(false);
+    this.input.keyboard.enableGlobalCapture();
     this.i18n = this.game.i18n;
-    this.input.addPointer(4);
   }
 
   get width(): number {
