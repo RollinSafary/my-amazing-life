@@ -4,5 +4,12 @@
   "registration-last-name": "LAST NAME",
   "registration-email": "EMAIL",
   "registration-password": "PASSWORD",
-  "registration-confirm-password": "CONFIRM PASSWORD"
+  "registration-confirm-password": "CONFIRM PASSWORD",
+  "error-0": "Incorrect password.",
+  "error-1": "User doesn't exist.",
+  "error-2": "Please fill all fields.",
+  "error-3": "Password must be at least 6 characters long.",
+  "error-4": "Password mismatch.",
+  "error-5": "Invalid e-mail address.",
+  "registration-error-popup-title": "Error"
 }

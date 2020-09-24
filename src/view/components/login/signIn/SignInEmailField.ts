@@ -3,13 +3,12 @@ import { Translation } from '../../../../translations';
 import { ITextStyle } from '../../../utils/phaser/PhaserUtils';
 import BaseTextField from '../../../utils/textField/BaseTextField';
 
-export default class SignInTextField extends BaseTextField {
+export default class SignInEmailField extends BaseTextField {
   protected icon: Phaser.GameObjects.Image;
 
   protected createComponents(): void {
-    this.createIcon();
     super.createComponents();
-    this.bringToTop(this.icon);
+    this.createIcon();
     this.icon.x = -this.background.width * 0.5 + this.icon.width * 0.7;
     this.text.x = this.icon.x + this.icon.width * 0.6;
   }
@@ -52,10 +51,5 @@ export default class SignInTextField extends BaseTextField {
     });
     this.text.setOrigin(0, 0.5);
     this.add(this.text);
-  }
-
-  protected setListeners(): void {
-    this.setInteractive();
-    this.on(Phaser.Input.Events.POINTER_UP, this.focus, this);
   }
 }

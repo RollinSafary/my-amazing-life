@@ -1,0 +1,1 @@
+1. Add `Play as guest` button to RegistrationView and connect it's click to `PlayAsGuestCommand`.

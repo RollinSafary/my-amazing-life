@@ -26,6 +26,7 @@ export namespace Atlases {
         BackgroundLogin = 'background-login',
         Field = 'field',
         ButtonNext = 'button-next',
+        ButtonBack = 'button-back',
         LoginIcon = 'login-icon',
         ButtonOk = 'button-ok',
         IconLock = 'icon-lock',
@@ -120,7 +121,7 @@ export namespace Locales {
     public static Name: string = 'en';
     public static FileURL: string = 'assets/locales/en.json';
     public static Extension: string = '.json';
-    public static Size: string = '40';
+    public static Size: string = '558';
   }
   export class Ru {
     public static Name: string = 'ru';

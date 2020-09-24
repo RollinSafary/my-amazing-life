@@ -17,10 +17,6 @@ export default class BootScene extends BaseScene {
     super(BootScene.NAME);
   }
 
-  public init(): void {
-    super.init();
-  }
-
   public preload(): void {
     addNinePatchConfigs(this.game);
     loadAtlases(this, Atlases.Loading);

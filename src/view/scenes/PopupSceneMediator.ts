@@ -1,5 +1,7 @@
+import ErrorPopupMediator from '../popups/ErrorPopupMediator';
 import PopupManager from '../utils/PopupManager';
 import BaseSceneMediator from './BaseSceneMediator';
+import LoadingScene from './LoadingScene';
 import PopupScene from './PopupScene';
 
 export default class PopupSceneMediator extends BaseSceneMediator<PopupScene> {
@@ -19,15 +21,15 @@ export default class PopupSceneMediator extends BaseSceneMediator<PopupScene> {
   }
 
   public registerNotificationInterests(): void {
-    // this.subscribeToNotifications(PreloadScene.LOAD_COMPLETE_NOTIFICATION);
+    this.subscribeToNotifications(LoadingScene.LOAD_COMPLETE_NOTIFICATION);
   }
 
   public handleNotification(notificationName: string, ...args: any[]): void {
     super.handleNotification(notificationName);
     switch (notificationName) {
-      // case PreloadScene.LOAD_COMPLETE_NOTIFICATION:
-      //   this.registerGamePopups();
-      //   break;
+      case LoadingScene.LOAD_COMPLETE_NOTIFICATION:
+        this.registerGamePopups();
+        break;
       default:
         console.warn(`${notificationName} is unhandled!`);
         break;
@@ -58,6 +60,11 @@ export default class PopupSceneMediator extends BaseSceneMediator<PopupScene> {
   }
 
   private registerGamePopups(): void {
+    this.registerRegistrationErrorPopup();
     this.sendNotification(PopupScene.REGISTERED_NOTIFICATION);
+  }
+
+  private registerRegistrationErrorPopup(): void {
+    this.facade.registerMediator(new ErrorPopupMediator());
   }
 }

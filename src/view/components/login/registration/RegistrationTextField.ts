@@ -10,6 +10,7 @@ export default class RegisterTextField extends BaseTextField {
     protected placeHolder: string,
   ) {
     super(scene);
+    this.text.setText(this.scene.i18n.translate(this.placeHolder, {}));
   }
 
   protected createInputText(): void {
@@ -35,10 +36,11 @@ export default class RegisterTextField extends BaseTextField {
     this.text = this.scene.make.text({
       x: 0,
       y: 0,
-      text: this.scene.i18n.translate(this.placeHolder, {}),
+      text: '',
       style,
     });
-    this.text.setOrigin(0, 0.5);
     this.add(this.text);
+    this.text.setOrigin(0, 0.5);
+    this.text.x = -this.background.width * 0.45;
   }
 }
