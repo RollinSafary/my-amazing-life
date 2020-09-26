@@ -1,6 +1,86 @@
 /* AUTO GENERATED FILE. DO NOT MODIFY !!! */
 
 export namespace Atlases {
+  export namespace Avatar {
+    export class Atlas {
+      public static Name: string = 'avatar';
+      public static AtlasURL: string = 'assets/atlases/avatar.json';
+      public static TextureURL: string = 'assets/atlases/avatar.png';
+    }
+    export namespace Atlas {
+      export enum Frames {
+        FemaleShadow0 = 'female/shadow-0',
+        FemaleShadow1 = 'female/shadow-1',
+        FemaleShadow3 = 'female/shadow-3',
+        MaleShadow2 = 'male/shadow-2',
+        FemaleShadow2 = 'female/shadow-2',
+        MaleShadow3 = 'male/shadow-3',
+        MaleShadow1 = 'male/shadow-1',
+        MaleShadow0 = 'male/shadow-0',
+        FemaleHair3 = 'female/hair-3',
+        FemaleHair0 = 'female/hair-0',
+        BodyLegs0 = 'body/legs-0',
+        BodyLegs1 = 'body/legs-1',
+        FemaleHair1 = 'female/hair-1',
+        BodyHead0 = 'body/head-0',
+        FemaleHair2 = 'female/hair-2',
+        BodyLegs2 = 'body/legs-2',
+        BodyLegs3 = 'body/legs-3',
+        MaleBreeches0 = 'male/breeches-0',
+        MaleBreeches1 = 'male/breeches-1',
+        MaleBreeches2 = 'male/breeches-2',
+        MaleHair3 = 'male/hair-3',
+        FemaleBreeches0 = 'female/breeches-0',
+        MaleHair0 = 'male/hair-0',
+        BodyHead1 = 'body/head-1',
+        MaleShirt3 = 'male/shirt-3',
+        MaleShirt0 = 'male/shirt-0',
+        FemaleBreeches3 = 'female/breeches-3',
+        FemaleBreechesDefault = 'female/breeches-default',
+        MaleArm0 = 'male/arm-0',
+        FemaleFace2 = 'female/face-2',
+        BodyHead2 = 'body/head-2',
+        BodyHead3 = 'body/head-3',
+        MaleHair1 = 'male/hair-1',
+        MaleHair2 = 'male/hair-2',
+        FemaleShirt0 = 'female/shirt-0',
+        MaleBreeches3 = 'male/breeches-3',
+        FemaleShirt1 = 'female/shirt-1',
+        FemaleShirtDefault = 'female/shirt-default',
+        FemaleShirt3 = 'female/shirt-3',
+        MaleFace0 = 'male/face-0',
+        FemaleFace0 = 'female/face-0',
+        FemaleShirt2 = 'female/shirt-2',
+        MaleBreechesDefault = 'male/breeches-default',
+        MaleShirt1 = 'male/shirt-1',
+        MaleShirt2 = 'male/shirt-2',
+        BodyArm0 = 'body/arm-0',
+        FemaleBreeches1 = 'female/breeches-1',
+        FemaleBreeches2 = 'female/breeches-2',
+        BodyArm1 = 'body/arm-1',
+        BodyArm2 = 'body/arm-2',
+        BodyArm3 = 'body/arm-3',
+        MaleArm1 = 'male/arm-1',
+        FemaleArm0 = 'female/arm-0',
+        BodySkin0 = 'body/skin-0',
+        MaleFace3 = 'male/face-3',
+        FemaleArm1 = 'female/arm-1',
+        FemaleFace3 = 'female/face-3',
+        BodySkin1 = 'body/skin-1',
+        FemaleFace1 = 'female/face-1',
+        BodySkin2 = 'body/skin-2',
+        Frame = 'frame',
+        MaleFace2 = 'male/face-2',
+        MaleArm2 = 'male/arm-2',
+        MaleFace1 = 'male/face-1',
+        BodySkin3 = 'body/skin-3',
+        IconFemaleActive = 'icon/female-active',
+        IconFemalePasswive = 'icon/female-passwive',
+        IconMaleActive = 'icon/male-active',
+        IconMalePassive = 'icon/male-passive',
+      }
+    }
+  }
   export namespace Loading {
     export class Atlas {
       public static Name: string = 'loading';
@@ -109,6 +189,12 @@ export namespace Fonts {
   }
 }
 export namespace Images {
+  export class Preview {
+    public static Name: string = 'preview';
+    public static FileURL: string = 'assets/images/preview.png';
+    public static Extension: string = '.png';
+    public static Size: string = '58458';
+  }
   export class WhitePixel {
     public static Name: string = 'white-pixel';
     public static FileURL: string = 'assets/images/white-pixel.png';
