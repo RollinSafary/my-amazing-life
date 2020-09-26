@@ -28,11 +28,27 @@ export default abstract class BaseTextField extends Phaser.GameObjects
     this.inputDOM.focus();
     this.focused = true;
     this.emit(BaseTextField.FOCUS_EVENT);
+    this.scene.tweens.killTweensOf(this);
+    this.scene.tweens.add({
+      targets: this,
+      scaleX: 1.1,
+      scaleY: 1.1,
+      duration: 200,
+      ease: Phaser.Math.Easing.Expo.InOut,
+    });
   }
 
   public blur(): void {
     this.inputDOM.blur();
     this.focused = false;
+    this.scene.tweens.killTweensOf(this);
+    this.scene.tweens.add({
+      targets: this,
+      scaleX: 1,
+      scaleY: 1,
+      duration: 200,
+      ease: Phaser.Math.Easing.Expo.InOut,
+    });
   }
 
   public getTextValue(): string {
