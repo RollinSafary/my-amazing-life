@@ -15,13 +15,7 @@ export default class SimpleButton extends Phaser.GameObjects.Container {
 
   constructor(
     protected scene: BaseScene,
-    protected configs: {
-      normalStateConfig: IButtonState;
-      downStateConfig?: IButtonState;
-      hoverStateConfig?: IButtonState;
-      disabledStateConfig?: IButtonState;
-      textConfig?: ISimpleButtonText;
-    },
+    protected configs: ISimpleButtonConfig,
   ) {
     super(scene);
     this.createBody();
@@ -181,4 +175,12 @@ export default class SimpleButton extends Phaser.GameObjects.Container {
       this.text.setFill(this.configs.textConfig.disabledFill);
     }
   }
+}
+
+export interface ISimpleButtonConfig {
+  normalStateConfig: IButtonState;
+  downStateConfig?: IButtonState;
+  hoverStateConfig?: IButtonState;
+  disabledStateConfig?: IButtonState;
+  textConfig?: ISimpleButtonText;
 }

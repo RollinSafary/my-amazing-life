@@ -1,6 +1,7 @@
 import { Facade } from '@candywings/pure-mvc';
 import StartupCommand from './controller/StartupCommand';
 import Game from './Game';
+import AvatarSceneMediator from './view/scenes/AvatarSceneMediator';
 import BootSceneMediator from './view/scenes/BootSceneMediator';
 import LoadingSceneMediator from './view/scenes/LoadingSceneMediator';
 import LoginSceneMediator from './view/scenes/LoginSceneMediator';
@@ -70,6 +71,7 @@ export default class GameFacade extends Facade {
     this.registerMediator(new LoadingSceneMediator());
     this.registerMediator(new WelcomeSceneMediator());
     this.registerMediator(new LoginSceneMediator());
+    this.registerMediator(new AvatarSceneMediator());
   }
 
   private startup(): void {

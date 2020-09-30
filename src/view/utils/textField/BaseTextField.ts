@@ -56,7 +56,7 @@ export default abstract class BaseTextField extends Phaser.GameObjects
   }
 
   public destroy(fromScene?: boolean): void {
-    document.body.removeChild(this.inputDOM);
+    this.inputDOM.remove();
     this.enterKey.destroy();
     super.destroy(fromScene);
   }

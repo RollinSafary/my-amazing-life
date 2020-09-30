@@ -1,5 +1,7 @@
+import PlayerVOProxy from '../../model/PlayerVOProxy';
 import RegistrationViewMediator from '../components/login/registration/RegistrationViewMediator';
 import SignInViewMediator from '../components/login/signIn/SignInViewMediator';
+import { delayRunnable } from '../utils/phaser/PhaserUtils';
 import BaseSceneMediator from './BaseSceneMediator';
 import LoginScene from './LoginScene';
 import WelcomeScene from './WelcomeScene';
@@ -14,6 +16,7 @@ export default class LoginSceneMediator extends BaseSceneMediator<LoginScene> {
   public registerNotificationInterests(): void {
     this.subscribeToNotifications(
       WelcomeScene.START_BUTTON_CLICKED_NOTIFICATION,
+      PlayerVOProxy.INITIALIZE_COMPLETE_NOTIFICATION,
     );
   }
 
@@ -27,6 +30,10 @@ export default class LoginSceneMediator extends BaseSceneMediator<LoginScene> {
         this.registerViews();
         await this.fadeScreenIn();
         this.sendNotification(LoginScene.SHOW_LOGIN_WINDOW_NOTIFICATION);
+        delayRunnable(this.viewComponent, 1000, this.removeScene, this);
+        break;
+      case PlayerVOProxy.INITIALIZE_COMPLETE_NOTIFICATION:
+        this.removeScene();
         break;
       default:
         this.handleDefaultNotifications(notificationName, ...args);
@@ -53,5 +60,13 @@ export default class LoginSceneMediator extends BaseSceneMediator<LoginScene> {
   protected async onStartButtonClick(): Promise<void> {
     await this.fadeScreenOut();
     this.stopScene();
+  }
+
+  protected async removeScene(): Promise<void> {
+    await this.fadeScreenOut();
+    this.facade.removeMediator(SignInViewMediator.NAME);
+    this.facade.removeMediator(RegistrationViewMediator.NAME);
+    this.sceneManager.stop(LoginScene.NAME);
+    this.sendNotification(LoginScene.LOGIN_COMPLETE_NOTIFICATION);
   }
 }

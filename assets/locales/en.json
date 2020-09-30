@@ -11,5 +11,7 @@
   "error-3": "Password must be at least 6 characters long.",
   "error-4": "Password mismatch.",
   "error-5": "Invalid e-mail address.",
-  "registration-error-popup-title": "Error"
+  "registration-error-popup-title": "Error",
+  "avatar-button-submit": "Submit",
+  "avatar-button-clear": "Clear"
 }

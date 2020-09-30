@@ -73,6 +73,27 @@
 					}
 				},
 				{
+					"filename": "control-button",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 270,
+						"h": 70
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 270,
+						"h": 70
+					},
+					"frame": {
+						"x": 375,
+						"y": 779,
+						"w": 270,
+						"h": 70
+					}
+				},
+				{
 					"filename": "button-next",
 					"rotated": false,
 					"trimmed": true,
@@ -87,10 +108,52 @@
 						"h": 64
 					},
 					"frame": {
-						"x": 375,
-						"y": 779,
+						"x": 649,
+						"y": 1,
 						"w": 170,
 						"h": 64
+					}
+				},
+				{
+					"filename": "icon-mail",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 56,
+						"h": 42
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 56,
+						"h": 42
+					},
+					"frame": {
+						"x": 583,
+						"y": 1,
+						"w": 56,
+						"h": 42
+					}
+				},
+				{
+					"filename": "icon-lock",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 45,
+						"h": 52
+					},
+					"spriteSourceSize": {
+						"x": 4,
+						"y": 4,
+						"w": 37,
+						"h": 47
+					},
+					"frame": {
+						"x": 583,
+						"y": 47,
+						"w": 37,
+						"h": 47
 					}
 				},
 				{
@@ -108,8 +171,8 @@
 						"h": 33
 					},
 					"frame": {
-						"x": 583,
-						"y": 1,
+						"x": 649,
+						"y": 69,
 						"w": 147,
 						"h": 33
 					}
@@ -129,8 +192,8 @@
 						"h": 91
 					},
 					"frame": {
-						"x": 734,
-						"y": 1,
+						"x": 649,
+						"y": 106,
 						"w": 109,
 						"h": 91
 					}
@@ -150,52 +213,10 @@
 						"h": 58
 					},
 					"frame": {
-						"x": 583,
-						"y": 38,
+						"x": 649,
+						"y": 201,
 						"w": 103,
 						"h": 58
-					}
-				},
-				{
-					"filename": "icon-lock",
-					"rotated": false,
-					"trimmed": true,
-					"sourceSize": {
-						"w": 45,
-						"h": 52
-					},
-					"spriteSourceSize": {
-						"x": 4,
-						"y": 4,
-						"w": 37,
-						"h": 47
-					},
-					"frame": {
-						"x": 690,
-						"y": 38,
-						"w": 37,
-						"h": 47
-					}
-				},
-				{
-					"filename": "icon-mail",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 56,
-						"h": 42
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 56,
-						"h": 42
-					},
-					"frame": {
-						"x": 690,
-						"y": 96,
-						"w": 56,
-						"h": 42
 					}
 				}
 			]
@@ -204,6 +225,6 @@
 	"meta": {
 		"app": "https://www.codeandweb.com/texturepacker",
 		"version": "3.0",
-		"smartupdate": "$TexturePacker:SmartUpdate:5726ef63c4d5a9019bcea0be676711a9:2b7288f6877e1a691dabad93a0ea0b0c:ffb62af756263e4644c882ff552ab6d3$"
+		"smartupdate": "$TexturePacker:SmartUpdate:f20c54563e7716334f1f71cee6d01301:efe60d701dc47864ceaea9eb27f01372:ffb62af756263e4644c882ff552ab6d3$"
 	}
 }

@@ -3,7 +3,7 @@ import BaseSceneMediator from './BaseSceneMediator';
 import BootScene from './BootScene';
 
 export default class BootSceneMediator extends BaseSceneMediator<BootScene> {
-  public static NAME: string = 'BootStateMediator';
+  public static NAME: string = 'BootSceneMediator';
 
   constructor() {
     super(BootSceneMediator.NAME, null);
@@ -36,9 +36,9 @@ export default class BootSceneMediator extends BaseSceneMediator<BootScene> {
   }
 
   protected setView(): void {
-    const bootScene: BootScene = new BootScene();
-    this.sceneManager.add(BootScene.NAME, bootScene);
-    this.setViewComponent(bootScene);
+    const scene: BootScene = new BootScene();
+    this.sceneManager.add(BootScene.NAME, scene);
+    this.setViewComponent(scene);
   }
 
   protected setViewComponentListeners(): void {

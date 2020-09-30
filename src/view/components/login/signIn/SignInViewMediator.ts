@@ -33,7 +33,6 @@ export default class SignInViewMediator extends BaseLoginViewMediator<
       case RegistrationView.BACK_NOTIFICATION:
       case LoginScene.SHOW_LOGIN_WINDOW_NOTIFICATION:
         this.setView();
-        this.setViewComponentListeners();
         this.viewComponent.show();
         break;
       case PlayerVOProxy.INITIALIZE_COMPLETE_NOTIFICATION:
@@ -50,7 +49,9 @@ export default class SignInViewMediator extends BaseLoginViewMediator<
   protected setView(): void {
     const viewComponent: SignInView = new SignInView(getScene(LoginScene.NAME));
     this.setViewComponent(viewComponent);
+    this.setViewComponentListeners();
   }
+
   protected setViewComponentListeners(): void {
     this.viewComponent.on(SignInView.ERROR_EVENT, this.onError, this);
     this.viewComponent.on(SignInView.SIGN_IN_EVENT, this.onSignInClick, this);

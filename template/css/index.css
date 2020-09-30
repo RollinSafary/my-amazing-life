@@ -33,3 +33,13 @@ body {
   left: 0;
   top: 0;
 }
+
+.texts {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.texts input {
+  opacity: 0;
+}

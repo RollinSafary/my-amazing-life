@@ -14,6 +14,8 @@ export enum Translation {
   ERROR_4 = 'error-4',
   ERROR_5 = 'error-5',
   REGISTRATION_ERROR_POPUP_TITLE = 'registration-error-popup-title',
+  AVATAR_BUTTON_SUBMIT = 'avatar-button-submit',
+  AVATAR_BUTTON_CLEAR = 'avatar-button-clear',
 }
 
 /* AUTO GENERATED FILE. DO NOT MODIFY !!! */

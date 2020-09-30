@@ -4,32 +4,11 @@
 			"image": "avatar.png",
 			"format": "RGBA8888",
 			"size": {
-				"w": 1847,
-				"h": 1847
+				"w": 2036,
+				"h": 2036
 			},
 			"scale": 1,
 			"frames": [
-				{
-					"filename": "female/shadow-0",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 337,
-						"h": 623
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 337,
-						"h": 623
-					},
-					"frame": {
-						"x": 1,
-						"y": 1,
-						"w": 337,
-						"h": 623
-					}
-				},
 				{
 					"filename": "female/shadow-1",
 					"rotated": false,
@@ -46,9 +25,38 @@
 					},
 					"frame": {
 						"x": 1,
-						"y": 628,
+						"y": 1,
 						"w": 328,
 						"h": 629
+					},
+					"anchor": {
+						"x": 0.5,
+						"y": 0.5
+					}
+				},
+				{
+					"filename": "female/shadow-0",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 337,
+						"h": 623
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 337,
+						"h": 623
+					},
+					"frame": {
+						"x": 1,
+						"y": 634,
+						"w": 337,
+						"h": 623
+					},
+					"anchor": {
+						"x": 0.5,
+						"y": 0.5
 					}
 				},
 				{
@@ -66,10 +74,14 @@
 						"h": 619
 					},
 					"frame": {
-						"x": 342,
+						"x": 333,
 						"y": 1,
 						"w": 337,
 						"h": 619
+					},
+					"anchor": {
+						"x": 0.5,
+						"y": 0.5
 					}
 				},
 				{
@@ -87,787 +99,14 @@
 						"h": 612
 					},
 					"frame": {
-						"x": 683,
-						"y": 1,
-						"w": 320,
-						"h": 612
-					}
-				},
-				{
-					"filename": "female/shadow-2",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 321,
-						"h": 609
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 321,
-						"h": 609
-					},
-					"frame": {
-						"x": 1007,
-						"y": 1,
-						"w": 321,
-						"h": 609
-					}
-				},
-				{
-					"filename": "male/shadow-3",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 320,
-						"h": 607
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 320,
-						"h": 607
-					},
-					"frame": {
-						"x": 1332,
-						"y": 1,
-						"w": 320,
-						"h": 607
-					}
-				},
-				{
-					"filename": "male/shadow-1",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 320,
-						"h": 603
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 320,
-						"h": 603
-					},
-					"frame": {
-						"x": 333,
-						"y": 628,
-						"w": 320,
-						"h": 603
-					}
-				},
-				{
-					"filename": "male/shadow-0",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 320,
-						"h": 600
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 320,
-						"h": 600
-					},
-					"frame": {
-						"x": 657,
-						"y": 624,
-						"w": 320,
-						"h": 600
-					}
-				},
-				{
-					"filename": "female/hair-3",
-					"rotated": false,
-					"trimmed": true,
-					"sourceSize": {
-						"w": 336,
-						"h": 267
-					},
-					"spriteSourceSize": {
-						"x": 5,
-						"y": 13,
-						"w": 308,
-						"h": 240
-					},
-					"frame": {
 						"x": 1,
 						"y": 1261,
-						"w": 308,
-						"h": 240
-					}
-				},
-				{
-					"filename": "female/hair-0",
-					"rotated": false,
-					"trimmed": true,
-					"sourceSize": {
-						"w": 336,
-						"h": 267
-					},
-					"spriteSourceSize": {
-						"x": 25,
-						"y": 18,
-						"w": 305,
-						"h": 241
-					},
-					"frame": {
-						"x": 1,
-						"y": 1505,
-						"w": 305,
-						"h": 241
-					}
-				},
-				{
-					"filename": "body/legs-0",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 175,
-						"h": 233
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 175,
-						"h": 233
-					},
-					"frame": {
-						"x": 1656,
-						"y": 1,
-						"w": 175,
-						"h": 233
-					}
-				},
-				{
-					"filename": "body/legs-1",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 175,
-						"h": 233
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 175,
-						"h": 233
-					},
-					"frame": {
-						"x": 1656,
-						"y": 238,
-						"w": 175,
-						"h": 233
-					}
-				},
-				{
-					"filename": "female/hair-1",
-					"rotated": false,
-					"trimmed": true,
-					"sourceSize": {
-						"w": 336,
-						"h": 267
-					},
-					"spriteSourceSize": {
-						"x": 14,
-						"y": 3,
-						"w": 296,
-						"h": 247
-					},
-					"frame": {
-						"x": 333,
-						"y": 1235,
-						"w": 296,
-						"h": 247
-					}
-				},
-				{
-					"filename": "body/head-0",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 184,
-						"h": 174
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 184,
-						"h": 174
-					},
-					"frame": {
-						"x": 1656,
-						"y": 475,
-						"w": 184,
-						"h": 174
-					}
-				},
-				{
-					"filename": "female/hair-2",
-					"rotated": false,
-					"trimmed": true,
-					"sourceSize": {
-						"w": 336,
-						"h": 267
-					},
-					"spriteSourceSize": {
-						"x": 44,
-						"y": 27,
-						"w": 267,
-						"h": 235
-					},
-					"frame": {
-						"x": 657,
-						"y": 1228,
-						"w": 267,
-						"h": 235
-					}
-				},
-				{
-					"filename": "body/legs-2",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 175,
-						"h": 233
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 175,
-						"h": 233
-					},
-					"frame": {
-						"x": 928,
-						"y": 1228,
-						"w": 175,
-						"h": 233
-					}
-				},
-				{
-					"filename": "body/legs-3",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 175,
-						"h": 233
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 175,
-						"h": 233
-					},
-					"frame": {
-						"x": 981,
-						"y": 617,
-						"w": 175,
-						"h": 233
-					}
-				},
-				{
-					"filename": "male/breeches-0",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 175,
-						"h": 233
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 175,
-						"h": 233
-					},
-					"frame": {
-						"x": 981,
-						"y": 854,
-						"w": 175,
-						"h": 233
-					}
-				},
-				{
-					"filename": "male/breeches-1",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 175,
-						"h": 233
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 175,
-						"h": 233
-					},
-					"frame": {
-						"x": 1160,
-						"y": 614,
-						"w": 175,
-						"h": 233
-					}
-				},
-				{
-					"filename": "male/breeches-2",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 175,
-						"h": 233
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 175,
-						"h": 233
-					},
-					"frame": {
-						"x": 1160,
-						"y": 851,
-						"w": 175,
-						"h": 233
-					}
-				},
-				{
-					"filename": "male/hair-3",
-					"rotated": false,
-					"trimmed": true,
-					"sourceSize": {
-						"w": 336,
-						"h": 267
-					},
-					"spriteSourceSize": {
-						"x": 46,
-						"y": 31,
-						"w": 244,
-						"h": 142
-					},
-					"frame": {
-						"x": 1339,
-						"y": 612,
-						"w": 244,
-						"h": 142
-					}
-				},
-				{
-					"filename": "female/breeches-0",
-					"rotated": false,
-					"trimmed": true,
-					"sourceSize": {
-						"w": 175,
-						"h": 233
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 175,
-						"h": 203
-					},
-					"frame": {
-						"x": 1339,
-						"y": 758,
-						"w": 175,
-						"h": 203
-					}
-				},
-				{
-					"filename": "male/hair-0",
-					"rotated": false,
-					"trimmed": true,
-					"sourceSize": {
-						"w": 336,
-						"h": 267
-					},
-					"spriteSourceSize": {
-						"x": 68,
-						"y": 37,
-						"w": 215,
-						"h": 130
-					},
-					"frame": {
-						"x": 981,
-						"y": 1091,
-						"w": 215,
-						"h": 130
-					}
-				},
-				{
-					"filename": "body/head-1",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 184,
-						"h": 174
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 184,
-						"h": 174
-					},
-					"frame": {
-						"x": 1339,
-						"y": 965,
-						"w": 184,
-						"h": 174
-					}
-				},
-				{
-					"filename": "male/shirt-3",
-					"rotated": false,
-					"trimmed": true,
-					"sourceSize": {
-						"w": 172,
-						"h": 207
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 172,
-						"h": 206
-					},
-					"frame": {
-						"x": 1107,
-						"y": 1225,
-						"w": 172,
-						"h": 206
-					}
-				},
-				{
-					"filename": "male/shirt-0",
-					"rotated": false,
-					"trimmed": true,
-					"sourceSize": {
-						"w": 172,
-						"h": 207
-					},
-					"spriteSourceSize": {
-						"x": 3,
-						"y": 0,
-						"w": 165,
-						"h": 202
-					},
-					"frame": {
-						"x": 1518,
-						"y": 758,
-						"w": 165,
-						"h": 202
-					}
-				},
-				{
-					"filename": "female/breeches-3",
-					"rotated": false,
-					"trimmed": true,
-					"sourceSize": {
-						"w": 175,
-						"h": 233
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 175,
-						"h": 188
-					},
-					"frame": {
-						"x": 1527,
-						"y": 964,
-						"w": 175,
-						"h": 188
-					}
-				},
-				{
-					"filename": "female/breeches-default",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 173,
-						"h": 101
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 173,
-						"h": 101
-					},
-					"frame": {
-						"x": 1587,
-						"y": 653,
-						"w": 173,
-						"h": 101
-					}
-				},
-				{
-					"filename": "male/arm-0",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 82,
-						"h": 145
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 82,
-						"h": 145
-					},
-					"frame": {
-						"x": 1764,
-						"y": 653,
-						"w": 82,
-						"h": 145
-					}
-				},
-				{
-					"filename": "female/face-2",
-					"rotated": false,
-					"trimmed": true,
-					"sourceSize": {
-						"w": 154,
-						"h": 171
-					},
-					"spriteSourceSize": {
-						"x": 13,
-						"y": 48,
-						"w": 133,
-						"h": 110
-					},
-					"frame": {
-						"x": 1200,
-						"y": 1088,
-						"w": 133,
-						"h": 110
-					}
-				},
-				{
-					"filename": "body/head-2",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 184,
-						"h": 174
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 184,
-						"h": 174
-					},
-					"frame": {
-						"x": 1337,
-						"y": 1143,
-						"w": 184,
-						"h": 174
-					}
-				},
-				{
-					"filename": "body/head-3",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 184,
-						"h": 174
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 184,
-						"h": 174
-					},
-					"frame": {
-						"x": 1525,
-						"y": 1156,
-						"w": 184,
-						"h": 174
-					}
-				},
-				{
-					"filename": "male/hair-1",
-					"rotated": false,
-					"trimmed": true,
-					"sourceSize": {
-						"w": 336,
-						"h": 267
-					},
-					"spriteSourceSize": {
-						"x": 66,
-						"y": 30,
-						"w": 217,
-						"h": 141
-					},
-					"frame": {
-						"x": 1283,
-						"y": 1321,
-						"w": 217,
-						"h": 141
-					}
-				},
-				{
-					"filename": "male/hair-2",
-					"rotated": false,
-					"trimmed": true,
-					"sourceSize": {
-						"w": 336,
-						"h": 267
-					},
-					"spriteSourceSize": {
-						"x": 64,
-						"y": 24,
-						"w": 211,
-						"h": 138
-					},
-					"frame": {
-						"x": 1504,
-						"y": 1334,
-						"w": 211,
-						"h": 138
-					}
-				},
-				{
-					"filename": "female/shirt-0",
-					"rotated": false,
-					"trimmed": true,
-					"sourceSize": {
-						"w": 172,
-						"h": 207
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 1,
-						"w": 172,
-						"h": 180
-					},
-					"frame": {
-						"x": 1107,
-						"y": 1435,
-						"w": 172,
-						"h": 180
-					}
-				},
-				{
-					"filename": "male/breeches-3",
-					"rotated": false,
-					"trimmed": true,
-					"sourceSize": {
-						"w": 175,
-						"h": 233
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 175,
-						"h": 168
-					},
-					"frame": {
-						"x": 928,
-						"y": 1465,
-						"w": 175,
-						"h": 168
-					}
-				},
-				{
-					"filename": "female/shirt-1",
-					"rotated": false,
-					"trimmed": true,
-					"sourceSize": {
-						"w": 172,
-						"h": 207
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 172,
-						"h": 180
-					},
-					"frame": {
-						"x": 1283,
-						"y": 1466,
-						"w": 172,
-						"h": 180
-					}
-				},
-				{
-					"filename": "female/shirt-default",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 170,
-						"h": 198
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 170,
-						"h": 198
-					},
-					"frame": {
-						"x": 1459,
-						"y": 1476,
-						"w": 170,
-						"h": 198
-					}
-				},
-				{
-					"filename": "female/shirt-3",
-					"rotated": false,
-					"trimmed": true,
-					"sourceSize": {
-						"w": 172,
-						"h": 207
-					},
-					"spriteSourceSize": {
-						"x": 2,
-						"y": 1,
-						"w": 168,
-						"h": 201
-					},
-					"frame": {
-						"x": 1633,
-						"y": 1476,
-						"w": 168,
-						"h": 201
-					}
-				},
-				{
-					"filename": "male/face-0",
-					"rotated": false,
-					"trimmed": true,
-					"sourceSize": {
-						"w": 154,
-						"h": 171
-					},
-					"spriteSourceSize": {
-						"x": 20,
-						"y": 45,
-						"w": 122,
-						"h": 94
-					},
-					"frame": {
-						"x": 1,
-						"y": 1750,
-						"w": 122,
-						"h": 94
-					}
-				},
-				{
-					"filename": "female/face-0",
-					"rotated": false,
-					"trimmed": true,
-					"sourceSize": {
-						"w": 154,
-						"h": 171
-					},
-					"spriteSourceSize": {
-						"x": 19,
-						"y": 56,
-						"w": 118,
-						"h": 83
-					},
-					"frame": {
-						"x": 127,
-						"y": 1750,
-						"w": 118,
-						"h": 83
+						"w": 320,
+						"h": 612
+					},
+					"anchor": {
+						"x": 0.5,
+						"y": 0.5
 					}
 				},
 				{
@@ -885,56 +124,368 @@
 						"h": 151
 					},
 					"frame": {
-						"x": 1107,
-						"y": 1619,
+						"x": 1,
+						"y": 1877,
 						"w": 170,
 						"h": 151
+					},
+					"anchor": {
+						"x": 0.482558,
+						"y": 0.355072
 					}
 				},
 				{
-					"filename": "male/breeches-default",
+					"filename": "part/body-0",
 					"rotated": false,
 					"trimmed": false,
 					"sourceSize": {
-						"w": 173,
-						"h": 139
+						"w": 165,
+						"h": 147
 					},
 					"spriteSourceSize": {
 						"x": 0,
 						"y": 0,
-						"w": 173,
-						"h": 139
+						"w": 165,
+						"h": 147
 					},
 					"frame": {
-						"x": 1281,
-						"y": 1650,
-						"w": 173,
-						"h": 139
+						"x": 175,
+						"y": 1877,
+						"w": 165,
+						"h": 147
+					},
+					"anchor": {
+						"x": 0.5,
+						"y": 0.5
 					}
 				},
 				{
-					"filename": "male/shirt-1",
+					"filename": "female/shadow-2",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 321,
+						"h": 609
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 321,
+						"h": 609
+					},
+					"frame": {
+						"x": 325,
+						"y": 1261,
+						"w": 321,
+						"h": 609
+					},
+					"anchor": {
+						"x": 0.5,
+						"y": 0.5
+					}
+				},
+				{
+					"filename": "part/body-1",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 165,
+						"h": 147
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 165,
+						"h": 147
+					},
+					"frame": {
+						"x": 344,
+						"y": 1874,
+						"w": 165,
+						"h": 147
+					},
+					"anchor": {
+						"x": 0.5,
+						"y": 0.5
+					}
+				},
+				{
+					"filename": "part/body-2",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 165,
+						"h": 147
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 165,
+						"h": 147
+					},
+					"frame": {
+						"x": 513,
+						"y": 1874,
+						"w": 165,
+						"h": 147
+					},
+					"anchor": {
+						"x": 0.5,
+						"y": 0.5
+					}
+				},
+				{
+					"filename": "male/shadow-3",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 320,
+						"h": 607
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 320,
+						"h": 607
+					},
+					"frame": {
+						"x": 342,
+						"y": 624,
+						"w": 320,
+						"h": 607
+					},
+					"anchor": {
+						"x": 0.5,
+						"y": 0.5
+					}
+				},
+				{
+					"filename": "male/shadow-1",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 320,
+						"h": 603
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 320,
+						"h": 603
+					},
+					"frame": {
+						"x": 650,
+						"y": 1235,
+						"w": 320,
+						"h": 603
+					},
+					"anchor": {
+						"x": 0.5,
+						"y": 0.5
+					}
+				},
+				{
+					"filename": "female/breeches-3",
 					"rotated": false,
 					"trimmed": true,
 					"sourceSize": {
-						"w": 172,
-						"h": 207
+						"w": 175,
+						"h": 233
 					},
 					"spriteSourceSize": {
-						"x": 1,
+						"x": 0,
 						"y": 0,
-						"w": 169,
-						"h": 164
+						"w": 175,
+						"h": 188
 					},
 					"frame": {
-						"x": 1458,
-						"y": 1678,
-						"w": 169,
-						"h": 164
+						"x": 682,
+						"y": 1842,
+						"w": 175,
+						"h": 188
+					},
+					"anchor": {
+						"x": 0.5,
+						"y": 0.0600858
 					}
 				},
 				{
-					"filename": "male/shirt-2",
+					"filename": "male/shadow-0",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 320,
+						"h": 600
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 320,
+						"h": 600
+					},
+					"frame": {
+						"x": 666,
+						"y": 624,
+						"w": 320,
+						"h": 600
+					},
+					"anchor": {
+						"x": 0.5,
+						"y": 0.5
+					}
+				},
+				{
+					"filename": "part/arm-0",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 86,
+						"h": 181
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 86,
+						"h": 181
+					},
+					"frame": {
+						"x": 861,
+						"y": 1842,
+						"w": 86,
+						"h": 181
+					},
+					"anchor": {
+						"x": 0.406977,
+						"y": 0.154696
+					}
+				},
+				{
+					"filename": "part/arm-1",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 86,
+						"h": 181
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 86,
+						"h": 181
+					},
+					"frame": {
+						"x": 951,
+						"y": 1842,
+						"w": 86,
+						"h": 181
+					},
+					"anchor": {
+						"x": 0.40698,
+						"y": 0.154696
+					}
+				},
+				{
+					"filename": "logo",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 461,
+						"h": 449
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 461,
+						"h": 449
+					},
+					"frame": {
+						"x": 974,
+						"y": 1228,
+						"w": 461,
+						"h": 449
+					},
+					"anchor": {
+						"x": 0.5,
+						"y": 0.5
+					}
+				},
+				{
+					"filename": "part/body-3",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 165,
+						"h": 147
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 165,
+						"h": 147
+					},
+					"frame": {
+						"x": 974,
+						"y": 1681,
+						"w": 165,
+						"h": 147
+					},
+					"anchor": {
+						"x": 0.5,
+						"y": 0.5
+					}
+				},
+				{
+					"filename": "female/breeches-0",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 175,
+						"h": 233
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 175,
+						"h": 203
+					},
+					"frame": {
+						"x": 1041,
+						"y": 1832,
+						"w": 175,
+						"h": 203
+					},
+					"anchor": {
+						"x": 0.5,
+						"y": 0.0600858
+					}
+				},
+				{
+					"filename": "male/arm-0",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 82,
+						"h": 145
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 82,
+						"h": 145
+					},
+					"frame": {
+						"x": 1143,
+						"y": 1681,
+						"w": 82,
+						"h": 145
+					},
+					"anchor": {
+						"x": 0.426829,
+						"y": 0.193103
+					}
+				},
+				{
+					"filename": "male/shirt-0",
 					"rotated": false,
 					"trimmed": true,
 					"sourceSize": {
@@ -944,140 +495,18 @@
 					"spriteSourceSize": {
 						"x": 3,
 						"y": 0,
-						"w": 166,
-						"h": 163
+						"w": 165,
+						"h": 202
 					},
 					"frame": {
-						"x": 1631,
-						"y": 1681,
-						"w": 166,
-						"h": 163
-					}
-				},
-				{
-					"filename": "body/arm-0",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 86,
-						"h": 181
+						"x": 1220,
+						"y": 1830,
+						"w": 165,
+						"h": 202
 					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 86,
-						"h": 181
-					},
-					"frame": {
-						"x": 310,
-						"y": 1505,
-						"w": 86,
-						"h": 181
-					}
-				},
-				{
-					"filename": "female/breeches-1",
-					"rotated": false,
-					"trimmed": true,
-					"sourceSize": {
-						"w": 175,
-						"h": 233
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 175,
-						"h": 123
-					},
-					"frame": {
-						"x": 400,
-						"y": 1486,
-						"w": 175,
-						"h": 123
-					}
-				},
-				{
-					"filename": "female/breeches-2",
-					"rotated": false,
-					"trimmed": true,
-					"sourceSize": {
-						"w": 175,
-						"h": 233
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 175,
-						"h": 121
-					},
-					"frame": {
-						"x": 400,
-						"y": 1613,
-						"w": 175,
-						"h": 121
-					}
-				},
-				{
-					"filename": "body/arm-1",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 86,
-						"h": 181
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 86,
-						"h": 181
-					},
-					"frame": {
-						"x": 579,
-						"y": 1486,
-						"w": 86,
-						"h": 181
-					}
-				},
-				{
-					"filename": "body/arm-2",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 86,
-						"h": 181
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 86,
-						"h": 181
-					},
-					"frame": {
-						"x": 669,
-						"y": 1467,
-						"w": 86,
-						"h": 181
-					}
-				},
-				{
-					"filename": "body/arm-3",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 86,
-						"h": 181
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 86,
-						"h": 181
-					},
-					"frame": {
-						"x": 759,
-						"y": 1467,
-						"w": 86,
-						"h": 181
+					"anchor": {
+						"x": 0.482558,
+						"y": 0.355072
 					}
 				},
 				{
@@ -1095,10 +524,14 @@
 						"h": 145
 					},
 					"frame": {
-						"x": 1687,
-						"y": 802,
+						"x": 1229,
+						"y": 1681,
 						"w": 82,
 						"h": 145
+					},
+					"anchor": {
+						"x": 0.426829,
+						"y": 0.193103
 					}
 				},
 				{
@@ -1116,31 +549,464 @@
 						"h": 144
 					},
 					"frame": {
-						"x": 1706,
-						"y": 951,
+						"x": 1315,
+						"y": 1681,
 						"w": 79,
 						"h": 144
+					},
+					"anchor": {
+						"x": 0.426829,
+						"y": 0.193103
 					}
 				},
 				{
-					"filename": "body/skin-0",
+					"filename": "male/shirt-3",
 					"rotated": false,
-					"trimmed": false,
+					"trimmed": true,
 					"sourceSize": {
-						"w": 92,
-						"h": 92
+						"w": 172,
+						"h": 207
 					},
 					"spriteSourceSize": {
 						"x": 0,
 						"y": 0,
-						"w": 92,
-						"h": 92
+						"w": 172,
+						"h": 206
 					},
 					"frame": {
-						"x": 579,
-						"y": 1671,
-						"w": 92,
-						"h": 92
+						"x": 1389,
+						"y": 1829,
+						"w": 172,
+						"h": 206
+					},
+					"anchor": {
+						"x": 0.482558,
+						"y": 0.355072
+					}
+				},
+				{
+					"filename": "male/hair-3",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 336,
+						"h": 267
+					},
+					"spriteSourceSize": {
+						"x": 46,
+						"y": 31,
+						"w": 244,
+						"h": 142
+					},
+					"frame": {
+						"x": 1398,
+						"y": 1681,
+						"w": 244,
+						"h": 142
+					},
+					"anchor": {
+						"x": 0.494048,
+						"y": 0.586142
+					}
+				},
+				{
+					"filename": "female/shirt-3",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 172,
+						"h": 207
+					},
+					"spriteSourceSize": {
+						"x": 2,
+						"y": 1,
+						"w": 168,
+						"h": 201
+					},
+					"frame": {
+						"x": 1565,
+						"y": 1827,
+						"w": 168,
+						"h": 201
+					},
+					"anchor": {
+						"x": 0.482558,
+						"y": 0.355072
+					}
+				},
+				{
+					"filename": "female/hair-1",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 336,
+						"h": 267
+					},
+					"spriteSourceSize": {
+						"x": 14,
+						"y": 3,
+						"w": 296,
+						"h": 247
+					},
+					"frame": {
+						"x": 1737,
+						"y": 1,
+						"w": 296,
+						"h": 247
+					},
+					"anchor": {
+						"x": 0.494048,
+						"y": 0.586142
+					}
+				},
+				{
+					"filename": "part/arm-2",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 86,
+						"h": 181
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 86,
+						"h": 181
+					},
+					"frame": {
+						"x": 1646,
+						"y": 1,
+						"w": 86,
+						"h": 181
+					},
+					"anchor": {
+						"x": 0.406977,
+						"y": 0.154696
+					}
+				},
+				{
+					"filename": "part/arm-3",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 86,
+						"h": 181
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 86,
+						"h": 181
+					},
+					"frame": {
+						"x": 1646,
+						"y": 186,
+						"w": 86,
+						"h": 181
+					},
+					"anchor": {
+						"x": 0.406977,
+						"y": 0.154696
+					}
+				},
+				{
+					"filename": "female/hair-0",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 336,
+						"h": 267
+					},
+					"spriteSourceSize": {
+						"x": 25,
+						"y": 18,
+						"w": 305,
+						"h": 241
+					},
+					"frame": {
+						"x": 674,
+						"y": 371,
+						"w": 305,
+						"h": 241
+					},
+					"anchor": {
+						"x": 0.494048,
+						"y": 0.586142
+					}
+				},
+				{
+					"filename": "female/hair-3",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 336,
+						"h": 267
+					},
+					"spriteSourceSize": {
+						"x": 5,
+						"y": 13,
+						"w": 308,
+						"h": 240
+					},
+					"frame": {
+						"x": 983,
+						"y": 371,
+						"w": 308,
+						"h": 240
+					},
+					"anchor": {
+						"x": 0.494048,
+						"y": 0.586142
+					}
+				},
+				{
+					"filename": "part/head-0",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 184,
+						"h": 174
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 184,
+						"h": 174
+					},
+					"frame": {
+						"x": 1439,
+						"y": 1,
+						"w": 184,
+						"h": 174
+					},
+					"anchor": {
+						"x": 0.5,
+						"y": 0.5
+					}
+				},
+				{
+					"filename": "female/face-2",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 154,
+						"h": 171
+					},
+					"spriteSourceSize": {
+						"x": 13,
+						"y": 48,
+						"w": 133,
+						"h": 110
+					},
+					"frame": {
+						"x": 1295,
+						"y": 1,
+						"w": 133,
+						"h": 110
+					},
+					"anchor": {
+						"x": 0.409091,
+						"y": 0.5
+					}
+				},
+				{
+					"filename": "female/shirt-0",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 172,
+						"h": 207
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 1,
+						"w": 172,
+						"h": 180
+					},
+					"frame": {
+						"x": 674,
+						"y": 179,
+						"w": 172,
+						"h": 180
+					},
+					"anchor": {
+						"x": 0.482558,
+						"y": 0.355072
+					}
+				},
+				{
+					"filename": "part/head-1",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 184,
+						"h": 174
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 184,
+						"h": 174
+					},
+					"frame": {
+						"x": 674,
+						"y": 1,
+						"w": 184,
+						"h": 174
+					},
+					"anchor": {
+						"x": 0.5,
+						"y": 0.5
+					}
+				},
+				{
+					"filename": "female/shirt-1",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 172,
+						"h": 207
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 172,
+						"h": 180
+					},
+					"frame": {
+						"x": 850,
+						"y": 179,
+						"w": 172,
+						"h": 180
+					},
+					"anchor": {
+						"x": 0.482558,
+						"y": 0.355072
+					}
+				},
+				{
+					"filename": "part/head-2",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 184,
+						"h": 174
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 184,
+						"h": 174
+					},
+					"frame": {
+						"x": 862,
+						"y": 1,
+						"w": 184,
+						"h": 174
+					},
+					"anchor": {
+						"x": 0.5,
+						"y": 0.5
+					}
+				},
+				{
+					"filename": "part/head-3",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 184,
+						"h": 174
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 184,
+						"h": 174
+					},
+					"frame": {
+						"x": 1026,
+						"y": 179,
+						"w": 184,
+						"h": 174
+					},
+					"anchor": {
+						"x": 0.5,
+						"y": 0.5
+					}
+				},
+				{
+					"filename": "male/hair-1",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 336,
+						"h": 267
+					},
+					"spriteSourceSize": {
+						"x": 66,
+						"y": 30,
+						"w": 217,
+						"h": 141
+					},
+					"frame": {
+						"x": 1214,
+						"y": 115,
+						"w": 217,
+						"h": 141
+					},
+					"anchor": {
+						"x": 0.494048,
+						"y": 0.586142
+					}
+				},
+				{
+					"filename": "button-frame",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 108,
+						"h": 108
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 108,
+						"h": 108
+					},
+					"frame": {
+						"x": 1050,
+						"y": 1,
+						"w": 108,
+						"h": 108
+					},
+					"anchor": {
+						"x": 0.5,
+						"y": 0.5
+					}
+				},
+				{
+					"filename": "button/color-0",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 108,
+						"h": 108
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 108,
+						"h": 108
+					},
+					"frame": {
+						"x": 1162,
+						"y": 1,
+						"w": 108,
+						"h": 108
+					},
+					"anchor": {
+						"x": 0.5,
+						"y": 0.5
 					}
 				},
 				{
@@ -1158,136 +1024,114 @@
 						"h": 105
 					},
 					"frame": {
-						"x": 675,
-						"y": 1652,
+						"x": 1214,
+						"y": 260,
 						"w": 117,
 						"h": 105
+					},
+					"anchor": {
+						"x": 0.409091,
+						"y": 0.5
 					}
 				},
 				{
-					"filename": "female/arm-1",
+					"filename": "male/breeches-0",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 175,
+						"h": 233
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 175,
+						"h": 233
+					},
+					"frame": {
+						"x": 1439,
+						"y": 179,
+						"w": 175,
+						"h": 233
+					},
+					"anchor": {
+						"x": 0.5,
+						"y": 0.0600858
+					}
+				},
+				{
+					"filename": "male/face-0",
 					"rotated": false,
 					"trimmed": true,
+					"sourceSize": {
+						"w": 154,
+						"h": 171
+					},
+					"spriteSourceSize": {
+						"x": 20,
+						"y": 45,
+						"w": 122,
+						"h": 94
+					},
+					"frame": {
+						"x": 1295,
+						"y": 369,
+						"w": 122,
+						"h": 94
+					},
+					"anchor": {
+						"x": 0.409091,
+						"y": 0.5
+					}
+				},
+				{
+					"filename": "button/female-active",
+					"rotated": false,
+					"trimmed": false,
 					"sourceSize": {
 						"w": 82,
-						"h": 145
+						"h": 82
 					},
 					"spriteSourceSize": {
-						"x": 1,
+						"x": 0,
 						"y": 0,
-						"w": 79,
-						"h": 119
+						"w": 82,
+						"h": 82
 					},
 					"frame": {
-						"x": 796,
-						"y": 1652,
-						"w": 79,
-						"h": 119
+						"x": 1335,
+						"y": 260,
+						"w": 82,
+						"h": 82
+					},
+					"anchor": {
+						"x": 0.5,
+						"y": 0.5
 					}
 				},
 				{
-					"filename": "female/face-3",
+					"filename": "female/hair-2",
 					"rotated": false,
 					"trimmed": true,
 					"sourceSize": {
-						"w": 154,
-						"h": 171
+						"w": 336,
+						"h": 267
 					},
 					"spriteSourceSize": {
-						"x": 22,
-						"y": 44,
-						"w": 118,
-						"h": 101
+						"x": 44,
+						"y": 27,
+						"w": 267,
+						"h": 235
 					},
 					"frame": {
-						"x": 879,
-						"y": 1637,
-						"w": 118,
-						"h": 101
-					}
-				},
-				{
-					"filename": "body/skin-1",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 92,
-						"h": 92
+						"x": 1737,
+						"y": 252,
+						"w": 267,
+						"h": 235
 					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 92,
-						"h": 92
-					},
-					"frame": {
-						"x": 1001,
-						"y": 1637,
-						"w": 92,
-						"h": 92
-					}
-				},
-				{
-					"filename": "female/face-1",
-					"rotated": false,
-					"trimmed": true,
-					"sourceSize": {
-						"w": 154,
-						"h": 171
-					},
-					"spriteSourceSize": {
-						"x": 23,
-						"y": 52,
-						"w": 116,
-						"h": 99
-					},
-					"frame": {
-						"x": 879,
-						"y": 1742,
-						"w": 116,
-						"h": 99
-					}
-				},
-				{
-					"filename": "body/skin-2",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 92,
-						"h": 92
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 92,
-						"h": 92
-					},
-					"frame": {
-						"x": 249,
-						"y": 1750,
-						"w": 92,
-						"h": 92
-					}
-				},
-				{
-					"filename": "frame",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 108,
-						"h": 108
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 108,
-						"h": 108
-					},
-					"frame": {
-						"x": 345,
-						"y": 1738,
-						"w": 108,
-						"h": 108
+					"anchor": {
+						"x": 0.494048,
+						"y": 0.586142
 					}
 				},
 				{
@@ -1305,10 +1149,189 @@
 						"h": 103
 					},
 					"frame": {
-						"x": 457,
-						"y": 1738,
+						"x": 1618,
+						"y": 371,
 						"w": 115,
 						"h": 103
+					},
+					"anchor": {
+						"x": 0.409091,
+						"y": 0.5
+					}
+				},
+				{
+					"filename": "male/breeches-1",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 175,
+						"h": 233
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 175,
+						"h": 233
+					},
+					"frame": {
+						"x": 1439,
+						"y": 416,
+						"w": 175,
+						"h": 233
+					},
+					"anchor": {
+						"x": 0.5,
+						"y": 0.0600858
+					}
+				},
+				{
+					"filename": "button/female-inactive",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 82,
+						"h": 82
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 82,
+						"h": 82
+					},
+					"frame": {
+						"x": 1646,
+						"y": 478,
+						"w": 82,
+						"h": 82
+					},
+					"anchor": {
+						"x": 0.5,
+						"y": 0.5
+					}
+				},
+				{
+					"filename": "female/face-3",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 154,
+						"h": 171
+					},
+					"spriteSourceSize": {
+						"x": 22,
+						"y": 44,
+						"w": 118,
+						"h": 101
+					},
+					"frame": {
+						"x": 1295,
+						"y": 467,
+						"w": 118,
+						"h": 101
+					},
+					"anchor": {
+						"x": 0.409091,
+						"y": 0.5
+					}
+				},
+				{
+					"filename": "female/face-0",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 154,
+						"h": 171
+					},
+					"spriteSourceSize": {
+						"x": 19,
+						"y": 56,
+						"w": 118,
+						"h": 83
+					},
+					"frame": {
+						"x": 1295,
+						"y": 572,
+						"w": 118,
+						"h": 83
+					},
+					"anchor": {
+						"x": 0.409091,
+						"y": 0.5
+					}
+				},
+				{
+					"filename": "male/hair-0",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 336,
+						"h": 267
+					},
+					"spriteSourceSize": {
+						"x": 68,
+						"y": 37,
+						"w": 215,
+						"h": 130
+					},
+					"frame": {
+						"x": 1737,
+						"y": 491,
+						"w": 215,
+						"h": 130
+					},
+					"anchor": {
+						"x": 0.494048,
+						"y": 0.586142
+					}
+				},
+				{
+					"filename": "female/arm-1",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 82,
+						"h": 145
+					},
+					"spriteSourceSize": {
+						"x": 1,
+						"y": 0,
+						"w": 79,
+						"h": 119
+					},
+					"frame": {
+						"x": 1956,
+						"y": 491,
+						"w": 79,
+						"h": 119
+					},
+					"anchor": {
+						"x": 0.426829,
+						"y": 0.193103
+					}
+				},
+				{
+					"filename": "button/male-active",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 82,
+						"h": 82
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 82,
+						"h": 82
+					},
+					"frame": {
+						"x": 1646,
+						"y": 564,
+						"w": 82,
+						"h": 82
+					},
+					"anchor": {
+						"x": 0.5,
+						"y": 0.5
 					}
 				},
 				{
@@ -1326,10 +1349,164 @@
 						"h": 71
 					},
 					"frame": {
-						"x": 1773,
-						"y": 802,
+						"x": 1956,
+						"y": 614,
 						"w": 68,
 						"h": 71
+					},
+					"anchor": {
+						"x": 0.426829,
+						"y": 0.193103
+					}
+				},
+				{
+					"filename": "male/hair-2",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 336,
+						"h": 267
+					},
+					"spriteSourceSize": {
+						"x": 64,
+						"y": 24,
+						"w": 211,
+						"h": 138
+					},
+					"frame": {
+						"x": 1737,
+						"y": 625,
+						"w": 211,
+						"h": 138
+					},
+					"anchor": {
+						"x": 0.494048,
+						"y": 0.586142
+					}
+				},
+				{
+					"filename": "button/male-inactive",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 82,
+						"h": 82
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 82,
+						"h": 82
+					},
+					"frame": {
+						"x": 1952,
+						"y": 689,
+						"w": 82,
+						"h": 82
+					},
+					"anchor": {
+						"x": 0.5,
+						"y": 0.5
+					}
+				},
+				{
+					"filename": "button/color-1",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 108,
+						"h": 108
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 108,
+						"h": 108
+					},
+					"frame": {
+						"x": 1618,
+						"y": 650,
+						"w": 108,
+						"h": 108
+					},
+					"anchor": {
+						"x": 0.5,
+						"y": 0.5
+					}
+				},
+				{
+					"filename": "male/breeches-2",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 175,
+						"h": 233
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 175,
+						"h": 233
+					},
+					"frame": {
+						"x": 1439,
+						"y": 653,
+						"w": 175,
+						"h": 233
+					},
+					"anchor": {
+						"x": 0.5,
+						"y": 0.0600858
+					}
+				},
+				{
+					"filename": "button/color-2",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 108,
+						"h": 108
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 108,
+						"h": 108
+					},
+					"frame": {
+						"x": 1618,
+						"y": 762,
+						"w": 108,
+						"h": 108
+					},
+					"anchor": {
+						"x": 0.5,
+						"y": 0.5
+					}
+				},
+				{
+					"filename": "part/legs-0",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 175,
+						"h": 233
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 175,
+						"h": 233
+					},
+					"frame": {
+						"x": 1737,
+						"y": 767,
+						"w": 175,
+						"h": 233
+					},
+					"anchor": {
+						"x": 0.5,
+						"y": 0.0600858
 					}
 				},
 				{
@@ -1347,115 +1524,1164 @@
 						"h": 101
 					},
 					"frame": {
-						"x": 1713,
-						"y": 1099,
+						"x": 1916,
+						"y": 775,
 						"w": 116,
 						"h": 101
+					},
+					"anchor": {
+						"x": 0.409091,
+						"y": 0.5
 					}
 				},
 				{
-					"filename": "body/skin-3",
+					"filename": "female/face-1",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 154,
+						"h": 171
+					},
+					"spriteSourceSize": {
+						"x": 23,
+						"y": 52,
+						"w": 116,
+						"h": 99
+					},
+					"frame": {
+						"x": 1916,
+						"y": 880,
+						"w": 116,
+						"h": 99
+					},
+					"anchor": {
+						"x": 0.409091,
+						"y": 0.5
+					}
+				},
+				{
+					"filename": "button/color-3",
 					"rotated": false,
 					"trimmed": false,
 					"sourceSize": {
-						"w": 92,
-						"h": 92
+						"w": 108,
+						"h": 108
 					},
 					"spriteSourceSize": {
 						"x": 0,
 						"y": 0,
-						"w": 92,
-						"h": 92
+						"w": 108,
+						"h": 108
 					},
 					"frame": {
-						"x": 1713,
-						"y": 1204,
-						"w": 92,
-						"h": 92
+						"x": 1618,
+						"y": 874,
+						"w": 108,
+						"h": 108
+					},
+					"anchor": {
+						"x": 0.5,
+						"y": 0.5
 					}
 				},
 				{
-					"filename": "icon/female-active",
+					"filename": "part/legs-1",
 					"rotated": false,
 					"trimmed": false,
 					"sourceSize": {
-						"w": 82,
-						"h": 82
+						"w": 175,
+						"h": 233
 					},
 					"spriteSourceSize": {
 						"x": 0,
 						"y": 0,
-						"w": 82,
-						"h": 82
+						"w": 175,
+						"h": 233
 					},
 					"frame": {
-						"x": 1719,
-						"y": 1300,
-						"w": 82,
-						"h": 82
+						"x": 1439,
+						"y": 890,
+						"w": 175,
+						"h": 233
+					},
+					"anchor": {
+						"x": 0.5,
+						"y": 0.0600858
 					}
 				},
 				{
-					"filename": "icon/female-passwive",
+					"filename": "button/female/breeches-0",
 					"rotated": false,
 					"trimmed": false,
 					"sourceSize": {
-						"w": 82,
-						"h": 82
+						"w": 108,
+						"h": 108
 					},
 					"spriteSourceSize": {
 						"x": 0,
 						"y": 0,
-						"w": 82,
-						"h": 82
+						"w": 108,
+						"h": 108
 					},
 					"frame": {
-						"x": 1719,
-						"y": 1386,
-						"w": 82,
-						"h": 82
+						"x": 1618,
+						"y": 986,
+						"w": 108,
+						"h": 108
+					},
+					"anchor": {
+						"x": 0.5,
+						"y": 0.5
 					}
 				},
 				{
-					"filename": "icon/male-active",
+					"filename": "button/female/breeches-1",
 					"rotated": false,
 					"trimmed": false,
 					"sourceSize": {
-						"w": 82,
-						"h": 82
+						"w": 108,
+						"h": 108
 					},
 					"spriteSourceSize": {
 						"x": 0,
 						"y": 0,
-						"w": 82,
-						"h": 82
+						"w": 108,
+						"h": 108
 					},
 					"frame": {
-						"x": 1001,
-						"y": 1733,
-						"w": 82,
-						"h": 82
+						"x": 1916,
+						"y": 983,
+						"w": 108,
+						"h": 108
+					},
+					"anchor": {
+						"x": 0.5,
+						"y": 0.5
 					}
 				},
 				{
-					"filename": "icon/male-passive",
+					"filename": "part/legs-2",
 					"rotated": false,
 					"trimmed": false,
 					"sourceSize": {
-						"w": 82,
-						"h": 82
+						"w": 175,
+						"h": 233
 					},
 					"spriteSourceSize": {
 						"x": 0,
 						"y": 0,
-						"w": 82,
-						"h": 82
+						"w": 175,
+						"h": 233
 					},
 					"frame": {
-						"x": 675,
-						"y": 1761,
-						"w": 82,
-						"h": 82
+						"x": 1737,
+						"y": 1004,
+						"w": 175,
+						"h": 233
+					},
+					"anchor": {
+						"x": 0.5,
+						"y": 0.0600858
+					}
+				},
+				{
+					"filename": "button/female/breeches-2",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 108,
+						"h": 108
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 108,
+						"h": 108
+					},
+					"frame": {
+						"x": 1618,
+						"y": 1098,
+						"w": 108,
+						"h": 108
+					},
+					"anchor": {
+						"x": 0.5,
+						"y": 0.5
+					}
+				},
+				{
+					"filename": "part/legs-3",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 175,
+						"h": 233
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 175,
+						"h": 233
+					},
+					"frame": {
+						"x": 1439,
+						"y": 1127,
+						"w": 175,
+						"h": 233
+					},
+					"anchor": {
+						"x": 0.5,
+						"y": 0.0600858
+					}
+				},
+				{
+					"filename": "button/female/breeches-3",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 108,
+						"h": 108
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 108,
+						"h": 108
+					},
+					"frame": {
+						"x": 1618,
+						"y": 1210,
+						"w": 108,
+						"h": 108
+					},
+					"anchor": {
+						"x": 0.5,
+						"y": 0.5
+					}
+				},
+				{
+					"filename": "button/female/face-0",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 108,
+						"h": 108
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 108,
+						"h": 108
+					},
+					"frame": {
+						"x": 1916,
+						"y": 1095,
+						"w": 108,
+						"h": 108
+					},
+					"anchor": {
+						"x": 0.5,
+						"y": 0.5
+					}
+				},
+				{
+					"filename": "button/female/face-1",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 108,
+						"h": 108
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 108,
+						"h": 108
+					},
+					"frame": {
+						"x": 1916,
+						"y": 1207,
+						"w": 108,
+						"h": 108
+					},
+					"anchor": {
+						"x": 0.5,
+						"y": 0.5
+					}
+				},
+				{
+					"filename": "male/breeches-3",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 175,
+						"h": 233
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 175,
+						"h": 168
+					},
+					"frame": {
+						"x": 1737,
+						"y": 1241,
+						"w": 175,
+						"h": 168
+					},
+					"anchor": {
+						"x": 0.5,
+						"y": 0.0600858
+					}
+				},
+				{
+					"filename": "button/female/face-2",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 108,
+						"h": 108
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 108,
+						"h": 108
+					},
+					"frame": {
+						"x": 1618,
+						"y": 1322,
+						"w": 108,
+						"h": 108
+					},
+					"anchor": {
+						"x": 0.5,
+						"y": 0.5
+					}
+				},
+				{
+					"filename": "female/breeches-1",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 175,
+						"h": 233
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 175,
+						"h": 123
+					},
+					"frame": {
+						"x": 1439,
+						"y": 1364,
+						"w": 175,
+						"h": 123
+					},
+					"anchor": {
+						"x": 0.5,
+						"y": 0.0600858
+					}
+				},
+				{
+					"filename": "button/female/face-3",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 108,
+						"h": 108
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 108,
+						"h": 108
+					},
+					"frame": {
+						"x": 1916,
+						"y": 1319,
+						"w": 108,
+						"h": 108
+					},
+					"anchor": {
+						"x": 0.5,
+						"y": 0.5
+					}
+				},
+				{
+					"filename": "female/breeches-2",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 175,
+						"h": 233
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 175,
+						"h": 121
+					},
+					"frame": {
+						"x": 1737,
+						"y": 1413,
+						"w": 175,
+						"h": 121
+					},
+					"anchor": {
+						"x": 0.5,
+						"y": 0.0600858
+					}
+				},
+				{
+					"filename": "male/breeches-default",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 173,
+						"h": 139
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 173,
+						"h": 139
+					},
+					"frame": {
+						"x": 1439,
+						"y": 1538,
+						"w": 173,
+						"h": 139
+					},
+					"anchor": {
+						"x": 0.5,
+						"y": 0.100719
+					}
+				},
+				{
+					"filename": "button/female/hair-0",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 108,
+						"h": 108
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 108,
+						"h": 108
+					},
+					"frame": {
+						"x": 1618,
+						"y": 1434,
+						"w": 108,
+						"h": 108
+					},
+					"anchor": {
+						"x": 0.5,
+						"y": 0.5
+					}
+				},
+				{
+					"filename": "button/female/hair-1",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 108,
+						"h": 108
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 108,
+						"h": 108
+					},
+					"frame": {
+						"x": 1916,
+						"y": 1431,
+						"w": 108,
+						"h": 108
+					},
+					"anchor": {
+						"x": 0.5,
+						"y": 0.5
+					}
+				},
+				{
+					"filename": "female/breeches-default",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 173,
+						"h": 101
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 173,
+						"h": 101
+					},
+					"frame": {
+						"x": 1737,
+						"y": 1538,
+						"w": 173,
+						"h": 101
+					},
+					"anchor": {
+						"x": 0.5,
+						"y": 0.138614
+					}
+				},
+				{
+					"filename": "button/female/hair-2",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 108,
+						"h": 108
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 108,
+						"h": 108
+					},
+					"frame": {
+						"x": 1616,
+						"y": 1546,
+						"w": 108,
+						"h": 108
+					},
+					"anchor": {
+						"x": 0.5,
+						"y": 0.5
+					}
+				},
+				{
+					"filename": "male/shirt-1",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 172,
+						"h": 207
+					},
+					"spriteSourceSize": {
+						"x": 1,
+						"y": 0,
+						"w": 169,
+						"h": 164
+					},
+					"frame": {
+						"x": 1646,
+						"y": 1658,
+						"w": 169,
+						"h": 164
+					},
+					"anchor": {
+						"x": 0.482558,
+						"y": 0.355072
+					}
+				},
+				{
+					"filename": "female/shirt-default",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 170,
+						"h": 198
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 170,
+						"h": 198
+					},
+					"frame": {
+						"x": 1737,
+						"y": 1826,
+						"w": 170,
+						"h": 198
+					},
+					"anchor": {
+						"x": 0.488235,
+						"y": 0.371212
+					}
+				},
+				{
+					"filename": "button/female/hair-3",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 108,
+						"h": 108
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 108,
+						"h": 108
+					},
+					"frame": {
+						"x": 1914,
+						"y": 1543,
+						"w": 108,
+						"h": 108
+					},
+					"anchor": {
+						"x": 0.5,
+						"y": 0.5
+					}
+				},
+				{
+					"filename": "male/shirt-2",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 172,
+						"h": 207
+					},
+					"spriteSourceSize": {
+						"x": 3,
+						"y": 0,
+						"w": 166,
+						"h": 163
+					},
+					"frame": {
+						"x": 1819,
+						"y": 1655,
+						"w": 166,
+						"h": 163
+					},
+					"anchor": {
+						"x": 0.482558,
+						"y": 0.355072
+					}
+				},
+				{
+					"filename": "button/female/shirt-0",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 108,
+						"h": 108
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 108,
+						"h": 108
+					},
+					"frame": {
+						"x": 1911,
+						"y": 1822,
+						"w": 108,
+						"h": 108
+					},
+					"anchor": {
+						"x": 0.5,
+						"y": 0.5
+					}
+				},
+				{
+					"filename": "button/female/shirt-1",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 108,
+						"h": 108
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 108,
+						"h": 108
+					},
+					"frame": {
+						"x": 990,
+						"y": 615,
+						"w": 108,
+						"h": 108
+					},
+					"anchor": {
+						"x": 0.5,
+						"y": 0.5
+					}
+				},
+				{
+					"filename": "button/female/shirt-2",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 108,
+						"h": 108
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 108,
+						"h": 108
+					},
+					"frame": {
+						"x": 1102,
+						"y": 615,
+						"w": 108,
+						"h": 108
+					},
+					"anchor": {
+						"x": 0.5,
+						"y": 0.5
+					}
+				},
+				{
+					"filename": "button/female/shirt-3",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 108,
+						"h": 108
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 108,
+						"h": 108
+					},
+					"frame": {
+						"x": 1214,
+						"y": 659,
+						"w": 108,
+						"h": 108
+					},
+					"anchor": {
+						"x": 0.5,
+						"y": 0.5
+					}
+				},
+				{
+					"filename": "button/male/breeches-0",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 108,
+						"h": 108
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 108,
+						"h": 108
+					},
+					"frame": {
+						"x": 1326,
+						"y": 659,
+						"w": 108,
+						"h": 108
+					},
+					"anchor": {
+						"x": 0.5,
+						"y": 0.5
+					}
+				},
+				{
+					"filename": "button/male/breeches-1",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 108,
+						"h": 108
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 108,
+						"h": 108
+					},
+					"frame": {
+						"x": 990,
+						"y": 727,
+						"w": 108,
+						"h": 108
+					},
+					"anchor": {
+						"x": 0.5,
+						"y": 0.5
+					}
+				},
+				{
+					"filename": "button/male/breeches-2",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 108,
+						"h": 108
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 108,
+						"h": 108
+					},
+					"frame": {
+						"x": 1102,
+						"y": 727,
+						"w": 108,
+						"h": 108
+					},
+					"anchor": {
+						"x": 0.5,
+						"y": 0.5
+					}
+				},
+				{
+					"filename": "button/male/breeches-3",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 108,
+						"h": 108
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 108,
+						"h": 108
+					},
+					"frame": {
+						"x": 1214,
+						"y": 771,
+						"w": 108,
+						"h": 108
+					},
+					"anchor": {
+						"x": 0.5,
+						"y": 0.5
+					}
+				},
+				{
+					"filename": "button/male/face-0",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 108,
+						"h": 108
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 108,
+						"h": 108
+					},
+					"frame": {
+						"x": 1326,
+						"y": 771,
+						"w": 108,
+						"h": 108
+					},
+					"anchor": {
+						"x": 0.5,
+						"y": 0.5
+					}
+				},
+				{
+					"filename": "button/male/face-1",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 108,
+						"h": 108
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 108,
+						"h": 108
+					},
+					"frame": {
+						"x": 990,
+						"y": 839,
+						"w": 108,
+						"h": 108
+					},
+					"anchor": {
+						"x": 0.5,
+						"y": 0.5
+					}
+				},
+				{
+					"filename": "button/male/face-2",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 108,
+						"h": 108
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 108,
+						"h": 108
+					},
+					"frame": {
+						"x": 1102,
+						"y": 839,
+						"w": 108,
+						"h": 108
+					},
+					"anchor": {
+						"x": 0.5,
+						"y": 0.5
+					}
+				},
+				{
+					"filename": "button/male/face-3",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 108,
+						"h": 108
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 108,
+						"h": 108
+					},
+					"frame": {
+						"x": 1214,
+						"y": 883,
+						"w": 108,
+						"h": 108
+					},
+					"anchor": {
+						"x": 0.5,
+						"y": 0.5
+					}
+				},
+				{
+					"filename": "button/male/hair-0",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 108,
+						"h": 108
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 108,
+						"h": 108
+					},
+					"frame": {
+						"x": 1326,
+						"y": 883,
+						"w": 108,
+						"h": 108
+					},
+					"anchor": {
+						"x": 0.5,
+						"y": 0.5
+					}
+				},
+				{
+					"filename": "button/male/hair-1",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 108,
+						"h": 108
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 108,
+						"h": 108
+					},
+					"frame": {
+						"x": 990,
+						"y": 951,
+						"w": 108,
+						"h": 108
+					},
+					"anchor": {
+						"x": 0.5,
+						"y": 0.5
+					}
+				},
+				{
+					"filename": "button/male/hair-2",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 108,
+						"h": 108
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 108,
+						"h": 108
+					},
+					"frame": {
+						"x": 1102,
+						"y": 951,
+						"w": 108,
+						"h": 108
+					},
+					"anchor": {
+						"x": 0.5,
+						"y": 0.5
+					}
+				},
+				{
+					"filename": "button/male/hair-3",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 108,
+						"h": 108
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 108,
+						"h": 108
+					},
+					"frame": {
+						"x": 990,
+						"y": 1063,
+						"w": 108,
+						"h": 108
+					},
+					"anchor": {
+						"x": 0.5,
+						"y": 0.5
+					}
+				},
+				{
+					"filename": "button/male/shirt-0",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 108,
+						"h": 108
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 108,
+						"h": 108
+					},
+					"frame": {
+						"x": 1102,
+						"y": 1063,
+						"w": 108,
+						"h": 108
+					},
+					"anchor": {
+						"x": 0.5,
+						"y": 0.5
+					}
+				},
+				{
+					"filename": "button/male/shirt-1",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 108,
+						"h": 108
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 108,
+						"h": 108
+					},
+					"frame": {
+						"x": 1214,
+						"y": 995,
+						"w": 108,
+						"h": 108
+					},
+					"anchor": {
+						"x": 0.5,
+						"y": 0.5
+					}
+				},
+				{
+					"filename": "button/male/shirt-2",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 108,
+						"h": 108
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 108,
+						"h": 108
+					},
+					"frame": {
+						"x": 1326,
+						"y": 995,
+						"w": 108,
+						"h": 108
+					},
+					"anchor": {
+						"x": 0.5,
+						"y": 0.5
+					}
+				},
+				{
+					"filename": "button/male/shirt-3",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 108,
+						"h": 108
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 108,
+						"h": 108
+					},
+					"frame": {
+						"x": 1214,
+						"y": 1107,
+						"w": 108,
+						"h": 108
+					},
+					"anchor": {
+						"x": 0.5,
+						"y": 0.5
+					}
+				},
+				{
+					"filename": "frame",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 108,
+						"h": 108
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 108,
+						"h": 108
+					},
+					"frame": {
+						"x": 1326,
+						"y": 1107,
+						"w": 108,
+						"h": 108
+					},
+					"anchor": {
+						"x": 0.5,
+						"y": 0.5
 					}
 				}
 			]
@@ -1464,6 +2690,6 @@
 	"meta": {
 		"app": "https://www.codeandweb.com/texturepacker",
 		"version": "3.0",
-		"smartupdate": "$TexturePacker:SmartUpdate:a792e04e65f836b311bd79ac7c524277:b4b1349fe2db0cda304e244883017e5e:5d4b6864684bc48387365e911f120a44$"
+		"smartupdate": "$TexturePacker:SmartUpdate:6067401a5cd1dc3f455bab6ad5a66553:855bab4aa4256a18edd78957d51a0a5a:5d4b6864684bc48387365e911f120a44$"
 	}
 }

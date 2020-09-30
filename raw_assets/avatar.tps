@@ -177,14 +177,48 @@
             <key>defaultPivotPoint</key>
             <point_f>0.5,0.5</point_f>
             <key>writePivotPoints</key>
-            <false/>
+            <true/>
         </struct>
         <key>individualSpriteSettings</key>
         <map type="IndividualSpriteSettingsMap">
-            <key type="filename">avatar/body/arm-0.png</key>
-            <key type="filename">avatar/body/arm-1.png</key>
-            <key type="filename">avatar/body/arm-2.png</key>
-            <key type="filename">avatar/body/arm-3.png</key>
+            <key type="filename">avatar/button-frame.png</key>
+            <key type="filename">avatar/button/color-0.png</key>
+            <key type="filename">avatar/button/color-1.png</key>
+            <key type="filename">avatar/button/color-2.png</key>
+            <key type="filename">avatar/button/color-3.png</key>
+            <key type="filename">avatar/button/female/breeches-0.png</key>
+            <key type="filename">avatar/button/female/breeches-1.png</key>
+            <key type="filename">avatar/button/female/breeches-2.png</key>
+            <key type="filename">avatar/button/female/breeches-3.png</key>
+            <key type="filename">avatar/button/female/face-0.png</key>
+            <key type="filename">avatar/button/female/face-1.png</key>
+            <key type="filename">avatar/button/female/face-2.png</key>
+            <key type="filename">avatar/button/female/face-3.png</key>
+            <key type="filename">avatar/button/female/hair-0.png</key>
+            <key type="filename">avatar/button/female/hair-1.png</key>
+            <key type="filename">avatar/button/female/hair-2.png</key>
+            <key type="filename">avatar/button/female/hair-3.png</key>
+            <key type="filename">avatar/button/female/shirt-0.png</key>
+            <key type="filename">avatar/button/female/shirt-1.png</key>
+            <key type="filename">avatar/button/female/shirt-2.png</key>
+            <key type="filename">avatar/button/female/shirt-3.png</key>
+            <key type="filename">avatar/button/male/breeches-0.png</key>
+            <key type="filename">avatar/button/male/breeches-1.png</key>
+            <key type="filename">avatar/button/male/breeches-2.png</key>
+            <key type="filename">avatar/button/male/breeches-3.png</key>
+            <key type="filename">avatar/button/male/face-0.png</key>
+            <key type="filename">avatar/button/male/face-1.png</key>
+            <key type="filename">avatar/button/male/face-2.png</key>
+            <key type="filename">avatar/button/male/face-3.png</key>
+            <key type="filename">avatar/button/male/hair-0.png</key>
+            <key type="filename">avatar/button/male/hair-1.png</key>
+            <key type="filename">avatar/button/male/hair-2.png</key>
+            <key type="filename">avatar/button/male/hair-3.png</key>
+            <key type="filename">avatar/button/male/shirt-0.png</key>
+            <key type="filename">avatar/button/male/shirt-1.png</key>
+            <key type="filename">avatar/button/male/shirt-2.png</key>
+            <key type="filename">avatar/button/male/shirt-3.png</key>
+            <key type="filename">avatar/frame.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0.5,0.5</point_f>
@@ -193,16 +227,16 @@
                 <key>scale9Enabled</key>
                 <false/>
                 <key>scale9Borders</key>
-                <rect>22,45,43,91</rect>
+                <rect>27,27,54,54</rect>
                 <key>scale9Paddings</key>
-                <rect>22,45,43,91</rect>
+                <rect>27,27,54,54</rect>
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
-            <key type="filename">avatar/body/head-0.png</key>
-            <key type="filename">avatar/body/head-1.png</key>
-            <key type="filename">avatar/body/head-2.png</key>
-            <key type="filename">avatar/body/head-3.png</key>
+            <key type="filename">avatar/button/female-active.png</key>
+            <key type="filename">avatar/button/female-inactive.png</key>
+            <key type="filename">avatar/button/male-active.png</key>
+            <key type="filename">avatar/button/male-inactive.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0.5,0.5</point_f>
@@ -211,53 +245,9 @@
                 <key>scale9Enabled</key>
                 <false/>
                 <key>scale9Borders</key>
-                <rect>46,44,92,87</rect>
+                <rect>21,21,41,41</rect>
                 <key>scale9Paddings</key>
-                <rect>46,44,92,87</rect>
-                <key>scale9FromFile</key>
-                <false/>
-            </struct>
-            <key type="filename">avatar/body/legs-0.png</key>
-            <key type="filename">avatar/body/legs-1.png</key>
-            <key type="filename">avatar/body/legs-2.png</key>
-            <key type="filename">avatar/body/legs-3.png</key>
-            <key type="filename">avatar/female/breeches-0.png</key>
-            <key type="filename">avatar/female/breeches-1.png</key>
-            <key type="filename">avatar/female/breeches-2.png</key>
-            <key type="filename">avatar/female/breeches-3.png</key>
-            <key type="filename">avatar/male/breeches-0.png</key>
-            <key type="filename">avatar/male/breeches-1.png</key>
-            <key type="filename">avatar/male/breeches-2.png</key>
-            <key type="filename">avatar/male/breeches-3.png</key>
-            <struct type="IndividualSpriteSettings">
-                <key>pivotPoint</key>
-                <point_f>0.5,0.5</point_f>
-                <key>spriteScale</key>
-                <double>1</double>
-                <key>scale9Enabled</key>
-                <false/>
-                <key>scale9Borders</key>
-                <rect>44,58,87,117</rect>
-                <key>scale9Paddings</key>
-                <rect>44,58,87,117</rect>
-                <key>scale9FromFile</key>
-                <false/>
-            </struct>
-            <key type="filename">avatar/body/skin-0.png</key>
-            <key type="filename">avatar/body/skin-1.png</key>
-            <key type="filename">avatar/body/skin-2.png</key>
-            <key type="filename">avatar/body/skin-3.png</key>
-            <struct type="IndividualSpriteSettings">
-                <key>pivotPoint</key>
-                <point_f>0.5,0.5</point_f>
-                <key>spriteScale</key>
-                <double>1</double>
-                <key>scale9Enabled</key>
-                <false/>
-                <key>scale9Borders</key>
-                <rect>23,23,46,46</rect>
-                <key>scale9Paddings</key>
-                <rect>23,23,46,46</rect>
+                <rect>21,21,41,41</rect>
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
@@ -268,7 +258,7 @@
             <key type="filename">avatar/male/arm-2.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
-                <point_f>0.5,0.5</point_f>
+                <point_f>0.426829,0.193103</point_f>
                 <key>spriteScale</key>
                 <double>1</double>
                 <key>scale9Enabled</key>
@@ -280,10 +270,36 @@
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
+            <key type="filename">avatar/female/breeches-0.png</key>
+            <key type="filename">avatar/female/breeches-1.png</key>
+            <key type="filename">avatar/female/breeches-2.png</key>
+            <key type="filename">avatar/female/breeches-3.png</key>
+            <key type="filename">avatar/male/breeches-0.png</key>
+            <key type="filename">avatar/male/breeches-1.png</key>
+            <key type="filename">avatar/male/breeches-2.png</key>
+            <key type="filename">avatar/male/breeches-3.png</key>
+            <key type="filename">avatar/part/legs-0.png</key>
+            <key type="filename">avatar/part/legs-1.png</key>
+            <key type="filename">avatar/part/legs-2.png</key>
+            <key type="filename">avatar/part/legs-3.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.0600858</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>44,58,87,117</rect>
+                <key>scale9Paddings</key>
+                <rect>44,58,87,117</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
             <key type="filename">avatar/female/breeches-default.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
-                <point_f>0.5,0.5</point_f>
+                <point_f>0.5,0.138614</point_f>
                 <key>spriteScale</key>
                 <double>1</double>
                 <key>scale9Enabled</key>
@@ -305,7 +321,7 @@
             <key type="filename">avatar/male/face-3.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
-                <point_f>0.5,0.5</point_f>
+                <point_f>0.409091,0.5</point_f>
                 <key>spriteScale</key>
                 <double>1</double>
                 <key>scale9Enabled</key>
@@ -327,7 +343,7 @@
             <key type="filename">avatar/male/hair-3.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
-                <point_f>0.5,0.5</point_f>
+                <point_f>0.494048,0.586142</point_f>
                 <key>spriteScale</key>
                 <double>1</double>
                 <key>scale9Enabled</key>
@@ -409,7 +425,7 @@
             <key type="filename">avatar/male/shirt-3.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
-                <point_f>0.5,0.5</point_f>
+                <point_f>0.482558,0.355072</point_f>
                 <key>spriteScale</key>
                 <double>1</double>
                 <key>scale9Enabled</key>
@@ -424,7 +440,7 @@
             <key type="filename">avatar/female/shirt-default.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
-                <point_f>0.5,0.5</point_f>
+                <point_f>0.488235,0.371212</point_f>
                 <key>spriteScale</key>
                 <double>1</double>
                 <key>scale9Enabled</key>
@@ -436,7 +452,7 @@
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
-            <key type="filename">avatar/frame.png</key>
+            <key type="filename">avatar/logo.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0.5,0.5</point_f>
@@ -445,34 +461,16 @@
                 <key>scale9Enabled</key>
                 <false/>
                 <key>scale9Borders</key>
-                <rect>27,27,54,54</rect>
+                <rect>115,112,231,225</rect>
                 <key>scale9Paddings</key>
-                <rect>27,27,54,54</rect>
-                <key>scale9FromFile</key>
-                <false/>
-            </struct>
-            <key type="filename">avatar/icon/female-active.png</key>
-            <key type="filename">avatar/icon/female-passwive.png</key>
-            <key type="filename">avatar/icon/male-active.png</key>
-            <key type="filename">avatar/icon/male-passive.png</key>
-            <struct type="IndividualSpriteSettings">
-                <key>pivotPoint</key>
-                <point_f>0.5,0.5</point_f>
-                <key>spriteScale</key>
-                <double>1</double>
-                <key>scale9Enabled</key>
-                <false/>
-                <key>scale9Borders</key>
-                <rect>21,21,41,41</rect>
-                <key>scale9Paddings</key>
-                <rect>21,21,41,41</rect>
+                <rect>115,112,231,225</rect>
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
             <key type="filename">avatar/male/breeches-default.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
-                <point_f>0.5,0.5</point_f>
+                <point_f>0.5,0.100719</point_f>
                 <key>spriteScale</key>
                 <double>1</double>
                 <key>scale9Enabled</key>
@@ -541,6 +539,74 @@
                 <rect>80,152,160,303</rect>
                 <key>scale9Paddings</key>
                 <rect>80,152,160,303</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">avatar/part/arm-0.png</key>
+            <key type="filename">avatar/part/arm-2.png</key>
+            <key type="filename">avatar/part/arm-3.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.406977,0.154696</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>22,45,43,91</rect>
+                <key>scale9Paddings</key>
+                <rect>22,45,43,91</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">avatar/part/arm-1.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.40698,0.154696</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>22,45,43,91</rect>
+                <key>scale9Paddings</key>
+                <rect>22,45,43,91</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">avatar/part/body-0.png</key>
+            <key type="filename">avatar/part/body-1.png</key>
+            <key type="filename">avatar/part/body-2.png</key>
+            <key type="filename">avatar/part/body-3.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>41,37,83,73</rect>
+                <key>scale9Paddings</key>
+                <rect>41,37,83,73</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">avatar/part/head-0.png</key>
+            <key type="filename">avatar/part/head-1.png</key>
+            <key type="filename">avatar/part/head-2.png</key>
+            <key type="filename">avatar/part/head-3.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>46,44,92,87</rect>
+                <key>scale9Paddings</key>
+                <rect>46,44,92,87</rect>
                 <key>scale9FromFile</key>
                 <false/>
             </struct>

@@ -4,6 +4,7 @@ import BaseScene from './BaseScene';
 export default class LoginScene extends BaseScene {
   public static NAME: string = 'LoginScene';
   public static SHOW_LOGIN_WINDOW_NOTIFICATION: string = `${LoginScene.NAME}ShowLoginWindowNotification`;
+  public static LOGIN_COMPLETE_NOTIFICATION: string = `${LoginScene.NAME}LoginCompleteNotification`;
 
   private background: Phaser.GameObjects.Image;
 
