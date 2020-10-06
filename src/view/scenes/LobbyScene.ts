@@ -6,11 +6,11 @@ import Avatar from '../components/avatar/Avatar';
 import ISimpleButtonState from '../utils/simpleButton/ISimpleButtonState';
 import ISimpleButtonText from '../utils/simpleButton/ISimpleButtonText';
 import SimpleButton, {
-  ISimpleButtonConfig,
+  ISimpleButtonConfig
 } from '../utils/simpleButton/SimpleButton';
 import {
   ISpriteButtonConfig,
-  ISpriteButtonState,
+  ISpriteButtonState
 } from '../utils/simpleButton/SimpleButtonInterfaces';
 import { SpriteButton } from '../utils/simpleButton/SpriteButton';
 import BaseScene from './BaseScene';
@@ -71,6 +71,7 @@ export default class LobbyScene extends BaseScene {
 
   public setAvatarConfig(config: IAvatarConfig): void {
     this.avatarConfig = config;
+    this.avatar.setConfig(config)
   }
 
   protected createBackgrounds(): void {

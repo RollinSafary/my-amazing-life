@@ -3,6 +3,7 @@ import StartupCommand from './controller/StartupCommand';
 import Game from './Game';
 import AvatarSceneMediator from './view/scenes/AvatarSceneMediator';
 import BootSceneMediator from './view/scenes/BootSceneMediator';
+import LifeStyleSceneMediator from './view/scenes/LifeStyleSceneMediator';
 import LoadingSceneMediator from './view/scenes/LoadingSceneMediator';
 import LobbySceneMediator from './view/scenes/LobbySceneMediator';
 import LoginSceneMediator from './view/scenes/LoginSceneMediator';
@@ -74,6 +75,7 @@ export default class GameFacade extends Facade {
     this.registerMediator(new LoginSceneMediator());
     this.registerMediator(new AvatarSceneMediator());
     this.registerMediator(new LobbySceneMediator());
+    this.registerMediator(new LifeStyleSceneMediator());
   }
 
   private startup(): void {
