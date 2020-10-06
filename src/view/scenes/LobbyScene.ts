@@ -15,8 +15,23 @@ import {
 import { SpriteButton } from '../utils/simpleButton/SpriteButton';
 import BaseScene from './BaseScene';
 
+export enum LobbyAction {
+  LIFESTYLE,
+  PERSONALITY,
+  HOBBIES,
+  SKILLS,
+  BACK,
+  HELP,
+  RESULTS,
+}
+
 export default class LobbyScene extends BaseScene {
   public static NAME: string = 'LobbyScene';
+  public static ACTION_DONE_EVENT: string = 'actionDone';
+  public static BACK_NOTIFICATION: string = `${LobbyScene.NAME}BackNotification`;
+  public static HELP_NOTIFICATION: string = `${LobbyScene.NAME}HelpNotification`;
+  public static RESULTS_NOTIFICATION: string = `${LobbyScene.NAME}ShowResultsNotification`;
+  public static GAME_CHOSE_NOTIFICATION: string = `${LobbyScene.NAME}GameChoseNotification`;
 
   protected leftBackground: Phaser.GameObjects.Image;
   protected rightBackground: Phaser.GameObjects.Image;
@@ -41,6 +56,7 @@ export default class LobbyScene extends BaseScene {
     this.createSections();
     this.createAvatar();
     this.createButtons();
+    this.setListeners();
   }
 
   public showResultsButton(): void {
@@ -269,6 +285,42 @@ export default class LobbyScene extends BaseScene {
   protected changeSectionState(target: SpriteButton, enabled: boolean): void {
     target.setEnabled(enabled);
     target.setAlpha(enabled ? 1 : 0.3);
+  }
+
+  protected setListeners(): void {
+    this.lifeStyle.on(
+      SpriteButton.CLICK_EVENT,
+      this.onAction.bind(this, LobbyAction.LIFESTYLE),
+    );
+    this.personality.on(
+      SpriteButton.CLICK_EVENT,
+      this.onAction.bind(this, LobbyAction.PERSONALITY),
+    );
+    this.hobbies.on(
+      SpriteButton.CLICK_EVENT,
+      this.onAction.bind(this, LobbyAction.HOBBIES),
+    );
+    this.skills.on(
+      SpriteButton.CLICK_EVENT,
+      this.onAction.bind(this, LobbyAction.SKILLS),
+    );
+
+    this.backButton.on(
+      SpriteButton.CLICK_EVENT,
+      this.onAction.bind(this, LobbyAction.BACK),
+    );
+    this.helpButton.on(
+      SpriteButton.CLICK_EVENT,
+      this.onAction.bind(this, LobbyAction.HELP),
+    );
+    this.resultsButton.on(
+      SpriteButton.CLICK_EVENT,
+      this.onAction.bind(this, LobbyAction.RESULTS),
+    );
+  }
+
+  protected onAction(action: LobbyAction): void {
+    this.events.emit(LobbyScene.ACTION_DONE_EVENT, action);
   }
 
   get difY(): number {

@@ -1,7 +1,7 @@
 import PlayerVOProxy from '../../model/PlayerVOProxy';
 import UiVOProxy from '../../model/UiVOProxy';
 import BaseSceneMediator from './BaseSceneMediator';
-import LobbyScene from './LobbyScene';
+import LobbyScene, { LobbyAction } from './LobbyScene';
 
 export default class LobbySceneMediator extends BaseSceneMediator<LobbyScene> {
   public static NAME: string = 'LobbySceneMediator';
@@ -51,6 +51,35 @@ export default class LobbySceneMediator extends BaseSceneMediator<LobbyScene> {
 
   protected setViewComponentListeners(): void {
     super.setViewComponentListeners();
+    this.viewComponent.events.on(
+      LobbyScene.ACTION_DONE_EVENT,
+      this.onAction,
+      this,
+    );
+  }
+
+  protected onAction(action: LobbyAction): void {
+    switch (action) {
+      case LobbyAction.BACK:
+        this.stopScene();
+        this.sendNotification(LobbyScene.BACK_NOTIFICATION);
+        break;
+      case LobbyAction.HELP:
+        this.sendNotification(LobbyScene.HELP_NOTIFICATION);
+        break;
+      case LobbyAction.RESULTS:
+        this.sendNotification(LobbyScene.RESULTS_NOTIFICATION);
+        break;
+      case LobbyAction.LIFESTYLE:
+      case LobbyAction.PERSONALITY:
+      case LobbyAction.HOBBIES:
+      case LobbyAction.SKILLS:
+        this.stopScene();
+        this.sendNotification(LobbyScene.GAME_CHOSE_NOTIFICATION, action);
+        break;
+      default:
+        break;
+    }
   }
 
   get uiVOProxy(): UiVOProxy {

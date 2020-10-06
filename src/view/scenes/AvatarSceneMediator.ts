@@ -4,6 +4,7 @@ import AvatarSkinsMediator from '../components/avatar/AvatarSkinsMediator';
 import { delayRunnable } from '../utils/phaser/PhaserUtils';
 import AvatarScene, { AvatarAction } from './AvatarScene';
 import BaseSceneMediator from './BaseSceneMediator';
+import LobbyScene from './LobbyScene';
 import LoginScene from './LoginScene';
 
 export default class AvatarSceneMediator extends BaseSceneMediator<
@@ -18,12 +19,14 @@ export default class AvatarSceneMediator extends BaseSceneMediator<
   public registerNotificationInterests(): void {
     this.subscribeToNotifications(
       LoginScene.LOGIN_COMPLETE_NOTIFICATION,
+      LobbyScene.BACK_NOTIFICATION,
       UiVOProxy.AVATAR_CONFIGURATION_SAVED_NOTIFICATION,
     );
   }
 
   public handleNotification(notificationName: string): void {
     switch (notificationName) {
+      case LobbyScene.BACK_NOTIFICATION:
       case LoginScene.LOGIN_COMPLETE_NOTIFICATION:
         this.sceneManager.start(AvatarScene.NAME);
         this.fadeScreenIn();
