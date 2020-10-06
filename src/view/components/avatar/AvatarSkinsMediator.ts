@@ -12,7 +12,7 @@ export default class AvatarSkinsMediator extends BaseMediator<AvatarSkins> {
   public onRegister(): void {
     super.onRegister();
     this.setView();
-    this.viewComponent.updateGender(this.uiVOProxy.vo.avatar.gender);
+    this.viewComponent.updateGender(this.proxy.vo.avatar.gender);
   }
 
   public registerNotificationInterests(): void {
@@ -24,7 +24,7 @@ export default class AvatarSkinsMediator extends BaseMediator<AvatarSkins> {
   public handleNotification(notificationName: string, ...args: any[]): void {
     switch (notificationName) {
       case UiVOProxy.AVATAR_CONFIGURATION_UPDATED_NOTIFICATION:
-        this.viewComponent.updateGender(this.uiVOProxy.vo.avatar.gender);
+        this.viewComponent.updateGender(this.proxy.vo.avatar.gender);
         break;
       default:
         break;
@@ -53,7 +53,7 @@ export default class AvatarSkinsMediator extends BaseMediator<AvatarSkins> {
     );
   }
 
-  get uiVOProxy(): UiVOProxy {
+  get proxy(): UiVOProxy {
     return this.facade.retrieveProxy(UiVOProxy.NAME);
   }
 }

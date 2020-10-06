@@ -1,6 +1,7 @@
 import firebase from 'firebase/app';
 import 'firebase/auth';
 import 'firebase/firestore';
+import { defaultAvatarConfig } from '../../constants/Constants';
 
 enum FIREBASE_DB_CONFIG {
   API_KEY = 'AIzaSyDILNasiVhaX5X4VEJPmhlFCawZZg3juIc',
@@ -107,30 +108,30 @@ export async function getUserDataByEmail(email: string): Promise<any> {
   });
 }
 
-export async function getFSDataAsync(docId: string): Promise<any> {
+export async function getFSDataAsync(email: string): Promise<any> {
   try {
     const dataObj: firebase.firestore.DocumentSnapshot = await firebase
       .firestore()
-      .doc(docId)
+      .doc(`avatars/${email}`)
       .get();
-    return dataObj.data();
+    return dataObj.data() || defaultAvatarConfig;
   } catch (err) {
     console.error(err);
   }
 }
 
-export async function removeFsDataAsync(docId: string): Promise<void> {
+export async function removeFsDataAsync(email: string): Promise<void> {
   return firebase
     .firestore()
-    .doc(docId)
+    .doc(`avatars/${email}`)
     .delete();
 }
 
-export async function setFSDataAsync(docId: string, data: any): Promise<void> {
+export async function setFSDataAsync(email: string, data: any): Promise<void> {
   try {
     await firebase
       .firestore()
-      .doc(docId)
+      .doc(`avatars/${email}`)
       .set(serialise(data));
   } catch (err) {
     console.error(err);

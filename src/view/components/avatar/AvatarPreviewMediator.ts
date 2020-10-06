@@ -34,12 +34,7 @@ export default class AvatarPreviewMediator extends BaseMediator<AvatarPreview> {
   }
 
   protected updateAvatar(): void {
-    this.viewComponent.updateGender(this.uiVOProxy.vo.avatar.gender);
-    this.viewComponent.updateColor(this.uiVOProxy.vo.avatar.color);
-    this.viewComponent.updateHair(this.uiVOProxy.vo.avatar.hair);
-    this.viewComponent.updateFace(this.uiVOProxy.vo.avatar.face);
-    this.viewComponent.updateShirt(this.uiVOProxy.vo.avatar.shirt);
-    this.viewComponent.updateBreeches(this.uiVOProxy.vo.avatar.breeches);
+    this.viewComponent.updateAvatar(this.proxy.vo.avatar);
   }
 
   protected setView(): void {
@@ -64,7 +59,7 @@ export default class AvatarPreviewMediator extends BaseMediator<AvatarPreview> {
     );
   }
 
-  get uiVOProxy(): UiVOProxy {
+  get proxy(): UiVOProxy {
     return this.facade.retrieveProxy(UiVOProxy.NAME);
   }
 }

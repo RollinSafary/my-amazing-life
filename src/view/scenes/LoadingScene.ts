@@ -1,5 +1,9 @@
-import { Atlases, Audios } from '../../assets';
-import { loadAtlases, loadAudios } from '../utils/assetLoader';
+import { Atlases, Audios, MultiAtlases } from '../../assets';
+import {
+  loadAtlases,
+  loadAudios,
+  loadMultiAtlases,
+} from '../utils/assetLoader';
 import BaseScene from './BaseScene';
 
 export default class LoadingScene extends BaseScene {
@@ -89,6 +93,8 @@ export default class LoadingScene extends BaseScene {
     loadAtlases(this, Atlases.Welcome);
     loadAtlases(this, Atlases.Login);
     loadAtlases(this, Atlases.Avatar);
+    loadAtlases(this, Atlases.Lobby);
+    loadMultiAtlases(this, MultiAtlases);
     loadAudios(this, Audios);
     this.load.start();
   }

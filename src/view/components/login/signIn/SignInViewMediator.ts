@@ -2,7 +2,7 @@ import { ERROR_CODE } from '../../../../constants/Constants';
 import SignInCommand from '../../../../controller/player/SignInCommand';
 import PlayerVOProxy from '../../../../model/PlayerVOProxy';
 import LoginScene from '../../../scenes/LoginScene';
-import { getScene } from '../../../utils/phaser/PhaserUtils';
+import { delayRunnable, getScene } from '../../../utils/phaser/PhaserUtils';
 import BaseLoginViewMediator from '../BaseLoginViewMediator';
 import RegistrationView from '../registration/RegistrationView';
 import SignInView from './SignInView';
@@ -34,6 +34,7 @@ export default class SignInViewMediator extends BaseLoginViewMediator<
       case LoginScene.SHOW_LOGIN_WINDOW_NOTIFICATION:
         this.setView();
         this.viewComponent.show();
+        delayRunnable(getScene(LoginScene.NAME), 500, this.imitateLogin, this);
         break;
       case PlayerVOProxy.INITIALIZE_COMPLETE_NOTIFICATION:
         this.removeView();
@@ -90,5 +91,13 @@ export default class SignInViewMediator extends BaseLoginViewMediator<
     await this.viewComponent.hide();
     this.viewComponent.destroy();
     this.viewComponent = null;
+  }
+
+  private imitateLogin(): void {
+    this.sendNotification(
+      SignInView.SIGN_IN_NOTIFICATION,
+      'test@gmail.com',
+      'testgmail',
+    );
   }
 }

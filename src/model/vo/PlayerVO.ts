@@ -1,4 +1,6 @@
-export class PlayerVO {
+import { StringIndexedObject } from '../../utils/Utils';
+
+export class PlayerVO implements StringIndexedObject<any> {
   displayName: string;
   dt_create: string;
   dt_update: string;
@@ -91,4 +93,11 @@ export interface IPlayerRegistrationData {
   last_name: string;
   email: string;
   password: string;
+}
+
+export interface IGameAvailableState {
+  lifeStyle: boolean;
+  personality: boolean;
+  hobbies: boolean;
+  skills: boolean;
 }

@@ -13,5 +13,8 @@
   "error-5": "Invalid e-mail address.",
   "registration-error-popup-title": "Error",
   "avatar-button-submit": "Submit",
-  "avatar-button-clear": "Clear"
+  "avatar-button-clear": "Clear",
+  "lobby-button-back": "Back",
+  "lobby-button-help": "Help",
+  "lobby-button-results": "View saved results"
 }

@@ -1,5 +1,7 @@
+import UiVOProxy from '../../model/UiVOProxy';
 import AvatarPreviewMediator from '../components/avatar/AvatarPreviewMediator';
 import AvatarSkinsMediator from '../components/avatar/AvatarSkinsMediator';
+import { delayRunnable } from '../utils/phaser/PhaserUtils';
 import AvatarScene, { AvatarAction } from './AvatarScene';
 import BaseSceneMediator from './BaseSceneMediator';
 import LoginScene from './LoginScene';
@@ -14,7 +16,10 @@ export default class AvatarSceneMediator extends BaseSceneMediator<
   }
 
   public registerNotificationInterests(): void {
-    this.subscribeToNotifications(LoginScene.LOGIN_COMPLETE_NOTIFICATION);
+    this.subscribeToNotifications(
+      LoginScene.LOGIN_COMPLETE_NOTIFICATION,
+      UiVOProxy.AVATAR_CONFIGURATION_SAVED_NOTIFICATION,
+    );
   }
 
   public handleNotification(notificationName: string): void {
@@ -23,6 +28,10 @@ export default class AvatarSceneMediator extends BaseSceneMediator<
         this.sceneManager.start(AvatarScene.NAME);
         this.fadeScreenIn();
         this.registerViews();
+        delayRunnable(this.viewComponent, 500, this.onAction, this);
+        break;
+      case UiVOProxy.AVATAR_CONFIGURATION_SAVED_NOTIFICATION:
+        this.stopScene();
         break;
       default:
         this.handleDefaultNotifications(notificationName);

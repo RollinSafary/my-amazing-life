@@ -1,0 +1,470 @@
+{
+	"textures": [
+		{
+			"image": "lobby.png",
+			"format": "RGBA8888",
+			"size": {
+				"w": 1660,
+				"h": 1660
+			},
+			"scale": 1,
+			"frames": [
+				{
+					"filename": "female/shadow-0",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 337,
+						"h": 623
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 337,
+						"h": 623
+					},
+					"frame": {
+						"x": 1,
+						"y": 1,
+						"w": 337,
+						"h": 623
+					},
+					"anchor": {
+						"x": 0.5370919881305638,
+						"y": 0.5481540930979133
+					}
+				},
+				{
+					"filename": "female/shadow-1",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 328,
+						"h": 629
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 328,
+						"h": 629
+					},
+					"frame": {
+						"x": 1,
+						"y": 628,
+						"w": 328,
+						"h": 629
+					},
+					"anchor": {
+						"x": 0.52439024,
+						"y": 0.55246423
+					}
+				},
+				{
+					"filename": "female/shadow-3",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 337,
+						"h": 619
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 337,
+						"h": 619
+					},
+					"frame": {
+						"x": 342,
+						"y": 1,
+						"w": 337,
+						"h": 619
+					},
+					"anchor": {
+						"x": 0.5370919881305638,
+						"y": 0.5452342487883683
+					}
+				},
+				{
+					"filename": "male/shadow-2",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 320,
+						"h": 612
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 320,
+						"h": 612
+					},
+					"frame": {
+						"x": 683,
+						"y": 1,
+						"w": 320,
+						"h": 612
+					},
+					"anchor": {
+						"x": 0.5125,
+						"y": 0.5400326797385621
+					}
+				},
+				{
+					"filename": "female/shadow-2",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 321,
+						"h": 609
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 321,
+						"h": 609
+					},
+					"frame": {
+						"x": 1007,
+						"y": 1,
+						"w": 321,
+						"h": 609
+					},
+					"anchor": {
+						"x": 0.514018691588785,
+						"y": 0.5377668308702791
+					}
+				},
+				{
+					"filename": "male/shadow-3",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 320,
+						"h": 607
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 320,
+						"h": 607
+					},
+					"frame": {
+						"x": 1332,
+						"y": 1,
+						"w": 320,
+						"h": 607
+					},
+					"anchor": {
+						"x": 0.5125,
+						"y": 0.53624382
+					}
+				},
+				{
+					"filename": "logo",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 336,
+						"h": 329
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 336,
+						"h": 329
+					},
+					"frame": {
+						"x": 1,
+						"y": 1261,
+						"w": 336,
+						"h": 329
+					},
+					"anchor": {
+						"x": 0.5,
+						"y": 0.5
+					}
+				},
+				{
+					"filename": "male/shadow-1",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 320,
+						"h": 603
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 320,
+						"h": 603
+					},
+					"frame": {
+						"x": 333,
+						"y": 628,
+						"w": 320,
+						"h": 603
+					},
+					"anchor": {
+						"x": 0.5125,
+						"y": 0.533167495854063
+					}
+				},
+				{
+					"filename": "male/shadow-0",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 320,
+						"h": 600
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 320,
+						"h": 600
+					},
+					"frame": {
+						"x": 657,
+						"y": 624,
+						"w": 320,
+						"h": 600
+					},
+					"anchor": {
+						"x": 0.5125,
+						"y": 0.5308333333333334
+					}
+				},
+				{
+					"filename": "hobbies-off",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 318,
+						"h": 318
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 318,
+						"h": 318
+					},
+					"frame": {
+						"x": 341,
+						"y": 1235,
+						"w": 318,
+						"h": 318
+					},
+					"anchor": {
+						"x": 0.5,
+						"y": 0.5
+					}
+				},
+				{
+					"filename": "hobbies-on",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 318,
+						"h": 318
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 318,
+						"h": 318
+					},
+					"frame": {
+						"x": 663,
+						"y": 1228,
+						"w": 318,
+						"h": 318
+					},
+					"anchor": {
+						"x": 0.5,
+						"y": 0.5
+					}
+				},
+				{
+					"filename": "button",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 465,
+						"h": 96
+					},
+					"spriteSourceSize": {
+						"x": 1,
+						"y": 1,
+						"w": 464,
+						"h": 95
+					},
+					"frame": {
+						"x": 341,
+						"y": 1557,
+						"w": 464,
+						"h": 95
+					},
+					"anchor": {
+						"x": 0.5,
+						"y": 0.5
+					}
+				},
+				{
+					"filename": "lifestyle-off",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 318,
+						"h": 318
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 318,
+						"h": 318
+					},
+					"frame": {
+						"x": 981,
+						"y": 617,
+						"w": 318,
+						"h": 318
+					},
+					"anchor": {
+						"x": 0.5,
+						"y": 0.5
+					}
+				},
+				{
+					"filename": "lifestyle-on",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 318,
+						"h": 318
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 318,
+						"h": 318
+					},
+					"frame": {
+						"x": 985,
+						"y": 939,
+						"w": 318,
+						"h": 318
+					},
+					"anchor": {
+						"x": 0.5,
+						"y": 0.5
+					}
+				},
+				{
+					"filename": "personality-off",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 318,
+						"h": 318
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 318,
+						"h": 318
+					},
+					"frame": {
+						"x": 985,
+						"y": 1261,
+						"w": 318,
+						"h": 318
+					},
+					"anchor": {
+						"x": 0.5,
+						"y": 0.5
+					}
+				},
+				{
+					"filename": "personality-on",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 318,
+						"h": 318
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 318,
+						"h": 318
+					},
+					"frame": {
+						"x": 1303,
+						"y": 614,
+						"w": 318,
+						"h": 318
+					},
+					"anchor": {
+						"x": 0.5,
+						"y": 0.5
+					}
+				},
+				{
+					"filename": "skills-off",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 352,
+						"h": 318
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 352,
+						"h": 318
+					},
+					"frame": {
+						"x": 1307,
+						"y": 936,
+						"w": 352,
+						"h": 318
+					},
+					"anchor": {
+						"x": 0.548295,
+						"y": 0.5
+					}
+				},
+				{
+					"filename": "skills-on",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 352,
+						"h": 318
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 352,
+						"h": 318
+					},
+					"frame": {
+						"x": 1307,
+						"y": 1258,
+						"w": 352,
+						"h": 318
+					},
+					"anchor": {
+						"x": 0.548295,
+						"y": 0.5
+					}
+				}
+			]
+		}
+	],
+	"meta": {
+		"app": "https://www.codeandweb.com/texturepacker",
+		"version": "3.0",
+		"smartupdate": "$TexturePacker:SmartUpdate:944ff90b2f376e8059f6287b947ae398:bb8a0d83e83ea7f9d7a6092f213b23c7:95e73ce40bcf8c71a3f5bd0c502d6e0d$"
+	}
+}

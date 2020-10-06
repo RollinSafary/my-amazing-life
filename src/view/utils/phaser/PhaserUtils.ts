@@ -273,3 +273,8 @@ export interface ITextStyle {
   fontSize?: number;
   fill?: string;
 }
+
+export interface ISize {
+  width: number;
+  height: number;
+}

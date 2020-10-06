@@ -16,6 +16,9 @@ export enum Translation {
   REGISTRATION_ERROR_POPUP_TITLE = 'registration-error-popup-title',
   AVATAR_BUTTON_SUBMIT = 'avatar-button-submit',
   AVATAR_BUTTON_CLEAR = 'avatar-button-clear',
+  LOBBY_BUTTON_BACK = 'lobby-button-back',
+  LOBBY_BUTTON_HELP = 'lobby-button-help',
+  LOBBY_BUTTON_RESULTS = 'lobby-button-results',
 }
 
 /* AUTO GENERATED FILE. DO NOT MODIFY !!! */

@@ -65,6 +65,9 @@ export default class SignInView extends BaseLoginView {
 
   protected async showBackground(): Promise<void> {
     return new Promise<void>(resolve => {
+      if (!this.scene) {
+        return;
+      }
       const target: any = {
         height: this.background.height,
       };
@@ -89,6 +92,9 @@ export default class SignInView extends BaseLoginView {
 
   protected async showIcon(): Promise<void> {
     return new Promise<void>(resolve => {
+      if (!this.scene) {
+        return;
+      }
       this.scene.tweens.add({
         targets: this.icon,
         scaleX: 1,
@@ -104,6 +110,9 @@ export default class SignInView extends BaseLoginView {
 
   protected async showFields(): Promise<void> {
     return new Promise<void>(resolve => {
+      if (!this.scene) {
+        return;
+      }
       this.scene.tweens.add({
         targets: [this.emailField, this.passwordField],
         alpha: 1,
@@ -117,6 +126,9 @@ export default class SignInView extends BaseLoginView {
   }
   protected async showButtons(): Promise<void> {
     return new Promise<void>(resolve => {
+      if (!this.scene) {
+        return;
+      }
       this.scene.tweens.add({
         targets: [this.signInButton, this.signUpButton],
         scaleX: 1,

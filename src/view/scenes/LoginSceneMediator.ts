@@ -1,7 +1,6 @@
 import PlayerVOProxy from '../../model/PlayerVOProxy';
 import RegistrationViewMediator from '../components/login/registration/RegistrationViewMediator';
 import SignInViewMediator from '../components/login/signIn/SignInViewMediator';
-import { delayRunnable } from '../utils/phaser/PhaserUtils';
 import BaseSceneMediator from './BaseSceneMediator';
 import LoginScene from './LoginScene';
 import WelcomeScene from './WelcomeScene';
@@ -30,7 +29,6 @@ export default class LoginSceneMediator extends BaseSceneMediator<LoginScene> {
         this.registerViews();
         await this.fadeScreenIn();
         this.sendNotification(LoginScene.SHOW_LOGIN_WINDOW_NOTIFICATION);
-        delayRunnable(this.viewComponent, 1000, this.removeScene, this);
         break;
       case PlayerVOProxy.INITIALIZE_COMPLETE_NOTIFICATION:
         this.removeScene();

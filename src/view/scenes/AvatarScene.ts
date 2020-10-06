@@ -84,10 +84,10 @@ export default class AvatarScene extends BaseScene {
     };
     this.submitButton = new SimpleButton(this, configs);
     this.add.existing(this.submitButton);
-    this.submitButton.x =
-      this.width - this.submitButton.width * 0.5 - this.height * 0.04;
+    this.submitButton.setScale((this.width * 0.15) / this.submitButton.width);
+    this.submitButton.x = this.logo.x;
     this.submitButton.y =
-      this.height - this.submitButton.height * 0.5 - this.height * 0.04;
+      this.height - this.submitButton.displayHeight * 0.5 - this.height * 0.04;
   }
   protected createClearButton(): void {
     const normalStateConfig: IButtonState = {
@@ -107,8 +107,10 @@ export default class AvatarScene extends BaseScene {
     };
     this.clearButton = new SimpleButton(this, configs);
     this.add.existing(this.clearButton);
+    this.clearButton.setScale((this.width * 0.15) / this.clearButton.width);
     this.clearButton.x = this.submitButton.x;
-    this.clearButton.y = this.submitButton.y - this.clearButton.height * 1.5;
+    this.clearButton.y =
+      this.submitButton.y - this.clearButton.displayHeight * 1.5;
   }
 
   protected setListeners(): void {
