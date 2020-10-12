@@ -181,6 +181,21 @@
         </struct>
         <key>individualSpriteSettings</key>
         <map type="IndividualSpriteSettingsMap">
+            <key type="filename">lifestyle/buttons/clear.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>35,10,70,21</rect>
+                <key>scale9Paddings</key>
+                <rect>35,10,70,21</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
             <key type="filename">lifestyle/buttons/female.png</key>
             <key type="filename">lifestyle/buttons/male.png</key>
             <struct type="IndividualSpriteSettings">
@@ -194,6 +209,21 @@
                 <rect>32,33,63,65</rect>
                 <key>scale9Paddings</key>
                 <rect>32,33,63,65</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">lifestyle/buttons/help.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>33,12,67,23</rect>
+                <key>scale9Paddings</key>
+                <rect>33,12,67,23</rect>
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
@@ -212,7 +242,7 @@
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
-            <key type="filename">lifestyle/field.png</key>
+            <key type="filename">lifestyle/center/progress-background.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0.5,0.5</point_f>
@@ -221,9 +251,54 @@
                 <key>scale9Enabled</key>
                 <false/>
                 <key>scale9Borders</key>
-                <rect>10,6,20,13</rect>
+                <rect>52,9,104,17</rect>
                 <key>scale9Paddings</key>
-                <rect>10,6,20,13</rect>
+                <rect>52,9,104,17</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">lifestyle/center/progress-fill.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>47,6,93,13</rect>
+                <key>scale9Paddings</key>
+                <rect>47,6,93,13</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">lifestyle/center/title.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>124,45,247,91</rect>
+                <key>scale9Paddings</key>
+                <rect>124,45,247,91</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">lifestyle/center/total-background.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>52,13,104,25</rect>
+                <key>scale9Paddings</key>
+                <rect>52,13,104,25</rect>
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
@@ -242,6 +317,68 @@
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
+            <key type="filename">lifestyle/panel/icon-0-1-0.png</key>
+            <key type="filename">lifestyle/panel/icon-0-1-1.png</key>
+            <key type="filename">lifestyle/panel/icon-0-1-2.png</key>
+            <key type="filename">lifestyle/panel/icon-0-1-3.png</key>
+            <key type="filename">lifestyle/panel/icon-0-2-0.png</key>
+            <key type="filename">lifestyle/panel/icon-0-2-1.png</key>
+            <key type="filename">lifestyle/panel/icon-0-2-2.png</key>
+            <key type="filename">lifestyle/panel/icon-0-2-3.png</key>
+            <key type="filename">lifestyle/panel/icon-0-4-0.png</key>
+            <key type="filename">lifestyle/panel/icon-0-4-1.png</key>
+            <key type="filename">lifestyle/panel/icon-0-4-2.png</key>
+            <key type="filename">lifestyle/panel/icon-0-4-3.png</key>
+            <key type="filename">lifestyle/panel/icon-0-5-0.png</key>
+            <key type="filename">lifestyle/panel/icon-0-5-1.png</key>
+            <key type="filename">lifestyle/panel/icon-0-5-2.png</key>
+            <key type="filename">lifestyle/panel/icon-0-5-3.png</key>
+            <key type="filename">lifestyle/panel/icon-1-0-0.png</key>
+            <key type="filename">lifestyle/panel/icon-1-0-1.png</key>
+            <key type="filename">lifestyle/panel/icon-1-0-2.png</key>
+            <key type="filename">lifestyle/panel/icon-1-0-3.png</key>
+            <key type="filename">lifestyle/panel/icon-1-6-0.png</key>
+            <key type="filename">lifestyle/panel/icon-1-6-1.png</key>
+            <key type="filename">lifestyle/panel/icon-1-6-2.png</key>
+            <key type="filename">lifestyle/panel/icon-1-6-3.png</key>
+            <key type="filename">lifestyle/panel/icon-2-0-0.png</key>
+            <key type="filename">lifestyle/panel/icon-2-0-1.png</key>
+            <key type="filename">lifestyle/panel/icon-2-0-2.png</key>
+            <key type="filename">lifestyle/panel/icon-2-0-3.png</key>
+            <key type="filename">lifestyle/panel/icon-2-6-0.png</key>
+            <key type="filename">lifestyle/panel/icon-2-6-1.png</key>
+            <key type="filename">lifestyle/panel/icon-2-6-2.png</key>
+            <key type="filename">lifestyle/panel/icon-2-6-3.png</key>
+            <key type="filename">lifestyle/panel/icon-3-1-0.png</key>
+            <key type="filename">lifestyle/panel/icon-3-1-1.png</key>
+            <key type="filename">lifestyle/panel/icon-3-1-2.png</key>
+            <key type="filename">lifestyle/panel/icon-3-1-3.png</key>
+            <key type="filename">lifestyle/panel/icon-3-2-0.png</key>
+            <key type="filename">lifestyle/panel/icon-3-2-1.png</key>
+            <key type="filename">lifestyle/panel/icon-3-2-2.png</key>
+            <key type="filename">lifestyle/panel/icon-3-2-3.png</key>
+            <key type="filename">lifestyle/panel/icon-3-4-0.png</key>
+            <key type="filename">lifestyle/panel/icon-3-4-1.png</key>
+            <key type="filename">lifestyle/panel/icon-3-4-2.png</key>
+            <key type="filename">lifestyle/panel/icon-3-4-3.png</key>
+            <key type="filename">lifestyle/panel/icon-3-5-0.png</key>
+            <key type="filename">lifestyle/panel/icon-3-5-1.png</key>
+            <key type="filename">lifestyle/panel/icon-3-5-2.png</key>
+            <key type="filename">lifestyle/panel/icon-3-5-3.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>62,50,123,99</rect>
+                <key>scale9Paddings</key>
+                <rect>62,50,123,99</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
             <key type="filename">lifestyle/panel/inner-box.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
@@ -254,6 +391,51 @@
                 <rect>70,107,139,215</rect>
                 <key>scale9Paddings</key>
                 <rect>70,107,139,215</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">lifestyle/panel/text-box.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>62,49,123,97</rect>
+                <key>scale9Paddings</key>
+                <rect>62,49,123,97</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">lifestyle/popup/background.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>256,178,511,355</rect>
+                <key>scale9Paddings</key>
+                <rect>256,178,511,355</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">lifestyle/popup/line.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>91,1,183,2</rect>
+                <key>scale9Paddings</key>
+                <rect>91,1,183,2</rect>
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
@@ -280,6 +462,36 @@
                 <rect>40,40,79,80</rect>
                 <key>scale9Paddings</key>
                 <rect>40,40,79,80</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">lifestyle/top/background.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>133,34,266,67</rect>
+                <key>scale9Paddings</key>
+                <rect>133,34,266,67</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">lifestyle/top/field.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>72,16,145,31</rect>
+                <key>scale9Paddings</key>
+                <rect>72,16,145,31</rect>
                 <key>scale9FromFile</key>
                 <false/>
             </struct>

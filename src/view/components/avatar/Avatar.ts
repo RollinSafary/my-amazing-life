@@ -1,6 +1,6 @@
 import { Atlases } from '../../../assets';
 import { defaultAvatarConfig } from '../../../constants/Constants';
-import { IAvatarConfig } from '../../../model/vo/UiVo';
+import { IAvatarConfig } from '../../../model/vo/UiVO';
 import BaseScene from '../../scenes/BaseScene';
 import { AvatarBodyElement } from './preview/AvatarBodyElement';
 

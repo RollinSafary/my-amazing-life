@@ -42,6 +42,8 @@ export default class StandardPopup extends Phaser.GameObjects.Container {
   }
 
   public preDestroy(): void {
+    this.scene.time.removeAllEvents();
+    this.scene.tweens.killAll();
     this.blocker.destroy();
     super.preDestroy();
   }

@@ -1,5 +1,5 @@
 import { Atlases, MultiAtlases } from '../../../assets';
-import { IAvatarConfig } from '../../../model/vo/UiVo';
+import { IAvatarConfig } from '../../../model/vo/UiVO';
 import { upperCaseFirstLetter } from '../../../utils/Utils';
 import BaseScene from '../../scenes/BaseScene';
 import { IPosition } from '../../utils/phaser/PhaserUtils';

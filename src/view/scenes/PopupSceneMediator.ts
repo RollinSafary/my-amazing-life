@@ -1,4 +1,5 @@
 import ErrorPopupMediator from '../popups/ErrorPopupMediator';
+import LifeStylePopupResultPopupMediator from '../popups/LifeStylePopupResultPopupMediator';
 import PopupManager from '../utils/PopupManager';
 import BaseSceneMediator from './BaseSceneMediator';
 import LoadingScene from './LoadingScene';
@@ -61,10 +62,15 @@ export default class PopupSceneMediator extends BaseSceneMediator<PopupScene> {
 
   private registerGamePopups(): void {
     this.registerRegistrationErrorPopup();
+    this.registerLifeStyleResultPopup();
     this.sendNotification(PopupScene.REGISTERED_NOTIFICATION);
   }
 
   private registerRegistrationErrorPopup(): void {
     this.facade.registerMediator(new ErrorPopupMediator());
+  }
+
+  private registerLifeStyleResultPopup(): void {
+    this.facade.registerMediator(new LifeStylePopupResultPopupMediator());
   }
 }

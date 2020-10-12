@@ -1,13 +1,19 @@
-import { MultiAtlases } from '../../../assets';
-import BaseScene from '../../scenes/BaseScene';
-import { pickAny } from '../../utils/phaser/PhaserUtils';
+import { MultiAtlases } from '../../../../assets';
+import {
+  ILifeStyleSectionConfig,
+  lifeStyleSections,
+} from '../../../../constants/Constants';
+import { Translation } from '../../../../translations';
+import { getLifeStylePanelItemPriceKey } from '../../../../utils/Utils';
+import BaseScene from '../../../scenes/BaseScene';
+import { pickAny } from '../../../utils/phaser/PhaserUtils';
 
 export default class LifeStyleWheel extends Phaser.GameObjects.Container {
   public static ROLLED_EVENT: string = 'rolled';
 
   protected background: Phaser.GameObjects.Image;
   protected needle: Phaser.GameObjects.Image;
-
+  protected rollTween: Phaser.Tweens.Tween;
   protected indexes: number[] = [];
 
   constructor(protected scene: BaseScene) {
@@ -18,6 +24,15 @@ export default class LifeStyleWheel extends Phaser.GameObjects.Container {
 
   public setEnabled(enabled: boolean = false): void {
     this.input.enabled = enabled;
+    enabled &&
+      this.scene.tweens.add({
+        targets: this.needle,
+        alpha: 0,
+        yoyo: true,
+        duration: 200,
+        repeat: -1,
+        repeatDelay: 500,
+      });
   }
 
   protected createComponents(): void {
@@ -62,18 +77,31 @@ export default class LifeStyleWheel extends Phaser.GameObjects.Container {
   }
 
   protected onPointerUp(): void {
-    this.setEnabled(false);
-    if (!this.indexes.length) {
+    if (
+      !this.indexes.length ||
+      (!!this.rollTween && this.rollTween.isPlaying())
+    ) {
       return;
     }
+    this.scene.tweens.killTweensOf(this.needle);
+    this.needle.setAlpha(1);
     const randomIndex: number = pickAny(this.indexes);
+    const targetSection: ILifeStyleSectionConfig =
+      lifeStyleSections[randomIndex];
+    if (
+      this.indexes.length > 2 &&
+      getLifeStylePanelItemPriceKey(targetSection.x, targetSection.y, 0) ===
+        Translation.LIFESTYLE_PRICE_PERCENT
+    ) {
+      return this.onPointerUp();
+    }
     this.indexes.remove(randomIndex);
     this.startRotation(randomIndex);
   }
 
   protected startRotation(index: number): void {
     this.scene.tweens.killTweensOf([this, this.needle]);
-    this.scene.tweens.add({
+    this.rollTween = this.scene.tweens.add({
       targets: this.needle,
       angle:
         index * 30 +

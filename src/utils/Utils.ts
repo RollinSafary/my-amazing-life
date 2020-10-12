@@ -1,3 +1,5 @@
+import { lifeStyleSectionsPrices } from '../constants/Constants';
+import { Translation } from '../translations';
 import { getPlatform, IDevice } from './CordovaUtils';
 
 export type StringIndexedObject<T> = { [key: string]: T };
@@ -222,4 +224,41 @@ export function validateEmail(email: string): boolean {
 
 export function isNullOrUndefined(value: any): boolean {
   return value === undefined || value === null;
+}
+
+export function getLifeStylePanelItemPrice(
+  posX: number,
+  posY: number,
+  index: number,
+): number[] {
+  return lifeStyleSectionsPrices[`${posX}-${posY}`][index];
+}
+
+export function getLifeStylePanelItemPriceKey(
+  posX: number,
+  posY: number,
+  index: number,
+): string {
+  switch (true) {
+    case posX === 5 && posY === 3:
+    case posX === 1 && posY === 3:
+      return Translation.LIFESTYLE_PRICE_PERCENT;
+    default:
+      return Translation.LIFESTYLE_PRICE_DOLLAR;
+  }
+}
+
+export function getLifeStylePanelItemAddonState(
+  posX: number,
+  posY: number,
+  index: number,
+): boolean {
+  switch (true) {
+    case posX === 4 && posY === 0 && index === 3:
+    case posX === 0 && posY === 1:
+    case posX === 0 && posY === 2:
+      return true;
+    default:
+      return false;
+  }
 }

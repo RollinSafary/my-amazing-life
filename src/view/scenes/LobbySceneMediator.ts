@@ -1,5 +1,6 @@
 import PlayerVOProxy from '../../model/PlayerVOProxy';
 import UiVOProxy from '../../model/UiVOProxy';
+import LifeStyleResultPopup from '../popups/LifeStyleResultPopup';
 import { delayRunnable } from '../utils/phaser/PhaserUtils';
 import BaseSceneMediator from './BaseSceneMediator';
 import LobbyScene, { LobbyAction } from './LobbyScene';
@@ -14,6 +15,7 @@ export default class LobbySceneMediator extends BaseSceneMediator<LobbyScene> {
   public registerNotificationInterests(): void {
     this.subscribeToNotifications(
       UiVOProxy.AVATAR_CONFIGURATION_SAVED_NOTIFICATION,
+      LifeStyleResultPopup.MENU_CLICKED_NOTIFICATION,
     );
   }
 
@@ -22,6 +24,7 @@ export default class LobbySceneMediator extends BaseSceneMediator<LobbyScene> {
     ...args: any[]
   ): Promise<void> {
     switch (notificationName) {
+      case LifeStyleResultPopup.MENU_CLICKED_NOTIFICATION:
       case UiVOProxy.AVATAR_CONFIGURATION_SAVED_NOTIFICATION:
         await this.startScene();
         this.viewComponent.setAvatarConfig(this.uiVOProxy.vo.avatar);

@@ -1,6 +1,5 @@
 import { Atlases, Fonts, Images } from '../../assets';
 import { Translation } from '../../translations';
-import AvatarOptions from '../components/avatar/AvatarOptions';
 import AvatarPreview from '../components/avatar/AvatarPreview';
 import ISimpleButtonText from '../utils/simpleButton/ISimpleButtonText';
 import SimpleButton, {
@@ -23,7 +22,6 @@ export default class AvatarScene extends BaseScene {
   protected background: Phaser.GameObjects.Image;
   protected logo: Phaser.GameObjects.Image;
   protected previewSection: AvatarPreview;
-  protected optionsSection: AvatarOptions;
   protected clearButton: SimpleButton;
   protected submitButton: SimpleButton;
 

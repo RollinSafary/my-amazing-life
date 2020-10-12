@@ -61,6 +61,13 @@ export default abstract class BaseSceneMediator<
     this.sceneManager.stop(this.viewComponent.constructor.name);
   }
 
+  protected restartScene(): void {
+    this.viewComponent.time.removeAllEvents();
+    this.viewComponent.tweens.killAll();
+    this.viewComponent.children.removeAll();
+    this.viewComponent.scene.restart();
+  }
+
   protected setView(): void {
     //
   }

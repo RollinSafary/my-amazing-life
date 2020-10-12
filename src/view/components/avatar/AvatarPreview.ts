@@ -1,6 +1,6 @@
 import { NinePatch } from '@koreez/phaser3-ninepatch';
 import { Atlases } from '../../../assets';
-import { IAvatarConfig } from '../../../model/vo/UiVo';
+import { IAvatarConfig } from '../../../model/vo/UiVO';
 import AvatarScene from '../../scenes/AvatarScene';
 import BaseScene from '../../scenes/BaseScene';
 import { getScene } from '../../utils/phaser/PhaserUtils';
