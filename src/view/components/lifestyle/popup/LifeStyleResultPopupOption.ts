@@ -41,7 +41,7 @@ export default class LifeStyleResultPopupOption extends Phaser.GameObjects
               this.valueText.setText(`${Math.floor(target.value)}`);
             },
             onComplete: () => {
-              this.valueText.setText(`${value}`);
+              this.valueText.setText(`${value.toFixed(2)}`);
               resolve();
             },
           });

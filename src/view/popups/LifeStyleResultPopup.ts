@@ -188,7 +188,7 @@ export default class LifeStyleResultPopup extends StandardPopup {
       text: Translation.LIFESTYLE_RESULT_POPUP_TEXT,
       style,
       i18nOptions: {
-        salary: this.rightOptions.getLast().value,
+        salary: this.rightOptions.getLast().value.toFixed(2),
       },
     });
     description.setWordWrapWidth(this.leftOptions[0].width);
