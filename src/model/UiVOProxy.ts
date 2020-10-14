@@ -76,8 +76,11 @@ export default class UiVOProxy extends Proxy<UiVO> {
       this.vo.lifeStylePanelUsedIndexes = [];
       this.vo.lifeStyleSubtotal =
         type === Translation.LIFESTYLE_PRICE_PERCENT
-          ? this.vo.lifeStyleTotal / ((100 - value) / 100)
-          : value;
+          ? Math.round(
+              this.vo.lifeStyleTotal / ((100 - value) / 100) -
+                this.vo.lifeStyleTotal,
+            )
+          : Math.round(value);
     }
     this.vo.lifeStyleChoices[
       `${config.xIndex}-${config.yIndex}`

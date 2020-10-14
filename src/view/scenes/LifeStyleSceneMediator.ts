@@ -58,6 +58,8 @@ export default class LifeStyleSceneMediator extends BaseSceneMediator<
         break;
       case UiVOProxy.LIFE_STYLE_GAME_COMPLETE_NOTIFICATION:
         await this.viewComponent.hidePanels();
+        this.viewComponent.updateProgress(this.uiVOProxy.vo.lifeStyleProgress);
+        await this.viewComponent.updateTotal(this.uiVOProxy.vo.lifeStyleTotal);
         this.sendNotification(LifeStyleScene.SHOW_RESULT_NOTIFICATION);
         break;
       case LifeStyleResultPopup.MENU_CLICKED_NOTIFICATION:
