@@ -4,6 +4,7 @@ import LifeStyleResultPopup from '../popups/LifeStyleResultPopup';
 import { delayRunnable } from '../utils/phaser/PhaserUtils';
 import BaseSceneMediator from './BaseSceneMediator';
 import LobbyScene, { LobbyAction } from './LobbyScene';
+import PersonalityScene from './PersonalityScene';
 
 export default class LobbySceneMediator extends BaseSceneMediator<LobbyScene> {
   public static NAME: string = 'LobbySceneMediator';
@@ -16,6 +17,7 @@ export default class LobbySceneMediator extends BaseSceneMediator<LobbyScene> {
     this.subscribeToNotifications(
       UiVOProxy.AVATAR_CONFIGURATION_SAVED_NOTIFICATION,
       LifeStyleResultPopup.MENU_CLICKED_NOTIFICATION,
+      PersonalityScene.MENU_CLICKED_NOTIFICATION,
     );
   }
 
@@ -24,6 +26,7 @@ export default class LobbySceneMediator extends BaseSceneMediator<LobbyScene> {
     ...args: any[]
   ): Promise<void> {
     switch (notificationName) {
+      case PersonalityScene.MENU_CLICKED_NOTIFICATION:
       case LifeStyleResultPopup.MENU_CLICKED_NOTIFICATION:
       case UiVOProxy.AVATAR_CONFIGURATION_SAVED_NOTIFICATION:
         await this.startScene();
@@ -34,7 +37,7 @@ export default class LobbySceneMediator extends BaseSceneMediator<LobbyScene> {
           500,
           this.onAction,
           this,
-          LobbyAction.LIFESTYLE,
+          LobbyAction.PERSONALITY,
         );
         break;
       default:

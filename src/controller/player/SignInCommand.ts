@@ -13,8 +13,6 @@ export default class SignInCommand extends AsyncMacroCommand<SimpleCommand> {
     password: string,
   ): Promise<void> {
     const data: PlayerVO = await getUserDataByEmail(email);
-    console.warn(data);
-
     switch (true) {
       case !data:
         this.sendNotification(

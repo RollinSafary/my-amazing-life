@@ -267,7 +267,7 @@ export namespace Locales {
     public static Name: string = 'en';
     public static FileURL: string = 'assets/locales/en.json';
     public static Extension: string = '.json';
-    public static Size: string = '12052';
+    public static Size: string = '15373';
   }
   export class Ru {
     public static Name: string = 'ru';
@@ -363,6 +363,34 @@ export namespace MultiAtlases {
         PanelIcon351 = 'panel/icon-3-5-1',
         PanelIcon352 = 'panel/icon-3-5-2',
         PanelIcon353 = 'panel/icon-3-5-3',
+      }
+    }
+  }
+  export namespace Personality {
+    export class Atlas {
+      public static Name: string = 'personality';
+      public static AtlasURL: string = 'assets/multiAtlases/personality.json';
+      public static TextureURL: string = 'assets/multiAtlases/';
+    }
+    export namespace Atlas {
+      export enum Frames {
+        BoardPart0 = 'board/part-0',
+        BoardPart1 = 'board/part-1',
+        ResultsBackgroundBlue = 'results/background-blue',
+        ButtonMenu = 'button/menu',
+        ResultsBackgroundCyan = 'results/background-cyan',
+        ButtonPlayAgain = 'button/play-again',
+        MarkersMarkerBlue = 'markers/marker-blue',
+        MarkersMarkerCyan = 'markers/marker-cyan',
+        MarkersMarkerGreen = 'markers/marker-green',
+        MarkersMarkerOrange = 'markers/marker-orange',
+        MarkersMarkerPurple = 'markers/marker-purple',
+        MarkersMarkerRed = 'markers/marker-red',
+        ResultsBackgroundDefault = 'results/background-default',
+        ResultsBackgroundGreen = 'results/background-green',
+        ResultsBackgroundOrange = 'results/background-orange',
+        ResultsBackgroundPurple = 'results/background-purple',
+        ResultsBackgroundRed = 'results/background-red',
       }
     }
   }

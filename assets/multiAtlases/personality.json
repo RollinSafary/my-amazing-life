@@ -1,0 +1,432 @@
+{
+	"textures": [
+		{
+			"image": "personality-0.png",
+			"format": "RGBA8888",
+			"size": {
+				"w": 1922,
+				"h": 1922
+			},
+			"scale": 1,
+			"frames": [
+				{
+					"filename": "board/part-0",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 1920,
+						"h": 1440
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 1920,
+						"h": 1440
+					},
+					"frame": {
+						"x": 1,
+						"y": 1,
+						"w": 1920,
+						"h": 1440
+					}
+				}
+			]
+		},
+		{
+			"image": "personality-1.png",
+			"format": "RGBA8888",
+			"size": {
+				"w": 1922,
+				"h": 1922
+			},
+			"scale": 1,
+			"frames": [
+				{
+					"filename": "board/part-1",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 1920,
+						"h": 1440
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 1920,
+						"h": 1440
+					},
+					"frame": {
+						"x": 1,
+						"y": 1,
+						"w": 1920,
+						"h": 1440
+					}
+				}
+			]
+		},
+		{
+			"image": "personality-2.png",
+			"format": "RGBA8888",
+			"size": {
+				"w": 1512,
+				"h": 1512
+			},
+			"scale": 1,
+			"frames": [
+				{
+					"filename": "results/background-blue",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 1280,
+						"h": 720
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 1280,
+						"h": 720
+					},
+					"frame": {
+						"x": 1,
+						"y": 1,
+						"w": 1280,
+						"h": 720
+					}
+				},
+				{
+					"filename": "button/menu",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 188,
+						"h": 62
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 188,
+						"h": 62
+					},
+					"frame": {
+						"x": 1285,
+						"y": 1,
+						"w": 188,
+						"h": 62
+					}
+				},
+				{
+					"filename": "results/background-cyan",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 1280,
+						"h": 720
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 1280,
+						"h": 720
+					},
+					"frame": {
+						"x": 1,
+						"y": 725,
+						"w": 1280,
+						"h": 720
+					}
+				},
+				{
+					"filename": "button/play-again",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 268,
+						"h": 62
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 268,
+						"h": 62
+					},
+					"frame": {
+						"x": 1,
+						"y": 1449,
+						"w": 268,
+						"h": 62
+					}
+				},
+				{
+					"filename": "markers/marker-blue",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 124,
+						"h": 190
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 1,
+						"w": 124,
+						"h": 188
+					},
+					"frame": {
+						"x": 1285,
+						"y": 67,
+						"w": 124,
+						"h": 188
+					}
+				},
+				{
+					"filename": "markers/marker-cyan",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 124,
+						"h": 190
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 1,
+						"w": 124,
+						"h": 188
+					},
+					"frame": {
+						"x": 1285,
+						"y": 259,
+						"w": 124,
+						"h": 188
+					}
+				},
+				{
+					"filename": "markers/marker-green",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 124,
+						"h": 190
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 1,
+						"w": 124,
+						"h": 188
+					},
+					"frame": {
+						"x": 1285,
+						"y": 451,
+						"w": 124,
+						"h": 188
+					}
+				},
+				{
+					"filename": "markers/marker-orange",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 124,
+						"h": 190
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 1,
+						"w": 124,
+						"h": 188
+					},
+					"frame": {
+						"x": 1285,
+						"y": 643,
+						"w": 124,
+						"h": 188
+					}
+				},
+				{
+					"filename": "markers/marker-purple",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 124,
+						"h": 190
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 1,
+						"w": 124,
+						"h": 188
+					},
+					"frame": {
+						"x": 1285,
+						"y": 835,
+						"w": 124,
+						"h": 188
+					}
+				},
+				{
+					"filename": "markers/marker-red",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 124,
+						"h": 190
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 1,
+						"w": 124,
+						"h": 188
+					},
+					"frame": {
+						"x": 1285,
+						"y": 1027,
+						"w": 124,
+						"h": 188
+					}
+				}
+			]
+		},
+		{
+			"image": "personality-3.png",
+			"format": "RGBA8888",
+			"size": {
+				"w": 1446,
+				"h": 1446
+			},
+			"scale": 1,
+			"frames": [
+				{
+					"filename": "results/background-default",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 1280,
+						"h": 720
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 1280,
+						"h": 720
+					},
+					"frame": {
+						"x": 1,
+						"y": 1,
+						"w": 1280,
+						"h": 720
+					}
+				},
+				{
+					"filename": "results/background-green",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 1280,
+						"h": 720
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 1280,
+						"h": 720
+					},
+					"frame": {
+						"x": 1,
+						"y": 725,
+						"w": 1280,
+						"h": 720
+					}
+				}
+			]
+		},
+		{
+			"image": "personality-4.png",
+			"format": "RGBA8888",
+			"size": {
+				"w": 1446,
+				"h": 1446
+			},
+			"scale": 1,
+			"frames": [
+				{
+					"filename": "results/background-orange",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 1280,
+						"h": 720
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 1280,
+						"h": 720
+					},
+					"frame": {
+						"x": 1,
+						"y": 1,
+						"w": 1280,
+						"h": 720
+					}
+				},
+				{
+					"filename": "results/background-purple",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 1280,
+						"h": 720
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 1280,
+						"h": 720
+					},
+					"frame": {
+						"x": 1,
+						"y": 725,
+						"w": 1280,
+						"h": 720
+					}
+				}
+			]
+		},
+		{
+			"image": "personality-5.png",
+			"format": "RGBA8888",
+			"size": {
+				"w": 1282,
+				"h": 1282
+			},
+			"scale": 1,
+			"frames": [
+				{
+					"filename": "results/background-red",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 1280,
+						"h": 720
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 1280,
+						"h": 720
+					},
+					"frame": {
+						"x": 1,
+						"y": 1,
+						"w": 1280,
+						"h": 720
+					}
+				}
+			]
+		}
+	],
+	"meta": {
+		"app": "https://www.codeandweb.com/texturepacker",
+		"version": "3.0",
+		"smartupdate": "$TexturePacker:SmartUpdate:ccda1da3367eb1b685b4e4bae654560e:b0420ff5c70e2ed60cbe6cdfe9446174:9740606f7e97b38ad3923ee76a3abf56$"
+	}
+}

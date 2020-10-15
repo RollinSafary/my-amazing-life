@@ -6,7 +6,7 @@ import {
 } from '../utils/Utils';
 import { ILifeStylePanelConfig } from '../view/components/lifestyle/panel/LifeStylePanel';
 import { getFSDataAsync, setFSDataAsync } from '../view/utils/FirebaseUtils';
-import { UiVO } from './vo/UiVO';
+import { IPersonalityChoice, PersonalityChoice, UiVO } from './vo/UiVO';
 
 export default class UiVOProxy extends Proxy<UiVO> {
   public static NAME: string = 'UiVOProxy';
@@ -17,6 +17,12 @@ export default class UiVOProxy extends Proxy<UiVO> {
   public static LIFE_STYLE_GAME_COMPLETE_NOTIFICATION: string = `${UiVOProxy.NAME}LifeStyleGameCompleteNotification`;
   public static LIFE_STYLE_OPTION_SELECTED_NOTIFICATION: string = `${UiVOProxy.NAME}LifeStyleOptionSelectedNotification`;
   public static LIFE_STYLE_OPTION_CONFIRMED_NOTIFICATION: string = `${UiVOProxy.NAME}LifeStyleOptionConfirmedNotification`;
+
+  public static PERSONALITY_CHOICE_NOTIFICATION: string = `${UiVOProxy.NAME}PersonalityChoiceNotification`;
+  public static PERSONALITY_SECTOR_RESET_NOTIFICATION: string = `${UiVOProxy.NAME}PersonalitySectorResetNotification`;
+  public static PERSONALITY_SECTOR_READY_NOTIFICATION: string = `${UiVOProxy.NAME}PersonalitySectorReadyNotification`;
+  public static PERSONALITY_SECTOR_COMPLETE_NOTIFICATION: string = `${UiVOProxy.NAME}PersonalitySectorCompleteNotification`;
+  public static PERSONALITY_GAME_COMPLETE_NOTIFICATION: string = `${UiVOProxy.NAME}PersonalityGameCompleteNotification`;
 
   constructor() {
     super(UiVOProxy.NAME, new UiVO());
@@ -121,5 +127,78 @@ export default class UiVOProxy extends Proxy<UiVO> {
     this.vo.lifeStyleSubtotal = 0;
     this.vo.lifeStyleTotal = 0;
     this.vo.lifeStyleProgress = 0;
+  }
+
+  // PERSONALITY
+
+  public applyPersonalityMarkerChoice(
+    sectorIndex: number,
+    colorName: string,
+  ): void {
+    (this.vo.personalityChoices as IPersonalityChoice[])[sectorIndex][
+      colorName
+    ] = this.vo.personalityIndex;
+    this.sendNotification(
+      UiVOProxy.PERSONALITY_CHOICE_NOTIFICATION,
+      colorName,
+      this.vo.personalityIndex,
+    );
+    this.vo.personalityIndex++;
+    this.vo.personalityIndex === 7 &&
+      this.sendNotification(UiVOProxy.PERSONALITY_SECTOR_READY_NOTIFICATION);
+  }
+
+  public applyPersonalitySectorComplete(): void {
+    if (this.vo.personalityChoices.length !== 6) {
+      this.vo.personalityChoices.push(new PersonalityChoice());
+      this.vo.personalityIndex = 1;
+      this.sendNotification(UiVOProxy.PERSONALITY_SECTOR_COMPLETE_NOTIFICATION);
+    } else {
+      this.calculatePersonalityResults();
+      this.sendNotification(UiVOProxy.PERSONALITY_GAME_COMPLETE_NOTIFICATION);
+    }
+  }
+
+  private calculatePersonalityResults(): void {
+    const keys: string[] = Object.keys(this.vo.personalityResult);
+    let total: number = 0;
+    for (const choice of this.vo.personalityChoices) {
+      for (const key of keys) {
+        (this.vo.personalityResult as IPersonalityChoice)[
+          key
+        ] += (choice as IPersonalityChoice)[key];
+        total += (choice as IPersonalityChoice)[key];
+      }
+    }
+    for (const key of keys) {
+      (this.vo.personalityResult as IPersonalityChoice)[key] =
+        Math.round(
+          ((this.vo.personalityResult as IPersonalityChoice)[key] / total) *
+            10000,
+        ) / 100;
+    }
+  }
+
+  public applyPersonalitySectorReset(): void {
+    this.vo.personalityChoices.pop();
+    this.vo.personalityChoices.push(new PersonalityChoice());
+    this.vo.personalityIndex = 1;
+    this.sendNotification(UiVOProxy.PERSONALITY_SECTOR_RESET_NOTIFICATION);
+  }
+
+  public applyPersonalityReset(): void {
+    this.vo.personalityChoices = [new PersonalityChoice()];
+    this.vo.personalityIndex = 1;
+  }
+
+  public getPersonalityTopOption(): string {
+    const keys: string[] = Object.keys(this.vo.personalityResult);
+    const values: number[] = keys.map(
+      (key: string) =>
+        6 - (this.vo.personalityResult as IPersonalityChoice)[key],
+    );
+    const maxValue: number = Math.max(...values);
+    // TODO: need to handle cases when there are multiple maxValues
+    return keys[values.indexOf(maxValue)];
   }
 }

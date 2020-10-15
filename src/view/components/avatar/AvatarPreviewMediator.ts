@@ -11,8 +11,8 @@ export default class AvatarPreviewMediator extends BaseMediator<AvatarPreview> {
 
   public onRegister(): void {
     super.onRegister();
+    // TODO: this must happen only when avatar data is ready
     this.setView();
-    this.updateAvatar();
   }
 
   public registerNotificationInterests(): void {
