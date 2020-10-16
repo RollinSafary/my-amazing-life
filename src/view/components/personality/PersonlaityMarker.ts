@@ -4,10 +4,12 @@ import { upperCaseFirstLetter } from '../../../utils/Utils';
 import BaseScene from '../../scenes/BaseScene';
 import PersonalityScene from '../../scenes/PersonalityScene';
 import { ITextStyle } from '../../utils/phaser/PhaserUtils';
+import { ExtendedText } from '@candywings/phaser3-i18n-plugin';
 
 export default class PersonalityMarker extends Phaser.GameObjects.Container {
   protected background: Phaser.GameObjects.Image;
   protected indexText: Phaser.GameObjects.Text;
+  protected label: ExtendedText;
 
   constructor(protected scene: BaseScene, public colorName: string) {
     super(scene);

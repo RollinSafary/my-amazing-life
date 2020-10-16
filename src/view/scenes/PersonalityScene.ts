@@ -23,6 +23,9 @@ import SimpleButton, {
   ISimpleButtonConfig,
 } from '../utils/simpleButton/SimpleButton';
 import BaseScene from './BaseScene';
+import { ExtendedText } from '@candywings/phaser3-i18n-plugin';
+import { ITextStyle } from '../utils/phaser/PhaserUtils';
+import PersonalityLabel from '../components/personality/PersonalityLabel';
 
 export default class PersonalityScene extends BaseScene {
   public static NAME: string = 'PersonalityScene';
@@ -43,7 +46,7 @@ export default class PersonalityScene extends BaseScene {
   public static PLAY_CLICKED_EVENT: string = 'playCLicked';
 
   protected backgrounds: Phaser.GameObjects.Image[];
-  protected frameLeft: Phaser.GameObjects.Image;
+  public frameLeft: Phaser.GameObjects.Image;
   protected frameRight: Phaser.GameObjects.Image;
   protected markers: PersonalityMarker[];
   protected resetButton: SimpleButton;
@@ -54,6 +57,7 @@ export default class PersonalityScene extends BaseScene {
   protected follower: Phaser.GameObjects.PathFollower;
   protected results: PersonalityResults;
   protected timer: PersonalityTimer;
+  protected labels: PersonalityLabel[];
 
   public sectorIndex: number = 0;
 
@@ -81,9 +85,9 @@ export default class PersonalityScene extends BaseScene {
     sectorIndex: number,
     force: boolean = false,
   ): Promise<void> {
-    await this.hideMarkers();
+    await this.hideMarkersAndLabels();
     await this.scrollTo(sectorIndex, force);
-    await this.showMarkers();
+    await this.showMarkersAndLabels();
     const points = personalitySectorPaths[this.sectorIndex];
     if (this.player && !!points) {
       this.player.x = this.frameLeft.displayWidth + points.getFirst().x;
@@ -98,7 +102,7 @@ export default class PersonalityScene extends BaseScene {
       this.timer.y = timerPosition.y * gameConfig.designHeight;
       this.timer.scrollFactorX = 0;
       this.timer.scrollFactorY = 0;
-      this.timer.start();
+      //this.timer.start();
     }
   }
 
@@ -120,11 +124,30 @@ export default class PersonalityScene extends BaseScene {
     this.createFrame();
     this.createPathGraphics();
     this.createMarkers();
+    this.createLabels();
     this.createTimer();
     this.camera.scrollX -= this.frameLeft.displayWidth;
     this.showSector(0, true);
     this.createButtons();
     this.setListeners();
+  }
+
+  protected createLabels(): void {
+    this.labels = [];
+    const colorNames: string[] = [
+      'purple',
+      'orange',
+      'cyan',
+      'green',
+      'blue',
+      'red',
+    ];
+    for (const color of colorNames) {
+      const label = new PersonalityLabel(this, color)
+      enableDragAndDrop(this, label)
+      this.add.existing(label);
+      this.labels.push(label);
+    }
   }
 
   public createPlayer(config: IAvatarConfig): void {
@@ -178,11 +201,12 @@ export default class PersonalityScene extends BaseScene {
     });
   }
 
-  protected async hideMarkers(): Promise<void> {
+  protected async hideMarkersAndLabels(): Promise<void> {
     return new Promise<void>(resolve => {
       this.tweens.killTweensOf(this.markers);
+      this.tweens.killTweensOf(this.labels);
       this.tweens.add({
-        targets: this.markers,
+        targets: [...this.markers, ...this.labels],
         alpha: 0,
         duration: 300,
         onComplete: () => {
@@ -192,7 +216,8 @@ export default class PersonalityScene extends BaseScene {
     });
   }
 
-  protected async showMarkers(): Promise<void> {
+
+  protected async showMarkersAndLabels(): Promise<void> {
     return new Promise<void>(resolve => {
       const markerPositions = personalityMarkersPositions[this.sectorIndex];
       if (!markerPositions) {
@@ -207,9 +232,12 @@ export default class PersonalityScene extends BaseScene {
           markerPositions[marker.colorName].y * gameConfig.designHeight;
         marker.prepare();
       }
+      for (const label of this.labels) {
+        label.updateSector(this.sectorIndex)
+      }
 
       this.tweens.add({
-        targets: this.markers,
+        targets: [...this.markers, ...this.labels],
         alpha: 1,
         duration: 300,
         onComplete: () => {

@@ -43,7 +43,7 @@ function setUpPortraitDimensions(): void {
 }
 
 export function generateGameConfiguration(): any {
-  setUpDimension();
+  //setUpDimension();
   return {
     type: Phaser.WEBGL,
     width: gameConfig.canvasWidth,
@@ -266,6 +266,7 @@ declare global {
 export interface IPosition {
   x: number;
   y: number;
+  angle?: number;
 }
 
 export interface ITextStyle {

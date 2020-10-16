@@ -81,7 +81,7 @@ export const personalitySectors: IPosition[] = [
   },
 ];
 
-export const personalityMarkersPositions: IPersonalityMarkersPositions[] = [
+export const personalityMarkersPositions: IPersonalityObjectsPositions[] = [
   {
     red: { x: 0.82, y: 0.71 },
     blue: { x: 0.7, y: 0.5 },
@@ -131,6 +131,58 @@ export const personalityMarkersPositions: IPersonalityMarkersPositions[] = [
     purple: { x: 0.93, y: 0.38 },
   },
 ];
+
+export const personalityLabelsPositions: IPersonalityObjectsPositions[] = [
+  {
+    red: { x: 0.83, y: 0.59 },
+    blue: { x: 0.64, y: 0.98 },
+    green: { x: 0.11, y: 0.39 },
+    cyan: { x: 0.43, y: 0.56 },
+    orange: { x: 0.13, y: 0.63 },
+    purple: { x: 0.89, y: 0.36 },
+  },
+  {
+    red: { x: 0.87, y: 0.55 },
+    blue: { x: 0.44, y: 0.82 },
+    green: { x: 0.04, y: 0.75 },
+    cyan: { x: 0.66, y: 0.44 },
+    orange: { x: 0.27, y: 0.01 },
+    purple: { x: 0.73, y: 0.36 },
+  },
+  {
+    red: { x: 0.39, y: 0.36 },
+    blue: { x: 0.75, y: 0.31, angle: -45 },
+    green: { x: 0.84, y: 0.65 },
+    cyan: { x: 0.66, y: 0.73 },
+    orange: { x: 0.15, y: 0.47 },
+    purple: { x: 0.24, y: 0.85 },
+  },
+  {
+    red: { x: 0.20, y: 0.25 },
+    blue: { x: 0.86, y: 0.85 },
+    green: { x: 0.43, y: 0.72 },
+    cyan: { x: 0.19, y: 0.72 },
+    orange: { x: 0.72, y: 0.47 },
+    purple: { x: 0.21, y: 0.64 },
+  },
+  {
+    red: { x: 0.63, y: 0.38 },
+    blue: { x: 0.95, y: 0.63 },
+    green: { x: 0.88, y: 0.30 },
+    cyan: { x: 0.56, y: 0.30 },
+    orange: { x: 0.28, y: 0.56 },
+    purple: { x: 0.29, y: 0.98 },
+  },
+  {
+    red: { x: 0.42, y: 0.57 },
+    blue: { x: 0.59, y: 0.63 },
+    green: { x: 0.68, y: 0.31 },
+    cyan: { x: 0.19, y: 0.42 },
+    orange: { x: 0.23, y: 0.49 },
+    purple: { x: 0.92, y: 0.56 },
+  },
+];
+
 
 export const personalitySectorPaths: IPosition[][] = [
   [
@@ -201,9 +253,9 @@ export interface ILifeStyleSectionConfig extends IPosition {
 }
 
 export interface ILifeStyleSectionPrices
-  extends StringIndexedObject<number[][]> {}
+  extends StringIndexedObject<number[][]> { }
 
-export interface IPersonalityMarkersPositions
+export interface IPersonalityObjectsPositions
   extends StringIndexedObject<IPosition> {
   red: IPosition;
   blue: IPosition;
