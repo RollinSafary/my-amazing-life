@@ -37,7 +37,7 @@ export default class LobbySceneMediator extends BaseSceneMediator<LobbyScene> {
           500,
           this.onAction,
           this,
-          LobbyAction.PERSONALITY,
+          LobbyAction.SKILLS,
         );
         break;
       default:

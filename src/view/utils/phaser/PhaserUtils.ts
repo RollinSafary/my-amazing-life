@@ -43,7 +43,7 @@ function setUpPortraitDimensions(): void {
 }
 
 export function generateGameConfiguration(): any {
-  //setUpDimension();
+  setUpDimension();
   return {
     type: Phaser.WEBGL,
     width: gameConfig.canvasWidth,
@@ -278,4 +278,9 @@ export interface ITextStyle {
 export interface ISize {
   width: number;
   height: number;
+}
+
+export interface ILimitation {
+  min: number;
+  max: number;
 }

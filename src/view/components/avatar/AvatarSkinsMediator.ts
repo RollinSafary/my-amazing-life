@@ -12,7 +12,6 @@ export default class AvatarSkinsMediator extends BaseMediator<AvatarSkins> {
   public onRegister(): void {
     super.onRegister();
     this.setView();
-    this.viewComponent.updateGender(this.proxy.vo.avatar.gender);
   }
 
   public registerNotificationInterests(): void {

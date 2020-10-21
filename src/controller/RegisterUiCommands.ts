@@ -7,6 +7,7 @@ import PersonalityTimeoutPopup from '../view/popups/PersonalityTimeoutPopup';
 import AvatarScene from '../view/scenes/AvatarScene';
 import LifeStyleScene from '../view/scenes/LifeStyleScene';
 import PersonalityScene from '../view/scenes/PersonalityScene';
+import SkillsScene from '../view/scenes/SkillsScene';
 import ClearAvatarSettingsCommand from './ui/ClearAvatarSettingsCommand';
 import ClearLifeStyleChoiceCommand from './ui/lifestyle/ClearLifeStyleChoiceCommand';
 import ResetLifeStyleCommand from './ui/lifestyle/ResetLifeStyleCommand';
@@ -19,6 +20,8 @@ import ApplyPersonalitySectorResetCommand from './ui/personality/ApplyPersonalit
 import RegisterUiVOProxyCommand from './ui/RegisterUiVOProxyCommand';
 import RetrieveAvatarConfigFromFirebaseCommand from './ui/RetrieveAvatarConfigFromFirebaseCommand';
 import SaveAvatarConfigurationCommand from './ui/SaveAvatarConfigurationCommand';
+import ApplySkillsOptionValueCommand from './ui/skills/ApplySkillsOptionValueCommand';
+import ResetSkillsOptionsValuesCommand from './ui/skills/ResetSkillsOptionsValuesCommand';
 import UpdateAvatarSkinCommand from './ui/UpdateAvatarSkinCommand';
 
 export default class RegisterUiCommands extends SyncMacroCommand<
@@ -83,6 +86,14 @@ export default class RegisterUiCommands extends SyncMacroCommand<
     this.facade.registerCommand(
       PersonalityScene.PATH_COMPLETE_NOTIFICATION,
       ApplyPersonalitySectorCompleteCommand,
+    );
+    this.facade.registerCommand(
+      SkillsScene.CONTROLLER_VALUE_CHANGED_NOTIFICATION,
+      ApplySkillsOptionValueCommand,
+    );
+    this.facade.registerCommand(
+      SkillsScene.PLAY_AGAIN_CLICKED_NOTIFICATION,
+      ResetSkillsOptionsValuesCommand,
     );
     super.execute();
   }

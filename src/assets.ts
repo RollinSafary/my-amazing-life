@@ -267,7 +267,7 @@ export namespace Locales {
     public static Name: string = 'en';
     public static FileURL: string = 'assets/locales/en.json';
     public static Extension: string = '.json';
-    public static Size: string = '15373';
+    public static Size: string = '17873';
   }
   export class Ru {
     public static Name: string = 'ru';
@@ -391,6 +391,91 @@ export namespace MultiAtlases {
         ResultsBackgroundOrange = 'results/background-orange',
         ResultsBackgroundPurple = 'results/background-purple',
         ResultsBackgroundRed = 'results/background-red',
+      }
+    }
+  }
+  export namespace Skills {
+    export class Atlas {
+      public static Name: string = 'skills';
+      public static AtlasURL: string = 'assets/multiAtlases/skills.json';
+      public static TextureURL: string = 'assets/multiAtlases/';
+    }
+    export namespace Atlas {
+      export enum Frames {
+        HelpBackground = 'help-background',
+        InterfaceScreen = 'interface/screen',
+        SlideShowAnalyzing0 = 'slide-show/analyzing-0',
+        SlideShowAnalyzing1 = 'slide-show/analyzing-1',
+        SlideShowAnalyzing2 = 'slide-show/analyzing-2',
+        SlideShowAnalyzing3 = 'slide-show/analyzing-3',
+        SlideShowAnalyzingDefault = 'slide-show/analyzing-default',
+        SlideShowDecision0 = 'slide-show/decision-0',
+        SlideShowDecision1 = 'slide-show/decision-1',
+        SlideShowDecision2 = 'slide-show/decision-2',
+        SlideShowDecision3 = 'slide-show/decision-3',
+        SlideShowDecisionDefault = 'slide-show/decision-default',
+        SlideShowListening0 = 'slide-show/listening-0',
+        ButtonPlayAgain = 'button/play-again',
+        ButtonReplay = 'button/replay',
+        ButtonResults = 'button/results',
+        SlideShowListening1 = 'slide-show/listening-1',
+        SlideShowListening2 = 'slide-show/listening-2',
+        InterfaceScreenHighLight = 'interface/screen-high-light',
+        ButtonHelp = 'button/help',
+        InterfaceSpeaker = 'interface/speaker',
+        SphereBackground = 'sphere/background',
+        VerticalBar = 'vertical/bar',
+        ButtonProduce = 'button/produce',
+        SphereActive = 'sphere/active',
+        SpherePassive = 'sphere/passive',
+        ButtonPlay = 'button/play',
+        HorizontalBar = 'horizontal/bar',
+        SphereDialShadow = 'sphere/dial-shadow',
+        VerticalActive = 'vertical/active',
+        VerticalPassive = 'vertical/passive',
+        HorizontalPassive = 'horizontal/passive',
+        HorizontalActive = 'horizontal/active',
+        IndicatorPassive = 'indicator/passive',
+        IndicatorError = 'indicator/error',
+        IndicatorLoading = 'indicator/loading',
+        IndicatorSuccess = 'indicator/success',
+        SlideShowListening3 = 'slide-show/listening-3',
+        SlideShowListeningDefault = 'slide-show/listening-default',
+        SlideShowObserving0 = 'slide-show/observing-0',
+        SlideShowObserving1 = 'slide-show/observing-1',
+        SlideShowObserving2 = 'slide-show/observing-2',
+        SlideShowObserving3 = 'slide-show/observing-3',
+        SlideShowObservingDefault = 'slide-show/observing-default',
+        SlideShowOrganizing0 = 'slide-show/organizing-0',
+        SlideShowOrganizing1 = 'slide-show/organizing-1',
+        SlideShowOrganizing2 = 'slide-show/organizing-2',
+        SlideShowOrganizing3 = 'slide-show/organizing-3',
+        SlideShowOrganizingDefault = 'slide-show/organizing-default',
+        SlideShowProblem0 = 'slide-show/problem-0',
+        SlideShowProblem1 = 'slide-show/problem-1',
+        SlideShowProblem2 = 'slide-show/problem-2',
+        SlideShowProblem3 = 'slide-show/problem-3',
+        SlideShowProblemDefault = 'slide-show/problem-default',
+        SlideShowReading0 = 'slide-show/reading-0',
+        SlideShowReading1 = 'slide-show/reading-1',
+        SlideShowReading2 = 'slide-show/reading-2',
+        SlideShowReading3 = 'slide-show/reading-3',
+        SlideShowReadingDefault = 'slide-show/reading-default',
+        SlideShowRelationship0 = 'slide-show/relationship-0',
+        SlideShowRelationship1 = 'slide-show/relationship-1',
+        SlideShowRelationship2 = 'slide-show/relationship-2',
+        SlideShowRelationship3 = 'slide-show/relationship-3',
+        SlideShowRelationshipDefault = 'slide-show/relationship-default',
+        SlideShowSpeaking0 = 'slide-show/speaking-0',
+        SlideShowSpeaking1 = 'slide-show/speaking-1',
+        SlideShowSpeaking2 = 'slide-show/speaking-2',
+        SlideShowSpeaking3 = 'slide-show/speaking-3',
+        SlideShowSpeakingDefault = 'slide-show/speaking-default',
+        SlideShowWriting0 = 'slide-show/writing-0',
+        SlideShowWriting1 = 'slide-show/writing-1',
+        SlideShowWriting2 = 'slide-show/writing-2',
+        SlideShowWriting3 = 'slide-show/writing-3',
+        SlideShowWritingDefault = 'slide-show/writing-default',
       }
     }
   }

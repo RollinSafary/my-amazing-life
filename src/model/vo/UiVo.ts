@@ -12,6 +12,8 @@ export class UiVO {
   personalityResult: PersonalityChoice;
   personalityIndex: number;
 
+  skillsValues: ISkillsValues;
+
   constructor() {
     this.lifeStyleChoices = {};
     this.lifeStyleTotal = 0;
@@ -22,6 +24,19 @@ export class UiVO {
     this.personalityChoices = [new PersonalityChoice()];
     this.personalityResult = new PersonalityChoice();
     this.personalityIndex = 1;
+
+    this.skillsValues = {
+      reading: 1,
+      speaking: 1,
+      writing: 1,
+      analyzing: 1,
+      organizing: 1,
+      observing: 1,
+      decision: 1,
+      relationship: 1,
+      listening: 1,
+      problem: 1,
+    };
   }
 }
 
@@ -52,4 +67,17 @@ export class PersonalityChoice {
   cyan: number = 0;
   orange: number = 0;
   purple: number = 0;
+}
+
+export interface ISkillsValues extends StringIndexedObject<number> {
+  reading: number;
+  speaking: number;
+  writing: number;
+  analyzing: number;
+  organizing: number;
+  observing: number;
+  decision: number;
+  relationship: number;
+  listening: number;
+  problem: number;
 }

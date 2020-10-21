@@ -201,4 +201,36 @@ export default class UiVOProxy extends Proxy<UiVO> {
     // TODO: need to handle cases when there are multiple maxValues
     return keys[values.indexOf(maxValue)];
   }
+
+  public setSkillsOptionValue(name: string, value: number): void {
+    this.vo.skillsValues[name] = value;
+  }
+
+  public checkSkillOptionValues(): boolean {
+    const keys: string[] = Object.keys(this.vo.skillsValues);
+    const values: number[] = [];
+    for (const key of keys) {
+      const value: number = this.vo.skillsValues[key];
+      !values.includes(value) && values.push(value);
+    }
+    return values.length === 10;
+  }
+
+  public getBestSkill(): string {
+    const keys: string[] = Object.keys(this.vo.skillsValues);
+    const values: number[] = [];
+    for (const key of keys) {
+      const value: number = this.vo.skillsValues[key];
+      !values.includes(value) && values.push(value);
+    }
+    const maxValue: number = Math.max(...values);
+    const index: number = values.indexOf(maxValue);
+    return keys[index];
+  }
+  public resetSkills(): void {
+    const keys: string[] = Object.keys(this.vo.skillsValues);
+    for (const key of keys) {
+      this.vo.skillsValues[key] = 1;
+    }
+  }
 }
