@@ -10,7 +10,7 @@ export default class PersonalityLabel extends ExtendedText {
 
         super(scene, 0, 0, (Translation as any)[`PERSONLAITY_SECTION_TITLE_${colorName.toUpperCase()}_0`], {
             fontFamily: Fonts.ArialBlack.Name,
-            fontSize: 28,
+            fontSize: 20,
             fill: '#000',
         }, null);
         this.setScrollFactor(0)

@@ -102,7 +102,7 @@ export default class PersonalityScene extends BaseScene {
       this.timer.y = timerPosition.y * gameConfig.designHeight;
       this.timer.scrollFactorX = 0;
       this.timer.scrollFactorY = 0;
-      //this.timer.start();
+      this.timer.start();
     }
   }
 
