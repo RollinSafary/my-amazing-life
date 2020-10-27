@@ -2,7 +2,6 @@ import PlayerVOProxy from '../../model/PlayerVOProxy';
 import UiVOProxy from '../../model/UiVOProxy';
 import HobbiesWinPopup from '../popups/HobbiesWinPopup';
 import LifeStyleResultPopup from '../popups/LifeStyleResultPopup';
-import { delayRunnable } from '../utils/phaser/PhaserUtils';
 import BaseSceneMediator from './BaseSceneMediator';
 import LobbyScene, { LobbyAction } from './LobbyScene';
 import PersonalityScene from './PersonalityScene';
@@ -35,13 +34,6 @@ export default class LobbySceneMediator extends BaseSceneMediator<LobbyScene> {
         await this.startScene();
         this.viewComponent.setAvatarConfig(this.uiVOProxy.vo.avatar);
         this.updateButtons();
-        delayRunnable(
-          this.viewComponent,
-          500,
-          this.onAction,
-          this,
-          LobbyAction.HOBBIES,
-        );
         break;
       default:
         this.handleDefaultNotifications(notificationName, ...args);

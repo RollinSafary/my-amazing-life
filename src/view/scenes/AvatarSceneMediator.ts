@@ -1,7 +1,6 @@
 import UiVOProxy from '../../model/UiVOProxy';
 import AvatarPreviewMediator from '../components/avatar/AvatarPreviewMediator';
 import AvatarSkinsMediator from '../components/avatar/AvatarSkinsMediator';
-import { delayRunnable } from '../utils/phaser/PhaserUtils';
 import AvatarScene, { AvatarAction } from './AvatarScene';
 import BaseSceneMediator from './BaseSceneMediator';
 import LobbyScene from './LobbyScene';
@@ -31,7 +30,6 @@ export default class AvatarSceneMediator extends BaseSceneMediator<
         this.sceneManager.start(AvatarScene.NAME);
         this.fadeScreenIn();
         this.registerViews();
-        delayRunnable(this.viewComponent, 500, this.onAction, this);
         break;
       case UiVOProxy.AVATAR_CONFIGURATION_SAVED_NOTIFICATION:
         this.stopScene();

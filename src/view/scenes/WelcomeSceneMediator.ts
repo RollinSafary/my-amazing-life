@@ -1,4 +1,3 @@
-import { delayRunnable } from '../utils/phaser/PhaserUtils';
 import BaseSceneMediator from './BaseSceneMediator';
 import LoadingScene from './LoadingScene';
 import ServiceScene from './ServiceScene';
@@ -24,7 +23,6 @@ export default class WelcomeSceneMediator extends BaseSceneMediator<
     switch (notificationName) {
       case LoadingScene.LOAD_COMPLETE_NOTIFICATION:
         this.startScene();
-        delayRunnable(this.viewComponent, 500, this.onStartButtonClick, this);
         break;
       default:
         this.handleDefaultNotifications(notificationName, ...args);
