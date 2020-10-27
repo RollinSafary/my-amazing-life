@@ -41,7 +41,6 @@ export default class WelcomeSceneMediator extends BaseSceneMediator<
     const scene: WelcomeScene = new WelcomeScene();
     this.sceneManager.add(WelcomeScene.NAME, scene);
     this.setViewComponent(scene);
-    this.setViewComponentListeners();
   }
 
   protected setViewComponentListeners(): void {

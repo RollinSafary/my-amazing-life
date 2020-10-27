@@ -49,6 +49,7 @@ export default class SignInViewMediator extends BaseLoginViewMediator<
   protected setView(): void {
     const viewComponent: SignInView = new SignInView(getScene(LoginScene.NAME));
     this.setViewComponent(viewComponent);
+    this.setViewComponentListeners();
   }
 
   protected setViewComponentListeners(): void {
@@ -89,13 +90,5 @@ export default class SignInViewMediator extends BaseLoginViewMediator<
     await this.viewComponent.hide();
     this.viewComponent.destroy();
     this.viewComponent = null;
-  }
-
-  private imitateLogin(): void {
-    this.sendNotification(
-      SignInView.SIGN_IN_NOTIFICATION,
-      'test@gmail.com',
-      'testgmail',
-    );
   }
 }

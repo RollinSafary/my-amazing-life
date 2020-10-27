@@ -8,10 +8,16 @@ import {
   IHobbiesFrameData,
   sumArrayValues,
 } from '../utils/Utils';
+import { setDataToStorage, StorageKey } from '../utils/wrappers/StorageWrapper';
 import { ILifeStylePanelConfig } from '../view/components/lifestyle/panel/LifeStylePanel';
-import { getFSDataAsync, setFSDataAsync } from '../view/utils/FirebaseUtils';
 import { pickAny } from '../view/utils/phaser/PhaserUtils';
-import { IPersonalityChoice, PersonalityChoice, UiVO } from './vo/UiVO';
+import { IGamesPlayerData } from './vo/PlayerVO';
+import {
+  IAvatarConfig,
+  IPersonalityChoice,
+  PersonalityChoice,
+  UiVO,
+} from './vo/UiVO';
 
 export default class UiVOProxy extends Proxy<UiVO> {
   public static NAME: string = 'UiVOProxy';
@@ -33,12 +39,34 @@ export default class UiVOProxy extends Proxy<UiVO> {
   public static HOBBIES_CLUSTER_ELEMENT_CHOICE_NOTIFICATION: string = `${UiVOProxy.NAME}HobbiesClusterElementChoiceNotification`;
   public static HOBBIES_GAME_COMPLETE_NOTIFICATION: string = `${UiVOProxy.NAME}HobbiesGameCompleteNotification`;
 
+  public static SKILLS_GAME_COMPLETE_NOTIFICATION: string = `${UiVOProxy.NAME}SkillsGameCompleteNotification`;
+
   constructor() {
     super(UiVOProxy.NAME, new UiVO());
   }
 
   public onRegister(): void {
     this.sendNotification(UiVOProxy.REGISTERED_NOTIFICATION);
+  }
+
+  public setLoadedData(games: IGamesPlayerData): void {
+    if (games.lifestyle) {
+      this.vo.lifeStyleChoices = games.lifestyle.choices;
+      this.vo.lifeStyleTotal = games.lifestyle.total;
+    }
+    if (games.personality) {
+      this.vo.personalityBestOption = games.personality.bestOption;
+      this.vo.personalityResult = games.personality.results;
+      this.vo.personalityChoices = games.personality.choices;
+    }
+    if (games.hobbies) {
+      this.vo.hobbiesClusterChoices = games.hobbies.choices;
+      this.vo.hobbiesClusters = games.hobbies.clusters;
+      this.vo.hobbiesResults = games.hobbies.results;
+    }
+    if (games.skills) {
+      this.vo.skillsValues = games.skills.skills;
+    }
   }
 
   // AVATAR
@@ -57,13 +85,13 @@ export default class UiVOProxy extends Proxy<UiVO> {
     this.sendNotification(UiVOProxy.AVATAR_CONFIGURATION_CLEARED_NOTIFICATION);
   }
 
-  public async retrieveAvatarConfiguration(email: string): Promise<void> {
-    this.vo.avatar = await getFSDataAsync(email);
+  public async setAvatarConfig(avatar: IAvatarConfig): Promise<void> {
+    this.vo.avatar = avatar;
     this.sendNotification(UiVOProxy.AVATAR_CONFIGURATION_UPDATED_NOTIFICATION);
   }
 
   public saveAvatarConfiguration(email: string): void {
-    setFSDataAsync(email, this.vo.avatar);
+    setDataToStorage(StorageKey.AVATAR, email, this.vo.avatar);
     this.sendNotification(UiVOProxy.AVATAR_CONFIGURATION_SAVED_NOTIFICATION);
   }
 
@@ -142,6 +170,13 @@ export default class UiVOProxy extends Proxy<UiVO> {
 
   // PERSONALITY
 
+  public resetPersonality(): void {
+    this.vo.personalityBestOption = null;
+    this.vo.personalityChoices = [new PersonalityChoice()];
+    this.vo.personalityIndex = 1;
+    this.vo.personalityResult = new PersonalityChoice();
+  }
+
   public applyPersonalityMarkerChoice(
     sectorIndex: number,
     colorName: string,
@@ -188,6 +223,7 @@ export default class UiVOProxy extends Proxy<UiVO> {
             10000,
         ) / 100;
     }
+    this.calculatePersonalityBestOption();
   }
 
   public applyPersonalitySectorReset(): void {
@@ -202,7 +238,7 @@ export default class UiVOProxy extends Proxy<UiVO> {
     this.vo.personalityIndex = 1;
   }
 
-  public getPersonalityTopOption(): string {
+  private calculatePersonalityBestOption(): void {
     const keys: string[] = Object.keys(this.vo.personalityResult);
     const values: number[] = keys.map(
       (key: string) =>
@@ -210,10 +246,19 @@ export default class UiVOProxy extends Proxy<UiVO> {
     );
     const maxValue: number = Math.max(...values);
     // TODO: need to handle cases when there are multiple maxValues
-    return keys[values.indexOf(maxValue)];
+    this.vo.personalityBestOption = keys[values.indexOf(maxValue)];
   }
 
   // HOBBIES
+  public resetHobbies(): void {
+    this.vo.hobbiesClusterChoices = null;
+    this.vo.hobbiesClusterFrames = [];
+    this.vo.hobbiesClusterFramesData = null;
+    this.vo.hobbiesClusters = [];
+    this.vo.hobbiesImagePairs = [];
+    this.vo.hobbiesResults = null;
+  }
+
   public prepareHobbiesGameData(): void {
     this.prepareHobbiesClusters();
     const frames = this.prepareHobbiesFrames();

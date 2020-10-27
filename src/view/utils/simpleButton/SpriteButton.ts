@@ -32,14 +32,20 @@ export class SpriteButton extends Phaser.GameObjects.Sprite {
     }
   }
 
+  public destroy(): void {
+    this.scene && this.removeAllListeners();
+    super.destroy();
+  }
+
   public setEnabled(isEnabled: boolean): void {
+    if (!this.scene) {
+      return;
+    }
     isEnabled ? this.makeEnabled() : this.makeDisabled();
   }
 
   protected makeEnabled(): void {
     this.setNormalTexture();
-    this.removeAllListeners();
-    this.setListeners();
     this.input.enabled = true;
   }
 

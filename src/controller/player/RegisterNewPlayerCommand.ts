@@ -1,5 +1,6 @@
 import { AsyncMacroCommand, SimpleCommand } from '@candywings/pure-mvc';
-import { IPlayerRegistrationData } from '../../model/vo/PlayerVO';
+import { IPlayerRegistrationData, PlayerVO } from '../../model/vo/PlayerVO';
+import { setUserDataAsync } from '../../view/utils/FirebaseUtils';
 import RegisterPlayerVOProxyCommand from './RegisterPlayerVOProxyCommand';
 
 export default class RegisterNewPlayerCommand extends AsyncMacroCommand<
@@ -9,7 +10,9 @@ export default class RegisterNewPlayerCommand extends AsyncMacroCommand<
     notificationName: string,
     data: IPlayerRegistrationData,
   ): Promise<void> {
-    console.warn({ data });
+    const playerData: PlayerVO = new PlayerVO(data);
+    setUserDataAsync(playerData);
+    super.execute(notificationName, playerData);
   }
 
   public initializeMacroCommand(): void {

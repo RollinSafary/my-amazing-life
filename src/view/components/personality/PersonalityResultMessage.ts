@@ -22,6 +22,7 @@ export default class PersonalityResultMessage extends Phaser.GameObjects
   constructor(protected scene: BaseScene, protected colorName: string) {
     super(scene);
     this.createComponents();
+    this.setAlpha(0);
   }
 
   public async show(): Promise<void> {
@@ -78,7 +79,7 @@ export default class PersonalityResultMessage extends Phaser.GameObjects
       fill: '#ffffff',
     };
     const text: ExtendedText = this.scene.make.extText({
-      x: -this.width * 0.5,
+      x: -this.width * 0.49,
       y: 0,
       text: (Translation as any)[
         `PERSONALITY_RECOMMENDATION_${this.colorName.toUpperCase()}`

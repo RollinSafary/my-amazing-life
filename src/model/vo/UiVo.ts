@@ -32,8 +32,7 @@ export class UiVO {
     this.personalityChoices = [new PersonalityChoice()];
     this.personalityResult = new PersonalityChoice();
     this.personalityIndex = 1;
-    this.personalityBestOption = 'red';
-    // this.personalityBestOption = null;
+    this.personalityBestOption = null;
 
     this.skillsValues = {
       reading: 1,

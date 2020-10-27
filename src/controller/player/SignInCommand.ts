@@ -1,7 +1,7 @@
 import { AsyncMacroCommand, SimpleCommand } from '@candywings/pure-mvc';
 import { ERROR_CODE } from '../../constants/Constants';
 import { PlayerVO } from '../../model/vo/PlayerVO';
-import { getUserDataByEmail } from '../../view/utils/FirebaseUtils';
+import { getUserDataAsync } from '../../view/utils/FirebaseUtils';
 import RegisterPlayerVOProxyCommand from './RegisterPlayerVOProxyCommand';
 
 export default class SignInCommand extends AsyncMacroCommand<SimpleCommand> {
@@ -12,7 +12,7 @@ export default class SignInCommand extends AsyncMacroCommand<SimpleCommand> {
     email: string,
     password: string,
   ): Promise<void> {
-    const data: PlayerVO = await getUserDataByEmail(email);
+    const data: PlayerVO = await getUserDataAsync(email);
     switch (true) {
       case !data:
         this.sendNotification(
@@ -20,7 +20,7 @@ export default class SignInCommand extends AsyncMacroCommand<SimpleCommand> {
           ERROR_CODE.SIGN_IN_NOT_EXISTING_USER,
         );
         break;
-      case !!data && data.password !== password:
+      case !!data && data.user.password !== password:
         this.sendNotification(
           SignInCommand.ERROR_NOTIFICATION,
           ERROR_CODE.SIGN_IN_WRONG_PASSWORD,

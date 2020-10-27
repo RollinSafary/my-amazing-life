@@ -56,7 +56,7 @@ export default class PersonalitySceneMediator extends BaseSceneMediator<
       case UiVOProxy.PERSONALITY_GAME_COMPLETE_NOTIFICATION:
         const config: IPersonalityResultsConfig = {
           results: this.proxy.vo.personalityResult,
-          option: this.proxy.getPersonalityTopOption(),
+          option: this.proxy.vo.personalityBestOption,
         };
         this.viewComponent.createResults(config);
         await this.viewComponent.showSector(

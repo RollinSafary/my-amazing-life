@@ -1,3 +1,4 @@
+import { IGamesPlayerData } from '../model/vo/PlayerVO';
 import { IAvatarConfig } from '../model/vo/UiVO';
 import { StringIndexedObject } from '../utils/Utils';
 import { IPosition } from '../view/utils/phaser/PhaserUtils';
@@ -18,6 +19,13 @@ export const defaultAvatarConfig: IAvatarConfig = {
   shirt: -1,
   breeches: -1,
   gender: 'male',
+};
+
+export const defaultGamesState: IGamesPlayerData = {
+  lifestyle: null,
+  personality: null,
+  hobbies: null,
+  skills: null,
 };
 
 export const lifeStyleSections: ILifeStyleSectionConfig[] = [
@@ -158,7 +166,7 @@ export const personalityLabelsPositions: IPersonalityObjectsPositions[] = [
     purple: { x: 0.24, y: 0.85 },
   },
   {
-    red: { x: 0.20, y: 0.25 },
+    red: { x: 0.2, y: 0.25 },
     blue: { x: 0.86, y: 0.85 },
     green: { x: 0.43, y: 0.72 },
     cyan: { x: 0.19, y: 0.72 },
@@ -168,8 +176,8 @@ export const personalityLabelsPositions: IPersonalityObjectsPositions[] = [
   {
     red: { x: 0.63, y: 0.38 },
     blue: { x: 0.95, y: 0.63 },
-    green: { x: 0.88, y: 0.30 },
-    cyan: { x: 0.56, y: 0.30 },
+    green: { x: 0.88, y: 0.3 },
+    cyan: { x: 0.56, y: 0.3 },
     orange: { x: 0.28, y: 0.56 },
     purple: { x: 0.29, y: 0.98 },
   },
@@ -182,7 +190,6 @@ export const personalityLabelsPositions: IPersonalityObjectsPositions[] = [
     purple: { x: 0.92, y: 0.56 },
   },
 ];
-
 
 export const personalitySectorPaths: IPosition[][] = [
   [
@@ -253,7 +260,7 @@ export interface ILifeStyleSectionConfig extends IPosition {
 }
 
 export interface ILifeStyleSectionPrices
-  extends StringIndexedObject<number[][]> { }
+  extends StringIndexedObject<number[][]> {}
 
 export interface IPersonalityObjectsPositions
   extends StringIndexedObject<IPosition> {

@@ -48,7 +48,6 @@ export default class LoginSceneMediator extends BaseSceneMediator<LoginScene> {
     const scene: LoginScene = new LoginScene();
     this.sceneManager.add(LoginScene.NAME, scene);
     this.setViewComponent(scene);
-    this.setViewComponentListeners();
   }
 
   protected setViewComponentListeners(): void {

@@ -7,6 +7,7 @@ import PersonalityTimeoutPopup from '../view/popups/PersonalityTimeoutPopup';
 import AvatarScene from '../view/scenes/AvatarScene';
 import HobbiesScene from '../view/scenes/HobbiesScene';
 import LifeStyleScene from '../view/scenes/LifeStyleScene';
+import LobbyScene from '../view/scenes/LobbyScene';
 import PersonalityScene from '../view/scenes/PersonalityScene';
 import SkillsScene from '../view/scenes/SkillsScene';
 import ClearAvatarSettingsCommand from './ui/ClearAvatarSettingsCommand';
@@ -20,9 +21,11 @@ import ApplyPersonalityMarkerChoiceCommand from './ui/personality/ApplyPersonali
 import ApplyPersonalityResetCommand from './ui/personality/ApplyPersonalityResetCommand';
 import ApplyPersonalitySectorCompleteCommand from './ui/personality/ApplyPersonalitySectorCompleteCommand';
 import ApplyPersonalitySectorResetCommand from './ui/personality/ApplyPersonalitySectorResetCommand';
+import PrepareGameDataCommand from './ui/PrepareGameDataCommand';
 import RegisterUiVOProxyCommand from './ui/RegisterUiVOProxyCommand';
-import RetrieveAvatarConfigFromFirebaseCommand from './ui/RetrieveAvatarConfigFromFirebaseCommand';
 import SaveAvatarConfigurationCommand from './ui/SaveAvatarConfigurationCommand';
+import SetAvatarConfigCommand from './ui/SetAvatarConfigCommand';
+import SetGamesDataCommand from './ui/SetGamesDataCommand';
 import ApplySkillsOptionValueCommand from './ui/skills/ApplySkillsOptionValueCommand';
 import ResetSkillsOptionsValuesCommand from './ui/skills/ResetSkillsOptionsValuesCommand';
 import UpdateAvatarSkinCommand from './ui/UpdateAvatarSkinCommand';
@@ -33,7 +36,15 @@ export default class RegisterUiCommands extends SyncMacroCommand<
   public execute(): void {
     this.facade.registerCommand(
       PlayerVOProxy.INITIALIZE_COMPLETE_NOTIFICATION,
-      RetrieveAvatarConfigFromFirebaseCommand,
+      SetAvatarConfigCommand,
+    );
+    this.facade.registerCommand(
+      PlayerVOProxy.INITIALIZE_COMPLETE_NOTIFICATION,
+      SetGamesDataCommand,
+    );
+    this.facade.registerCommand(
+      LobbyScene.GAME_CHOSE_NOTIFICATION,
+      PrepareGameDataCommand,
     );
     // AVATAR
     this.facade.registerCommand(
@@ -90,6 +101,7 @@ export default class RegisterUiCommands extends SyncMacroCommand<
       PersonalityScene.PATH_COMPLETE_NOTIFICATION,
       ApplyPersonalitySectorCompleteCommand,
     );
+    // HOBBIES
     this.facade.registerCommand(
       HobbiesScene.START_GAME_NOTIFICATION,
       PrepareHobbiesGameCommand,
@@ -98,6 +110,7 @@ export default class RegisterUiCommands extends SyncMacroCommand<
       HobbiesScene.HOBBY_CHOSE_NOTIFICATION,
       ApplyHobbyChoseCommand,
     );
+    // SKILLS
     this.facade.registerCommand(
       SkillsScene.CONTROLLER_VALUE_CHANGED_NOTIFICATION,
       ApplySkillsOptionValueCommand,

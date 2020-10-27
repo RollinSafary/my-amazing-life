@@ -202,8 +202,8 @@ export default class RegistrationView extends BaseLoginView {
       }
     }
     const data: IPlayerRegistrationData = {
-      first_name: this.firstNameField.getTextValue(),
-      last_name: this.lastNameField.getTextValue(),
+      firstName: this.firstNameField.getTextValue(),
+      lastName: this.lastNameField.getTextValue(),
       email: this.emailField.getTextValue(),
       password: this.passwordField.getTextValue(),
     };

@@ -64,6 +64,7 @@ export default class LobbyScene extends BaseScene {
   }
 
   public updateSections(availableStates: IGameAvailableState): void {
+    this.changeSectionState(this.lifeStyle, availableStates.lifeStyle);
     this.changeSectionState(this.personality, availableStates.personality);
     this.changeSectionState(this.hobbies, availableStates.hobbies);
     this.changeSectionState(this.skills, availableStates.skills);

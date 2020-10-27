@@ -19,6 +19,7 @@ export default class LobbySceneMediator extends BaseSceneMediator<LobbyScene> {
       LifeStyleResultPopup.MENU_CLICKED_NOTIFICATION,
       PersonalityScene.MENU_CLICKED_NOTIFICATION,
       HobbiesWinPopup.MENU_CLICKED_NOTIFICATION,
+      PlayerVOProxy.SAVE_COMPLETE_NOTIFICATION,
     );
   }
 
@@ -35,6 +36,9 @@ export default class LobbySceneMediator extends BaseSceneMediator<LobbyScene> {
         this.viewComponent.setAvatarConfig(this.uiVOProxy.vo.avatar);
         this.updateButtons();
         break;
+      case PlayerVOProxy.SAVE_COMPLETE_NOTIFICATION:
+        this.updateButtons();
+        break;
       default:
         this.handleDefaultNotifications(notificationName, ...args);
         break;
@@ -44,12 +48,11 @@ export default class LobbySceneMediator extends BaseSceneMediator<LobbyScene> {
   protected updateButtons(): void {
     this.viewComponent.updateSections({
       lifeStyle: true,
-      personality: this.playerVOProxy.isLifeStyleComplete(),
-      hobbies: this.playerVOProxy.isPersonalityComplete(),
-      skills: this.playerVOProxy.isHobbiesComplete(),
+      personality: !!this.playerVOProxy.vo.games.lifestyle,
+      hobbies: !!this.playerVOProxy.vo.games.personality,
+      skills: !!this.playerVOProxy.vo.games.hobbies,
     });
-    this.playerVOProxy.vo.saved_result_exist !== 'false' &&
-      this.viewComponent.showResultsButton();
+    !!this.playerVOProxy.vo.backup && this.viewComponent.showResultsButton();
   }
 
   protected setView(): void {
