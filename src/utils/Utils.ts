@@ -1,5 +1,11 @@
+import { MultiAtlases } from '../assets';
 import { lifeStyleSectionsPrices } from '../constants/Constants';
 import { Translation } from '../translations';
+import {
+  getFrame,
+  getFramesByName,
+  IPosition,
+} from '../view/utils/phaser/PhaserUtils';
 import { getPlatform, IDevice } from './CordovaUtils';
 
 export type StringIndexedObject<T> = { [key: string]: T };
@@ -261,4 +267,155 @@ export function getLifeStylePanelItemAddonState(
     default:
       return false;
   }
+}
+
+export function getHobbiesClusters(color: string): string[] {
+  switch (color) {
+    case 'red':
+      return [
+        'ac',
+        'hsc',
+        'it',
+        'stem',
+        'bma',
+        'tdl',
+        'mfg',
+        'fnc',
+        'mss',
+        'et',
+        'gps',
+        'ht',
+      ];
+    case 'green':
+      return ['ac', 'it', 'stem', 'aatc'];
+    case 'blue':
+      return ['ac', 'hsc', 'stem', 'tdl', 'mfg', 'afn', 'aatc', 'lpss'];
+    case 'cyan':
+      return ['hsc', 'stem', 'afn', 'et', 'hs', 'gps'];
+    case 'orange':
+      return ['ac', 'hsc', 'it', 'stem', 'bma', 'mss', 'afn'];
+    case 'purple':
+      return [
+        'it',
+        'bma',
+        'tdl',
+        'mfg',
+        'fnc',
+        'mss',
+        'afn',
+        'aatc',
+        'et',
+        'gps',
+        'ht',
+        'hs',
+        'lpss',
+      ];
+    default:
+      break;
+  }
+}
+
+export function generateHobbiesFrames(clusters: string[]): IHobbiesFramesData {
+  const duplicates: IHobbiesFrameData[] = [];
+  const allFrames: string[] = [];
+  const clusterFrames: IFramesByClusters = {};
+  for (const cluster of clusters) {
+    const frames = getFramesByName(
+      MultiAtlases.Hobbies.Atlas.Name,
+      `/${cluster}-`,
+    );
+    clusterFrames[cluster] = frames;
+    allFrames.push(...frames);
+  }
+  const uniqueFrames = allFrames.slice();
+  for (let i: number = 0; i < clusters.length - 1; i++) {
+    const cluster = clusters[i];
+    const currentClusterFrames = clusterFrames[cluster];
+    allFrames.remove(...currentClusterFrames);
+    for (let ii: number = 0; ii < currentClusterFrames.length; ii++) {
+      const frameNameII: string = currentClusterFrames[ii];
+      const frameII = getFrame(
+        MultiAtlases.Hobbies.Atlas.Name,
+        frameNameII,
+      ) as IFrame;
+      const frames: string[] = [frameNameII];
+      const values: number[] = [getValueFromFrame(frameNameII)];
+      const indexes: number[] = [getIndexFromFrame(frameNameII)];
+      const clusters: string[] = [cluster];
+      for (let j: number = 0; j < allFrames.length; j++) {
+        const frameNameJ: string = allFrames[j];
+        const frameJ = getFrame(
+          MultiAtlases.Hobbies.Atlas.Name,
+          frameNameJ,
+        ) as IFrame;
+        if (areFramesSame(frameII, frameJ)) {
+          const value: number = getValueFromFrame(frameNameJ);
+          clusters.push(getClusterFromFrame(frameNameJ));
+          frames.push(frameNameJ);
+          values.push(value);
+          indexes.push(getIndexFromFrame(frameNameJ));
+        }
+      }
+      if (frames.length > 1) {
+        allFrames.remove(...frames);
+        duplicates.push({
+          frames,
+          values,
+          clusters,
+          indexes,
+        });
+      }
+    }
+  }
+  const duplicateFrames: string[] = [];
+  for (const value of duplicates) {
+    duplicateFrames.push(...value.frames);
+  }
+  uniqueFrames.remove(...duplicateFrames);
+  return {
+    duplicates,
+    uniques: uniqueFrames.map((frameName: string) => {
+      return {
+        clusters: [getClusterFromFrame(frameName)],
+        frames: [frameName],
+        values: [getValueFromFrame(frameName)],
+        indexes: [getIndexFromFrame(frameName)],
+      };
+    }),
+  };
+}
+
+function areFramesSame(frameI: IFrame, frameJ: IFrame): boolean {
+  return (
+    frameI.canvasData.x === frameJ.canvasData.x &&
+    frameI.canvasData.y === frameJ.canvasData.y
+  );
+}
+
+export function getValueFromFrame(frame: string): number {
+  return +frame.substring(frame.lastIndexOf('v') + 1, frame.length);
+}
+export function getClusterFromFrame(frame: string): string {
+  return frame.substring(frame.indexOf('/') + 1, frame.indexOf('-'));
+}
+export function getIndexFromFrame(frame: string): number {
+  return +frame[frame.lastIndexOf('-') - 1];
+}
+
+export interface IHobbiesFrameData {
+  clusters: string[];
+  frames: string[];
+  indexes: number[];
+  values: number[];
+}
+
+export interface IFramesByClusters extends StringIndexedObject<string[]> {}
+
+export interface IHobbiesFramesData {
+  duplicates: IHobbiesFrameData[];
+  uniques: IHobbiesFrameData[];
+}
+
+class IFrame extends Phaser.Textures.Frame {
+  canvasData: IPosition;
 }

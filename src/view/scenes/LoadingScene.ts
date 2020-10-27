@@ -4,6 +4,7 @@ import {
   loadAudios,
   loadMultiAtlases,
 } from '../utils/assetLoader';
+import { getFramesByName } from '../utils/phaser/PhaserUtils';
 import BaseScene from './BaseScene';
 
 export default class LoadingScene extends BaseScene {
@@ -73,6 +74,7 @@ export default class LoadingScene extends BaseScene {
   }
 
   private onLoadComplete(): void {
+    this.createAnimations();
     const frame: Phaser.Textures.Frame = this.textures.getFrame(
       Atlases.Loading.Atlas.Name,
       Atlases.Loading.Atlas.Frames.LoadingFill,
@@ -96,6 +98,47 @@ export default class LoadingScene extends BaseScene {
     loadAtlases(this, Atlases.Lobby);
     loadMultiAtlases(this, MultiAtlases);
     loadAudios(this, Audios);
+
     this.load.start();
+  }
+
+  private createAnimations(): void {
+    this.createAnimation(
+      'boom',
+      MultiAtlases.Hobbies.Atlas.Name,
+      'boom',
+      0,
+      30,
+      false,
+    );
+  }
+
+  private createAnimation(
+    animationKey: string,
+    textureKey: string,
+    frameKeyword: string,
+    repeat: number = 0,
+    frameRate: number = 30,
+    yoyo: boolean = false,
+  ): void {
+    const frames = getFramesByName(
+      MultiAtlases.Hobbies.Atlas.Name,
+      frameKeyword,
+    );
+    const animationFrames: Phaser.Types.Animations.AnimationFrame[] = [];
+    for (const frame of frames) {
+      animationFrames.push({
+        key: textureKey,
+        frame,
+      });
+    }
+    this.anims.create({
+      key: animationKey,
+      frames: animationFrames,
+      repeat,
+      frameRate,
+      skipMissedFrames: true,
+      yoyo,
+    });
   }
 }

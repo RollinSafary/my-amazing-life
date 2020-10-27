@@ -196,6 +196,23 @@
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
+            <key type="filename">skills/button/play-again.png</key>
+            <key type="filename">skills/button/replay.png</key>
+            <key type="filename">skills/button/results.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>87,16,173,31</rect>
+                <key>scale9Paddings</key>
+                <rect>87,16,173,31</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
             <key type="filename">skills/button/play.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
@@ -374,11 +391,11 @@
             <key type="filename">skills/slide-show/organizing-2.png</key>
             <key type="filename">skills/slide-show/organizing-3.png</key>
             <key type="filename">skills/slide-show/organizing-default.png</key>
-            <key type="filename">skills/slide-show/problem-solving-0.png</key>
-            <key type="filename">skills/slide-show/problem-solving-1.png</key>
-            <key type="filename">skills/slide-show/problem-solving-2.png</key>
-            <key type="filename">skills/slide-show/problem-solving-3.png</key>
-            <key type="filename">skills/slide-show/problem-solving-default.png</key>
+            <key type="filename">skills/slide-show/problem-0.png</key>
+            <key type="filename">skills/slide-show/problem-1.png</key>
+            <key type="filename">skills/slide-show/problem-2.png</key>
+            <key type="filename">skills/slide-show/problem-3.png</key>
+            <key type="filename">skills/slide-show/problem-default.png</key>
             <key type="filename">skills/slide-show/reading-0.png</key>
             <key type="filename">skills/slide-show/reading-1.png</key>
             <key type="filename">skills/slide-show/reading-2.png</key>
@@ -441,6 +458,21 @@
                 <rect>45,52,90,103</rect>
                 <key>scale9Paddings</key>
                 <rect>45,52,90,103</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">skills/sphere/dial-shadow.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>13,26,27,53</rect>
+                <key>scale9Paddings</key>
+                <rect>13,26,27,53</rect>
                 <key>scale9FromFile</key>
                 <false/>
             </struct>

@@ -1,4 +1,4 @@
-import { StringIndexedObject } from '../../utils/Utils';
+import { IHobbiesFramesData, StringIndexedObject } from '../../utils/Utils';
 
 export class UiVO {
   avatar: IAvatarConfig;
@@ -11,6 +11,14 @@ export class UiVO {
   personalityChoices: PersonalityChoice[];
   personalityResult: PersonalityChoice;
   personalityIndex: number;
+  personalityBestOption: string;
+
+  hobbiesClusters: string[];
+  hobbiesResults: StringIndexedObject<number>;
+  hobbiesClusterFrames: string[];
+  hobbiesImagePairs: string[][];
+  hobbiesClusterFramesData: IHobbiesFramesData;
+  hobbiesClusterChoices: StringIndexedObject<IHobbiesClusterChoice[]>;
 
   skillsValues: ISkillsValues;
 
@@ -24,6 +32,8 @@ export class UiVO {
     this.personalityChoices = [new PersonalityChoice()];
     this.personalityResult = new PersonalityChoice();
     this.personalityIndex = 1;
+    this.personalityBestOption = 'red';
+    // this.personalityBestOption = null;
 
     this.skillsValues = {
       reading: 1,
@@ -80,4 +90,12 @@ export interface ISkillsValues extends StringIndexedObject<number> {
   relationship: number;
   listening: number;
   problem: number;
+}
+
+export interface IHobbiesClusterChoice {
+  frameName: string;
+  cluster: string;
+  index: number;
+  value: number;
+  selected: boolean;
 }

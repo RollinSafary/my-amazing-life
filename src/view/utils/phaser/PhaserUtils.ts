@@ -82,6 +82,20 @@ export function getKey(key: string): Phaser.Textures.Texture {
 export function getFrame(key: string, frame: string): Phaser.Textures.Frame {
   return getScene(ServiceScene.NAME).textures.getFrame(key, frame);
 }
+
+export function getFramesByName(key: string, name: string): string[] {
+  const scene = getScene(ServiceScene.NAME);
+  const texture = scene.textures.get(key);
+  const frames = texture.getFrameNames(false);
+  const frameNames: string[] = frames.filter((frame: string) =>
+    frame.includes(name),
+  );
+  return frameNames.sort((a: string, b: string) => {
+    const aIndex: number = +a.substring(a.lastIndexOf('-'), a.length);
+    const bIndex: number = +b.substring(b.lastIndexOf('-'), b.length);
+    return bIndex - aIndex;
+  });
+}
 // getTexture end
 
 // textures start

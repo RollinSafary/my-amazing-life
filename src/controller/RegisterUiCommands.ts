@@ -5,10 +5,13 @@ import AvatarSkins from '../view/components/avatar/AvatarSkins';
 import LifeStyleResultPopup from '../view/popups/LifeStyleResultPopup';
 import PersonalityTimeoutPopup from '../view/popups/PersonalityTimeoutPopup';
 import AvatarScene from '../view/scenes/AvatarScene';
+import HobbiesScene from '../view/scenes/HobbiesScene';
 import LifeStyleScene from '../view/scenes/LifeStyleScene';
 import PersonalityScene from '../view/scenes/PersonalityScene';
 import SkillsScene from '../view/scenes/SkillsScene';
 import ClearAvatarSettingsCommand from './ui/ClearAvatarSettingsCommand';
+import ApplyHobbyChoseCommand from './ui/hobbies/ApplyHobbyChoseCommand';
+import PrepareHobbiesGameCommand from './ui/hobbies/PrepareHobbiesGameCommand';
 import ClearLifeStyleChoiceCommand from './ui/lifestyle/ClearLifeStyleChoiceCommand';
 import ResetLifeStyleCommand from './ui/lifestyle/ResetLifeStyleCommand';
 import SaveLifeStyleChoiceCommand from './ui/lifestyle/SaveLifeStyleChoiceCommand';
@@ -86,6 +89,14 @@ export default class RegisterUiCommands extends SyncMacroCommand<
     this.facade.registerCommand(
       PersonalityScene.PATH_COMPLETE_NOTIFICATION,
       ApplyPersonalitySectorCompleteCommand,
+    );
+    this.facade.registerCommand(
+      HobbiesScene.START_GAME_NOTIFICATION,
+      PrepareHobbiesGameCommand,
+    );
+    this.facade.registerCommand(
+      HobbiesScene.HOBBY_CHOSE_NOTIFICATION,
+      ApplyHobbyChoseCommand,
     );
     this.facade.registerCommand(
       SkillsScene.CONTROLLER_VALUE_CHANGED_NOTIFICATION,

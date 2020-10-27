@@ -1,11 +1,16 @@
 import { Proxy } from '@candywings/pure-mvc';
 import { Translation } from '../translations';
 import {
+  generateHobbiesFrames,
+  getHobbiesClusters,
   getLifeStylePanelItemAddonState,
   getLifeStylePanelItemPriceKey,
+  IHobbiesFrameData,
+  sumArrayValues,
 } from '../utils/Utils';
 import { ILifeStylePanelConfig } from '../view/components/lifestyle/panel/LifeStylePanel';
 import { getFSDataAsync, setFSDataAsync } from '../view/utils/FirebaseUtils';
+import { pickAny } from '../view/utils/phaser/PhaserUtils';
 import { IPersonalityChoice, PersonalityChoice, UiVO } from './vo/UiVO';
 
 export default class UiVOProxy extends Proxy<UiVO> {
@@ -24,6 +29,10 @@ export default class UiVOProxy extends Proxy<UiVO> {
   public static PERSONALITY_SECTOR_COMPLETE_NOTIFICATION: string = `${UiVOProxy.NAME}PersonalitySectorCompleteNotification`;
   public static PERSONALITY_GAME_COMPLETE_NOTIFICATION: string = `${UiVOProxy.NAME}PersonalityGameCompleteNotification`;
 
+  public static HOBBIES_CLUSTERS_PREPARED_NOTIFICATION: string = `${UiVOProxy.NAME}HobbiesClustersPreparedNotification`;
+  public static HOBBIES_CLUSTER_ELEMENT_CHOICE_NOTIFICATION: string = `${UiVOProxy.NAME}HobbiesClusterElementChoiceNotification`;
+  public static HOBBIES_GAME_COMPLETE_NOTIFICATION: string = `${UiVOProxy.NAME}HobbiesGameCompleteNotification`;
+
   constructor() {
     super(UiVOProxy.NAME, new UiVO());
   }
@@ -32,6 +41,7 @@ export default class UiVOProxy extends Proxy<UiVO> {
     this.sendNotification(UiVOProxy.REGISTERED_NOTIFICATION);
   }
 
+  // AVATAR
   public updateAvatarConfiguration(key: string, value: number | string): void {
     this.vo.avatar[key] = value;
     key === 'gender' && this.clearAvatarConfiguration();
@@ -57,6 +67,7 @@ export default class UiVOProxy extends Proxy<UiVO> {
     this.sendNotification(UiVOProxy.AVATAR_CONFIGURATION_SAVED_NOTIFICATION);
   }
 
+  // LIFESTYLE
   public setLifeStyleChoice(
     config: ILifeStylePanelConfig,
     index: number,
@@ -202,6 +213,129 @@ export default class UiVOProxy extends Proxy<UiVO> {
     return keys[values.indexOf(maxValue)];
   }
 
+  // HOBBIES
+  public prepareHobbiesGameData(): void {
+    this.prepareHobbiesClusters();
+    const frames = this.prepareHobbiesFrames();
+    this.prepareHobbiesChoices(frames);
+    this.generateHobbiesImagePairs(frames);
+    this.sendNotification(UiVOProxy.HOBBIES_CLUSTERS_PREPARED_NOTIFICATION);
+  }
+
+  private prepareHobbiesClusters(): void {
+    this.vo.hobbiesClusters = getHobbiesClusters(this.vo.personalityBestOption);
+  }
+
+  private prepareHobbiesFrames(): string[] {
+    this.vo.hobbiesClusterFramesData = generateHobbiesFrames(
+      this.vo.hobbiesClusters,
+    );
+    let hobbiesClusterFrames = this.vo.hobbiesClusterFramesData.duplicates.map(
+      value => value.frames[0],
+    );
+    hobbiesClusterFrames.push(
+      ...this.vo.hobbiesClusterFramesData.uniques.map(value => value.frames[0]),
+    );
+    hobbiesClusterFrames = hobbiesClusterFrames.splice(
+      0,
+      Math.min(hobbiesClusterFrames.length, 40),
+    );
+    return hobbiesClusterFrames;
+  }
+
+  private generateHobbiesImagePairs(frames: string[]): void {
+    this.vo.hobbiesImagePairs = [];
+    for (let i: number = 0; i < 20; i++) {
+      const pair: string[] = [];
+      pair.push(pickAny(frames));
+      frames.remove(...pair);
+      pair.push(pickAny(frames));
+      frames.remove(...pair);
+      this.vo.hobbiesImagePairs.push(pair);
+    }
+  }
+
+  private prepareHobbiesChoices(hobbiesClusterFrames: string[]): void {
+    this.vo.hobbiesClusterChoices = {};
+    this.vo.hobbiesResults = {};
+    for (const cluster of this.vo.hobbiesClusters) {
+      this.vo.hobbiesClusterChoices[cluster] = [];
+      this.vo.hobbiesResults[cluster] = 0;
+    }
+    for (const frame of hobbiesClusterFrames) {
+      const frameData = this.hobbiesGetFrameData(frame);
+      for (let i: number = 0; i < frameData.frames.length; i++) {
+        this.vo.hobbiesClusterChoices[frameData.clusters[i]].push({
+          frameName: frameData.frames[i],
+          cluster: frameData.clusters[i],
+          index: frameData.indexes[i],
+          value: frameData.values[i],
+          selected: false,
+        });
+      }
+    }
+  }
+
+  private hobbiesGetFrameData(frame: string): IHobbiesFrameData {
+    return (
+      this.vo.hobbiesClusterFramesData.duplicates.find(element =>
+        element.frames.includes(frame),
+      ) ||
+      this.vo.hobbiesClusterFramesData.uniques.find(element =>
+        element.frames.includes(frame),
+      )
+    );
+  }
+
+  public applyHobbyChoice(frameName: string): void {
+    this.vo.hobbiesImagePairs.shift();
+    const frameData: IHobbiesFrameData = [
+      ...this.vo.hobbiesClusterFramesData.duplicates,
+      ...this.vo.hobbiesClusterFramesData.uniques,
+    ].find((frameData: IHobbiesFrameData) =>
+      frameData.frames.includes(frameName),
+    );
+    for (let i: number = 0; i < frameData.frames.length; i++) {
+      const cluster: string = frameData.clusters[i];
+      const frame: string = frameData.frames[i];
+      const choice = this.vo.hobbiesClusterChoices[cluster].find(
+        choice => choice.frameName === frame,
+      );
+      choice.selected = true;
+    }
+    this.sendNotification(
+      UiVOProxy.HOBBIES_CLUSTER_ELEMENT_CHOICE_NOTIFICATION,
+      frameName,
+    );
+    if (this.vo.hobbiesImagePairs.length === 0) {
+      this.calculateHobbiesGameResult();
+    }
+  }
+
+  private calculateHobbiesGameResult(): void {
+    const clusters: string[] = Object.keys(this.vo.hobbiesClusterChoices);
+    const results: number[] = [];
+    for (const cluster of clusters) {
+      const selectedChoices = this.vo.hobbiesClusterChoices[cluster].filter(
+        choice => choice.selected,
+      );
+      const sum: number = sumArrayValues(
+        ...selectedChoices.map(choice => choice.value),
+      );
+      results.push(sum);
+      this.vo.hobbiesResults[cluster] = sum;
+    }
+    const sortedResults = results.slice().sort((a, b) => b - a);
+    const firstIndex: number = results.indexOf(sortedResults[0]);
+    const secondIndex: number = results.indexOf(sortedResults[1]);
+    this.sendNotification(
+      UiVOProxy.HOBBIES_GAME_COMPLETE_NOTIFICATION,
+      clusters[firstIndex],
+      clusters[secondIndex],
+    );
+  }
+
+  // SKILL
   public setSkillsOptionValue(name: string, value: number): void {
     this.vo.skillsValues[name] = value;
   }

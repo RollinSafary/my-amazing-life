@@ -1,5 +1,6 @@
 import PlayerVOProxy from '../../model/PlayerVOProxy';
 import UiVOProxy from '../../model/UiVOProxy';
+import HobbiesWinPopup from '../popups/HobbiesWinPopup';
 import LifeStyleResultPopup from '../popups/LifeStyleResultPopup';
 import { delayRunnable } from '../utils/phaser/PhaserUtils';
 import BaseSceneMediator from './BaseSceneMediator';
@@ -18,6 +19,7 @@ export default class LobbySceneMediator extends BaseSceneMediator<LobbyScene> {
       UiVOProxy.AVATAR_CONFIGURATION_SAVED_NOTIFICATION,
       LifeStyleResultPopup.MENU_CLICKED_NOTIFICATION,
       PersonalityScene.MENU_CLICKED_NOTIFICATION,
+      HobbiesWinPopup.MENU_CLICKED_NOTIFICATION,
     );
   }
 
@@ -28,6 +30,7 @@ export default class LobbySceneMediator extends BaseSceneMediator<LobbyScene> {
     switch (notificationName) {
       case PersonalityScene.MENU_CLICKED_NOTIFICATION:
       case LifeStyleResultPopup.MENU_CLICKED_NOTIFICATION:
+      case HobbiesWinPopup.MENU_CLICKED_NOTIFICATION:
       case UiVOProxy.AVATAR_CONFIGURATION_SAVED_NOTIFICATION:
         await this.startScene();
         this.viewComponent.setAvatarConfig(this.uiVOProxy.vo.avatar);
@@ -37,7 +40,7 @@ export default class LobbySceneMediator extends BaseSceneMediator<LobbyScene> {
           500,
           this.onAction,
           this,
-          LobbyAction.SKILLS,
+          LobbyAction.HOBBIES,
         );
         break;
       default:
