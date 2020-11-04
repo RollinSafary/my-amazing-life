@@ -94,7 +94,7 @@
 					}
 				},
 				{
-					"filename": "button-next",
+					"filename": "button",
 					"rotated": false,
 					"trimmed": true,
 					"sourceSize": {
@@ -225,6 +225,6 @@
 	"meta": {
 		"app": "https://www.codeandweb.com/texturepacker",
 		"version": "3.0",
-		"smartupdate": "$TexturePacker:SmartUpdate:f20c54563e7716334f1f71cee6d01301:efe60d701dc47864ceaea9eb27f01372:ffb62af756263e4644c882ff552ab6d3$"
+		"smartupdate": "$TexturePacker:SmartUpdate:7b4e5b30e803754a3e0a25da3962839f:201de089a026c1a71279af4884769862:ffb62af756263e4644c882ff552ab6d3$"
 	}
 }

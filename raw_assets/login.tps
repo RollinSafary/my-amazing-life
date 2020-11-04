@@ -226,21 +226,6 @@
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
-            <key type="filename">login/button-next.png</key>
-            <struct type="IndividualSpriteSettings">
-                <key>pivotPoint</key>
-                <point_f>0.5,0.5</point_f>
-                <key>spriteScale</key>
-                <double>1</double>
-                <key>scale9Enabled</key>
-                <false/>
-                <key>scale9Borders</key>
-                <rect>43,16,85,33</rect>
-                <key>scale9Paddings</key>
-                <rect>43,16,85,33</rect>
-                <key>scale9FromFile</key>
-                <false/>
-            </struct>
             <key type="filename">login/button-ok.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
@@ -253,6 +238,21 @@
                 <rect>26,15,51,29</rect>
                 <key>scale9Paddings</key>
                 <rect>26,15,51,29</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">login/button.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>43,16,85,33</rect>
+                <key>scale9Paddings</key>
+                <rect>43,16,85,33</rect>
                 <key>scale9FromFile</key>
                 <false/>
             </struct>

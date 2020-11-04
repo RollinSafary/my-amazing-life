@@ -165,7 +165,7 @@ export namespace Atlases {
         BackgroundLogin = 'background-login',
         Field = 'field',
         ControlButton = 'control-button',
-        ButtonNext = 'button-next',
+        Button = 'button',
         IconMail = 'icon-mail',
         IconLock = 'icon-lock',
         ButtonBack = 'button-back',

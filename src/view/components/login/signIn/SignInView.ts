@@ -1,10 +1,12 @@
-import { Atlases } from '../../../../assets';
+import { Atlases, Fonts } from '../../../../assets';
 import { ERROR_CODE } from '../../../../constants/Constants';
+import { Translation } from '../../../../translations';
 import { validateEmail } from '../../../../utils/Utils';
-import {
-  ISpriteButtonConfig,
-  ISpriteButtonState,
-} from '../../../utils/simpleButton/SimpleButtonInterfaces';
+import ISimpleButtonText from '../../../utils/simpleButton/ISimpleButtonText';
+import SimpleButton, {
+  ISimpleButtonConfig,
+} from '../../../utils/simpleButton/SimpleButton';
+import { ISpriteButtonState } from '../../../utils/simpleButton/SimpleButtonInterfaces';
 import { SpriteButton } from '../../../utils/simpleButton/SpriteButton';
 import BaseTextField from '../../../utils/textField/BaseTextField';
 import BaseLoginView from '../BaseLoginView';
@@ -23,10 +25,9 @@ export default class SignInView extends BaseLoginView {
   public static SIGN_UP_NOTIFICATION: string = `${SignInView.NAME}SignUpNotification`;
 
   protected icon: Phaser.GameObjects.Image;
-  protected emailField: SignInEmailField;
-  protected passwordField: SignInPasswordField;
-  protected signInButton: SpriteButton;
-  protected signUpButton: SpriteButton;
+  protected fields: BaseTextField[];
+  protected signInButton: SimpleButton;
+  protected signUpButton: SimpleButton;
 
   protected createBackground(): void {
     const frame: Phaser.Textures.Frame = this.scene.textures.getFrame(
@@ -114,7 +115,7 @@ export default class SignInView extends BaseLoginView {
         return;
       }
       this.scene.tweens.add({
-        targets: [this.emailField, this.passwordField],
+        targets: this.fields,
         alpha: 1,
         duration: 300,
         ease: Phaser.Math.Easing.Expo.InOut,
@@ -158,19 +159,23 @@ export default class SignInView extends BaseLoginView {
   }
 
   protected createFields(): void {
+    this.fields = [];
     this.createEmailField();
     this.createPasswordField();
   }
 
   protected createEmailField(): void {
-    this.emailField = new SignInEmailField(this.scene);
-    this.add(this.emailField);
-    this.emailField.y = -this.emailField.height * 0.6;
+    const field = new SignInEmailField(this.scene);
+    this.add(field);
+    field.y = -field.height * 0.6;
+    field.on(BaseTextField.INPUT_DONE_EVENT, this.onSignInClick, this);
+    this.fields.push(field);
   }
   protected createPasswordField(): void {
-    this.passwordField = new SignInPasswordField(this.scene);
-    this.add(this.passwordField);
-    this.passwordField.y = this.passwordField.height * 0.6;
+    const field = new SignInPasswordField(this.scene);
+    this.add(field);
+    field.y = field.height * 0.6;
+    this.fields.push(field);
   }
 
   protected createButtons(): void {
@@ -181,60 +186,84 @@ export default class SignInView extends BaseLoginView {
   protected createSignInButton(): void {
     const normalStateConfig: ISpriteButtonState = {
       key: Atlases.Login.Atlas.Name,
-      frame: Atlases.Login.Atlas.Frames.ButtonNext,
+      frame: Atlases.Login.Atlas.Frames.Button,
     };
-    const config: ISpriteButtonConfig = {
+    const textConfig: ISimpleButtonText = {
+      fontFamily: Fonts.ArialBlack.Name,
+      fontSize: 30,
+      fill: '#ffffff',
+      text: Translation.REGISTRATION_BUTTON_SIGN_IN,
+      origin: {
+        x: 0.5,
+        y: 0.5,
+      },
+    };
+    const config: ISimpleButtonConfig = {
       normalStateConfig,
+      textConfig,
     };
-    this.signInButton = new SpriteButton(this.scene, config);
+    this.signInButton = new SimpleButton(this.scene, config);
     this.add(this.signInButton);
     this.signInButton.x = -this.signInButton.width * 0.6;
     this.signInButton.y = this.height * 0.25;
   }
 
-  public setListeners(): void {
-    this.emailField.on(
-      BaseTextField.INPUT_DONE_EVENT,
-      this.onSignInClick,
-      this,
-    );
-    this.signInButton.on(SpriteButton.CLICK_EVENT, this.onSignInClick, this);
-    this.signUpButton.on(SpriteButton.CLICK_EVENT, this.onSignUpClick, this);
-  }
-
-  public removeListeners(): void {
-    this.emailField.off(
-      BaseTextField.INPUT_DONE_EVENT,
-      this.onSignInClick,
-      this,
-    );
-    this.signInButton.off(SpriteButton.CLICK_EVENT, this.onSignInClick, this);
-    this.signUpButton.off(SpriteButton.CLICK_EVENT, this.onSignUpClick, this);
-  }
-
   protected createSignUpButton(): void {
     const normalStateConfig: ISpriteButtonState = {
       key: Atlases.Login.Atlas.Name,
-      frame: Atlases.Login.Atlas.Frames.ButtonOk,
+      frame: Atlases.Login.Atlas.Frames.Button,
     };
-    const config: ISpriteButtonConfig = {
+    const textConfig: ISimpleButtonText = {
+      fontFamily: Fonts.ArialBlack.Name,
+      fontSize: 30,
+      fill: '#ffffff',
+      text: Translation.REGISTRATION_BUTTON_SIGN_UP,
+      origin: {
+        x: 0.5,
+        y: 0.5,
+      },
+    };
+    const config: ISimpleButtonConfig = {
       normalStateConfig,
+      textConfig,
     };
-    this.signUpButton = new SpriteButton(this.scene, config);
+    this.signUpButton = new SimpleButton(this.scene, config);
     this.add(this.signUpButton);
     this.signUpButton.x = this.signInButton.width * 0.6;
     this.signUpButton.y = this.height * 0.25;
   }
 
+  public setListeners(): void {
+    for (const field of this.fields) {
+      field.on(BaseTextField.FOCUS_EVENT, this.onFieldFocus, this);
+    }
+    this.signInButton.on(SpriteButton.CLICK_EVENT, this.onSignInClick, this);
+    this.signUpButton.on(SpriteButton.CLICK_EVENT, this.onSignUpClick, this);
+  }
+
+  public removeListeners(): void {
+    this.fields
+      .getFirst()
+      .off(BaseTextField.INPUT_DONE_EVENT, this.onSignInClick, this);
+    this.signInButton.off(SpriteButton.CLICK_EVENT, this.onSignInClick, this);
+    this.signUpButton.off(SpriteButton.CLICK_EVENT, this.onSignUpClick, this);
+  }
+
+  protected onFieldFocus(targetField: BaseTextField): void {
+    for (const field of this.fields) {
+      field !== targetField && field.blur();
+    }
+  }
+
   protected onSignInClick(): void {
     switch (true) {
-      case !validateEmail(this.emailField.getTextValue()):
+      case !validateEmail(this.fields.getFirst().getTextValue()):
         this.emit(
           SignInView.ERROR_EVENT,
           ERROR_CODE.REGISTRATION_INVALID_EMAIL,
         );
         return;
-      case this.passwordField.getTextValue().length < 6:
+      case this.fields.getLast().getTextValue().length < 6:
         this.emit(
           SignInView.ERROR_EVENT,
           ERROR_CODE.REGISTRATION_SHORT_PASSWORD,
@@ -243,8 +272,8 @@ export default class SignInView extends BaseLoginView {
       default:
         this.emit(
           SignInView.SIGN_IN_EVENT,
-          this.emailField.getTextValue(),
-          this.passwordField.getTextValue(),
+          this.fields.getFirst().getTextValue(),
+          this.fields.getLast().getTextValue(),
         );
         break;
     }
@@ -253,16 +282,16 @@ export default class SignInView extends BaseLoginView {
   protected onSignUpClick(): void {
     this.emit(
       SignInView.SIGN_UP_EVENT,
-      this.emailField.getTextValue(),
-      this.passwordField.getTextValue(),
+      this.fields.getFirst().getTextValue(),
+      this.fields.getLast().getTextValue(),
     );
   }
 
   private prepare(): void {
     this.background.resize(this.background.width, 0);
     this.icon.setScale(0);
-    this.emailField.setAlpha(0);
-    this.passwordField.setAlpha(0);
+    this.fields.getFirst().setAlpha(0);
+    this.fields.getLast().setAlpha(0);
     this.signInButton.setScale(0);
     this.signUpButton.setScale(0);
   }

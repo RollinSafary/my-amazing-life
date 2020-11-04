@@ -27,7 +27,7 @@ export default abstract class BaseTextField extends Phaser.GameObjects
   public focus(): void {
     this.inputDOM.focus();
     this.focused = true;
-    this.emit(BaseTextField.FOCUS_EVENT);
+    this.emit(BaseTextField.FOCUS_EVENT, this);
     this.scene.tweens.killTweensOf(this);
     this.scene.tweens.add({
       targets: this,
@@ -89,7 +89,7 @@ export default abstract class BaseTextField extends Phaser.GameObjects
   }
 
   protected onInput(): void {
-    this.text.setText(this.inputDOM.value);
+    this.text.setText(`${this.inputDOM.value}`);
   }
 
   protected onEnter(): void {

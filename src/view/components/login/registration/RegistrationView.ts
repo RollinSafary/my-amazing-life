@@ -4,6 +4,10 @@ import { IPlayerRegistrationData } from '../../../../model/vo/PlayerVO';
 import { Translation } from '../../../../translations';
 import { validateEmail } from '../../../../utils/Utils';
 import { ITextStyle } from '../../../utils/phaser/PhaserUtils';
+import ISimpleButtonText from '../../../utils/simpleButton/ISimpleButtonText';
+import SimpleButton, {
+  ISimpleButtonConfig,
+} from '../../../utils/simpleButton/SimpleButton';
 import {
   ISpriteButtonConfig,
   ISpriteButtonState,
@@ -33,7 +37,7 @@ export default class RegistrationView extends BaseLoginView {
   protected emailField: RegisterTextField;
   protected passwordField: PasswordTextField;
   protected confirmPasswordField: PasswordTextField;
-  protected nextButton: SpriteButton;
+  protected nextButton: SimpleButton;
   protected backButton: SpriteButton;
 
   protected fields: BaseTextField[];
@@ -129,12 +133,23 @@ export default class RegistrationView extends BaseLoginView {
   protected createNextButton(): void {
     const normalStateConfig: ISpriteButtonState = {
       key: Atlases.Login.Atlas.Name,
-      frame: Atlases.Login.Atlas.Frames.ButtonNext,
+      frame: Atlases.Login.Atlas.Frames.Button,
     };
-    const config: ISpriteButtonConfig = {
+    const textConfig: ISimpleButtonText = {
+      fontFamily: Fonts.ArialBlack.Name,
+      fontSize: 30,
+      fill: '#ffffff',
+      text: Translation.REGISTRATION_BUTTON_NEXT,
+      origin: {
+        x: 0.5,
+        y: 0.5,
+      },
+    };
+    const config: ISimpleButtonConfig = {
       normalStateConfig,
+      textConfig,
     };
-    this.nextButton = new SpriteButton(this.scene, config);
+    this.nextButton = new SimpleButton(this.scene, config);
     this.add(this.nextButton);
     this.nextButton.y = this.height * 0.4;
   }
@@ -172,7 +187,7 @@ export default class RegistrationView extends BaseLoginView {
     this.backButton.on(SpriteButton.CLICK_EVENT, this.onBackButtonClick, this);
     for (const field of this.fields) {
       field.on(BaseTextField.INPUT_DONE_EVENT, this.onInputDone, this);
-      field.on(BaseTextField.FOCUS_EVENT, this.onFieldFocus.bind(this, field));
+      field.on(BaseTextField.FOCUS_EVENT, this.onFieldFocus, this);
     }
   }
 
