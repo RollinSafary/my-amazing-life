@@ -29,7 +29,7 @@ export default class PersonalityLabel extends ExtendedText {
   public updateSector(sectorIndex: number): void {
     this.setText(
       (Translation as any)[
-        `PERSONLAITY_SECTION_TITLE_${this.colorName.toUpperCase()}_${sectorIndex}`
+        `PERSONALITY_SECTION_TITLE_${this.colorName.toUpperCase()}_${sectorIndex}`
       ],
     );
     const position = personalityLabelsPositions[sectorIndex][this.colorName];
