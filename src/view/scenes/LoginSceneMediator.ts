@@ -25,9 +25,8 @@ export default class LoginSceneMediator extends BaseSceneMediator<LoginScene> {
   ): Promise<void> {
     switch (notificationName) {
       case WelcomeScene.START_BUTTON_CLICKED_NOTIFICATION:
-        this.sceneManager.start(LoginScene.NAME);
+        await this.startScene();
         this.registerViews();
-        await this.fadeScreenIn();
         this.sendNotification(LoginScene.SHOW_LOGIN_WINDOW_NOTIFICATION);
         break;
       case PlayerVOProxy.INITIALIZE_COMPLETE_NOTIFICATION:
@@ -43,6 +42,10 @@ export default class LoginSceneMediator extends BaseSceneMediator<LoginScene> {
     this.facade.registerMediator(new SignInViewMediator());
     this.facade.registerMediator(new RegistrationViewMediator());
   }
+  protected removeViews(): void {
+    this.facade.removeMediator(SignInViewMediator.NAME);
+    this.facade.removeMediator(RegistrationViewMediator.NAME);
+  }
 
   protected setView(): void {
     const scene: LoginScene = new LoginScene();
@@ -55,15 +58,12 @@ export default class LoginSceneMediator extends BaseSceneMediator<LoginScene> {
   }
 
   protected async onStartButtonClick(): Promise<void> {
-    await this.fadeScreenOut();
-    this.stopScene();
+    return this.stopScene();
   }
 
   protected async removeScene(): Promise<void> {
-    await this.fadeScreenOut();
-    this.facade.removeMediator(SignInViewMediator.NAME);
-    this.facade.removeMediator(RegistrationViewMediator.NAME);
-    this.sceneManager.stop(LoginScene.NAME);
+    this.removeViews();
+    await this.stopScene();
     this.sendNotification(LoginScene.LOGIN_COMPLETE_NOTIFICATION);
   }
 }

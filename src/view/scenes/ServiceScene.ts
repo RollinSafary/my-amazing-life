@@ -1,5 +1,3 @@
-import { Images } from '../../assets';
-import { gameConfig } from '../../constants/GameConfig';
 import BaseScene from './BaseScene';
 
 export default class ServiceScene extends BaseScene {
@@ -9,9 +7,6 @@ export default class ServiceScene extends BaseScene {
   public static GAME_RESUMED_NOTIFICATION: string = `${ServiceScene.NAME}GameResumedNotification`;
   public static GAME_PAUSED_NOTIFICATION: string = `${ServiceScene.NAME}GamePausedNotification`;
 
-  public fadeOutPromise: Promise<void>;
-  public fadeInPromise: Promise<void>;
-  private fadeImage: Phaser.GameObjects.Image;
   private musics: Phaser.Sound.BaseSound[];
   private SFXs: Phaser.Sound.BaseSound[];
   private musicManager: Phaser.Sound.BaseSoundManager;
@@ -36,10 +31,6 @@ export default class ServiceScene extends BaseScene {
 
     this.musicManager.volume = this.musicVolume;
     this.sfxManager.volume = this.sfxVolume;
-  }
-
-  public create(): void {
-    this.createFadeImage();
   }
 
   public turnOffSounds(): void {
@@ -83,81 +74,9 @@ export default class ServiceScene extends BaseScene {
     this.i18n.changeLanguage(lang);
   }
 
-  public async screenFadeOut(
-    color: number,
-    duration: number,
-    delay?: number,
-  ): Promise<void> {
-    return (this.fadeOutPromise = new Promise<void>(
-      (resolve: (value?: void | PromiseLike<void>) => void) => {
-        this.scene.bringToTop(ServiceScene.NAME);
-        this.fadeImage.setTint(color);
-        this.fadeImage.alpha = 0;
-        const tweens: Phaser.Tweens.Tween[] = this.tweens.getTweensOf(
-          this.fadeImage,
-        );
-        for (const tween of tweens) {
-          tween.emit(Phaser.Tweens.Events.TWEEN_COMPLETE);
-        }
-        this.tweens.killTweensOf(this.fadeImage);
-        this.tweens.add({
-          targets: this.fadeImage,
-          alpha: 1,
-          duration,
-          delay,
-          onComplete: () => {
-            this.scene.sendToBack(ServiceScene.NAME);
-            resolve();
-          },
-        });
-      },
-    ));
-  }
-
-  public async screenFadeIn(duration: number, delay?: number): Promise<void> {
-    return (this.fadeInPromise = new Promise<void>(
-      (resolve: (value?: void | PromiseLike<void>) => void) => {
-        if (this.fadeImage.alpha !== 1) {
-          resolve();
-          return;
-        }
-        this.scene.bringToTop();
-        const tweens: Phaser.Tweens.Tween[] = this.tweens.getTweensOf(
-          this.fadeImage,
-        );
-        for (const tween of tweens) {
-          tween.emit(Phaser.Tweens.Events.TWEEN_COMPLETE);
-        }
-        this.tweens.killTweensOf(this.fadeImage);
-        this.tweens.add({
-          targets: this.fadeImage,
-          alpha: 0,
-          duration,
-          delay,
-          onComplete: () => {
-            resolve();
-          },
-        });
-      },
-    ));
-  }
-
   public createBackgroundMusics(): void {
     this.createLobbyBackgroundMusic();
     this.createGameBackgroundMusic();
-  }
-
-  private createFadeImage(): void {
-    this.fadeImage = this.add.image(
-      gameConfig.canvasWidth / 2,
-      gameConfig.canvasHeight / 2,
-      Images.WhitePixel.Name,
-    );
-    this.fadeImage.setScale(
-      gameConfig.canvasWidth / this.fadeImage.width,
-      gameConfig.canvasHeight / this.fadeImage.height,
-    );
-    this.fadeImage.setAlpha(0);
   }
 
   private createLobbyBackgroundMusic(): void {

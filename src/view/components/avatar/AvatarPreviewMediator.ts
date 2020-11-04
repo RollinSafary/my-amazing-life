@@ -10,9 +10,14 @@ export default class AvatarPreviewMediator extends BaseMediator<AvatarPreview> {
   }
 
   public onRegister(): void {
-    super.onRegister();
     this.setView();
     this.updateAvatar();
+  }
+
+  public onRemove(): void {
+    this.viewComponent &&
+      this.viewComponent.active &&
+      this.viewComponent.destroy();
   }
 
   public registerNotificationInterests(): void {

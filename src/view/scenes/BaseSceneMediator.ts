@@ -1,10 +1,9 @@
 import { Mediator } from '@candywings/pure-mvc';
 import Game from '../../Game';
 import GameFacade from '../../GameFacade';
-import { getScene, postRunnable } from '../utils/phaser/PhaserUtils';
+import { postRunnable } from '../utils/phaser/PhaserUtils';
 import BaseScene from './BaseScene';
 import PopupScene from './PopupScene';
-import ServiceScene from './ServiceScene';
 
 export default abstract class BaseSceneMediator<
   T extends BaseScene
@@ -233,28 +232,6 @@ export default abstract class BaseSceneMediator<
 
   protected onSceneDestroy(): void {
     this.sendNotification((this.viewComponent.constructor as any)['DESTROY']);
-  }
-
-  protected async fadeScreenOut(
-    color: number = 0x0000000,
-    duration: number = 500,
-    delay: number = 0,
-    wait: boolean = false,
-  ): Promise<void> {
-    const serviceScene: ServiceScene = getScene(ServiceScene.NAME);
-    this.sceneManager.bringToTop(serviceScene);
-    wait && (await serviceScene.fadeInPromise);
-    return serviceScene.screenFadeOut(color, duration, delay);
-  }
-  protected async fadeScreenIn(
-    duration: number = 300,
-    delay: number = 0,
-    wait: boolean = false,
-  ): Promise<void> {
-    const serviceScene: ServiceScene = getScene(ServiceScene.NAME);
-    this.sceneManager.bringToTop(serviceScene);
-    wait && (await serviceScene.fadeOutPromise);
-    return serviceScene.screenFadeIn(duration, delay);
   }
 
   protected subscribeToDefaultNotifications(): void {

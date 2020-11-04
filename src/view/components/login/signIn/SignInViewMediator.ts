@@ -25,6 +25,12 @@ export default class SignInViewMediator extends BaseLoginViewMediator<
     );
   }
 
+  public onRemove(): void {
+    this.viewComponent &&
+      this.viewComponent.active &&
+      this.viewComponent.destroy();
+  }
+
   protected async handleNotification(
     notificationName: string,
     ...args: any[]
@@ -84,7 +90,7 @@ export default class SignInViewMediator extends BaseLoginViewMediator<
   }
 
   private async removeView(): Promise<void> {
-    if (!this.viewComponent) {
+    if (!this.viewComponent || !this.viewComponent.active) {
       return;
     }
     await this.viewComponent.hide();

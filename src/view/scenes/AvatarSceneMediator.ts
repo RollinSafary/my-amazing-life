@@ -23,13 +23,11 @@ export default class AvatarSceneMediator extends BaseSceneMediator<
     );
   }
 
-  public handleNotification(notificationName: string): void {
+  public async handleNotification(notificationName: string): Promise<void> {
     switch (notificationName) {
       case LobbyScene.BACK_NOTIFICATION:
       case LoginScene.LOGIN_COMPLETE_NOTIFICATION:
-        this.sceneManager.start(AvatarScene.NAME);
-        this.fadeScreenIn();
-        this.registerViews();
+        this.startScene();
         break;
       case UiVOProxy.AVATAR_CONFIGURATION_SAVED_NOTIFICATION:
         this.stopScene();
@@ -40,9 +38,14 @@ export default class AvatarSceneMediator extends BaseSceneMediator<
     }
   }
 
-  protected onSceneDestroy(): void {
-    super.onSceneDestroy();
-    this.facade.removeMediator(AvatarSceneMediator.NAME, this.id);
+  protected async startScene(): Promise<void> {
+    await super.startScene();
+    this.registerViews();
+  }
+
+  protected async stopScene(): Promise<void> {
+    this.removeViews();
+    return super.stopScene();
   }
 
   protected setView(): void {
@@ -63,6 +66,10 @@ export default class AvatarSceneMediator extends BaseSceneMediator<
   protected registerViews(): void {
     this.facade.registerMediator(new AvatarPreviewMediator());
     this.facade.registerMediator(new AvatarSkinsMediator());
+  }
+  protected removeViews(): void {
+    this.facade.removeMediator(AvatarPreviewMediator.NAME);
+    this.facade.removeMediator(AvatarSkinsMediator.NAME);
   }
 
   protected onAction(action: AvatarAction): void {

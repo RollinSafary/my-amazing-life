@@ -42,7 +42,6 @@ export default class LoadingSceneMediator extends BaseSceneMediator<
   }
 
   private async onLoadComplete(): Promise<void> {
-    await this.fadeScreenOut();
     this.stopScene();
     this.sendNotification(LoadingScene.LOAD_COMPLETE_NOTIFICATION);
   }

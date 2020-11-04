@@ -1,6 +1,5 @@
 import BaseSceneMediator from './BaseSceneMediator';
 import LoadingScene from './LoadingScene';
-import ServiceScene from './ServiceScene';
 import WelcomeScene from './WelcomeScene';
 
 export default class WelcomeSceneMediator extends BaseSceneMediator<
@@ -22,19 +21,13 @@ export default class WelcomeSceneMediator extends BaseSceneMediator<
   ): Promise<void> {
     switch (notificationName) {
       case LoadingScene.LOAD_COMPLETE_NOTIFICATION:
-        this.startScene();
+        await this.startScene();
+        this.viewComponent.startShowingAnimation();
         break;
       default:
         this.handleDefaultNotifications(notificationName, ...args);
         break;
     }
-  }
-
-  protected async onSceneReady(): Promise<void> {
-    super.onSceneReady();
-    this.sceneManager.bringToTop(ServiceScene.NAME);
-    await this.fadeScreenIn();
-    this.viewComponent.startShowingAnimation();
   }
 
   protected setView(): void {
@@ -53,8 +46,7 @@ export default class WelcomeSceneMediator extends BaseSceneMediator<
   }
 
   protected async onStartButtonClick(): Promise<void> {
-    await this.fadeScreenOut();
-    this.stopScene();
+    await this.stopScene();
     this.sendNotification(WelcomeScene.START_BUTTON_CLICKED_NOTIFICATION);
   }
 }

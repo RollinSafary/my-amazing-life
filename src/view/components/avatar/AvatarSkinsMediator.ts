@@ -14,6 +14,12 @@ export default class AvatarSkinsMediator extends BaseMediator<AvatarSkins> {
     this.setView();
   }
 
+  public onRemove(): void {
+    this.viewComponent &&
+      this.viewComponent.active &&
+      this.viewComponent.destroy();
+  }
+
   public registerNotificationInterests(): void {
     this.subscribeToNotifications(
       UiVOProxy.AVATAR_CONFIGURATION_UPDATED_NOTIFICATION,
