@@ -20,7 +20,7 @@ export default class LifeStyleProgress extends Phaser.GameObjects.Container {
       this.scene.tweens.killTweensOf(this);
       this.scene.tweens.add({
         targets: this,
-        progress,
+        progress: Math.min(progress, 1),
         duration: 400,
         onUpdate: () => {
           this.fill.width = this.progress * this.frame.width;
