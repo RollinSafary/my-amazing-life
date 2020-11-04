@@ -34,8 +34,7 @@ export default class HobbiesSceneMediator extends BaseSceneMediator<
         if (action != LobbyAction.HOBBIES) {
           return;
         }
-        await this.startScene();
-        this.sendNotification(HobbiesScene.START_GAME_NOTIFICATION);
+        this.startTheGame();
         break;
       case UiVOProxy.HOBBIES_CLUSTERS_PREPARED_NOTIFICATION:
         this.viewComponent.startGame();
@@ -51,9 +50,7 @@ export default class HobbiesSceneMediator extends BaseSceneMediator<
         this.sceneManager.pause(HobbiesScene.NAME);
         break;
       case HobbiesWinPopup.PLAY_AGAIN_NOTIFICATION:
-        await this.stopScene();
-        await this.startScene();
-        this.sendNotification(HobbiesScene.START_GAME_NOTIFICATION);
+        this.restartTheGame();
         break;
       case HobbiesWinPopup.MENU_CLICKED_NOTIFICATION:
         this.sceneManager.stop(HobbiesScene.NAME);
@@ -87,6 +84,11 @@ export default class HobbiesSceneMediator extends BaseSceneMediator<
       this.onHelpClick,
       this,
     );
+    this.viewComponent.events.on(
+      HobbiesScene.LIVES_SPENT_EVENT,
+      this.restartTheGame,
+      this,
+    );
   }
 
   protected generateItems(cameraState: number): void {
@@ -104,6 +106,15 @@ export default class HobbiesSceneMediator extends BaseSceneMediator<
 
   protected onHelpClick(): void {
     this.sendNotification(HobbiesScene.HELP_CLICKED_NOTIFICATION);
+  }
+
+  protected async startTheGame(): Promise<void> {
+    await this.startScene();
+    this.sendNotification(HobbiesScene.START_GAME_NOTIFICATION);
+  }
+  protected async restartTheGame(): Promise<void> {
+    await this.stopScene();
+    await this.startTheGame();
   }
 
   get uiVOProxy(): UiVOProxy {

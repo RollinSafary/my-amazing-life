@@ -8,12 +8,12 @@ import {
   delayRunnable,
   getFramesByName,
   pickAny,
+  postRunnable,
   removeRunnable,
 } from '../utils/phaser/PhaserUtils';
 import BaseScene from './BaseScene';
 
 const cameraSpeed: number = 3;
-const debugEnabled: boolean = false;
 export default class HobbiesScene extends BaseScene {
   public static NAME: string = 'HobbiesScene';
 
@@ -40,14 +40,12 @@ export default class HobbiesScene extends BaseScene {
   protected isGameStarted: boolean = false;
   protected imagePair: HobbiesImagePair;
 
-  protected obstacleGraphics: Phaser.GameObjects.Graphics;
-  protected playerGraphics: Phaser.GameObjects.Graphics;
-
   constructor() {
     super(HobbiesScene.NAME);
   }
 
   public startGame(): void {
+    this.resetValues();
     this.isGameStarted = true;
     this.ui.fuel.start();
   }
@@ -186,16 +184,6 @@ export default class HobbiesScene extends BaseScene {
       !this.player.isImmortal && this.checkObstacleCollisions();
       this.imagePair.collisionEnabled && this.checkImagesCollision();
     }
-    if (debugEnabled) {
-      this.playerGraphics.clear();
-      this.playerGraphics.lineStyle(2, 0x00ff00);
-      this.obstacleGraphics.clear();
-      this.obstacleGraphics.lineStyle(2, 0xff0000);
-      this.playerGraphics.strokeRectShape(this.playerBounds);
-      for (const obstacle of [...this.obstacles, ...this.oilSpats]) {
-        this.obstacleGraphics.strokeRectShape(obstacle.getBounds());
-      }
-    }
   }
 
   public create(): void {
@@ -209,12 +197,6 @@ export default class HobbiesScene extends BaseScene {
     this.generateDecorations();
     this.generateObstacles();
     this.createImagePair();
-    debugEnabled && this.createGraphics();
-  }
-
-  protected createGraphics(): void {
-    this.playerGraphics = this.add.graphics();
-    this.obstacleGraphics = this.add.graphics();
   }
 
   protected createBackground(): void {
@@ -341,11 +323,15 @@ export default class HobbiesScene extends BaseScene {
     this.player.play('boom');
     this.player.once(Phaser.Animations.Events.SPRITE_ANIMATION_COMPLETE, () => {
       this.player.setVisible(false);
-      if (this.ui.lives.livesCount) {
+      if (this.ui.lives.livesCount > 0) {
         this.ui.lives.decreaseLife();
         delayRunnable(this, 500, this.revivePlayer, this);
       } else {
-        this.events.emit(HobbiesScene.LIVES_SPENT_EVENT);
+        postRunnable(
+          this.events.emit,
+          this.events,
+          HobbiesScene.LIVES_SPENT_EVENT,
+        );
       }
     });
     this.player.setAngle(0);
@@ -388,6 +374,12 @@ export default class HobbiesScene extends BaseScene {
       this.playerBounds,
       target,
     );
+  }
+
+  protected resetValues(): void {
+    this.cameraSpeed = cameraSpeed;
+    this.isGameStarted = false;
+    this.cameraState = 0;
   }
 
   get camera(): Phaser.Cameras.Scene2D.Camera {

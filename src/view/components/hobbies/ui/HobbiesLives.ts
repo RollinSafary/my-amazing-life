@@ -13,7 +13,9 @@ export default class HobbiesLives extends Phaser.GameObjects.Container {
   }
 
   public decreaseLife(): void {
-    this.visibleLives.getLast().setVisible(false);
+    const life = this.visibleLives.getLast();
+    life && life.setVisible(false);
+    this.livesCount--;
   }
 
   protected createComponents(): void {
