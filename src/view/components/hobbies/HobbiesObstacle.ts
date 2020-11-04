@@ -24,8 +24,8 @@ export default class HobbiesEnemyCar extends Phaser.GameObjects.Container {
   public getBounds(): Phaser.Geom.Rectangle {
     const matrix = this.obstacle.getWorldTransformMatrix();
     return new Phaser.Geom.Rectangle(
-      matrix.tx - this.width * 0.5,
-      matrix.ty - this.height * 0.5,
+      matrix.tx - this.width * this.obstacle.originX,
+      matrix.ty - this.height * this.obstacle.originY,
       this.width,
       this.height,
     );
