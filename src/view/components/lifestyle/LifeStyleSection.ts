@@ -16,10 +16,7 @@ export default class LifeStyleSection extends Phaser.GameObjects.Container {
   }
 
   public makeSelected(): void {
-    this.setInteractive();
-    this.on(Phaser.Input.Events.POINTER_DOWN, this.onPointerDown, this);
-    this.on(Phaser.Input.Events.POINTER_OUT, this.onPointerOut, this);
-    this.input.dropZone = true;
+    this.input.enabled = true;
   }
 
   public showPanel(): void {
@@ -39,6 +36,7 @@ export default class LifeStyleSection extends Phaser.GameObjects.Container {
     this.createIcon();
     this.setSize(this.icon.width, this.icon.height);
     this.createPanel();
+    this.setListeners();
   }
 
   protected createIcon(): void {
@@ -62,6 +60,14 @@ export default class LifeStyleSection extends Phaser.GameObjects.Container {
     this.scene.add.existing(this.panel);
   }
 
+  protected setListeners(): void {
+    this.setInteractive();
+    this.on(Phaser.Input.Events.POINTER_DOWN, this.onPointerDown, this);
+    this.on(Phaser.Input.Events.POINTER_OUT, this.onPointerOut, this);
+    this.input.dropZone = true;
+    this.input.enabled = false;
+  }
+
   protected onPointerDown(): void {
     this.once(Phaser.Input.Events.POINTER_UP, this.onClick, this);
   }
@@ -70,7 +76,7 @@ export default class LifeStyleSection extends Phaser.GameObjects.Container {
   }
 
   protected onClick(): void {
-    this.removeAllListeners();
+    this.input.enabled = false;
     this.scene.events.emit(LifeStyleScene.MOVE_TO_SECTION_EVENT);
   }
 }

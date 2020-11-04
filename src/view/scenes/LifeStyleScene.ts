@@ -212,6 +212,7 @@ export default class LifeStyleScene extends BaseScene {
     this.tweens.killTweensOf(this.player);
     this.tweens.killTweensOf(this.targetSection);
     this.targetSection.setScale(1);
+    this.targetSection.makeUnselected();
     this.tweens.add({
       targets: this.player,
       x: this.targetSection.x,

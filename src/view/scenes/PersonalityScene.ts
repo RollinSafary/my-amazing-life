@@ -8,6 +8,7 @@ import {
 import { gameConfig } from '../../constants/GameConfig';
 import { IAvatarConfig } from '../../model/vo/UiVO';
 import { Translation } from '../../translations';
+import PersonalityLabel from '../components/personality/PersonalityLabel';
 import {
   IPersonalityResultsConfig,
   PersonalityResults,
@@ -15,7 +16,6 @@ import {
 import PersonalityTimer from '../components/personality/PersonalityTimer';
 import PersonalityUser from '../components/personality/PersonalityUser';
 import PersonalityMarker from '../components/personality/PersonlaityMarker';
-import { enableDragAndDrop } from '../utils/phaser/DeveloperUtils';
 import { IPosition } from '../utils/phaser/PhaserUtils';
 import ISimpleButtonState from '../utils/simpleButton/ISimpleButtonState';
 import ISimpleButtonText from '../utils/simpleButton/ISimpleButtonText';
@@ -23,9 +23,6 @@ import SimpleButton, {
   ISimpleButtonConfig,
 } from '../utils/simpleButton/SimpleButton';
 import BaseScene from './BaseScene';
-import { ExtendedText } from '@candywings/phaser3-i18n-plugin';
-import { ITextStyle } from '../utils/phaser/PhaserUtils';
-import PersonalityLabel from '../components/personality/PersonalityLabel';
 
 export default class PersonalityScene extends BaseScene {
   public static NAME: string = 'PersonalityScene';
@@ -143,8 +140,7 @@ export default class PersonalityScene extends BaseScene {
       'red',
     ];
     for (const color of colorNames) {
-      const label = new PersonalityLabel(this, color)
-      enableDragAndDrop(this, label)
+      const label = new PersonalityLabel(this, color);
       this.add.existing(label);
       this.labels.push(label);
     }
@@ -216,7 +212,6 @@ export default class PersonalityScene extends BaseScene {
     });
   }
 
-
   protected async showMarkersAndLabels(): Promise<void> {
     return new Promise<void>(resolve => {
       const markerPositions = personalityMarkersPositions[this.sectorIndex];
@@ -233,7 +228,7 @@ export default class PersonalityScene extends BaseScene {
         marker.prepare();
       }
       for (const label of this.labels) {
-        label.updateSector(this.sectorIndex)
+        label.updateSector(this.sectorIndex);
       }
 
       this.tweens.add({
@@ -348,7 +343,6 @@ export default class PersonalityScene extends BaseScene {
   protected createTimer(): void {
     this.timer = new PersonalityTimer(this);
     this.add.existing(this.timer);
-    enableDragAndDrop(this, this.timer);
     this.timer.scrollFactorX = 0;
     this.timer.scrollFactorY = 0;
   }
