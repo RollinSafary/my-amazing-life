@@ -6,7 +6,7 @@ import {
   getLifeStylePanelItemAddonState,
   getLifeStylePanelItemPriceKey,
   IHobbiesFrameData,
-  sumArrayValues,
+  sumArrayValues
 } from '../utils/Utils';
 import { setDataToStorage, StorageKey } from '../utils/wrappers/StorageWrapper';
 import { ILifeStylePanelConfig } from '../view/components/lifestyle/panel/LifeStylePanel';
@@ -16,7 +16,7 @@ import {
   IAvatarConfig,
   IPersonalityChoice,
   PersonalityChoice,
-  UiVO,
+  UiVO
 } from './vo/UiVO';
 
 export default class UiVOProxy extends Proxy<UiVO> {
@@ -387,12 +387,10 @@ export default class UiVOProxy extends Proxy<UiVO> {
 
   public checkSkillOptionValues(): boolean {
     const keys: string[] = Object.keys(this.vo.skillsValues);
-    const values: number[] = [];
-    for (const key of keys) {
-      const value: number = this.vo.skillsValues[key];
-      !values.includes(value) && values.push(value);
-    }
-    return values.length === 10;
+    const values: number[] = keys.map(
+      (key: string) => this.vo.skillsValues[key],
+    );
+    return values.includes(9);
   }
 
   public getBestSkill(): string {
