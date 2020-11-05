@@ -10,13 +10,16 @@
   },
   "scripts": {
     "tslint-check": "tslint-config-prettier-check ./tslint.json",
-    "build": "webpack --config config/webpack.config.js --env browser --mode production --progress --colors",
+    "build:prod": "webpack --config config/webpack.config.js --env browser --mode production --progress --colors",
+    "build:dev": "webpack --config config/webpack.config.js --env browser --mode development --progress --colors",
     "start": "webpack-dev-server --config config/webpack.config.js --env development --mode development --host 0.0.0.0 --https",
     "local": "webpack-dev-server --config config/webpack.config.js --env browser --mode development --host 0.0.0.0",
     "assets": "node ./scripts/generateAssetsClass.js",
     "translations": "node ./scripts/generateTranslationKeysEnum",
     "ios": "cordova platform rm ios && cordova platform add ios --save-dev",
-    "android": "cordova platform rm android && cordova platform add android --save-dev"
+    "android": "cordova platform rm android && cordova platform add android --save-dev",
+    "deploy:dev": "npm run build:dev && firebase deploy --only hosting",
+    "deploy:prod": "npm run build:prod && firebase deploy --only hosting"
   },
   "devDependencies": {
     "@admob-plus/core": "^0.9.0",
