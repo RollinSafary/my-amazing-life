@@ -21,7 +21,7 @@ export async function getUserDataAsync(email: string): Promise<PlayerVO> {
   try {
     const dataObj: firebase.firestore.DocumentSnapshot = await firebase
       .firestore()
-      .doc(`profiles/${email}`)
+      .doc(`profiles/${email.toLowerCase()}`)
       .get();
     return (dataObj.data() as PlayerVO) || null;
   } catch (err) {
@@ -33,7 +33,7 @@ export async function setUserDataAsync(data: PlayerVO): Promise<void> {
   try {
     await firebase
       .firestore()
-      .doc(`profiles/${data.user.email}`)
+      .doc(`profiles/${data.user.email.toLowerCase()}`)
       .set(serialize(data));
   } catch (err) {
     console.error(err);
