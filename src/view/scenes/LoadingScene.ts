@@ -1,3 +1,4 @@
+import { NinePatch } from '@koreez/phaser3-ninepatch';
 import { Atlases, Audios, MultiAtlases } from '../../assets';
 import {
   loadAtlases,
@@ -13,7 +14,9 @@ export default class LoadingScene extends BaseScene {
   public static LOAD_COMPLETE_NOTIFICATION: string = `${LoadingScene.NAME}LoadCompleteNotification`;
 
   private logo: Phaser.GameObjects.Image;
-  private fill: Phaser.GameObjects.TileSprite;
+  private background: Phaser.GameObjects.Image;
+  private fill: NinePatch;
+  private progress: number = 0;
 
   constructor() {
     super(LoadingScene.NAME);
@@ -21,6 +24,7 @@ export default class LoadingScene extends BaseScene {
 
   public create(): void {
     this.createLogo();
+    this.createBackground();
     this.createFill();
     this.startLoading();
     this.setListeners();
@@ -36,13 +40,23 @@ export default class LoadingScene extends BaseScene {
     this.add.existing(this.logo);
   }
 
+  private createBackground(): void {
+    this.background = this.make.image({
+      x: this.width * 0.5,
+      y: this.logo.y + this.logo.height * 0.8,
+      key: Atlases.Loading.Atlas.Name,
+      frame: Atlases.Loading.Atlas.Frames.LoadingBackground,
+    });
+    this.add.existing(this.background);
+  }
+
   private createFill(): void {
     const frame: Phaser.Textures.Frame = this.textures.getFrame(
       Atlases.Loading.Atlas.Name,
       Atlases.Loading.Atlas.Frames.LoadingFill,
     );
-    this.fill = this.make.tileSprite({
-      x: this.logo.x - frame.width / 2,
+    this.fill = this.make.ninePatch({
+      x: this.background.x - this.background.width * 0.5 + 2,
       y: this.logo.y + this.logo.height * 0.8,
       key: frame.texture.key,
       frame: frame.name,
@@ -50,7 +64,6 @@ export default class LoadingScene extends BaseScene {
       height: frame.height,
     });
     this.fill.setOrigin(0, 0.5);
-    this.fill.width = 0;
     this.add.existing(this.fill);
   }
 
@@ -66,8 +79,14 @@ export default class LoadingScene extends BaseScene {
     );
     this.tweens.killTweensOf(this.fill);
     this.tweens.add({
-      targets: this.fill,
-      width: frame.width * progress,
+      targets: this,
+      progress,
+      onUpdate: () => {
+        this.fill.resize(
+          (this.background.width - 4) * this.progress,
+          frame.height,
+        );
+      },
       duration: 200,
       ease: Phaser.Math.Easing.Expo.InOut,
     });
