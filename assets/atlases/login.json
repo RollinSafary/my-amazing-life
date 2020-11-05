@@ -94,24 +94,24 @@
 					}
 				},
 				{
-					"filename": "button",
+					"filename": "button-orange",
 					"rotated": false,
-					"trimmed": true,
+					"trimmed": false,
 					"sourceSize": {
-						"w": 171,
-						"h": 65
+						"w": 190,
+						"h": 60
 					},
 					"spriteSourceSize": {
-						"x": 1,
-						"y": 1,
-						"w": 170,
-						"h": 64
+						"x": 0,
+						"y": 0,
+						"w": 190,
+						"h": 60
 					},
 					"frame": {
 						"x": 649,
 						"y": 1,
-						"w": 170,
-						"h": 64
+						"w": 190,
+						"h": 60
 					}
 				},
 				{
@@ -157,6 +157,27 @@
 					}
 				},
 				{
+					"filename": "button-red",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 171,
+						"h": 65
+					},
+					"spriteSourceSize": {
+						"x": 1,
+						"y": 1,
+						"w": 170,
+						"h": 64
+					},
+					"frame": {
+						"x": 649,
+						"y": 65,
+						"w": 170,
+						"h": 64
+					}
+				},
+				{
 					"filename": "button-back",
 					"rotated": false,
 					"trimmed": false,
@@ -172,7 +193,7 @@
 					},
 					"frame": {
 						"x": 649,
-						"y": 69,
+						"y": 133,
 						"w": 147,
 						"h": 33
 					}
@@ -193,30 +214,9 @@
 					},
 					"frame": {
 						"x": 649,
-						"y": 106,
+						"y": 170,
 						"w": 109,
 						"h": 91
-					}
-				},
-				{
-					"filename": "button-ok",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 103,
-						"h": 58
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 103,
-						"h": 58
-					},
-					"frame": {
-						"x": 649,
-						"y": 201,
-						"w": 103,
-						"h": 58
 					}
 				}
 			]
@@ -225,6 +225,6 @@
 	"meta": {
 		"app": "https://www.codeandweb.com/texturepacker",
 		"version": "3.0",
-		"smartupdate": "$TexturePacker:SmartUpdate:7b4e5b30e803754a3e0a25da3962839f:201de089a026c1a71279af4884769862:ffb62af756263e4644c882ff552ab6d3$"
+		"smartupdate": "$TexturePacker:SmartUpdate:3520d3581c4b6be6980f37a8e2dd3542:9fee7ebd1bc98ba7a64d2b7798dc776a:ffb62af756263e4644c882ff552ab6d3$"
 	}
 }

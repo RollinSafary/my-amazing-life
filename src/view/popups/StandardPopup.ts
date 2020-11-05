@@ -28,7 +28,7 @@ export default class StandardPopup extends Phaser.GameObjects.Container {
     this.isAlivePromise = new Promise<void>(resolve => {
       this.on(Phaser.GameObjects.Events.DESTROY, resolve);
     });
-    this.createBody();
+    this.createComponents();
     this.scene.add.existing(this);
   }
 
@@ -135,7 +135,7 @@ export default class StandardPopup extends Phaser.GameObjects.Container {
     });
   }
 
-  protected createBody(): void {
+  protected createComponents(): void {
     throw new Error(
       `Method 'createBody' is not implemented in ${this.constructor.name}`,
     );
@@ -158,7 +158,7 @@ export default class StandardPopup extends Phaser.GameObjects.Container {
       width,
       height,
     };
-    const bg: NinePatch = (this.scene.make as any).ninePatch(config, false);
+    const bg: NinePatch = this.scene.make.ninePatch(config, false);
     bg.setInteractive();
     this.add(bg);
     this.setSize(bg.width, bg.height);

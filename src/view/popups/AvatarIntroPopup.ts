@@ -1,6 +1,5 @@
 import { ExtendedText } from '@candywings/phaser3-i18n-plugin';
 import { Atlases, Fonts } from '../../assets';
-import { gameConfig } from '../../constants/GameConfig';
 import { Translation } from '../../translations';
 import { ITextStyle } from '../utils/phaser/PhaserUtils';
 import ISimpleButtonState from '../utils/simpleButton/ISimpleButtonState';
@@ -10,84 +9,83 @@ import SimpleButton, {
 } from '../utils/simpleButton/SimpleButton';
 import StandardPopup from './StandardPopup';
 
-export default class PersonalityTimeoutPopup extends StandardPopup {
-  public static NAME: string = 'PersonalityTimeoutPopup';
-  public static OK_CLICKED_NOTIFICATION: string = `${PersonalityTimeoutPopup.NAME}OkClickedNotification`;
+export default class AvatarIntroPopup extends StandardPopup {
+  public static NAME: string = 'AvatarIntroPopup';
 
   protected title: ExtendedText;
-  protected text: ExtendedText;
-  protected okButton: SimpleButton;
+  protected message: ExtendedText;
+  protected startButton: SimpleButton;
 
   protected createComponents(): void {
-    this.createColoredBlocker(0.6);
+    this.createColoredBlocker(0.7);
     this.createBg(
       Atlases.Login.Atlas.Name,
       Atlases.Login.Atlas.Frames.BackgroundError,
-      gameConfig.designWidth * 0.4,
-      gameConfig.designHeight * 0.4,
-    );
+      this.scene.width * 0.8,
+      this.scene.height * 0.8,
+    ).setAlpha(0.8);
     this.createTitle();
-    this.createText();
-    this.createOkButton();
+    this.createMessage();
+    this.createStartButton();
     this.setListeners();
   }
 
   protected createTitle(): void {
     const style: ITextStyle = {
       fontFamily: Fonts.ArialBlack.Name,
-      fontSize: 32,
-      fill: '#ffcc00',
+      fontSize: 40,
+      fill: '#ffb80d',
     };
     this.title = this.scene.make.extText({
       x: 0,
-      y: -this.height * 0.4,
-      text: Translation.PERSONALITY_TIMEOUT_TITLE,
+      y: -this.height * 0.35,
+      text: Translation.AVATAR_WELCOME_TITLE,
       style,
     });
-    this.title.setOrigin(0.5);
     this.add(this.title);
+    this.title.setOrigin(0.5);
   }
-
-  protected createText(): void {
+  protected createMessage(): void {
     const style: ITextStyle = {
       fontFamily: Fonts.ArialBlack.Name,
-      fontSize: 30,
-      fill: '#ffffff',
+      fontSize: 34,
+      fill: '#ffb80d',
     };
-    this.text = this.scene.make.extText({
+    this.message = this.scene.make.extText({
       x: 0,
       y: 0,
-      text: Translation.PERSONALITY_TIMEOUT_TEXT,
+      text: Translation.AVATAR_WELCOME_MESSAGE,
       style,
     });
-    this.text.setOrigin(0.5);
-    this.add(this.text);
-    this.text.setWordWrapWidth(this.width * 0.9);
+    this.add(this.message);
+    this.message.setWordWrapWidth(this.width * 0.9);
+    this.message.setOrigin(0.5);
   }
-
-  protected createOkButton(): void {
+  protected createStartButton(): void {
     const normalStateConfig: ISimpleButtonState = {
       key: Atlases.Login.Atlas.Name,
       frame: Atlases.Login.Atlas.Frames.ButtonOrange,
     };
     const textConfig: ISimpleButtonText = {
       fontFamily: Fonts.ArialBlack.Name,
-      fontSize: 28,
+      fontSize: 30,
       fill: '#ffffff',
-      text: Translation.PERSONALITY_TIMEOUT_BUTTON_OK,
-      origin: { x: 0.5, y: 0.5 },
+      text: Translation.AVATAR_BUTTON_START,
+      origin: {
+        x: 0.5,
+        y: 0.5,
+      },
     };
-    const configs: ISimpleButtonConfig = {
+    const config: ISimpleButtonConfig = {
       normalStateConfig,
       textConfig,
     };
-    this.okButton = new SimpleButton(this.scene, configs);
-    this.add(this.okButton);
-    this.okButton.y =
-      this.text.y + this.text.height * 0.55 + this.okButton.height * 0.5;
+    this.startButton = new SimpleButton(this.scene, config);
+    this.add(this.startButton);
+    this.startButton.y = this.height * 0.5 - this.startButton.height;
   }
 
   protected setListeners(): void {
-    this.okButton.on(SimpleButton.CLICK_EVENT, this.onAction, this);
+    this.startButton.once(SimpleButton.CLICK_EVENT, this.onAction, this);
   }
 }

@@ -186,7 +186,7 @@ export default class SignInView extends BaseLoginView {
   protected createSignInButton(): void {
     const normalStateConfig: ISpriteButtonState = {
       key: Atlases.Login.Atlas.Name,
-      frame: Atlases.Login.Atlas.Frames.Button,
+      frame: Atlases.Login.Atlas.Frames.ButtonRed,
     };
     const textConfig: ISimpleButtonText = {
       fontFamily: Fonts.ArialBlack.Name,
@@ -211,7 +211,7 @@ export default class SignInView extends BaseLoginView {
   protected createSignUpButton(): void {
     const normalStateConfig: ISpriteButtonState = {
       key: Atlases.Login.Atlas.Name,
-      frame: Atlases.Login.Atlas.Frames.Button,
+      frame: Atlases.Login.Atlas.Frames.ButtonRed,
     };
     const textConfig: ISimpleButtonText = {
       fontFamily: Fonts.ArialBlack.Name,

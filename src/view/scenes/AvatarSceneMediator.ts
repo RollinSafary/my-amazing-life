@@ -41,6 +41,7 @@ export default class AvatarSceneMediator extends BaseSceneMediator<
   protected async startScene(): Promise<void> {
     await super.startScene();
     this.registerViews();
+    this.sendNotification(AvatarScene.STARTED_NOTIFICATION);
   }
 
   protected async stopScene(): Promise<void> {

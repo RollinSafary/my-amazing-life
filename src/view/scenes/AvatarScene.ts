@@ -18,6 +18,7 @@ export default class AvatarScene extends BaseScene {
   public static ACTION_DONE_EVENT: string = 'actionDone';
   public static CLEAR_NOTIFICATION: string = `${AvatarScene.NAME}ClearNotification`;
   public static SUBMIT_NOTIFICATION: string = `${AvatarScene.NAME}SubmitNotification`;
+  public static STARTED_NOTIFICATION: string = `${AvatarScene.NAME}StartedNotification`;
 
   protected background: Phaser.GameObjects.Image;
   protected logo: Phaser.GameObjects.Image;

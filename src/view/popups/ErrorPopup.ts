@@ -4,10 +4,11 @@ import { ERROR_CODE } from '../../constants/Constants';
 import { Translation } from '../../translations';
 import PopupScene from '../scenes/PopupScene';
 import { getScene, ITextStyle } from '../utils/phaser/PhaserUtils';
-import {
-  ISpriteButtonConfig,
-  ISpriteButtonState,
-} from '../utils/simpleButton/SimpleButtonInterfaces';
+import ISimpleButtonText from '../utils/simpleButton/ISimpleButtonText';
+import SimpleButton, {
+  ISimpleButtonConfig,
+} from '../utils/simpleButton/SimpleButton';
+import { ISpriteButtonState } from '../utils/simpleButton/SimpleButtonInterfaces';
 import { SpriteButton } from '../utils/simpleButton/SpriteButton';
 import StandardPopup from './StandardPopup';
 
@@ -16,7 +17,7 @@ export default class ErrorPopup extends StandardPopup {
 
   protected title: ExtendedText;
   protected message: ExtendedText;
-  protected okButton: SpriteButton;
+  protected okButton: SimpleButton;
 
   constructor() {
     super(getScene(PopupScene.NAME));
@@ -27,7 +28,7 @@ export default class ErrorPopup extends StandardPopup {
     super.prepareToShow(x, y);
   }
 
-  protected createBody(): void {
+  protected createComponents(): void {
     this.createColoredBlocker(0.5);
     this.createBgImage(
       Atlases.Login.Atlas.Name,
@@ -76,12 +77,23 @@ export default class ErrorPopup extends StandardPopup {
   protected createOkButton(): void {
     const normalStateConfig: ISpriteButtonState = {
       key: Atlases.Login.Atlas.Name,
-      frame: Atlases.Login.Atlas.Frames.ButtonOk,
+      frame: Atlases.Login.Atlas.Frames.ButtonOrange,
     };
-    const config: ISpriteButtonConfig = {
+    const textConfig: ISimpleButtonText = {
+      fontFamily: Fonts.ArialBlack.Name,
+      fontSize: 30,
+      fill: '#ffffff',
+      text: Translation.ERROR_BUTTON_OK,
+      origin: {
+        x: 0.5,
+        y: 0.5,
+      },
+    };
+    const config: ISimpleButtonConfig = {
       normalStateConfig,
+      textConfig,
     };
-    this.okButton = new SpriteButton(this.scene, config);
+    this.okButton = new SimpleButton(this.scene, config);
     this.okButton.y = this.height * 0.3;
     this.add(this.okButton);
   }

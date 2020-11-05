@@ -48,7 +48,7 @@ export default class LifeStyleResultPopup extends StandardPopup {
     this.showButtons();
   }
 
-  protected createBody(): void {
+  protected createComponents(): void {
     this.createColoredBlocker(0.7);
     this.createBgImage(
       MultiAtlases.Lifestyle.Atlas.Name,

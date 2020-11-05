@@ -30,7 +30,7 @@ export default class HobbiesWinPopup extends StandardPopup {
     super.prepareToShow(x, y);
   }
 
-  protected createBody(): void {
+  protected createComponents(): void {
     this.createColoredBlocker(0.7);
     this.createBgImage(
       MultiAtlases.Hobbies.Atlas.Name,
