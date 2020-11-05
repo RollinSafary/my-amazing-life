@@ -11,6 +11,7 @@ export default class SignInEmailField extends BaseTextField {
     this.createIcon();
     this.icon.x = -this.background.width * 0.5 + this.icon.width * 0.7;
     this.text.x = this.icon.x + this.icon.width * 0.6;
+    this.textStartX = this.text.x;
   }
 
   protected createIcon(): void {

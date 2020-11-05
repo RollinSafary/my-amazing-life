@@ -10,11 +10,15 @@ export default abstract class BaseTextField extends Phaser.GameObjects
   protected text: Phaser.GameObjects.Text;
   protected inputDOM: HTMLInputElement;
   protected enterKey: Phaser.Input.Keyboard.Key;
+  protected maskGraphics: Phaser.GameObjects.Graphics;
   protected focused: boolean;
+  protected textStartX: number;
 
   constructor(protected scene: BaseScene) {
     super(scene);
     this.createComponents();
+    this.textStartX = this.text.x;
+    postRunnable(this.updateMask, this);
   }
 
   public setText(text: string): void {
@@ -22,6 +26,18 @@ export default abstract class BaseTextField extends Phaser.GameObjects
       this.inputDOM.value = text;
       this.onInput();
     }
+  }
+
+  public updateMask(): void {
+    const matrix = this.getWorldTransformMatrix();
+    this.maskGraphics.clear();
+    this.maskGraphics.fillStyle(0xffffff);
+    this.maskGraphics.fillRect(
+      matrix.tx - this.displayWidth * 0.45,
+      matrix.ty - this.displayHeight * 0.5,
+      this.displayWidth * 0.9,
+      this.displayHeight,
+    );
   }
 
   public focus(): void {
@@ -33,6 +49,9 @@ export default abstract class BaseTextField extends Phaser.GameObjects
       targets: this,
       scaleX: 1.1,
       scaleY: 1.1,
+      onUpdate: () => {
+        this.updateMask();
+      },
       duration: 200,
       ease: Phaser.Math.Easing.Expo.InOut,
     });
@@ -66,6 +85,7 @@ export default abstract class BaseTextField extends Phaser.GameObjects
     this.createBackground();
     this.setSize(this.background.width, this.background.height);
     this.createText();
+    this.createMask();
     this.setListeners();
   }
 
@@ -79,6 +99,14 @@ export default abstract class BaseTextField extends Phaser.GameObjects
   protected abstract createBackground(): void;
   protected abstract createText(): void;
 
+  protected createMask(): void {
+    this.maskGraphics = this.scene.make.graphics({});
+
+    this.text.setMask(
+      new Phaser.Display.Masks.GeometryMask(this.scene, this.maskGraphics),
+    );
+  }
+
   protected setListeners(): void {
     this.setInteractive();
     this.on(Phaser.Input.Events.POINTER_UP, this.focus, this);
@@ -90,6 +118,10 @@ export default abstract class BaseTextField extends Phaser.GameObjects
 
   protected onInput(): void {
     this.text.setText(`${this.inputDOM.value}`);
+    this.text.x =
+      this.text.width <= this.width * 0.9
+        ? this.textStartX
+        : this.textStartX - (this.text.width - this.width * 0.9);
   }
 
   protected onEnter(): void {
