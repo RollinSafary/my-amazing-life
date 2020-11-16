@@ -34,6 +34,12 @@ export default class SkillsScene extends BaseScene {
     super(SkillsScene.NAME);
   }
 
+  public setControllersState(enabled: boolean): void {
+    for (const controller of this.controllers) {
+      controller.setEnabled(enabled);
+    }
+  }
+
   public async startIndicatorsProcessing(
     success: boolean,
     bestSkill: string,

@@ -69,7 +69,7 @@ export default class SkillsInterface extends Phaser.GameObjects.Container {
 
   public async startSlideShow(
     keyWord: string,
-    count: number = 1,
+    count: number = 0,
     duration: number = 1000,
   ): Promise<void> {
     this.gameEnd.setVisible(false);

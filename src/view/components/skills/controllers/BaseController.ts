@@ -15,6 +15,10 @@ export default abstract class BaseController extends Phaser.GameObjects
     this.setActiveState(false);
   }
 
+  public setEnabled(enabled: boolean): void {
+    this.hook.input.enabled = enabled;
+  }
+
   public abstract setActiveState(state: boolean): void;
 
   protected createComponents(): void {

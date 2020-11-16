@@ -69,7 +69,7 @@ export default class SphereController extends BaseController {
 
   protected fixHookPosition(): void {
     const step: number = 36;
-    this.multiplier = Math.round(this.hook.angle / step);
+    this.multiplier = Math.round(this.normalizeAngle(this.hook.angle) / step);
     this.hook.angle = this.multiplier * step;
     this.emitValueChange();
   }
@@ -84,5 +84,9 @@ export default class SphereController extends BaseController {
       ) +
         Math.PI / 2,
     );
+  }
+
+  private normalizeAngle(angle: number): number {
+    return (angle + 360) % 360;
   }
 }

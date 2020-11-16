@@ -19,14 +19,14 @@ export default class SlideShow extends Phaser.GameObjects.Container {
 
   public async start(
     keyword: string,
-    count: number = 1,
+    count: number = 0,
     duration: number = 1000,
   ): Promise<void> {
     return new Promise<void>(resolve => {
       this.stop();
       this.setVisible(true);
-      this.currentFrames = [`slide-show/${keyword}-default`];
-      for (let i: number = 0; i < count - 1; i++) {
+      this.currentFrames = count ? [] : [`slide-show/${keyword}-default`];
+      for (let i: number = 0; i < count; i++) {
         this.currentFrames.push(`slide-show/${keyword}-${i}`);
       }
       this.index = -1;

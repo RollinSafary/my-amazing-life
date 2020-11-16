@@ -6,7 +6,7 @@ import {
   getLifeStylePanelItemAddonState,
   getLifeStylePanelItemPriceKey,
   IHobbiesFrameData,
-  sumArrayValues
+  sumArrayValues,
 } from '../utils/Utils';
 import { setDataToStorage, StorageKey } from '../utils/wrappers/StorageWrapper';
 import { ILifeStylePanelConfig } from '../view/components/lifestyle/panel/LifeStylePanel';
@@ -16,7 +16,7 @@ import {
   IAvatarConfig,
   IPersonalityChoice,
   PersonalityChoice,
-  UiVO
+  UiVO,
 } from './vo/UiVO';
 
 export default class UiVOProxy extends Proxy<UiVO> {
@@ -383,6 +383,7 @@ export default class UiVOProxy extends Proxy<UiVO> {
   // SKILL
   public setSkillsOptionValue(name: string, value: number): void {
     this.vo.skillsValues[name] = value;
+    console.warn(name, this.vo.skillsValues[name]);
   }
 
   public checkSkillOptionValues(): boolean {
@@ -390,18 +391,16 @@ export default class UiVOProxy extends Proxy<UiVO> {
     const values: number[] = keys.map(
       (key: string) => this.vo.skillsValues[key],
     );
-    return values.includes(9);
+    const topValues: number[] = values.filter((value: number) => value === 9);
+    return topValues.length === 1;
   }
 
   public getBestSkill(): string {
     const keys: string[] = Object.keys(this.vo.skillsValues);
-    const values: number[] = [];
-    for (const key of keys) {
-      const value: number = this.vo.skillsValues[key];
-      !values.includes(value) && values.push(value);
-    }
-    const maxValue: number = Math.max(...values);
-    const index: number = values.indexOf(maxValue);
+    const values: number[] = keys.map(
+      (key: string) => this.vo.skillsValues[key],
+    );
+    const index: number = values.indexOf(9);
     return keys[index];
   }
   public resetSkills(): void {
