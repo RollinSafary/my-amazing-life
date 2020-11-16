@@ -22,6 +22,11 @@ export default class SimpleButton extends Phaser.GameObjects.Container {
     this.createText();
   }
 
+  public setText(text: string): void {
+    this.configs.textConfig.text = text;
+    this.text.setText(this.configs.textConfig.text);
+  }
+
   public setEnabled(isEnabled: boolean): void {
     isEnabled ? this.makeEnabled() : this.makeDisabled();
   }

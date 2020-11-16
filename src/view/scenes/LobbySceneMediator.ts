@@ -74,8 +74,8 @@ export default class LobbySceneMediator extends BaseSceneMediator<LobbyScene> {
   protected onAction(action: LobbyAction): void {
     switch (action) {
       case LobbyAction.BACK:
-        this.stopScene();
         this.sendNotification(LobbyScene.BACK_NOTIFICATION);
+        this.stopScene();
         break;
       case LobbyAction.HELP:
         this.sendNotification(LobbyScene.HELP_NOTIFICATION);
@@ -87,8 +87,8 @@ export default class LobbySceneMediator extends BaseSceneMediator<LobbyScene> {
       case LobbyAction.PERSONALITY:
       case LobbyAction.HOBBIES:
       case LobbyAction.SKILLS:
-        this.stopScene();
         this.sendNotification(LobbyScene.GAME_CHOSE_NOTIFICATION, action);
+        this.stopScene();
         break;
       default:
         break;

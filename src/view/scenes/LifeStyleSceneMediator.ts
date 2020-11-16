@@ -79,9 +79,12 @@ export default class LifeStyleSceneMediator extends BaseSceneMediator<
   }
 
   protected async startScene(): Promise<void> {
-    this.sceneManager.start(LifeStyleScene.NAME);
-    this.viewComponent.createPlayer(this.uiVOProxy.vo.avatar);
-    this.viewComponent.enableWheel();
+    super.startScene();
+    postRunnable(() => {
+      this.viewComponent.createPlayer(this.uiVOProxy.vo.avatar);
+      this.viewComponent.enableWheel();
+    });
+    this.onHelpClick();
   }
 
   protected setViewComponentListeners(): void {
