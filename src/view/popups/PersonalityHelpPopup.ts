@@ -9,8 +9,8 @@ import SimpleButton, {
 } from '../utils/simpleButton/SimpleButton';
 import StandardPopup from './StandardPopup';
 
-export default class LobbyHelpPopup extends StandardPopup {
-  public static NAME: string = 'LobbyHelpPopup';
+export default class PersonalityHelpPopup extends StandardPopup {
+  public static NAME: string = 'PersonalityHelpPopup';
 
   protected title: ExtendedText;
   protected message: ExtendedText;
@@ -21,9 +21,9 @@ export default class LobbyHelpPopup extends StandardPopup {
     this.createBg(
       Atlases.Login.Atlas.Name,
       Atlases.Login.Atlas.Frames.BackgroundError,
-      this.scene.width * 0.6,
-      this.scene.height * 0.7,
-    );
+      this.scene.width * 0.7,
+      this.scene.height * 0.8,
+    ).setAlpha(0.6);
     this.createTitle();
     this.createExtendedText();
     this.createCloseButton();
@@ -33,13 +33,13 @@ export default class LobbyHelpPopup extends StandardPopup {
   protected createTitle(): void {
     const style: ITextStyle = {
       fontFamily: Fonts.ArialBlack.Name,
-      fontSize: 45,
-      fill: '#ffffff',
+      fontSize: 50,
+      fill: '#febeb0',
     };
     this.title = this.scene.make.extText({
       x: 0,
       y: -this.height * 0.4,
-      text: Translation.LOBBY_HELP_POPUP_TITLE,
+      text: Translation.PERSONALITY_HELP_POPUP_TITLE,
       style,
     });
     this.title.setOrigin(0.5);
@@ -47,14 +47,14 @@ export default class LobbyHelpPopup extends StandardPopup {
   }
   protected createExtendedText(): void {
     const style: ITextStyle = {
-      fontFamily: Fonts.ArialBlack.Name,
-      fontSize: 32,
-      fill: '#ffb80d',
+      fontFamily: 'Arial',
+      fontSize: 36,
+      fill: '#ffffff',
     };
     this.message = this.scene.make.extText({
       x: 0,
       y: 0,
-      text: Translation.LOBBY_HELP_POPUP_MESSAGE,
+      text: Translation.PERSONALITY_HELP_POPUP_MESSAGE,
       style,
     });
     this.message.setOrigin(0.5);
@@ -68,10 +68,10 @@ export default class LobbyHelpPopup extends StandardPopup {
       frame: Atlases.Login.Atlas.Frames.ButtonOrange,
     };
     const textConfig: ISimpleButtonText = {
-      fontFamily: Fonts.ArialBlack.Name,
-      fontSize: 40,
+      fontFamily: 'Arial',
+      fontSize: 36,
       fill: '#ffffff',
-      text: Translation.LOBBY_HELP_POPUP_BUTTON_OK,
+      text: Translation.PERSONALITY_HELP_POPUP_BUTTON_PLAY,
       origin: { x: 0.5, y: 0.5 },
     };
     const configs: ISimpleButtonConfig = {

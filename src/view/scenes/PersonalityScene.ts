@@ -3,7 +3,7 @@ import {
   personalityMarkersPositions,
   personalitySectorPaths,
   personalitySectors,
-  personalityTimerPositions,
+  personalityTimerPositions
 } from '../../constants/Constants';
 import { gameConfig } from '../../constants/GameConfig';
 import { IAvatarConfig } from '../../model/vo/UiVO';
@@ -11,7 +11,7 @@ import { Translation } from '../../translations';
 import PersonalityLabel from '../components/personality/PersonalityLabel';
 import {
   IPersonalityResultsConfig,
-  PersonalityResults,
+  PersonalityResults
 } from '../components/personality/PersonalityResults';
 import PersonalityTimer from '../components/personality/PersonalityTimer';
 import PersonalityUser from '../components/personality/PersonalityUser';
@@ -20,7 +20,7 @@ import { IPosition } from '../utils/phaser/PhaserUtils';
 import ISimpleButtonState from '../utils/simpleButton/ISimpleButtonState';
 import ISimpleButtonText from '../utils/simpleButton/ISimpleButtonText';
 import SimpleButton, {
-  ISimpleButtonConfig,
+  ISimpleButtonConfig
 } from '../utils/simpleButton/SimpleButton';
 import BaseScene from './BaseScene';
 
@@ -60,6 +60,14 @@ export default class PersonalityScene extends BaseScene {
 
   constructor() {
     super(PersonalityScene.NAME);
+  }
+
+  public pauseTimer(): void {
+    this.time.systems.pause();
+  }
+
+  public resumeTimer(): void {
+    this.time.systems.resume();
   }
 
   public resetSector(): void {

@@ -1,5 +1,7 @@
 import UiVOProxy from '../../model/UiVOProxy';
 import { IPersonalityResultsConfig } from '../components/personality/PersonalityResults';
+import PersonalityHelpPopup from '../popups/PersonalityHelpPopup';
+import StandardPopup from '../popups/StandardPopup';
 import { postRunnable } from '../utils/phaser/PhaserUtils';
 import BaseSceneMediator from './BaseSceneMediator';
 import LobbyScene, { LobbyAction } from './LobbyScene';
@@ -22,6 +24,8 @@ export default class PersonalitySceneMediator extends BaseSceneMediator<
       UiVOProxy.PERSONALITY_SECTOR_READY_NOTIFICATION,
       UiVOProxy.PERSONALITY_SECTOR_COMPLETE_NOTIFICATION,
       UiVOProxy.PERSONALITY_GAME_COMPLETE_NOTIFICATION,
+      StandardPopup.SHOW_COMPLETE_NOTIFICATION,
+      StandardPopup.HIDE_COMPLETE_NOTIFICATION,
     );
   }
 
@@ -64,6 +68,22 @@ export default class PersonalitySceneMediator extends BaseSceneMediator<
         );
         this.viewComponent.showResults();
         break;
+      case StandardPopup.SHOW_COMPLETE_NOTIFICATION: {
+        const name: string = args[0];
+        if (name !== PersonalityHelpPopup.NAME) {
+          return;
+        }
+        this.viewComponent.pauseTimer();
+        break;
+      }
+      case StandardPopup.HIDE_COMPLETE_NOTIFICATION: {
+        const name: string = args[0];
+        if (name !== PersonalityHelpPopup.NAME) {
+          return;
+        }
+        this.viewComponent.resumeTimer();
+        break;
+      }
       default:
         break;
     }
@@ -78,6 +98,7 @@ export default class PersonalitySceneMediator extends BaseSceneMediator<
   protected async startScene(): Promise<void> {
     await super.startScene();
     this.viewComponent.createPlayer(this.proxy.vo.avatar);
+    this.onHelpClick();
   }
 
   protected setViewComponentListeners(): void {

@@ -19,9 +19,9 @@ export default class PersonalityTimer extends Phaser.GameObjects.Container {
     this.createComponents();
   }
 
-  public start(): void {
+  public start(duration: number = this.duration): void {
     this.timerText.setVisible(true);
-    this.currentDuration = this.duration;
+    this.currentDuration = duration;
     this.updateTimer();
     this.runnable = loopRunnable(this.scene, 1000, this.onTick, this);
   }
