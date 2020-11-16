@@ -89,7 +89,7 @@ export default class SkillsSceneMediator extends BaseSceneMediator<
   }
 
   protected async onProduce(): Promise<void> {
-    // this.viewComponent.setControllersState(false);
+    this.viewComponent.setControllersState(false);
     const success: boolean = this.uiVOProxy.checkSkillOptionValues();
     const bestSkill: string = this.uiVOProxy.getBestSkill();
     console.warn(bestSkill);
