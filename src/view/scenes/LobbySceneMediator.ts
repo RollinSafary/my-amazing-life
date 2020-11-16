@@ -35,6 +35,7 @@ export default class LobbySceneMediator extends BaseSceneMediator<LobbyScene> {
         await this.startScene();
         this.viewComponent.setAvatarConfig(this.uiVOProxy.vo.avatar);
         this.updateButtons();
+        this.sendNotification(LobbyScene.HELP_NOTIFICATION);
         break;
       case PlayerVOProxy.SAVE_COMPLETE_NOTIFICATION:
         this.updateButtons();

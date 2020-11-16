@@ -9,8 +9,8 @@ import SimpleButton, {
 } from '../utils/simpleButton/SimpleButton';
 import StandardPopup from './StandardPopup';
 
-export default class AvatarInstructionsPopup extends StandardPopup {
-  public static NAME: string = 'AvatarInstructionsPopup';
+export default class LobbyHelpPopup extends StandardPopup {
+  public static NAME: string = 'LobbyHelpPopup';
 
   protected title: ExtendedText;
   protected message: ExtendedText;
@@ -21,8 +21,8 @@ export default class AvatarInstructionsPopup extends StandardPopup {
     this.createBg(
       Atlases.Login.Atlas.Name,
       Atlases.Login.Atlas.Frames.BackgroundError,
-      this.scene.width * 0.5,
-      this.scene.height * 0.6,
+      this.scene.width * 0.6,
+      this.scene.height * 0.7,
     );
     this.createTitle();
     this.createExtendedText();
@@ -33,13 +33,13 @@ export default class AvatarInstructionsPopup extends StandardPopup {
   protected createTitle(): void {
     const style: ITextStyle = {
       fontFamily: Fonts.ArialBlack.Name,
-      fontSize: 50,
+      fontSize: 45,
       fill: '#ffffff',
     };
     this.title = this.scene.make.extText({
       x: 0,
       y: -this.height * 0.35,
-      text: Translation.AVATAR_INSTRUCTIONS_POPUP_TITLE,
+      text: Translation.LOBBY_HELP_POPUP_TITLE,
       style,
     });
     this.title.setOrigin(0.5);
@@ -48,13 +48,13 @@ export default class AvatarInstructionsPopup extends StandardPopup {
   protected createExtendedText(): void {
     const style: ITextStyle = {
       fontFamily: Fonts.ArialBlack.Name,
-      fontSize: 40,
+      fontSize: 35,
       fill: '#ffb80d',
     };
     this.message = this.scene.make.extText({
       x: 0,
       y: 0,
-      text: Translation.AVATAR_INSTRUCTIONS_POPUP_MESSAGE,
+      text: Translation.LOBBY_HELP_POPUP_MESSAGE,
       style,
     });
     this.message.setOrigin(0.5);
@@ -69,9 +69,9 @@ export default class AvatarInstructionsPopup extends StandardPopup {
     };
     const textConfig: ISimpleButtonText = {
       fontFamily: Fonts.ArialBlack.Name,
-      fontSize: 45,
+      fontSize: 40,
       fill: '#ffffff',
-      text: Translation.AVATAR_INSTRUCTIONS_POPUP_BUTTON_OK,
+      text: Translation.LOBBY_HELP_POPUP_BUTTON_OK,
       origin: { x: 0.5, y: 0.5 },
     };
     const configs: ISimpleButtonConfig = {
