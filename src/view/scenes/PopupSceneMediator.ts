@@ -1,3 +1,4 @@
+import AvatarInstructionsPopupMediator from '../popups/AvatarInstructionsPopupMediator';
 import AvatarIntroPopupMediator from '../popups/AvatarIntroPopupMediator';
 import ErrorPopupMediator from '../popups/ErrorPopupMediator';
 import HobbiesWinPopupMediator from '../popups/HobbiesWinPopupMediator';
@@ -65,7 +66,8 @@ export default class PopupSceneMediator extends BaseSceneMediator<PopupScene> {
 
   private registerGamePopups(): void {
     this.registerRegistrationErrorPopup();
-    this.registerAvatarIntroPopupMediator();
+    this.registerAvatarIntroPopup();
+    this.registerAvatarInstructionsPopup();
     this.registerLifeStyleResultPopup();
     this.registerPersonalityTimeoutPopup();
     this.registerHobbiesWinPopup();
@@ -75,8 +77,11 @@ export default class PopupSceneMediator extends BaseSceneMediator<PopupScene> {
   private registerRegistrationErrorPopup(): void {
     this.facade.registerMediator(new ErrorPopupMediator());
   }
-  private registerAvatarIntroPopupMediator(): void {
+  private registerAvatarIntroPopup(): void {
     this.facade.registerMediator(new AvatarIntroPopupMediator());
+  }
+  private registerAvatarInstructionsPopup(): void {
+    this.facade.registerMediator(new AvatarInstructionsPopupMediator());
   }
   private registerLifeStyleResultPopup(): void {
     this.facade.registerMediator(new LifeStyleResultPopupMediator());

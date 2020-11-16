@@ -28,4 +28,9 @@ export default class AvatarIntroPopupMediator extends StandardPopupMediator<
   protected createView(): void {
     super.createView(new AvatarIntroPopup());
   }
+
+  protected onAction(): void {
+    super.onAction();
+    this.sendNotification(AvatarIntroPopup.CLOSED_NOTIFICATION);
+  }
 }

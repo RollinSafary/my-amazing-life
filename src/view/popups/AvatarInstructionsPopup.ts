@@ -9,84 +9,81 @@ import SimpleButton, {
 } from '../utils/simpleButton/SimpleButton';
 import StandardPopup from './StandardPopup';
 
-export default class AvatarIntroPopup extends StandardPopup {
-  public static NAME: string = 'AvatarIntroPopup';
-  public static CLOSED_NOTIFICATION: string = `${AvatarIntroPopup.NAME}ClosedNotification`;
+export default class AvatarInstructionsPopup extends StandardPopup {
+  public static NAME: string = 'AvatarInstructionPopup';
 
   protected title: ExtendedText;
   protected message: ExtendedText;
-  protected startButton: SimpleButton;
+  protected closeButton: SimpleButton;
 
   protected createComponents(): void {
     this.createColoredBlocker(0.7);
     this.createBg(
       Atlases.Login.Atlas.Name,
       Atlases.Login.Atlas.Frames.BackgroundError,
-      this.scene.width * 0.8,
-      this.scene.height * 0.8,
-    ).setAlpha(0.8);
+      this.scene.width * 0.5,
+      this.scene.height * 0.6,
+    );
     this.createTitle();
-    this.createMessage();
-    this.createStartButton();
+    this.createExtendedText();
+    this.createCloseButton();
     this.setListeners();
   }
 
   protected createTitle(): void {
     const style: ITextStyle = {
       fontFamily: Fonts.ArialBlack.Name,
-      fontSize: 40,
-      fill: '#ffb80d',
+      fontSize: 50,
+      fill: '#ffffff',
     };
     this.title = this.scene.make.extText({
       x: 0,
       y: -this.height * 0.35,
-      text: Translation.AVATAR_INTRO_POPUP_WELCOME_TITLE,
+      text: Translation.AVATAR_INSTRUCTIONS_POPUP_TITLE,
       style,
     });
-    this.add(this.title);
     this.title.setOrigin(0.5);
+    this.add(this.title);
   }
-  protected createMessage(): void {
+  protected createExtendedText(): void {
     const style: ITextStyle = {
       fontFamily: Fonts.ArialBlack.Name,
-      fontSize: 34,
+      fontSize: 40,
       fill: '#ffb80d',
     };
     this.message = this.scene.make.extText({
       x: 0,
       y: 0,
-      text: Translation.AVATAR_INTRO_POPUP_WELCOME_MESSAGE,
+      text: Translation.AVATAR_INSTRUCTIONS_POPUP_MESSAGE,
       style,
     });
+    this.message.setOrigin(0.5);
+    this.message.setAlign('center');
     this.add(this.message);
     this.message.setWordWrapWidth(this.width * 0.9);
-    this.message.setOrigin(0.5);
   }
-  protected createStartButton(): void {
+  protected createCloseButton(): void {
     const normalStateConfig: ISimpleButtonState = {
       key: Atlases.Login.Atlas.Name,
       frame: Atlases.Login.Atlas.Frames.ButtonOrange,
     };
     const textConfig: ISimpleButtonText = {
       fontFamily: Fonts.ArialBlack.Name,
-      fontSize: 30,
+      fontSize: 45,
       fill: '#ffffff',
-      text: Translation.AVATAR_INTRO_POPUP_BUTTON_START,
-      origin: {
-        x: 0.5,
-        y: 0.5,
-      },
+      text: Translation.AVATAR_INSTRUCTIONS_POPUP_BUTTON_OK,
+      origin: { x: 0.5, y: 0.5 },
     };
-    const config: ISimpleButtonConfig = {
+    const configs: ISimpleButtonConfig = {
       normalStateConfig,
       textConfig,
     };
-    this.startButton = new SimpleButton(this.scene, config);
-    this.add(this.startButton);
-    this.startButton.y = this.height * 0.5 - this.startButton.height;
+    this.closeButton = new SimpleButton(this.scene, configs);
+    this.closeButton.y = this.height * 0.4;
+    this.add(this.closeButton);
   }
 
   protected setListeners(): void {
-    this.startButton.once(SimpleButton.CLICK_EVENT, this.onAction, this);
+    this.closeButton.on(SimpleButton.CLICK_EVENT, this.onAction, this);
   }
 }
