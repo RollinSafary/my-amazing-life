@@ -76,9 +76,6 @@ export default class LobbySceneMediator extends BaseSceneMediator<LobbyScene> {
         this.stopScene();
         this.sendNotification(LobbyScene.BACK_NOTIFICATION);
         break;
-      case LobbyAction.HELP:
-        this.sendNotification(LobbyScene.HELP_NOTIFICATION);
-        break;
       case LobbyAction.RESULTS:
         this.sendNotification(LobbyScene.RESULTS_NOTIFICATION);
         break;

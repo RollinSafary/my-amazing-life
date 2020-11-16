@@ -21,7 +21,6 @@ export enum LobbyAction {
   HOBBIES,
   SKILLS,
   BACK,
-  HELP,
   RESULTS,
 }
 
@@ -29,7 +28,6 @@ export default class LobbyScene extends BaseScene {
   public static NAME: string = 'LobbyScene';
   public static ACTION_DONE_EVENT: string = 'actionDone';
   public static BACK_NOTIFICATION: string = `${LobbyScene.NAME}BackNotification`;
-  public static HELP_NOTIFICATION: string = `${LobbyScene.NAME}HelpNotification`;
   public static RESULTS_NOTIFICATION: string = `${LobbyScene.NAME}ShowResultsNotification`;
   public static GAME_CHOSE_NOTIFICATION: string = `${LobbyScene.NAME}GameChoseNotification`;
 
@@ -43,7 +41,6 @@ export default class LobbyScene extends BaseScene {
   protected avatar: Avatar;
   protected avatarConfig: IAvatarConfig;
   protected backButton: SimpleButton;
-  protected helpButton: SimpleButton;
   protected resultsButton: SimpleButton;
 
   constructor() {
@@ -209,7 +206,6 @@ export default class LobbyScene extends BaseScene {
 
   protected createButtons(): void {
     this.createBackButton();
-    this.createHelpButton();
     this.createResultsButton();
   }
 
@@ -237,29 +233,6 @@ export default class LobbyScene extends BaseScene {
     this.backButton.y = this.height * 0.95 - this.backButton.height / 2;
   }
 
-  protected createHelpButton(): void {
-    const normalStateConfig: ISimpleButtonState = {
-      key: Atlases.Lobby.Atlas.Name,
-      frame: Atlases.Lobby.Atlas.Frames.Button,
-    };
-
-    const textConfig: ISimpleButtonText = {
-      text: Translation.LOBBY_BUTTON_HELP,
-      fontFamily: Fonts.ArialBlack.Name,
-      fontSize: 30,
-      fill: '#ffffff',
-      origin: { x: 0.5, y: 0.5 },
-    };
-    const configs: ISimpleButtonConfig = {
-      normalStateConfig,
-      textConfig,
-    };
-    this.helpButton = new SimpleButton(this, configs);
-    this.add.existing(this.helpButton);
-    this.helpButton.x = this.backButton.x;
-    this.helpButton.y = this.backButton.y - this.helpButton.height * 1.1;
-  }
-
   protected createResultsButton(): void {
     const normalStateConfig: ISimpleButtonState = {
       key: Atlases.Lobby.Atlas.Name,
@@ -279,8 +252,8 @@ export default class LobbyScene extends BaseScene {
     };
     this.resultsButton = new SimpleButton(this, configs);
     this.add.existing(this.resultsButton);
-    this.resultsButton.x = this.helpButton.x;
-    this.resultsButton.y = this.helpButton.y - this.resultsButton.height * 1.1;
+    this.resultsButton.x = this.backButton.x;
+    this.resultsButton.y = this.backButton.y - this.resultsButton.height * 1.1;
     this.resultsButton.setVisible(false);
   }
 
@@ -310,10 +283,6 @@ export default class LobbyScene extends BaseScene {
     this.backButton.on(
       SpriteButton.CLICK_EVENT,
       this.onAction.bind(this, LobbyAction.BACK),
-    );
-    this.helpButton.on(
-      SpriteButton.CLICK_EVENT,
-      this.onAction.bind(this, LobbyAction.HELP),
     );
     this.resultsButton.on(
       SpriteButton.CLICK_EVENT,
