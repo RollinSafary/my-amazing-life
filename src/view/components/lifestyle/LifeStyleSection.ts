@@ -28,8 +28,7 @@ export default class LifeStyleSection extends Phaser.GameObjects.Container {
   }
 
   public makeUnselected(): void {
-    this.removeAllListeners();
-    this.removeInteractive();
+    this.input.enabled = false;
   }
 
   protected createComponents(): void {
