@@ -53,18 +53,19 @@ export default class HobbiesScene extends BaseScene {
 
   public pause(): void {
     this.isGameStarted = false;
-    this.ui.fuel.pause();
+    this.tweens.pauseAll();
   }
 
   public resume(): void {
     this.isGameStarted = true;
-    this.ui.fuel.resume();
+    this.tweens.resumeAll();
   }
 
   public startGame(): void {
     this.input.setTopOnly(false);
     this.resetValues();
     this.ui.fuel.start();
+    postRunnable(this.tweens.pauseAll, this.tweens);
   }
 
   public makeImageSelected(frameName: string, remaining: number): void {

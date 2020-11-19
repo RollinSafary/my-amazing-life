@@ -38,7 +38,7 @@ export default class HobbiesHelpPopup extends StandardPopup {
     };
     this.title = this.scene.make.extText({
       x: 0,
-      y: -this.height * 0.45,
+      y: -this.height * 0.4,
       text: Translation.HOBBIES_HELP_POPUP_TITLE,
       style,
     });
