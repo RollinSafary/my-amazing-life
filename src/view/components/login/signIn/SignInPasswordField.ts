@@ -19,8 +19,8 @@ export default class SignInPasswordField extends PasswordTextField {
     this.icon = this.scene.make.image({
       x: 0,
       y: 0,
-      key: Atlases.Login.Atlas.Name,
-      frame: Atlases.Login.Atlas.Frames.IconLock,
+      key: Atlases.Popups.Atlas.Name,
+      frame: Atlases.Popups.Atlas.Frames.IconLock,
     });
     this.add(this.icon);
   }

@@ -19,8 +19,8 @@ export default class AvatarInstructionsPopup extends StandardPopup {
   protected createComponents(): void {
     this.createColoredBlocker(0.7);
     this.createBg(
-      Atlases.Login.Atlas.Name,
-      Atlases.Login.Atlas.Frames.BackgroundError,
+      Atlases.Popups.Atlas.Name,
+      Atlases.Popups.Atlas.Frames.BackgroundRed,
       this.scene.width * 0.5,
       this.scene.height * 0.6,
     );
@@ -64,8 +64,8 @@ export default class AvatarInstructionsPopup extends StandardPopup {
   }
   protected createCloseButton(): void {
     const normalStateConfig: ISimpleButtonState = {
-      key: Atlases.Login.Atlas.Name,
-      frame: Atlases.Login.Atlas.Frames.ButtonOrange,
+      key: Atlases.Popups.Atlas.Name,
+      frame: Atlases.Popups.Atlas.Frames.ButtonOrange,
     };
     const textConfig: ISimpleButtonText = {
       fontFamily: Fonts.ArialBlack.Name,

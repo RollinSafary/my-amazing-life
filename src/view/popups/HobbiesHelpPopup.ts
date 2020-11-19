@@ -9,8 +9,8 @@ import SimpleButton, {
 } from '../utils/simpleButton/SimpleButton';
 import StandardPopup from './StandardPopup';
 
-export default class PersonalityHelpPopup extends StandardPopup {
-  public static NAME: string = 'PersonalityHelpPopup';
+export default class HobbiesHelpPopup extends StandardPopup {
+  public static NAME: string = 'HobbiesHelpPopup';
 
   protected title: ExtendedText;
   protected message: ExtendedText;
@@ -20,10 +20,10 @@ export default class PersonalityHelpPopup extends StandardPopup {
     this.createColoredBlocker(0.7);
     this.createBg(
       Atlases.Popups.Atlas.Name,
-      Atlases.Popups.Atlas.Frames.BackgroundPink,
+      Atlases.Popups.Atlas.Frames.BackgroundYellow,
       this.scene.width * 0.7,
       this.scene.height * 0.8,
-    ).setAlpha(0.6);
+    );
     this.createTitle();
     this.createExtendedText();
     this.createCloseButton();
@@ -33,13 +33,13 @@ export default class PersonalityHelpPopup extends StandardPopup {
   protected createTitle(): void {
     const style: ITextStyle = {
       fontFamily: Fonts.ArialBlack.Name,
-      fontSize: 50,
-      fill: '#febeb0',
+      fontSize: 36,
+      fill: '#fdb512',
     };
     this.title = this.scene.make.extText({
       x: 0,
-      y: -this.height * 0.4,
-      text: Translation.PERSONALITY_HELP_POPUP_TITLE,
+      y: -this.height * 0.45,
+      text: Translation.HOBBIES_HELP_POPUP_TITLE,
       style,
     });
     this.title.setOrigin(0.5);
@@ -47,14 +47,14 @@ export default class PersonalityHelpPopup extends StandardPopup {
   }
   protected createExtendedText(): void {
     const style: ITextStyle = {
-      fontFamily: 'Arial',
-      fontSize: 36,
+      fontFamily: Fonts.ArialBlack.Name,
+      fontSize: 28,
       fill: '#ffffff',
     };
     this.message = this.scene.make.extText({
       x: 0,
       y: 0,
-      text: Translation.PERSONALITY_HELP_POPUP_MESSAGE,
+      text: Translation.HOBBIES_HELP_POPUP_MESSAGE,
       style,
     });
     this.message.setOrigin(0.5);
@@ -68,10 +68,10 @@ export default class PersonalityHelpPopup extends StandardPopup {
       frame: Atlases.Popups.Atlas.Frames.ButtonOrange,
     };
     const textConfig: ISimpleButtonText = {
-      fontFamily: 'Arial',
-      fontSize: 36,
+      fontFamily: Fonts.ArialBlack.Name,
+      fontSize: 32,
       fill: '#ffffff',
-      text: Translation.PERSONALITY_HELP_POPUP_BUTTON_PLAY,
+      text: Translation.HOBBIES_HELP_POPUP_BUTTON_PLAY,
       origin: { x: 0.5, y: 0.5 },
     };
     const configs: ISimpleButtonConfig = {

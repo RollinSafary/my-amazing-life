@@ -132,7 +132,7 @@
             <key>json</key>
             <struct type="DataFile">
                 <key>name</key>
-                <filename>../assets/atlases/login.json</filename>
+                <filename>../assets/atlases/popups.json</filename>
             </struct>
         </map>
         <key>multiPack</key>
@@ -181,7 +181,7 @@
         </struct>
         <key>individualSpriteSettings</key>
         <map type="IndividualSpriteSettingsMap">
-            <key type="filename">login/button-back.png</key>
+            <key type="filename">popups/background/blue.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0.5,0.5</point_f>
@@ -190,13 +190,13 @@
                 <key>scale9Enabled</key>
                 <false/>
                 <key>scale9Borders</key>
-                <rect>37,8,73,17</rect>
+                <rect>44,49,88,97</rect>
                 <key>scale9Paddings</key>
-                <rect>37,8,73,17</rect>
+                <rect>44,49,88,97</rect>
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
-            <key type="filename">login/control-button.png</key>
+            <key type="filename">popups/background/green.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0.5,0.5</point_f>
@@ -205,13 +205,13 @@
                 <key>scale9Enabled</key>
                 <false/>
                 <key>scale9Borders</key>
-                <rect>68,18,135,35</rect>
+                <rect>70,58,141,117</rect>
                 <key>scale9Paddings</key>
-                <rect>68,18,135,35</rect>
+                <rect>70,58,141,117</rect>
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
-            <key type="filename">login/field.png</key>
+            <key type="filename">popups/background/orange.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0.5,0.5</point_f>
@@ -220,16 +220,154 @@
                 <key>scale9Enabled</key>
                 <false/>
                 <key>scale9Borders</key>
-                <rect>72,15,145,31</rect>
+                <rect>123,103,247,206</rect>
                 <key>scale9Paddings</key>
-                <rect>72,15,145,31</rect>
+                <rect>123,103,247,206</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">popups/background/pink.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>59,39,117,78</rect>
+                <key>scale9Paddings</key>
+                <rect>59,39,117,78</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">popups/background/red.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>145,90,289,179</rect>
+                <key>scale9Paddings</key>
+                <rect>145,90,289,179</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">popups/background/yellow.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>102,49,204,98</rect>
+                <key>scale9Paddings</key>
+                <rect>102,49,204,98</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">popups/button/blue.png</key>
+            <key type="filename">popups/button/green.png</key>
+            <key type="filename">popups/button/pink.png</key>
+            <key type="filename">popups/button/yellow.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>60,18,120,37</rect>
+                <key>scale9Paddings</key>
+                <rect>60,18,120,37</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">popups/button/orange.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>48,15,95,30</rect>
+                <key>scale9Paddings</key>
+                <rect>48,15,95,30</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">popups/button/red.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>43,16,85,33</rect>
+                <key>scale9Paddings</key>
+                <rect>43,16,85,33</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">popups/icon/lock.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>11,13,23,26</rect>
+                <key>scale9Paddings</key>
+                <rect>11,13,23,26</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">popups/icon/login.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>27,23,55,45</rect>
+                <key>scale9Paddings</key>
+                <rect>27,23,55,45</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">popups/icon/mail.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>14,11,28,21</rect>
+                <key>scale9Paddings</key>
+                <rect>14,11,28,21</rect>
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
         </map>
         <key>fileList</key>
         <array>
-            <filename>login</filename>
+            <filename>popups</filename>
         </array>
         <key>ignoreFileList</key>
         <array/>

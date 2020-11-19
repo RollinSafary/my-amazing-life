@@ -92,8 +92,6 @@ export default class SkillsSceneMediator extends BaseSceneMediator<
     this.viewComponent.setControllersState(false);
     const success: boolean = this.uiVOProxy.checkSkillOptionValues();
     const bestSkill: string = this.uiVOProxy.getBestSkill();
-    console.warn(bestSkill);
-
     await this.viewComponent.startIndicatorsProcessing(success, bestSkill);
     if (!success) {
       this.sendNotification(SkillsScene.VALUES_CHECK_FAILED_NOTIFICATION);

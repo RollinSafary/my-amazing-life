@@ -162,16 +162,35 @@ export namespace Atlases {
     }
     export namespace Atlas {
       export enum Frames {
-        BackgroundError = 'background-error',
-        BackgroundLogin = 'background-login',
         Field = 'field',
         ControlButton = 'control-button',
-        ButtonOrange = 'button-orange',
-        IconMail = 'icon-mail',
-        IconLock = 'icon-lock',
-        ButtonRed = 'button-red',
         ButtonBack = 'button-back',
-        LoginIcon = 'login-icon',
+      }
+    }
+  }
+  export namespace Popups {
+    export class Atlas {
+      public static Name: string = 'popups';
+      public static AtlasURL: string = 'assets/atlases/popups.json';
+      public static TextureURL: string = 'assets/atlases/popups.png';
+    }
+    export namespace Atlas {
+      export enum Frames {
+        BackgroundRed = 'background/red',
+        BackgroundGreen = 'background/green',
+        IconLock = 'icon/lock',
+        ButtonBlue = 'button/blue',
+        IconMail = 'icon/mail',
+        ButtonGreen = 'button/green',
+        BackgroundOrange = 'background/orange',
+        BackgroundYellow = 'background/yellow',
+        IconLogin = 'icon/login',
+        ButtonPink = 'button/pink',
+        ButtonOrange = 'button/orange',
+        ButtonYellow = 'button/yellow',
+        BackgroundPink = 'background/pink',
+        BackgroundBlue = 'background/blue',
+        ButtonRed = 'button/red',
       }
     }
   }
@@ -268,7 +287,7 @@ export namespace Locales {
     public static Name: string = 'en';
     public static FileURL: string = 'assets/locales/en.json';
     public static Extension: string = '.json';
-    public static Size: string = '21283';
+    public static Size: string = '23128';
   }
   export class Ru {
     public static Name: string = 'ru';

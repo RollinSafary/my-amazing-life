@@ -1,4 +1,5 @@
-import { Images, MultiAtlases } from '../../assets';
+import { Fonts, Images, MultiAtlases } from '../../assets';
+import { Translation } from '../../translations';
 import HobbiesGameUi from '../components/hobbies/HobbiesGameUi';
 import HobbiesImage from '../components/hobbies/HobbiesImage';
 import HobbiesImagePair from '../components/hobbies/HobbiesImagePair';
@@ -11,6 +12,11 @@ import {
   postRunnable,
   removeRunnable,
 } from '../utils/phaser/PhaserUtils';
+import ISimpleButtonState from '../utils/simpleButton/ISimpleButtonState';
+import ISimpleButtonText from '../utils/simpleButton/ISimpleButtonText';
+import SimpleButton, {
+  ISimpleButtonConfig,
+} from '../utils/simpleButton/SimpleButton';
 import BaseScene from './BaseScene';
 
 const cameraSpeed: number = 3;
@@ -39,14 +45,25 @@ export default class HobbiesScene extends BaseScene {
   protected ui: HobbiesGameUi;
   protected isGameStarted: boolean = false;
   protected imagePair: HobbiesImagePair;
+  protected helpButton: SimpleButton;
 
   constructor() {
     super(HobbiesScene.NAME);
   }
 
-  public startGame(): void {
-    this.resetValues();
+  public pause(): void {
+    this.isGameStarted = false;
+    this.ui.fuel.pause();
+  }
+
+  public resume(): void {
     this.isGameStarted = true;
+    this.ui.fuel.resume();
+  }
+
+  public startGame(): void {
+    this.input.setTopOnly(false);
+    this.resetValues();
     this.ui.fuel.start();
   }
 
@@ -132,6 +149,33 @@ export default class HobbiesScene extends BaseScene {
     this.add.existing(this.imagePair);
   }
 
+  protected createHelpButton(): void {
+    const textConfig: ISimpleButtonText = {
+      text: Translation.HOBBIES_BUTTON_HELP,
+      fontFamily: Fonts.ArialBlack.Name,
+      fontSize: 28,
+      fill: '#1f4226',
+      origin: {
+        x: 0.5,
+        y: 0.5,
+      },
+    };
+    const normalStateConfig: ISimpleButtonState = {
+      key: MultiAtlases.Hobbies.Atlas.Name,
+      frame: MultiAtlases.Hobbies.Atlas.Frames.InterfaceButtonPlay,
+    };
+    const configs: ISimpleButtonConfig = {
+      normalStateConfig,
+      textConfig,
+    };
+    this.helpButton = new SimpleButton(this, configs);
+    this.helpButton.x = this.ui.lives.x + this.helpButton.width;
+    this.helpButton.y = this.ui.lives.y + this.helpButton.height * 1.2;
+    this.helpButton.setScrollFactor(0, 0);
+    this.add.existing(this.helpButton);
+    this.helpButton.on(SimpleButton.CLICK_EVENT, this.onHelpClick, this);
+  }
+
   protected generateObstacle(point: Phaser.Geom.Point): void {
     const random: number = Phaser.Math.Between(0, 4);
     switch (random) {
@@ -197,6 +241,7 @@ export default class HobbiesScene extends BaseScene {
     this.generateDecorations();
     this.generateObstacles();
     this.createImagePair();
+    this.createHelpButton();
   }
 
   protected createBackground(): void {
@@ -380,6 +425,10 @@ export default class HobbiesScene extends BaseScene {
     this.cameraSpeed = cameraSpeed;
     this.isGameStarted = false;
     this.cameraState = 0;
+  }
+
+  protected onHelpClick(): void {
+    this.events.emit(HobbiesScene.HELP_CLICKED_EVENT);
   }
 
   get camera(): Phaser.Cameras.Scene2D.Camera {

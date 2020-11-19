@@ -1,5 +1,7 @@
 import UiVOProxy from '../../model/UiVOProxy';
+import HobbiesHelpPopup from '../popups/HobbiesHelpPopup';
 import HobbiesWinPopup from '../popups/HobbiesWinPopup';
+import StandardPopup from '../popups/StandardPopup';
 import BaseSceneMediator from './BaseSceneMediator';
 import HobbiesScene from './HobbiesScene';
 import LobbyScene, { LobbyAction } from './LobbyScene';
@@ -21,6 +23,7 @@ export default class HobbiesSceneMediator extends BaseSceneMediator<
       UiVOProxy.HOBBIES_GAME_COMPLETE_NOTIFICATION,
       HobbiesWinPopup.PLAY_AGAIN_NOTIFICATION,
       HobbiesWinPopup.MENU_CLICKED_NOTIFICATION,
+      StandardPopup.HIDE_COMPLETE_NOTIFICATION,
     );
   }
 
@@ -54,6 +57,13 @@ export default class HobbiesSceneMediator extends BaseSceneMediator<
         break;
       case HobbiesWinPopup.MENU_CLICKED_NOTIFICATION:
         this.sceneManager.stop(HobbiesScene.NAME);
+        break;
+      case StandardPopup.HIDE_COMPLETE_NOTIFICATION:
+        const name: string = args[0];
+        if (name !== HobbiesHelpPopup.NAME) {
+          return;
+        }
+        this.viewComponent.resume();
         break;
       default:
         this.handleDefaultNotifications(notificationName, ...args);
@@ -105,6 +115,7 @@ export default class HobbiesSceneMediator extends BaseSceneMediator<
   }
 
   protected onHelpClick(): void {
+    this.viewComponent.pause();
     this.sendNotification(HobbiesScene.HELP_CLICKED_NOTIFICATION);
   }
 

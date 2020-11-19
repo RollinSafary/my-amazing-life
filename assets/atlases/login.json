@@ -4,53 +4,11 @@
 			"image": "login.png",
 			"format": "RGBA8888",
 			"size": {
-				"w": 853,
-				"h": 853
+				"w": 372,
+				"h": 372
 			},
 			"scale": 1,
 			"frames": [
-				{
-					"filename": "background-error",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 578,
-						"h": 358
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 578,
-						"h": 358
-					},
-					"frame": {
-						"x": 1,
-						"y": 1,
-						"w": 578,
-						"h": 358
-					}
-				},
-				{
-					"filename": "background-login",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 493,
-						"h": 412
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 493,
-						"h": 412
-					},
-					"frame": {
-						"x": 1,
-						"y": 363,
-						"w": 493,
-						"h": 412
-					}
-				},
 				{
 					"filename": "field",
 					"rotated": false,
@@ -67,7 +25,7 @@
 					},
 					"frame": {
 						"x": 1,
-						"y": 779,
+						"y": 1,
 						"w": 370,
 						"h": 73
 					}
@@ -87,94 +45,10 @@
 						"h": 70
 					},
 					"frame": {
-						"x": 375,
-						"y": 779,
+						"x": 1,
+						"y": 78,
 						"w": 270,
 						"h": 70
-					}
-				},
-				{
-					"filename": "button-orange",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 190,
-						"h": 60
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 190,
-						"h": 60
-					},
-					"frame": {
-						"x": 649,
-						"y": 1,
-						"w": 190,
-						"h": 60
-					}
-				},
-				{
-					"filename": "icon-mail",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 56,
-						"h": 42
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 56,
-						"h": 42
-					},
-					"frame": {
-						"x": 583,
-						"y": 1,
-						"w": 56,
-						"h": 42
-					}
-				},
-				{
-					"filename": "icon-lock",
-					"rotated": false,
-					"trimmed": true,
-					"sourceSize": {
-						"w": 45,
-						"h": 52
-					},
-					"spriteSourceSize": {
-						"x": 4,
-						"y": 4,
-						"w": 37,
-						"h": 47
-					},
-					"frame": {
-						"x": 583,
-						"y": 47,
-						"w": 37,
-						"h": 47
-					}
-				},
-				{
-					"filename": "button-red",
-					"rotated": false,
-					"trimmed": true,
-					"sourceSize": {
-						"w": 171,
-						"h": 65
-					},
-					"spriteSourceSize": {
-						"x": 1,
-						"y": 1,
-						"w": 170,
-						"h": 64
-					},
-					"frame": {
-						"x": 649,
-						"y": 65,
-						"w": 170,
-						"h": 64
 					}
 				},
 				{
@@ -192,31 +66,10 @@
 						"h": 33
 					},
 					"frame": {
-						"x": 649,
-						"y": 133,
+						"x": 1,
+						"y": 152,
 						"w": 147,
 						"h": 33
-					}
-				},
-				{
-					"filename": "login-icon",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 109,
-						"h": 91
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 109,
-						"h": 91
-					},
-					"frame": {
-						"x": 649,
-						"y": 170,
-						"w": 109,
-						"h": 91
 					}
 				}
 			]
@@ -225,6 +78,6 @@
 	"meta": {
 		"app": "https://www.codeandweb.com/texturepacker",
 		"version": "3.0",
-		"smartupdate": "$TexturePacker:SmartUpdate:3520d3581c4b6be6980f37a8e2dd3542:9fee7ebd1bc98ba7a64d2b7798dc776a:ffb62af756263e4644c882ff552ab6d3$"
+		"smartupdate": "$TexturePacker:SmartUpdate:625a813b93ff60669280b0ff08491e20:ecc1a5e1aba126e05d9a7e9088d849ad:ffb62af756263e4644c882ff552ab6d3$"
 	}
 }

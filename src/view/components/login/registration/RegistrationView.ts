@@ -49,14 +49,14 @@ export default class RegistrationView extends BaseLoginView {
 
   protected createBackground(): void {
     const frame: Phaser.Textures.Frame = this.scene.textures.getFrame(
-      Atlases.Login.Atlas.Name,
-      Atlases.Login.Atlas.Frames.BackgroundLogin,
+      Atlases.Popups.Atlas.Name,
+      Atlases.Popups.Atlas.Frames.BackgroundOrange,
     );
     this.background = this.scene.make.ninePatch({
       x: 0,
       y: 0,
-      key: Atlases.Login.Atlas.Name,
-      frame: Atlases.Login.Atlas.Frames.BackgroundLogin,
+      key: Atlases.Popups.Atlas.Name,
+      frame: Atlases.Popups.Atlas.Frames.BackgroundOrange,
       width: frame.width,
       height: frame.height * 1.5,
     });
@@ -132,8 +132,8 @@ export default class RegistrationView extends BaseLoginView {
 
   protected createNextButton(): void {
     const normalStateConfig: ISpriteButtonState = {
-      key: Atlases.Login.Atlas.Name,
-      frame: Atlases.Login.Atlas.Frames.ButtonRed,
+      key: Atlases.Popups.Atlas.Name,
+      frame: Atlases.Popups.Atlas.Frames.ButtonRed,
     };
     const textConfig: ISimpleButtonText = {
       fontFamily: Fonts.ArialBlack.Name,

@@ -31,8 +31,8 @@ export default class ErrorPopup extends StandardPopup {
   protected createComponents(): void {
     this.createColoredBlocker(0.5);
     this.createBgImage(
-      Atlases.Login.Atlas.Name,
-      Atlases.Login.Atlas.Frames.BackgroundError,
+      Atlases.Popups.Atlas.Name,
+      Atlases.Popups.Atlas.Frames.BackgroundRed,
     );
     this.createTitle();
     this.createText();
@@ -76,8 +76,8 @@ export default class ErrorPopup extends StandardPopup {
 
   protected createOkButton(): void {
     const normalStateConfig: ISpriteButtonState = {
-      key: Atlases.Login.Atlas.Name,
-      frame: Atlases.Login.Atlas.Frames.ButtonOrange,
+      key: Atlases.Popups.Atlas.Name,
+      frame: Atlases.Popups.Atlas.Frames.ButtonOrange,
     };
     const textConfig: ISimpleButtonText = {
       fontFamily: Fonts.ArialBlack.Name,

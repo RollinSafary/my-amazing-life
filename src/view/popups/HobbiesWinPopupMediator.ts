@@ -1,6 +1,5 @@
 import { gameConfig } from '../../constants/GameConfig';
 import UiVOProxy from '../../model/UiVOProxy';
-import HobbiesScene from '../scenes/HobbiesScene';
 import HobbiesWinPopup, { HobbiesWinPopupAction } from './HobbiesWinPopup';
 import StandardPopupMediator from './StandardPopupMediator';
 
@@ -13,10 +12,7 @@ export default class HobbiesWinPopupMediator extends StandardPopupMediator<
     super(HobbiesWinPopupMediator.NAME);
   }
   public registerNotificationInterests(): void {
-    this.subscribeToNotifications(
-      UiVOProxy.HOBBIES_GAME_COMPLETE_NOTIFICATION,
-      HobbiesScene.HELP_CLICKED_NOTIFICATION,
-    );
+    this.subscribeToNotifications(UiVOProxy.HOBBIES_GAME_COMPLETE_NOTIFICATION);
   }
 
   public handleNotification(notificationName: string, ...args: any[]): void {
@@ -27,13 +23,6 @@ export default class HobbiesWinPopupMediator extends StandardPopupMediator<
           gameConfig.canvasWidth / 2,
           gameConfig.canvasHeight / 2,
           cluster,
-        );
-        break;
-      case HobbiesScene.HELP_CLICKED_NOTIFICATION:
-        this.showView(
-          gameConfig.canvasWidth / 2,
-          gameConfig.canvasHeight / 2,
-          'it',
         );
         break;
 

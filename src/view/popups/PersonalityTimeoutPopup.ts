@@ -21,8 +21,8 @@ export default class PersonalityTimeoutPopup extends StandardPopup {
   protected createComponents(): void {
     this.createColoredBlocker(0.6);
     this.createBg(
-      Atlases.Login.Atlas.Name,
-      Atlases.Login.Atlas.Frames.BackgroundError,
+      Atlases.Popups.Atlas.Name,
+      Atlases.Popups.Atlas.Frames.BackgroundRed,
       gameConfig.designWidth * 0.4,
       gameConfig.designHeight * 0.4,
     );
@@ -67,8 +67,8 @@ export default class PersonalityTimeoutPopup extends StandardPopup {
 
   protected createOkButton(): void {
     const normalStateConfig: ISimpleButtonState = {
-      key: Atlases.Login.Atlas.Name,
-      frame: Atlases.Login.Atlas.Frames.ButtonOrange,
+      key: Atlases.Popups.Atlas.Name,
+      frame: Atlases.Popups.Atlas.Frames.ButtonOrange,
     };
     const textConfig: ISimpleButtonText = {
       fontFamily: Fonts.ArialBlack.Name,

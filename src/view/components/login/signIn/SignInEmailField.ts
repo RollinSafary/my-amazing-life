@@ -18,8 +18,8 @@ export default class SignInEmailField extends BaseTextField {
     this.icon = this.scene.make.image({
       x: 0,
       y: 0,
-      key: Atlases.Login.Atlas.Name,
-      frame: Atlases.Login.Atlas.Frames.IconMail,
+      key: Atlases.Popups.Atlas.Name,
+      frame: Atlases.Popups.Atlas.Frames.IconMail,
     });
     this.add(this.icon);
   }

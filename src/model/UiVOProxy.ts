@@ -383,7 +383,6 @@ export default class UiVOProxy extends Proxy<UiVO> {
   // SKILL
   public setSkillsOptionValue(name: string, value: number): void {
     this.vo.skillsValues[name] = value;
-    console.warn(name, this.vo.skillsValues[name]);
   }
 
   public checkSkillOptionValues(): boolean {
