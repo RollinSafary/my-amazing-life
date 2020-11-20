@@ -15,6 +15,7 @@ export default class SkillsScene extends BaseScene {
   public static REPLAY_CLICKED_NOTIFICATION = `${SkillsScene.NAME}ReplayClickedNotification`;
   public static PLAY_AGAIN_CLICKED_NOTIFICATION = `${SkillsScene.NAME}PlayAgainNotification`;
   public static RESULTS_CLICKED_NOTIFICATION = `${SkillsScene.NAME}ResultsClickedNotification`;
+  public static HELP_CLICKED_NOTIFICATION = `${SkillsScene.NAME}HelpClickedNotification`;
 
   public static PRODUCE_CLICKED_EVENT: string = 'produceClicked';
   public static REPLAY_CLICKED_EVENT: string = 'replayClicked';

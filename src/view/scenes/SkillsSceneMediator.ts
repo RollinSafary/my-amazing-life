@@ -42,6 +42,11 @@ export default class SkillsSceneMediator extends BaseSceneMediator<
     this.setViewComponent(scene);
   }
 
+  protected async startScene(): Promise<void> {
+    await super.startScene();
+    this.sendNotification(SkillsScene.HELP_CLICKED_NOTIFICATION);
+  }
+
   protected setViewComponentListeners(): void {
     super.setViewComponentListeners();
     this.viewComponent.events.on(

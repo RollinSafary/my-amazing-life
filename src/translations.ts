@@ -303,6 +303,9 @@ export enum Translation {
   SKILLS_OPTION_RELATIONSHIP = 'skills-option-relationship',
   SKILLS_OPTION_LISTENING = 'skills-option-listening',
   SKILLS_OPTION_PROBLEM = 'skills-option-problem',
+  SKILLS_HELP_POPUP_TITLE = 'skills-help-popup-title',
+  SKILLS_HELP_POPUP_MESSAGE = 'skills-help-popup-message',
+  SKILLS_HELP_POPUP_BUTTON_PLAY = 'skills-help-popup-button-play',
   GAME = 'game',
 }
 
