@@ -26,6 +26,7 @@ export default class HobbiesScene extends BaseScene {
   public static START_GAME_NOTIFICATION: string = `${HobbiesScene.NAME}StartGameNotification`;
   public static HOBBY_CHOSE_NOTIFICATION: string = `${HobbiesScene.NAME}HobbyChoseNotification`;
   public static HELP_CLICKED_NOTIFICATION: string = `${HobbiesScene.NAME}HelpClickedNotification`;
+  public static LIVES_SPENT_NOTIFICATION: string = `${HobbiesScene.NAME}LivesSpentNotification`;
 
   public static GENERATE_ITEMS_EVENT: string = 'generateItems';
   public static HOBBY_CHOSE_EVENT: string = 'hobbyChose';

@@ -1,5 +1,6 @@
 import PlayerVOProxy from '../../model/PlayerVOProxy';
 import UiVOProxy from '../../model/UiVOProxy';
+import { HobbiesLosePopup } from '../popups/HobbiesLosePopup';
 import HobbiesWinPopup from '../popups/HobbiesWinPopup';
 import LifeStyleResultPopup from '../popups/LifeStyleResultPopup';
 import BaseSceneMediator from './BaseSceneMediator';
@@ -18,6 +19,7 @@ export default class LobbySceneMediator extends BaseSceneMediator<LobbyScene> {
       UiVOProxy.AVATAR_CONFIGURATION_SAVED_NOTIFICATION,
       LifeStyleResultPopup.MENU_CLICKED_NOTIFICATION,
       PersonalityScene.MENU_CLICKED_NOTIFICATION,
+      HobbiesLosePopup.MENU_CLICKED_NOTIFICATION,
       HobbiesWinPopup.MENU_CLICKED_NOTIFICATION,
       PlayerVOProxy.SAVE_COMPLETE_NOTIFICATION,
     );
@@ -30,6 +32,7 @@ export default class LobbySceneMediator extends BaseSceneMediator<LobbyScene> {
     switch (notificationName) {
       case PersonalityScene.MENU_CLICKED_NOTIFICATION:
       case LifeStyleResultPopup.MENU_CLICKED_NOTIFICATION:
+      case HobbiesLosePopup.MENU_CLICKED_NOTIFICATION:
       case HobbiesWinPopup.MENU_CLICKED_NOTIFICATION:
       case UiVOProxy.AVATAR_CONFIGURATION_SAVED_NOTIFICATION:
         await this.startScene();

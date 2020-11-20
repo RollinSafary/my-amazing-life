@@ -1,5 +1,6 @@
 import UiVOProxy from '../../model/UiVOProxy';
 import HobbiesHelpPopup from '../popups/HobbiesHelpPopup';
+import { HobbiesLosePopup } from '../popups/HobbiesLosePopup';
 import HobbiesWinPopup from '../popups/HobbiesWinPopup';
 import StandardPopup from '../popups/StandardPopup';
 import BaseSceneMediator from './BaseSceneMediator';
@@ -21,6 +22,8 @@ export default class HobbiesSceneMediator extends BaseSceneMediator<
       UiVOProxy.HOBBIES_CLUSTERS_PREPARED_NOTIFICATION,
       UiVOProxy.HOBBIES_CLUSTER_ELEMENT_CHOICE_NOTIFICATION,
       UiVOProxy.HOBBIES_GAME_COMPLETE_NOTIFICATION,
+      HobbiesLosePopup.PLAY_AGAIN_CLICKED_NOTIFICATION,
+      HobbiesLosePopup.MENU_CLICKED_NOTIFICATION,
       HobbiesWinPopup.PLAY_AGAIN_NOTIFICATION,
       HobbiesWinPopup.MENU_CLICKED_NOTIFICATION,
       StandardPopup.HIDE_COMPLETE_NOTIFICATION,
@@ -55,6 +58,7 @@ export default class HobbiesSceneMediator extends BaseSceneMediator<
       case HobbiesWinPopup.PLAY_AGAIN_NOTIFICATION:
         this.restartTheGame();
         break;
+      case HobbiesLosePopup.MENU_CLICKED_NOTIFICATION:
       case HobbiesWinPopup.MENU_CLICKED_NOTIFICATION:
         this.sceneManager.stop(HobbiesScene.NAME);
         break;
@@ -64,6 +68,9 @@ export default class HobbiesSceneMediator extends BaseSceneMediator<
           return;
         }
         this.viewComponent.resume();
+        break;
+      case HobbiesLosePopup.PLAY_AGAIN_CLICKED_NOTIFICATION:
+        this.restartTheGame();
         break;
       default:
         this.handleDefaultNotifications(notificationName, ...args);
@@ -96,7 +103,7 @@ export default class HobbiesSceneMediator extends BaseSceneMediator<
     );
     this.viewComponent.events.on(
       HobbiesScene.LIVES_SPENT_EVENT,
-      this.restartTheGame,
+      this.onLose,
       this,
     );
   }
@@ -126,6 +133,10 @@ export default class HobbiesSceneMediator extends BaseSceneMediator<
   protected async restartTheGame(): Promise<void> {
     await this.stopScene();
     await this.startTheGame();
+  }
+
+  protected onLose(): void {
+    this.sendNotification(HobbiesScene.LIVES_SPENT_NOTIFICATION);
   }
 
   get uiVOProxy(): UiVOProxy {
