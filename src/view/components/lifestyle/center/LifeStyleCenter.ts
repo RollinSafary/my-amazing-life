@@ -2,11 +2,9 @@ import { Images, MultiAtlases } from '../../../../assets';
 import BaseScene from '../../../scenes/BaseScene';
 import LifeStyleProgress from './LifeStyleProgress';
 import LifeStyleTotal from './LifeStyleTotal';
-import LifeStyleWheel from './LifeStyleWheel';
 
 export default class LifeStyleCenter extends Phaser.GameObjects.Container {
   protected background: Phaser.GameObjects.Image;
-  protected wheel: LifeStyleWheel;
   protected title: Phaser.GameObjects.Image;
   protected total: LifeStyleTotal;
   protected progress: LifeStyleProgress;
@@ -25,16 +23,8 @@ export default class LifeStyleCenter extends Phaser.GameObjects.Container {
     await this.progress.setProgress(value);
   }
 
-  public enableWheel(): void {
-    this.wheel.setEnabled(true);
-  }
-  public disableWheel(): void {
-    this.wheel.setEnabled(false);
-  }
-
   protected createComponents(): void {
     this.createBackground();
-    this.createWheel();
     this.createTitle();
     this.createTotal();
     this.createProgress();
@@ -50,13 +40,7 @@ export default class LifeStyleCenter extends Phaser.GameObjects.Container {
     this.background.setScale(this.width, this.height);
     this.background.setTint(0xd5eff5);
   }
-  protected createWheel(): void {
-    this.wheel = new LifeStyleWheel(this.scene);
-    this.add(this.wheel);
-    this.wheel.setScale((this.height * 1.05) / this.wheel.height);
-    this.wheel.x = this.width * 0.5 - this.wheel.displayWidth * 0.5;
-    this.wheel.y = this.height * 0.5 - this.wheel.displayHeight * 0.4825;
-  }
+
   protected createTitle(): void {
     this.title = this.scene.make.image({
       x: 0,

@@ -3,6 +3,7 @@ import { lifeStyleSections } from '../../constants/Constants';
 import { IAvatarConfig } from '../../model/vo/UiVO';
 import { Translation } from '../../translations';
 import LifeStyleCenter from '../components/lifestyle/center/LifeStyleCenter';
+import LifeStyleTooltip from '../components/lifestyle/center/LifeStyleTooltip';
 import LifeStyleWheel from '../components/lifestyle/center/LifeStyleWheel';
 import LifeStyleBackground from '../components/lifestyle/LifeStyleBackground';
 import LifeStyleSection from '../components/lifestyle/LifeStyleSection';
@@ -32,10 +33,12 @@ export default class LifeStyleScene extends BaseScene {
   protected background: LifeStyleBackground;
   protected topPanel: LifeStyleTopPanel;
   protected center: LifeStyleCenter;
+  protected wheel: LifeStyleWheel;
   protected sections: LifeStyleSection[];
   protected player: LifeStyleUser;
   protected targetSection: LifeStyleSection;
   protected helpButton: SimpleButton;
+  protected tooltip: LifeStyleTooltip;
 
   constructor() {
     super(LifeStyleScene.NAME);
@@ -48,11 +51,30 @@ export default class LifeStyleScene extends BaseScene {
     this.create();
   }
 
+  public showTooltip(index: number): void {
+    this.tooltip.updateTooltip(index);
+    this.tooltip.setVisible(true);
+    if (index === 0) {
+      this.children.bringToTop(this.wheel);
+    } else {
+      for (const section of this.sections) {
+        this.children.bringToTop(section);
+      }
+      this.children.bringToTop(this.player);
+    }
+  }
+
+  public hideTooltip(): void {
+    this.tooltip.setVisible(false);
+  }
+
   public create(): void {
     this.createBackground();
     this.createCenter();
+    this.createWheel();
     this.createTopPanel();
     this.createSections();
+    this.createTooltip();
     this.createHelpButton();
   }
 
@@ -75,7 +97,8 @@ export default class LifeStyleScene extends BaseScene {
   }
 
   public enableWheel(): void {
-    this.center.enableWheel();
+    this.tooltip && this.showTooltip(0);
+    this.wheel.setEnabled(true);
   }
 
   public async updateTotal(value: number): Promise<void> {
@@ -114,6 +137,18 @@ export default class LifeStyleScene extends BaseScene {
     this.add.existing(this.center);
   }
 
+  protected createWheel(): void {
+    this.wheel = new LifeStyleWheel(this);
+    this.add.existing(this.wheel);
+    this.wheel.setScale((this.center.height * 1.05) / this.wheel.height);
+    this.wheel.x =
+      this.center.x + this.center.width * 0.5 - this.wheel.displayWidth * 0.5;
+    this.wheel.y =
+      this.center.y +
+      this.center.height * 0.5 -
+      this.wheel.displayHeight * 0.4825;
+  }
+
   protected createSections(): void {
     this.sections = [];
     for (const sectionConfig of lifeStyleSections) {
@@ -132,6 +167,12 @@ export default class LifeStyleScene extends BaseScene {
     }
   }
 
+  protected createTooltip(): void {
+    this.tooltip = new LifeStyleTooltip(this, this.wheel);
+    this.add.existing(this.tooltip);
+    this.tooltip.setVisible(false);
+  }
+
   protected createHelpButton(): void {
     const normalStateConfig: ISimpleButtonState = {
       key: MultiAtlases.Lifestyle.Atlas.Name,
@@ -140,7 +181,7 @@ export default class LifeStyleScene extends BaseScene {
     const textConfig: ISimpleButtonText = {
       fontFamily: Fonts.ArialBlack.Name,
       fontSize: 28,
-      fill: '#fffffff',
+      fill: '#ffffff',
       text: Translation.LIFESTYLE_BUTTON_HELP,
       origin: { x: 0.5, y: 0.5 },
     };
@@ -157,14 +198,16 @@ export default class LifeStyleScene extends BaseScene {
 
   protected setListeners(): void {
     this.player.input.enabled = false;
-    this.center.on(LifeStyleWheel.ROLLED_EVENT, this.onWheelRoll, this);
+    this.wheel.once(LifeStyleWheel.ROLL_STARTED_EVENT, this.hideTooltip, this);
+    this.wheel.on(LifeStyleWheel.ROLLED_EVENT, this.onWheelRoll, this);
     this.player.on(Phaser.Input.Events.DRAG_END, this.onWrongDrag, this);
     this.player.on(Phaser.Input.Events.DROP, this.movePlayerToSection, this);
     this.helpButton.on(SimpleButton.CLICK_EVENT, this.onHelpClick, this);
   }
 
   protected onWheelRoll(index: number): void {
-    this.center.disableWheel();
+    !!this.tooltip && this.showTooltip(1);
+    this.wheel.setEnabled(false);
     this.player.input.enabled = true;
     const position: IPosition = lifeStyleSections[index];
     this.targetSection = this.sections.find(
@@ -211,6 +254,8 @@ export default class LifeStyleScene extends BaseScene {
   public movePlayerToSection(): void {
     this.tweens.killTweensOf(this.player);
     this.tweens.killTweensOf(this.targetSection);
+    this.tooltip.destroy();
+    this.tooltip = null;
     this.targetSection.setScale(1);
     this.targetSection.makeUnselected();
     this.tweens.add({

@@ -172,8 +172,6 @@
   "lifestyle-help-popup-message-1": "To play the game, spin the wheel. Move your character according to the color indicated on the wheel. When you land on a category, you will pick one or more of the choices presented to you on the cards. When you confirm your choice by selecting Next, then you will spin the wheel again. The dollar values for all of your choices will be added together and at the end of the game you will see the amount of money you will need to make to support the lifestyle you have chosen.\nHave fun!",
   "lifestyle-result-popup-title": "LIFESTYLE GAME",
   "lifestyle-result-popup-text": "The choices you have made will require a minimum salary of ${{salary}} in Dallas.\nAt the end of My Amazing Life, you will see jobs that will enable you to live the lifestyle you have chosen.",
-  "lifestyle-tutorial-1-st": "st",
-  "lifestyle-tutorial-2-nd": "nd",
   "lifestyle-tutorial-text-0": "Spin the wheel.",
   "lifestyle-tutorial-text-1": "Move the avatar to the same color on the board.",
   "lifestyle": "LIFESTYLE",

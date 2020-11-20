@@ -83,6 +83,7 @@ export default class LifeStyleSceneMediator extends BaseSceneMediator<
     postRunnable(() => {
       this.viewComponent.createPlayer(this.uiVOProxy.vo.avatar);
       this.viewComponent.enableWheel();
+      this.viewComponent.showTooltip(0);
     });
     this.onHelpClick();
   }

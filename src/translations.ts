@@ -174,8 +174,6 @@ export enum Translation {
   LIFESTYLE_HELP_POPUP_MESSAGE_1 = 'lifestyle-help-popup-message-1',
   LIFESTYLE_RESULT_POPUP_TITLE = 'lifestyle-result-popup-title',
   LIFESTYLE_RESULT_POPUP_TEXT = 'lifestyle-result-popup-text',
-  LIFESTYLE_TUTORIAL_1_ST = 'lifestyle-tutorial-1-st',
-  LIFESTYLE_TUTORIAL_2_ND = 'lifestyle-tutorial-2-nd',
   LIFESTYLE_TUTORIAL_TEXT_0 = 'lifestyle-tutorial-text-0',
   LIFESTYLE_TUTORIAL_TEXT_1 = 'lifestyle-tutorial-text-1',
   LIFESTYLE = 'lifestyle',

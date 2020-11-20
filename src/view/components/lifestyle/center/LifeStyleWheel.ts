@@ -9,6 +9,7 @@ import BaseScene from '../../../scenes/BaseScene';
 import { pickAny } from '../../../utils/phaser/PhaserUtils';
 
 export default class LifeStyleWheel extends Phaser.GameObjects.Container {
+  public static ROLL_STARTED_EVENT: string = 'rollStarted';
   public static ROLLED_EVENT: string = 'rolled';
 
   protected background: Phaser.GameObjects.Image;
@@ -100,6 +101,7 @@ export default class LifeStyleWheel extends Phaser.GameObjects.Container {
   }
 
   protected startRotation(index: number): void {
+    this.emit(LifeStyleWheel.ROLL_STARTED_EVENT);
     this.scene.tweens.killTweensOf([this, this.needle]);
     this.rollTween = this.scene.tweens.add({
       targets: this.needle,
@@ -110,7 +112,7 @@ export default class LifeStyleWheel extends Phaser.GameObjects.Container {
       duration: 2000,
       ease: Phaser.Math.Easing.Expo.InOut,
       onComplete: () => {
-        this.parentContainer.emit(LifeStyleWheel.ROLLED_EVENT, index);
+        this.emit(LifeStyleWheel.ROLLED_EVENT, index);
       },
     });
   }
