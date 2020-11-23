@@ -254,7 +254,7 @@ export default class LifeStyleScene extends BaseScene {
   public movePlayerToSection(): void {
     this.tweens.killTweensOf(this.player);
     this.tweens.killTweensOf(this.targetSection);
-    this.tooltip.destroy();
+    this.tooltip && this.tooltip.destroy();
     this.tooltip = null;
     this.targetSection.setScale(1);
     this.targetSection.makeUnselected();
