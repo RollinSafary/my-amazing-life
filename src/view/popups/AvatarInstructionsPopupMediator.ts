@@ -28,4 +28,9 @@ export default class AvatarInstructionsPopupMediator extends StandardPopupMediat
   protected createView(): void {
     super.createView(new AvatarInstructionsPopup());
   }
+
+  protected onViewHideComplete(): void {
+    super.onViewHideComplete();
+    this.facade.removeMediator(AvatarInstructionsPopupMediator.NAME);
+  }
 }

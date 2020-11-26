@@ -28,4 +28,9 @@ export default class LobbyHelpPopupMediator extends StandardPopupMediator<
   protected createView(): void {
     super.createView(new LobbyHelpPopup());
   }
+
+  protected onViewHideComplete(): void {
+    super.onViewHideComplete();
+    this.facade.removeMediator(LobbyHelpPopupMediator.NAME);
+  }
 }

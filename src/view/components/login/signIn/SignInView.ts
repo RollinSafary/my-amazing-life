@@ -78,7 +78,7 @@ export default class SignInView extends BaseLoginView {
       );
       this.scene.tweens.add({
         targets: target,
-        height: frame.height,
+        height: frame.height * 1.2,
         duration: 500,
         ease: Phaser.Math.Easing.Back.Out,
         onUpdate: () => {
@@ -151,7 +151,7 @@ export default class SignInView extends BaseLoginView {
   protected createIcon(): void {
     this.icon = this.scene.make.image({
       x: 0,
-      y: -this.height * 0.25,
+      y: -this.height * 0.3,
       key: Atlases.Popups.Atlas.Name,
       frame: Atlases.Popups.Atlas.Frames.IconLogin,
     });

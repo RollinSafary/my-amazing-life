@@ -75,7 +75,7 @@ export class LifestyleHelpPopup extends StandardPopup {
   protected createCloseButton(): void {
     const normalStateConfig: ISimpleButtonState = {
       key: Atlases.Popups.Atlas.Name,
-      frame: Atlases.Popups.Atlas.Frames.ButtonOrange,
+      frame: Atlases.Popups.Atlas.Frames.ButtonBlue,
     };
     const textConfig: ISimpleButtonText = {
       fontFamily: 'Arial',

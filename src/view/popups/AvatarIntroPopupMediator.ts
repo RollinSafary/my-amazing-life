@@ -32,5 +32,6 @@ export default class AvatarIntroPopupMediator extends StandardPopupMediator<
   protected onAction(): void {
     super.onAction();
     this.sendNotification(AvatarIntroPopup.CLOSED_NOTIFICATION);
+    this.facade.removeMediator(AvatarIntroPopupMediator.NAME);
   }
 }

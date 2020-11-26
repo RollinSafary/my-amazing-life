@@ -116,6 +116,7 @@ export default class LoadingScene extends BaseScene {
     loadAtlases(this, Atlases.Login);
     loadAtlases(this, Atlases.Avatar);
     loadAtlases(this, Atlases.Lobby);
+    loadAtlases(this, Atlases.Results);
     loadMultiAtlases(this, MultiAtlases);
     loadAudios(this, Audios);
 

@@ -23,6 +23,7 @@ export class PlayerVO {
     this.backup = null;
   }
 
+  guest: boolean;
   avatar: IAvatarConfig;
   user: IPlayerRegistrationData;
   dates: IPlayerDates;

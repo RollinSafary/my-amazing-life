@@ -51,6 +51,7 @@ export default class SignInEmailField extends BaseTextField {
       style,
     });
     this.text.setOrigin(0, 0.5);
+    this.text.setResolution(20);
     this.add(this.text);
   }
 }

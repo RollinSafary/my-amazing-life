@@ -176,21 +176,35 @@ export namespace Atlases {
     }
     export namespace Atlas {
       export enum Frames {
-        BackgroundRed = 'background/red',
-        BackgroundGreen = 'background/green',
-        IconLock = 'icon/lock',
-        ButtonBlue = 'button/blue',
-        IconMail = 'icon/mail',
-        ButtonGreen = 'button/green',
-        BackgroundOrange = 'background/orange',
-        BackgroundYellow = 'background/yellow',
-        IconLogin = 'icon/login',
-        ButtonPink = 'button/pink',
-        ButtonOrange = 'button/orange',
-        ButtonYellow = 'button/yellow',
-        BackgroundPink = 'background/pink',
         BackgroundBlue = 'background/blue',
+        BackgroundGreen = 'background/green',
+        IconMail = 'icon/mail',
+        IconLock = 'icon/lock',
+        BackgroundOrange = 'background/orange',
+        BackgroundPink = 'background/pink',
+        BackgroundRed = 'background/red',
+        IconLogin = 'icon/login',
+        ButtonBlue = 'button/blue',
         ButtonRed = 'button/red',
+        ButtonOrange = 'button/orange',
+        ButtonGreen = 'button/green',
+        BackgroundYellow = 'background/yellow',
+        ButtonPink = 'button/pink',
+        ButtonYellow = 'button/yellow',
+      }
+    }
+  }
+  export namespace Results {
+    export class Atlas {
+      public static Name: string = 'results';
+      public static AtlasURL: string = 'assets/atlases/results.json';
+      public static TextureURL: string = 'assets/atlases/results.png';
+    }
+    export namespace Atlas {
+      export enum Frames {
+        Background = 'background',
+        ButtonSave = 'button-save',
+        ButtonJob = 'button-job',
       }
     }
   }
