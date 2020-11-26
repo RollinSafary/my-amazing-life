@@ -176,6 +176,7 @@ export default class HobbiesScene extends BaseScene {
     this.helpButton.setScrollFactor(0, 0);
     this.add.existing(this.helpButton);
     this.helpButton.on(SimpleButton.CLICK_EVENT, this.onHelpClick, this);
+    this.helpButton.setDepth(10);
   }
 
   protected generateObstacle(point: Phaser.Geom.Point): void {

@@ -1,6 +1,7 @@
 import { MultiAtlases } from '../../../assets';
 import BaseScene from '../../scenes/BaseScene';
 
+const multiplier: number = 0.445;
 export default class HobbiesPlayer extends Phaser.GameObjects.Sprite {
   protected keyLeft: Phaser.Input.Keyboard.Key;
   protected keyRight: Phaser.Input.Keyboard.Key;
@@ -27,10 +28,20 @@ export default class HobbiesPlayer extends Phaser.GameObjects.Sprite {
 
   public update(...args: any[]): void {
     super.update(...args);
-    if (this.keyLeft.isDown) {
+    if (
+      this.keyLeft.isDown ||
+      (this.scene.input.activePointer.isDown &&
+        this.scene.input.activePointer.x <
+          this.road.x - this.road.width * multiplier)
+    ) {
       this.x -= 2;
     }
-    if (this.keyRight.isDown) {
+    if (
+      this.keyRight.isDown ||
+      (this.scene.input.activePointer.isDown &&
+        this.scene.input.activePointer.x >
+          this.road.x + this.road.width * multiplier)
+    ) {
       this.x += 2;
     }
     this.limitMovement();
@@ -51,7 +62,6 @@ export default class HobbiesPlayer extends Phaser.GameObjects.Sprite {
   }
 
   protected limitMovement(): void {
-    const multiplier: number = 0.445;
     if (
       this.x - this.width * 0.5 <
       this.road.x - this.road.width * multiplier
