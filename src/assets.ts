@@ -202,9 +202,11 @@ export namespace Atlases {
     }
     export namespace Atlas {
       export enum Frames {
-        Background = 'background',
-        ButtonSave = 'button-save',
-        ButtonJob = 'button-job',
+        BackgroundsMain = 'backgrounds/main',
+        BackgroundsTopRight = 'backgrounds/top-right',
+        ButtonsButtonSave = 'buttons/button-save',
+        ButtonsButtonJob = 'buttons/button-job',
+        BackgroundsColor = 'backgrounds/color',
       }
     }
   }
@@ -301,7 +303,7 @@ export namespace Locales {
     public static Name: string = 'en';
     public static FileURL: string = 'assets/locales/en.json';
     public static Extension: string = '.json';
-    public static Size: string = '23898';
+    public static Size: string = '23932';
   }
   export class Ru {
     public static Name: string = 'ru';

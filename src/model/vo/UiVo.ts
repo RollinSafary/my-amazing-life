@@ -21,6 +21,7 @@ export class UiVO {
   hobbiesClusterChoices: StringIndexedObject<IHobbiesClusterChoice[]>;
 
   skillsValues: ISkillsValues;
+  skillsBestOption: string;
 
   constructor() {
     this.lifeStyleChoices = {};
@@ -46,6 +47,7 @@ export class UiVO {
       listening: 1,
       problem: 1,
     };
+    this.skillsBestOption = null;
   }
 }
 

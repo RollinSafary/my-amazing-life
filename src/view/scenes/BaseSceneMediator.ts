@@ -42,14 +42,17 @@ export default abstract class BaseSceneMediator<
     super.onRemove();
   }
 
-  protected async startScene(): Promise<void> {
+  protected async startScene(...initArgs: any[]): Promise<void> {
     return new Promise<void>(
       (resolve: (value?: void | PromiseLike<void>) => void) => {
         if (this.sceneManager.isActive(this.viewComponent.constructor.name)) {
           return;
         }
         postRunnable(() => {
-          this.sceneManager.start(this.viewComponent.constructor.name);
+          this.sceneManager.start(
+            this.viewComponent.constructor.name,
+            initArgs,
+          );
           resolve();
         });
       },
@@ -60,11 +63,11 @@ export default abstract class BaseSceneMediator<
     this.sceneManager.stop(this.viewComponent.constructor.name);
   }
 
-  protected restartScene(): void {
+  protected restartScene(initData?: any): void {
     this.viewComponent.time.removeAllEvents();
     this.viewComponent.tweens.killAll();
     this.viewComponent.children.removeAll();
-    this.viewComponent.scene.restart();
+    this.viewComponent.scene.restart(initData);
   }
 
   protected setView(): void {

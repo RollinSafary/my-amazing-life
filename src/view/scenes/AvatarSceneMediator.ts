@@ -28,6 +28,7 @@ export default class AvatarSceneMediator extends BaseSceneMediator<
       case LobbyScene.BACK_NOTIFICATION:
       case LoginScene.LOGIN_COMPLETE_NOTIFICATION:
         this.startScene();
+
         break;
       case UiVOProxy.AVATAR_CONFIGURATION_SAVED_NOTIFICATION:
         this.stopScene();

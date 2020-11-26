@@ -400,7 +400,8 @@ export default class UiVOProxy extends Proxy<UiVO> {
       (key: string) => this.vo.skillsValues[key],
     );
     const index: number = values.indexOf(9);
-    return keys[index];
+    this.vo.skillsBestOption = keys[index];
+    return this.vo.skillsBestOption;
   }
   public resetSkills(): void {
     const keys: string[] = Object.keys(this.vo.skillsValues);

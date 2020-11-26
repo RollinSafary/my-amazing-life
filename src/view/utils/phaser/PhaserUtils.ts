@@ -298,3 +298,8 @@ export interface ILimitation {
   min: number;
   max: number;
 }
+
+export interface IImageConfig {
+  key: string;
+  frame?: string;
+}

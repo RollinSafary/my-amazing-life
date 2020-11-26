@@ -304,6 +304,7 @@ export enum Translation {
   SKILLS_HELP_POPUP_TITLE = 'skills-help-popup-title',
   SKILLS_HELP_POPUP_MESSAGE = 'skills-help-popup-message',
   SKILLS_HELP_POPUP_BUTTON_PLAY = 'skills-help-popup-button-play',
+  RESULTS_BUTTON_MENU = 'results-button-menu',
   GAME = 'game',
 }
 

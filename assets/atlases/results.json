@@ -10,7 +10,7 @@
 			"scale": 1,
 			"frames": [
 				{
-					"filename": "background",
+					"filename": "backgrounds/main",
 					"rotated": false,
 					"trimmed": false,
 					"sourceSize": {
@@ -35,7 +35,32 @@
 					}
 				},
 				{
-					"filename": "button-save",
+					"filename": "backgrounds/top-right",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 552,
+						"h": 254
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 552,
+						"h": 254
+					},
+					"frame": {
+						"x": 1,
+						"y": 725,
+						"w": 552,
+						"h": 254
+					},
+					"anchor": {
+						"x": 0.5,
+						"y": 0.5
+					}
+				},
+				{
+					"filename": "buttons/button-save",
 					"rotated": false,
 					"trimmed": false,
 					"sourceSize": {
@@ -49,7 +74,7 @@
 						"h": 101
 					},
 					"frame": {
-						"x": 1,
+						"x": 557,
 						"y": 725,
 						"w": 277,
 						"h": 101
@@ -60,7 +85,7 @@
 					}
 				},
 				{
-					"filename": "button-job",
+					"filename": "buttons/button-job",
 					"rotated": false,
 					"trimmed": false,
 					"sourceSize": {
@@ -74,10 +99,35 @@
 						"h": 94
 					},
 					"frame": {
-						"x": 282,
+						"x": 838,
 						"y": 725,
 						"w": 213,
 						"h": 94
+					},
+					"anchor": {
+						"x": 0.5,
+						"y": 0.5
+					}
+				},
+				{
+					"filename": "backgrounds/color",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 167,
+						"h": 65
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 167,
+						"h": 65
+					},
+					"frame": {
+						"x": 838,
+						"y": 823,
+						"w": 167,
+						"h": 65
 					},
 					"anchor": {
 						"x": 0.5,
@@ -90,6 +140,6 @@
 	"meta": {
 		"app": "https://www.codeandweb.com/texturepacker",
 		"version": "3.0",
-		"smartupdate": "$TexturePacker:SmartUpdate:6321e79179e9537685513742be14f100:9b72a37b586b07e5e4ca7a583ec3ffe0:6ff870ccc0e52152b2b735505eb5f6a8$"
+		"smartupdate": "$TexturePacker:SmartUpdate:9f1819c7974f781cce3549b58b1e7e8a:b6e9563ccb885271a1ad31ad3d49bed2:6ff870ccc0e52152b2b735505eb5f6a8$"
 	}
 }

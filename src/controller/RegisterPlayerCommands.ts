@@ -2,8 +2,10 @@ import { SimpleCommand, SyncMacroCommand } from '@candywings/pure-mvc';
 import UiVOProxy from '../model/UiVOProxy';
 import RegistrationView from '../view/components/login/registration/RegistrationView';
 import SignInView from '../view/components/login/signIn/SignInView';
+import { ResultsScene } from '../view/scenes/ResultsScene';
 import PlayAsGuestCommand from './player/PlayAsGuestCommand';
 import RegisterNewPlayerCommand from './player/RegisterNewPlayerCommand';
+import SaveCurrentPlayerCommand from './player/SaveCurrentPlayerCommand';
 import SaveHobbiesResultsCommand from './player/saves/SaveHobbiesResultsCommand';
 import SaveLifeStyleResultsCommand from './player/saves/SaveLifeStyleResultsCommand';
 import SavePersonalityResultsCommand from './player/saves/SavePersonalityResultsCommand';
@@ -18,6 +20,10 @@ export default class RegisterPlayerCommands extends SyncMacroCommand<
     this.facade.registerCommand(
       RegistrationView.FORM_COMPLETE_NOTIFICATION,
       RegisterNewPlayerCommand,
+    );
+    this.facade.registerCommand(
+      ResultsScene.SAVE_CLICKED_NOTIFICATION,
+      SaveCurrentPlayerCommand,
     );
     this.facade.registerCommand(
       RegistrationView.PLAY_AS_GUEST_NOTIFICATION,

@@ -181,7 +181,22 @@
         </struct>
         <key>individualSpriteSettings</key>
         <map type="IndividualSpriteSettingsMap">
-            <key type="filename">results/background.png</key>
+            <key type="filename">results/backgrounds/color.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>42,16,83,33</rect>
+                <key>scale9Paddings</key>
+                <rect>42,16,83,33</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">results/backgrounds/main.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0.5,0.5</point_f>
@@ -196,7 +211,22 @@
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
-            <key type="filename">results/button-job.png</key>
+            <key type="filename">results/backgrounds/top-right.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>138,64,276,127</rect>
+                <key>scale9Paddings</key>
+                <rect>138,64,276,127</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">results/buttons/button-job.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0.5,0.5</point_f>
@@ -211,7 +241,7 @@
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
-            <key type="filename">results/button-save.png</key>
+            <key type="filename">results/buttons/button-save.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0.5,0.5</point_f>

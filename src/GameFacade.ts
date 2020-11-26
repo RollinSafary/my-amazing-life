@@ -10,6 +10,7 @@ import LobbySceneMediator from './view/scenes/LobbySceneMediator';
 import LoginSceneMediator from './view/scenes/LoginSceneMediator';
 import PersonalitySceneMediator from './view/scenes/PersonalitySceneMediator';
 import PopupSceneMediator from './view/scenes/PopupSceneMediator';
+import ResultsSceneMediator from './view/scenes/ResultsSceneMediator';
 import ServiceSceneMediator from './view/scenes/ServiceSceneMediator';
 import SkillsSceneMediator from './view/scenes/SkillsSceneMediator';
 import WelcomeSceneMediator from './view/scenes/WelcomeSceneMediator';
@@ -82,6 +83,7 @@ export default class GameFacade extends Facade {
     this.registerMediator(new PersonalitySceneMediator());
     this.registerMediator(new HobbiesSceneMediator());
     this.registerMediator(new SkillsSceneMediator());
+    this.registerMediator(new ResultsSceneMediator());
   }
 
   private startup(): void {

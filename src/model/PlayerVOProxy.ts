@@ -1,7 +1,7 @@
 import { Proxy } from '@candywings/pure-mvc';
 import { StringIndexedObject } from '../utils/Utils';
 import { setUserDataAsync } from '../view/utils/FirebaseUtils';
-import { PlayerVO } from './vo/PlayerVO';
+import { IPlayerRegistrationData, PlayerVO } from './vo/PlayerVO';
 import {
   IAvatarConfig,
   IHobbiesClusterChoice,
@@ -14,6 +14,7 @@ export default class PlayerVOProxy extends Proxy<PlayerVO> {
   public static NAME: string = 'PlayerVOProxy';
   public static INITIALIZE_COMPLETE_NOTIFICATION: string = `${PlayerVOProxy.NAME}InitializeCompleteNotification`;
   public static SAVE_COMPLETE_NOTIFICATION: string = `${PlayerVOProxy.NAME}SaveCompleteNotification`;
+  public static BACKUP_COMPLETE_NOTIFICATION: string = `${PlayerVOProxy.NAME}BackupCompleteNotification`;
 
   constructor(data: PlayerVO) {
     super(PlayerVOProxy.NAME, data);
@@ -71,6 +72,16 @@ export default class PlayerVOProxy extends Proxy<PlayerVO> {
     };
     this.vo.dates.updated = Date.now();
     this.save();
+  }
+
+  public saveResults(): void {
+    this.vo.backup = this.vo.games;
+    this.save();
+    this.sendNotification(PlayerVOProxy.BACKUP_COMPLETE_NOTIFICATION);
+  }
+
+  public applyGuestPlayerRegistration(data: IPlayerRegistrationData): void {
+    this.vo.user = data;
   }
 
   private async save(): Promise<void> {

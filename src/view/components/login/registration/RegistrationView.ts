@@ -47,6 +47,10 @@ export default class RegistrationView extends BaseLoginView {
     this.passwordField.setText(password);
   }
 
+  public hideBackButton(): void {
+    this.backButton.setVisible(false);
+  }
+
   protected createBackground(): void {
     const frame: Phaser.Textures.Frame = this.scene.textures.getFrame(
       Atlases.Popups.Atlas.Name,
