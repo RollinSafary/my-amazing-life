@@ -3,6 +3,7 @@ import UiVOProxy from '../model/UiVOProxy';
 import RegistrationView from '../view/components/login/registration/RegistrationView';
 import SignInView from '../view/components/login/signIn/SignInView';
 import { ResultsScene } from '../view/scenes/ResultsScene';
+import NavigateUserToJobListCommand from './player/NavigateUserToJobListCommand';
 import PlayAsGuestCommand from './player/PlayAsGuestCommand';
 import RegisterNewPlayerCommand from './player/RegisterNewPlayerCommand';
 import SaveCurrentPlayerCommand from './player/SaveCurrentPlayerCommand';
@@ -48,6 +49,10 @@ export default class RegisterPlayerCommands extends SyncMacroCommand<
     this.facade.registerCommand(
       UiVOProxy.SKILLS_GAME_COMPLETE_NOTIFICATION,
       SaveHobbiesResultsCommand,
+    );
+    this.facade.registerCommand(
+      ResultsScene.JOB_CLICKED_NOTIFICATION,
+      NavigateUserToJobListCommand,
     );
   }
 }
