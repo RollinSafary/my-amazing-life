@@ -79,7 +79,7 @@ export default class AvatarInstructionsPopup extends StandardPopup {
       textConfig,
     };
     this.closeButton = new SimpleButton(this.scene, configs);
-    this.closeButton.y = this.height * 0.4;
+    this.closeButton.y = this.height * 0.35;
     this.add(this.closeButton);
   }
 

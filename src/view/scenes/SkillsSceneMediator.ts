@@ -1,3 +1,4 @@
+import { ERROR_CODE } from '../../constants/Constants';
 import UiVOProxy from '../../model/UiVOProxy';
 import BaseController from '../components/skills/controllers/BaseController';
 import { postRunnable } from '../utils/phaser/PhaserUtils';
@@ -99,7 +100,10 @@ export default class SkillsSceneMediator extends BaseSceneMediator<
     const bestSkill: string = this.uiVOProxy.getBestSkill();
     await this.viewComponent.startIndicatorsProcessing(success, bestSkill);
     if (!success) {
-      this.sendNotification(SkillsScene.VALUES_CHECK_FAILED_NOTIFICATION);
+      this.sendNotification(
+        SkillsScene.ERROR_NOTIFICATION,
+        ERROR_CODE.SKILLS_CONDITION_ERROR,
+      );
       this.viewComponent.setControllersState(true);
     }
   }

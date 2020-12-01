@@ -4,6 +4,7 @@ import SignInCommand from '../../controller/player/SignInCommand';
 import RegistrationView from '../components/login/registration/RegistrationView';
 import SignInView from '../components/login/signIn/SignInView';
 import AvatarScene from '../scenes/AvatarScene';
+import SkillsScene from '../scenes/SkillsScene';
 import ErrorPopup from './ErrorPopup';
 import StandardPopupMediator from './StandardPopupMediator';
 
@@ -22,6 +23,7 @@ export default class ErrorPopupMediator extends StandardPopupMediator<
       RegistrationView.ERROR_NOTIFICATION,
       SignInCommand.ERROR_NOTIFICATION,
       AvatarScene.ERROR_NOTIFICATION,
+      SkillsScene.ERROR_NOTIFICATION,
     );
   }
 
@@ -31,6 +33,7 @@ export default class ErrorPopupMediator extends StandardPopupMediator<
       case RegistrationView.ERROR_NOTIFICATION:
       case SignInCommand.ERROR_NOTIFICATION:
       case AvatarScene.ERROR_NOTIFICATION:
+      case SkillsScene.ERROR_NOTIFICATION:
         const errorCode: ERROR_CODE = args[0];
         this.showView(
           gameConfig.canvasWidth * 0.5,

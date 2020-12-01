@@ -11,6 +11,7 @@ export enum ERROR_CODE {
   REGISTRATION_MISMATCH_PASSWORD,
   REGISTRATION_INVALID_EMAIL,
   AVATAR_NOT_COMPLETE,
+  SKILLS_CONDITION_ERROR,
 }
 
 export const defaultAvatarConfig: IAvatarConfig = {

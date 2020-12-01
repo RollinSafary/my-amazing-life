@@ -16,6 +16,7 @@
   "error-4": "Password mismatch.",
   "error-5": "Invalid e-mail address.",
   "error-6": "Please, complete the whole avatar with the available items before submit it.",
+  "error-7": "You are almost ready to play your jam. We need to know which skill should have the strongest beat. Please pick one skill to be your top skill.",
   "error-button-ok": "OK",
   "registration-error-popup-title": "Error",
   "avatar-button-submit": "Submit",

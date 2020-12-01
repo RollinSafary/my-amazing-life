@@ -190,8 +190,8 @@ export class ResultsScene extends BaseScene {
     };
     this.jobButton = new SpriteButton(this, configs);
     this.add.existing(this.jobButton);
-    this.jobButton.x = this.background.x - this.width * 0.41;
-    this.jobButton.y = this.background.y - this.height * -0.42;
+    this.jobButton.x = this.background.x - this.background.width * 0.41;
+    this.jobButton.y = this.background.y - this.background.height * -0.42;
     !this.backupAvailable && this.jobButton.setScale(0);
   }
 
@@ -205,8 +205,8 @@ export class ResultsScene extends BaseScene {
     };
     this.saveButton = new SpriteButton(this, configs);
     this.add.existing(this.saveButton);
-    this.saveButton.x = this.background.x - this.width * 0.246;
-    this.saveButton.y = this.background.y - this.height * -0.13;
+    this.saveButton.x = this.background.x - this.background.width * 0.246;
+    this.saveButton.y = this.background.y - this.background.height * -0.13;
     this.saveButton.setScale(0.7);
   }
 
@@ -231,8 +231,8 @@ export class ResultsScene extends BaseScene {
     };
     this.menuButton = new SimpleButton(this, configs);
     this.add.existing(this.menuButton);
-    this.menuButton.x = this.background.x - this.width * 0.085;
-    this.menuButton.y = this.background.y - this.height * -0.404;
+    this.menuButton.x = this.background.x - this.background.width * 0.085;
+    this.menuButton.y = this.background.y - this.background.height * -0.404;
     this.menuButton.setScale(0.8);
   }
 

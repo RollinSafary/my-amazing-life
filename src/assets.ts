@@ -285,11 +285,11 @@ export namespace Fonts {
   }
 }
 export namespace Images {
-  export class Preview {
-    public static Name: string = 'preview';
-    public static FileURL: string = 'assets/images/preview.png';
+  export class LoadingLogo {
+    public static Name: string = 'loading-logo';
+    public static FileURL: string = 'assets/images/loading-logo.png';
     public static Extension: string = '.png';
-    public static Size: string = '165471';
+    public static Size: string = '17842';
   }
   export class WhitePixel {
     public static Name: string = 'white-pixel';
@@ -303,7 +303,7 @@ export namespace Locales {
     public static Name: string = 'en';
     public static FileURL: string = 'assets/locales/en.json';
     public static Extension: string = '.json';
-    public static Size: string = '23932';
+    public static Size: string = '24075';
   }
   export class Ru {
     public static Name: string = 'ru';
@@ -324,9 +324,13 @@ export namespace MultiAtlases {
         PopupBackground = 'popup/background',
         Road = 'road',
         ClustersSelectionFrame = 'clusters/selection-frame',
+        EnemyCar3 = 'enemy/car-3',
+        EnemyCar2 = 'enemy/car-2',
         ClustersAatc0V5 = 'clusters/aatc-0-v5',
         ClustersAatc1V3 = 'clusters/aatc-1-v3',
         ClustersMss0V5 = 'clusters/mss-0-v5',
+        InterfaceLife = 'interface/life',
+        AnimationsBoom0 = 'animations/boom-0',
         ClustersAatc2V4 = 'clusters/aatc-2-v4',
         ClustersAatc3V3 = 'clusters/aatc-3-v3',
         ClustersMss2V4 = 'clusters/mss-2-v4',
@@ -351,26 +355,31 @@ export namespace MultiAtlases {
         ClustersFnc6V2 = 'clusters/fnc-6-v2',
         ClustersMfg2V3 = 'clusters/mfg-2-v3',
         ClustersStem4V5 = 'clusters/stem-4-v5',
-        Player = 'player',
         ClustersAc4V4 = 'clusters/ac-4-v4',
         ClustersFnc7V3 = 'clusters/fnc-7-v3',
-        EnemyCar3 = 'enemy/car-3',
         ClustersAc5V4 = 'clusters/ac-5-v4',
         ClustersFnc8V2 = 'clusters/fnc-8-v2',
         ClustersMfg3V3 = 'clusters/mfg-3-v3',
         ClustersStem5V5 = 'clusters/stem-5-v5',
-        EnemyCar2 = 'enemy/car-2',
         ClustersAc6V4 = 'clusters/ac-6-v4',
         ClustersMfg6V3 = 'clusters/mfg-6-v3',
-        ObstaclesHole = 'obstacles/hole',
+        InterfaceButtonPlay = 'interface/button-play',
+        PopupButtonMenu = 'popup/button-menu',
+        PopupButtonPlayAgain = 'popup/button-play-again',
+        InterfaceFuel = 'interface/fuel',
+        AnimationsBoom3 = 'animations/boom-3',
+        AnimationsBoom2 = 'animations/boom-2',
+        EnemyCar1 = 'enemy/car-1',
+        EnemyCar0 = 'enemy/car-0',
+        Player = 'player',
+        AnimationsTree0 = 'animations/tree-0',
+        InterfaceTooltip = 'interface/tooltip',
+        AnimationsBoom6 = 'animations/boom-6',
         ClustersAc7V4 = 'clusters/ac-7-v4',
         ClustersAfn4V3 = 'clusters/afn-4-v3',
         ClustersAc8V4 = 'clusters/ac-8-v4',
         ClustersAc9V3 = 'clusters/ac-9-v3',
         ClustersMfg7V5 = 'clusters/mfg-7-v5',
-        InterfaceButtonPlay = 'interface/button-play',
-        PopupButtonMenu = 'popup/button-menu',
-        PopupButtonPlayAgain = 'popup/button-play-again',
         ClustersAfn0V4 = 'clusters/afn-0-v4',
         ClustersAfn1V4 = 'clusters/afn-1-v4',
         ClustersHsc1V5 = 'clusters/hsc-1-v5',
@@ -390,10 +399,19 @@ export namespace MultiAtlases {
         ClustersStem9V5 = 'clusters/stem-9-v5',
         ClustersAfn9V3 = 'clusters/afn-9-v3',
         ClustersHsc5V3 = 'clusters/hsc-5-v3',
+        AnimationsBoom7 = 'animations/boom-7',
+        AnimationsBoom4 = 'animations/boom-4',
+        AnimationsBoom1 = 'animations/boom-1',
+        AnimationsBoom5 = 'animations/boom-5',
+        AnimationsTree1 = 'animations/tree-1',
         ClustersBma0V4 = 'clusters/bma-0-v4',
         ClustersFnc0V2 = 'clusters/fnc-0-v2',
         ClustersBma1V4 = 'clusters/bma-1-v4',
         ClustersFnc1V3 = 'clusters/fnc-1-v3',
+        AnimationsTree2 = 'animations/tree-2',
+        AnimationsTree3 = 'animations/tree-3',
+        ObstaclesHole = 'obstacles/hole',
+        ObstaclesOilSpat = 'obstacles/oil-spat',
         ClustersBma2V5 = 'clusters/bma-2-v5',
         ClustersBma3V5 = 'clusters/bma-3-v5',
         ClustersTdl0V4 = 'clusters/tdl-0-v4',
@@ -427,7 +445,6 @@ export namespace MultiAtlases {
         ClustersEt5V5 = 'clusters/et-5-v5',
         ClustersHs9V4 = 'clusters/hs-9-v4',
         ClustersHt9V3 = 'clusters/ht-9-v3',
-        AnimationsBoom2 = 'animations/boom-2',
         ClustersEt7V5 = 'clusters/et-7-v5',
         ClustersMss9V4 = 'clusters/mss-9-v4',
         ClustersFnc2V4 = 'clusters/fnc-2-v4',
@@ -449,10 +466,6 @@ export namespace MultiAtlases {
         ClustersHt5V3 = 'clusters/ht-5-v3',
         ClustersGps8V3 = 'clusters/gps-8-v3',
         ClustersHt6V4 = 'clusters/ht-6-v4',
-        InterfaceTooltip = 'interface/tooltip',
-        AnimationsBoom1 = 'animations/boom-1',
-        AnimationsBoom0 = 'animations/boom-0',
-        InterfaceLife = 'interface/life',
         ClustersGps9V4 = 'clusters/gps-9-v4',
         ClustersHt7V5 = 'clusters/ht-7-v5',
         ClustersHs4V4 = 'clusters/hs-4-v4',
@@ -496,19 +509,6 @@ export namespace MultiAtlases {
         ClustersTdl9V2 = 'clusters/tdl-9-v2',
         ClustersMss1V4 = 'clusters/mss-1-v4',
         ClustersMss3V5 = 'clusters/mss-3-v5',
-        AnimationsBoom6 = 'animations/boom-6',
-        InterfaceFuel = 'interface/fuel',
-        AnimationsBoom5 = 'animations/boom-5',
-        EnemyCar0 = 'enemy/car-0',
-        EnemyCar1 = 'enemy/car-1',
-        AnimationsBoom3 = 'animations/boom-3',
-        ObstaclesOilSpat = 'obstacles/oil-spat',
-        AnimationsBoom7 = 'animations/boom-7',
-        AnimationsBoom4 = 'animations/boom-4',
-        AnimationsTree0 = 'animations/tree-0',
-        AnimationsTree2 = 'animations/tree-2',
-        AnimationsTree3 = 'animations/tree-3',
-        AnimationsTree1 = 'animations/tree-1',
       }
     }
   }

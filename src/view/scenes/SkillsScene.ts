@@ -9,13 +9,13 @@ import BaseScene from './BaseScene';
 export default class SkillsScene extends BaseScene {
   public static NAME: string = 'SkillsScene';
 
-  public static VALUES_CHECK_FAILED_NOTIFICATION = `${SkillsScene.NAME}ValuesCheckFailedNotification`;
   public static PRODUCE_CLICKED_NOTIFICATION = `${SkillsScene.NAME}ProduceClickedNotification`;
   public static CONTROLLER_VALUE_CHANGED_NOTIFICATION = `${SkillsScene.NAME}ControllerValueChangedNotification`;
   public static REPLAY_CLICKED_NOTIFICATION = `${SkillsScene.NAME}ReplayClickedNotification`;
   public static PLAY_AGAIN_CLICKED_NOTIFICATION = `${SkillsScene.NAME}PlayAgainNotification`;
   public static RESULTS_CLICKED_NOTIFICATION = `${SkillsScene.NAME}ResultsClickedNotification`;
   public static HELP_CLICKED_NOTIFICATION = `${SkillsScene.NAME}HelpClickedNotification`;
+  public static ERROR_NOTIFICATION = `${SkillsScene.NAME}ErrorNotification`;
 
   public static PRODUCE_CLICKED_EVENT: string = 'produceClicked';
   public static REPLAY_CLICKED_EVENT: string = 'replayClicked';
@@ -47,7 +47,7 @@ export default class SkillsScene extends BaseScene {
   ): Promise<void> {
     await this.interface.showLoadingProcess(success, 500);
     if (success) {
-      await this.interface.startSlideShow(bestSkill, 4);
+      await this.interface.startSlideShow(bestSkill, 4, 2000);
       this.interface.showGameEnd();
     }
   }

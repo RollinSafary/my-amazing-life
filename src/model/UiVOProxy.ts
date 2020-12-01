@@ -416,8 +416,6 @@ export default class UiVOProxy extends Proxy<UiVO> {
     );
     const index: number = values.indexOf(9);
     this.vo.skillsBestOption = keys[index];
-    console.warn(this.vo.skillsBestOption);
-
     return this.vo.skillsBestOption;
   }
   public resetSkills(): void {

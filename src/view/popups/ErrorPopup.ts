@@ -1,4 +1,5 @@
 import { ExtendedText } from '@candywings/phaser3-i18n-plugin';
+import { NinePatch } from '@koreez/phaser3-ninepatch';
 import { Atlases, Fonts } from '../../assets';
 import { ERROR_CODE } from '../../constants/Constants';
 import { Translation } from '../../translations';
@@ -18,6 +19,7 @@ export default class ErrorPopup extends StandardPopup {
   protected title: ExtendedText;
   protected message: ExtendedText;
   protected okButton: SimpleButton;
+  protected background: NinePatch;
 
   constructor() {
     super(getScene(PopupScene.NAME));
@@ -25,14 +27,28 @@ export default class ErrorPopup extends StandardPopup {
 
   public prepareToShow(x: number, y: number, errorCode: ERROR_CODE): void {
     this.message.setText((Translation as any)[`ERROR_${errorCode}`]);
+    this.background.resize(
+      this.background.width,
+      this.title.height * 2 + this.message.height + this.okButton.height * 2,
+    );
+    this.setSize(this.background.width, this.background.height);
+    this.height = this.title.y =
+      -this.message.height * 0.5 - this.title.height * 0.6;
+    this.okButton.y = this.message.height * 0.5 + this.title.height * 0.8;
     super.prepareToShow(x, y);
   }
 
   protected createComponents(): void {
     this.createColoredBlocker(0.5);
-    this.createBgImage(
+    const frame: Phaser.Textures.Frame = this.scene.textures.getFrame(
       Atlases.Popups.Atlas.Name,
       Atlases.Popups.Atlas.Frames.BackgroundRed,
+    );
+    this.background = this.createBg(
+      Atlases.Popups.Atlas.Name,
+      Atlases.Popups.Atlas.Frames.BackgroundRed,
+      frame.width,
+      frame.height,
     );
     this.createTitle();
     this.createText();
