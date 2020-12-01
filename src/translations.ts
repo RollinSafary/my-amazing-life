@@ -10,6 +10,7 @@ export enum Translation {
   REGISTRATION_BUTTON_SIGN_IN = 'registration-button-sign-in',
   REGISTRATION_BUTTON_SIGN_UP = 'registration-button-sign-up',
   REGISTRATION_BUTTON_NEXT = 'registration-button-next',
+  REGISTRATION_BUTTON_GUEST = 'registration-button-guest',
   ERROR_0 = 'error-0',
   ERROR_1 = 'error-1',
   ERROR_2 = 'error-2',

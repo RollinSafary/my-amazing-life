@@ -49,6 +49,11 @@ export default class RegistrationViewMediator extends BaseLoginViewMediator<
     this.viewComponent.on(RegistrationView.ERROR_EVENT, this.onError, this);
     this.viewComponent.on(RegistrationView.BACK_EVENT, this.onBack, this);
     this.viewComponent.on(
+      RegistrationView.PLAY_AS_GUEST_EVENT,
+      this.onGuest,
+      this,
+    );
+    this.viewComponent.on(
       RegistrationView.FORM_COMPLETE_EVENT,
       this.onFormComplete,
       this,
@@ -58,6 +63,11 @@ export default class RegistrationViewMediator extends BaseLoginViewMediator<
   protected onBack(): void {
     this.removeView();
     this.sendNotification(RegistrationView.BACK_NOTIFICATION);
+  }
+
+  protected onGuest(): void {
+    this.removeView();
+    this.sendNotification(RegistrationView.PLAY_AS_GUEST_NOTIFICATION);
   }
 
   protected onError(errorCode: ERROR_CODE): void {

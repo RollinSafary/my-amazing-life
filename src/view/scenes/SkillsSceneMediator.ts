@@ -117,6 +117,7 @@ export default class SkillsSceneMediator extends BaseSceneMediator<
   }
 
   protected onResults(): void {
+    this.stopScene();
     this.sendNotification(SkillsScene.RESULTS_CLICKED_NOTIFICATION);
   }
 

@@ -23,10 +23,7 @@ export default class ResultsSceneMediator extends BaseSceneMediator<
   public handleNotification(notificationName: string): void {
     switch (notificationName) {
       case SkillsScene.RESULTS_CLICKED_NOTIFICATION:
-        this.startScene(ResultsScene.NAME, [
-          this.uiVOProxy.vo,
-          !!this.playerVOProxy.vo.backup,
-        ]);
+        this.startScene([this.uiVOProxy.vo, !!this.playerVOProxy.vo.backup]);
         break;
       case PlayerVOProxy.BACKUP_COMPLETE_NOTIFICATION:
         this.viewComponent.showJobButton();
@@ -53,7 +50,6 @@ export default class ResultsSceneMediator extends BaseSceneMediator<
   }
 
   protected onAction(action: ResultSceneAction): void {
-    this.stopScene();
     switch (action) {
       case ResultSceneAction.JOB:
         this.sendNotification(ResultsScene.JOB_CLICKED_NOTIFICATION);

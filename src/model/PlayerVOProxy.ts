@@ -85,6 +85,9 @@ export default class PlayerVOProxy extends Proxy<PlayerVO> {
   }
 
   private async save(): Promise<void> {
+    if (!this.vo.user) {
+      return;
+    }
     await setUserDataAsync(this.vo);
     this.sendNotification(PlayerVOProxy.SAVE_COMPLETE_NOTIFICATION);
   }

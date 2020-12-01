@@ -47,10 +47,11 @@ export class ResultsScene extends BaseScene {
     super(ResultsScene.NAME);
   }
 
-  public init(...initData: any[]): void {
+  public init(args: any[]): void {
     super.init();
-    this.gameResults = initData[0];
-    this.backupAvailable = initData[1];
+    const data: any[] = args[0];
+    this.gameResults = data[0];
+    this.backupAvailable = data[1];
   }
 
   public showJobButton(): void {
@@ -112,6 +113,8 @@ export class ResultsScene extends BaseScene {
   }
 
   protected createPersonalityResult(): void {
+    console.warn(this.gameResults);
+
     const config: IResultContainerConfig = {
       position: {
         x: this.background.x - this.background.width * 0.2425,
@@ -240,11 +243,11 @@ export class ResultsScene extends BaseScene {
     );
     this.saveButton.on(
       SpriteButton.CLICK_EVENT,
-      this.onAction.bind(this, ResultSceneAction.JOB),
+      this.onAction.bind(this, ResultSceneAction.SAVE),
     );
     this.menuButton.on(
       SpriteButton.CLICK_EVENT,
-      this.onAction.bind(this, ResultSceneAction.JOB),
+      this.onAction.bind(this, ResultSceneAction.MENU),
     );
   }
 

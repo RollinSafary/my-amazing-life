@@ -47,24 +47,4 @@ export default class ServiceSceneMediator extends BaseSceneMediator<
     super.setView();
     this.sceneManager.start(ServiceScene.NAME);
   }
-
-  protected setViewComponentListeners(): void {
-    this.viewComponent.game.events.on(
-      Phaser.Core.Events.PAUSE,
-      this.onPause,
-      this,
-    );
-    this.viewComponent.game.events.on(
-      Phaser.Core.Events.RESUME,
-      this.onResume,
-      this,
-    );
-  }
-
-  private onPause(): void {
-    this.sendNotification(ServiceScene.GAME_PAUSED_NOTIFICATION);
-  }
-  private onResume(): void {
-    this.sendNotification(ServiceScene.GAME_RESUMED_NOTIFICATION);
-  }
 }

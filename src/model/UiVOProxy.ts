@@ -6,6 +6,7 @@ import {
   getLifeStylePanelItemAddonState,
   getLifeStylePanelItemPriceKey,
   IHobbiesFrameData,
+  StringIndexedObject,
   sumArrayValues,
 } from '../utils/Utils';
 import { setDataToStorage, StorageKey } from '../utils/wrappers/StorageWrapper';
@@ -93,6 +94,20 @@ export default class UiVOProxy extends Proxy<UiVO> {
   public saveAvatarConfiguration(email: string): void {
     setDataToStorage(StorageKey.AVATAR, email, this.vo.avatar);
     this.sendNotification(UiVOProxy.AVATAR_CONFIGURATION_SAVED_NOTIFICATION);
+  }
+
+  public checkAvatarConfiguration(): boolean {
+    const keys: string[] = Object.keys(this.vo.avatar);
+    keys.remove('gender');
+    const values: number[] = keys.map(
+      (key: string) => (this.vo.avatar as StringIndexedObject<number>)[key],
+    );
+    for (const value of values) {
+      if (value < 0) {
+        return false;
+      }
+    }
+    return true;
   }
 
   // LIFESTYLE
@@ -401,6 +416,8 @@ export default class UiVOProxy extends Proxy<UiVO> {
     );
     const index: number = values.indexOf(9);
     this.vo.skillsBestOption = keys[index];
+    console.warn(this.vo.skillsBestOption);
+
     return this.vo.skillsBestOption;
   }
   public resetSkills(): void {

@@ -1,3 +1,4 @@
+import { ERROR_CODE } from '../../constants/Constants';
 import UiVOProxy from '../../model/UiVOProxy';
 import AvatarPreviewMediator from '../components/avatar/AvatarPreviewMediator';
 import AvatarSkinsMediator from '../components/avatar/AvatarSkinsMediator';
@@ -28,7 +29,6 @@ export default class AvatarSceneMediator extends BaseSceneMediator<
       case LobbyScene.BACK_NOTIFICATION:
       case LoginScene.LOGIN_COMPLETE_NOTIFICATION:
         this.startScene();
-
         break;
       case UiVOProxy.AVATAR_CONFIGURATION_SAVED_NOTIFICATION:
         this.stopScene();
@@ -75,8 +75,24 @@ export default class AvatarSceneMediator extends BaseSceneMediator<
   }
 
   protected onAction(action: AvatarAction): void {
-    action == AvatarAction.CLEAR
-      ? this.sendNotification(AvatarScene.CLEAR_NOTIFICATION)
-      : this.sendNotification(AvatarScene.SUBMIT_NOTIFICATION);
+    switch (action) {
+      case AvatarAction.CLEAR:
+        this.sendNotification(AvatarScene.CLEAR_NOTIFICATION);
+        break;
+      case AvatarAction.SUBMIT:
+        this.proxy.checkAvatarConfiguration()
+          ? this.sendNotification(AvatarScene.SUBMIT_NOTIFICATION)
+          : this.sendNotification(
+              AvatarScene.ERROR_NOTIFICATION,
+              ERROR_CODE.AVATAR_NOT_COMPLETE,
+            );
+        break;
+      default:
+        break;
+    }
+  }
+
+  get proxy(): UiVOProxy {
+    return this.facade.retrieveProxy(UiVOProxy.NAME);
   }
 }

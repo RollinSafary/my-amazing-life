@@ -1,3 +1,4 @@
+import { ExtendedText } from '@candywings/phaser3-i18n-plugin';
 import { Atlases, Fonts } from '../../../../assets';
 import { ERROR_CODE } from '../../../../constants/Constants';
 import { IPlayerRegistrationData } from '../../../../model/vo/PlayerVO';
@@ -39,6 +40,7 @@ export default class RegistrationView extends BaseLoginView {
   protected confirmPasswordField: PasswordTextField;
   protected nextButton: SimpleButton;
   protected backButton: SpriteButton;
+  protected guestText: ExtendedText;
 
   protected fields: BaseTextField[];
 
@@ -76,6 +78,7 @@ export default class RegistrationView extends BaseLoginView {
     this.createNextButton();
     this.createBackButton();
     this.setFieldsPositions();
+    this.createGuestText();
   }
 
   protected createTitle(): void {
@@ -186,9 +189,29 @@ export default class RegistrationView extends BaseLoginView {
     }
   }
 
+  protected createGuestText(): void {
+    const style: ITextStyle = {
+      fontFamily: 'Arial',
+      fontSize: 28,
+      fill: '#ffffff',
+    };
+    this.guestText = this.scene.make.extText({
+      x: 0,
+      y: this.backButton.y,
+      text: Translation.REGISTRATION_BUTTON_GUEST,
+      style,
+    });
+    this.guestText.setOrigin(0.5);
+    this.guestText.x = this.width / 2 - this.guestText.width * 0.6;
+    this.add(this.guestText);
+  }
+
   protected setListeners(): void {
     this.nextButton.on(SpriteButton.CLICK_EVENT, this.onNextButtonClick, this);
     this.backButton.on(SpriteButton.CLICK_EVENT, this.onBackButtonClick, this);
+    this.guestText.setSize(this.guestText.width, this.guestText.height);
+    this.guestText.setInteractive();
+    this.guestText.on(Phaser.Input.Events.POINTER_UP, this.onGuestClick, this);
     for (const field of this.fields) {
       field.on(BaseTextField.INPUT_DONE_EVENT, this.onInputDone, this);
       field.on(BaseTextField.FOCUS_EVENT, this.onFieldFocus, this);
@@ -231,6 +254,10 @@ export default class RegistrationView extends BaseLoginView {
 
   protected onBackButtonClick(): void {
     this.emit(RegistrationView.BACK_EVENT);
+  }
+
+  protected onGuestClick(): void {
+    this.emit(RegistrationView.PLAY_AS_GUEST_EVENT);
   }
 
   protected checkFieldConditions(field: BaseTextField): boolean {
